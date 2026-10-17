@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="ro">
+<head>
+<meta charset="utf-8">
+<title>Jobzee · Lucrare pe oră</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<style>
+body{margin:0}
+a{color:#B35600}a:hover{color:#8F4500}
+@keyframes up{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.35}}
+@keyframes tick{0%{transform:scale(1)}40%{transform:scale(1.08)}100%{transform:scale(1)}}
+.u{animation:up .5s cubic-bezier(.2,.8,.2,1) both}.d1{animation-delay:.08s}.d2{animation-delay:.16s}.d3{animation-delay:.24s}
+.blink{animation:blink 1.4s ease-in-out infinite}
+.pr{transition:transform .2s cubic-bezier(.3,.7,.4,1.4)}.pr:active{transform:scale(.96)}
+@media (prefers-reduced-motion: reduce){*{animation:none!important;transition:none!important}}
+</style>
+</helmet>
+<div style="width: 390px; height: 844px; box-sizing: border-box; background: #F2F2F7; font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Helvetica Neue', system-ui, sans-serif; color: #1C1C1E; display: flex; flex-direction: column; padding: 52px 16px 30px; gap: 12px">
+  <div style="display: flex; justify-content: space-between; align-items: center">
+    <a href="Activitate.dc.html" aria-label="Înapoi la Activitate" class="pr" style="align-self: flex-start; width: 40px; height: 40px; border-radius: 20px; background: #FFFFFF; color: #1C1C1E; display: flex; align-items: center; justify-content: center; flex-shrink: 0; box-shadow: 0 4px 14px rgba(0,0,0,0.08); text-decoration: none"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 5l-7 7 7 7"></path></svg></a>
+    <span style="height: 32px; padding: 0 12px; border-radius: 16px; background: #FFF4E5; color: #B35600; display: flex; align-items: center; gap: 6px; font-size: 13px; font-weight: 500"><span class="blink" style="width: 7px; height: 7px; border-radius: 4px; background: #FF9F0A"></span>Elena lucrează</span>
+  </div>
+
+  <div class="u" style="background: #1C1C1E; color: #FFFFFF; border-radius: 28px; padding: 18px; display: flex; flex-direction: column; gap: 14px">
+    <span style="font-size: 13px; color: #AEAEB2; font-weight: 500">CURĂȚENIE · PE ORĂ · 60 LEI/H</span>
+    <div style="display: flex; justify-content: space-between; align-items: flex-end">
+      <span style="display: flex; flex-direction: column"><span style="font-size: 12px; color: #AEAEB2">Timp lucrat</span><span style="font-size: 44px; font-weight: 600; letter-spacing: -1.5px; font-variant-numeric: tabular-nums">{{clock}}</span></span>
+      <span style="display: flex; flex-direction: column; align-items: flex-end"><span style="font-size: 12px; color: #AEAEB2">Până acum</span><span style="font-size: 30px; font-weight: 600; color: #FFB340; font-variant-numeric: tabular-nums">{{cost}} lei</span></span>
+    </div>
+    <div style="display: flex; flex-direction: column; gap: 6px">
+      <div style="height: 10px; border-radius: 5px; background: #3A3A3C; overflow: hidden"><div style="{{barStyle}}"></div></div>
+      <span style="display: flex; justify-content: space-between; font-size: 12px; color: #AEAEB2"><span>0</span><span>Plafon: 3 h · 180 lei</span></span>
+    </div>
+  </div>
+
+  <div class="u d1" style="background: #FFFFFF; border-radius: 22px; overflow: hidden">
+    <div style="display: flex; justify-content: space-between; padding: 12px 16px; font-size: 15px"><span style="color: #6E6E73">Se taxează</span><span>la fiecare 15 min</span></div>
+    <div style="display: flex; justify-content: space-between; padding: 12px 16px 12px 0; margin-left: 16px; border-top: 0.5px solid #D1D1D6; font-size: 15px"><span style="color: #6E6E73">Blocat pe card (maxim)</span><span>207,00 lei</span></div>
+    <div style="display: flex; justify-content: space-between; padding: 12px 16px 12px 0; margin-left: 16px; border-top: 0.5px solid #D1D1D6; font-size: 15px"><span style="color: #6E6E73">Estimat acum, cu taxa 15%</span><span style="font-weight: 500">{{estTotal}} lei</span></div>
+  </div>
+
+  <div class="u d2" style="display: flex; gap: 10px; align-items: flex-start; padding: 0 8px; font-size: 13px; line-height: 1.45; color: #6E6E73">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="#1F7A35" aria-hidden="true" style="flex-shrink: 0; margin-top: 1px"><path d="M12 2l8 3v7c0 5-4 8.5-8 10-4-1.5-8-5-8-10V5z"></path></svg>
+    Plătești doar timpul lucrat. Nu poți plăti mai mult decât plafonul fără acordul tău.
+  </div>
+
+  <div style="flex-grow: 1"></div>
+  <a href="Extra.dc.html" class="u d3 pr" style="display: flex; align-items: center; justify-content: center; height: 52px; border-radius: 26px; background: #FFFFFF; color: #1C1C1E; font-size: 16px; font-weight: 500; text-decoration: none">Mai e nevoie de timp? Mărește plafonul</a>
+  <a href="Confirma.dc.html" class="u d3 pr" style="display: flex; align-items: center; justify-content: center; height: 56px; border-radius: 28px; background: #FF9F0A; color: #1C1C1E; font-size: 17px; font-weight: 500; text-decoration: none; box-shadow: 0 10px 24px rgba(255,159,10,0.35)">Elena a terminat · vezi totalul</a>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+  constructor(props) { super(props); this.state = { min: 67 }; }
+  componentDidMount() { this.i = setInterval(() => this.setState({ min: this.state.min >= 180 ? 67 : this.state.min + 1 }), 1000); }
+  componentWillUnmount() { clearInterval(this.i); }
+  fmt(bani) { const l = Math.floor(bani / 100), b = bani % 100; return l + ',' + (b < 10 ? '0' + b : b); }
+  renderVals() {
+    const m = this.state.min;
+    const quarters = Math.ceil(m / 15);
+    const work = Math.min(quarters * 1500, 18000);
+    const pct = Math.min(100, (m / 180) * 100);
+    return {
+      clock: Math.floor(m / 60) + ' h ' + (m % 60 < 10 ? '0' : '') + (m % 60) + ' min',
+      cost: this.fmt(work).replace(',00', ''),
+      estTotal: this.fmt(Math.round(work * 1.15)),
+      barStyle: 'height: 100%; border-radius: 5px; background: #FF9F0A; transition: width .8s cubic-bezier(.2,.8,.2,1); width: ' + pct.toFixed(1) + '%'
+    };
+  }
+}
+</script>
+</body>
+</html>

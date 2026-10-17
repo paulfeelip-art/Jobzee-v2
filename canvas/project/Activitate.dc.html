@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="ro">
+<head>
+<meta charset="utf-8">
+<title>Jobzee · Activitate</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<style>
+body{margin:0}
+a{color:#B35600}a:hover{color:#8F4500}
+@keyframes up{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+@keyframes bar{0%{width:30%}100%{width:62%}}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.35}}
+.u{animation:up .5s cubic-bezier(.2,.8,.2,1) both}.d1{animation-delay:.08s}.d2{animation-delay:.16s}.d3{animation-delay:.24s}
+.bar{animation:bar 6s ease-in-out infinite alternate}
+.blink{animation:blink 1.4s ease-in-out infinite}
+.pr{transition:transform .2s cubic-bezier(.3,.7,.4,1.4)}.pr:active{transform:scale(.97)}
+@media (prefers-reduced-motion: reduce){*{animation:none!important;transition:none!important}}
+</style>
+</helmet>
+<div style="width: 390px; height: 844px; box-sizing: border-box; background: #F2F2F7; font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Helvetica Neue', system-ui, sans-serif; color: #1C1C1E; position: relative; overflow: hidden">
+  <div style="padding: 60px 16px 0; display: flex; flex-direction: column; gap: 14px">
+    <h1 class="u" style="margin: 0 4px; font-size: 34px; font-weight: 600; letter-spacing: -0.9px">Activitate</h1>
+    <div class="u d1" style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); padding: 2px; border-radius: 10px; background: #E3E3E8">
+      <button type="button" onClick="{{showNow}}" aria-pressed="{{nowAttr}}" style="{{nowStyle}}">În curs</button>
+      <button type="button" onClick="{{showPast}}" aria-pressed="{{pastAttr}}" style="{{pastStyle}}">Anterioare</button>
+    </div>
+
+    <sc-if value="{{isNow}}" hint-placeholder-val="{{ true }}">
+      <div style="display: flex; flex-direction: column; gap: 10px">
+        <a href="PeDrum.dc.html" class="u d2 pr" style="display: flex; flex-direction: column; gap: 12px; padding: 16px; border-radius: 24px; background: #FFFFFF; color: #1C1C1E; text-decoration: none; box-shadow: 0 6px 20px rgba(0,0,0,0.05)">
+          <span style="display: flex; align-items: center; gap: 12px">
+            <img src="assets/people/person-jobzer-3.webp" alt="" style="width: 46px; height: 46px; border-radius: 50%; object-fit: cover; display: block; flex-shrink: 0">
+            <span style="flex-grow: 1; display: flex; flex-direction: column"><span style="font-size: 17px; font-weight: 500">Montaj birou + dulap</span><span style="font-size: 13px; color: #6E6E73">Mihai I. · 172,50 lei blocați</span></span>
+            <span style="display: flex; align-items: center; gap: 6px; height: 28px; padding: 0 10px; border-radius: 14px; background: #FFF4E5; color: #B35600; font-size: 12px; font-weight: 600"><span class="blink" style="width: 6px; height: 6px; border-radius: 3px; background: #FF9F0A"></span>6 min</span>
+          </span>
+          <span style="height: 6px; border-radius: 3px; background: #F2F2F7; overflow: hidden"><span class="bar" style="display: block; height: 100%; border-radius: 3px; background: #FF9F0A"></span></span>
+        </a>
+        <a href="Oferte.dc.html" class="u d3 pr" style="display: flex; align-items: center; gap: 12px; padding: 16px; border-radius: 24px; background: #FFFFFF; color: #1C1C1E; text-decoration: none">
+          <span style="width: 46px; height: 46px; border-radius: 14px; background: #F2F2F7; display: flex; align-items: center; justify-content: center"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="5" width="16" height="15" rx="4"></rect><path d="M4 10h16M9 3v4M15 3v4"></path></svg></span>
+          <span style="flex-grow: 1; display: flex; flex-direction: column"><span style="font-size: 17px; font-weight: 500">Configurare imprimantă</span><span style="font-size: 13px; color: #6E6E73">Sâmbătă, 10:00 · alege până vineri</span></span>
+          <span style="height: 28px; padding: 0 10px; border-radius: 14px; background: #FF9F0A; color: #1C1C1E; font-size: 12px; font-weight: 600; display: flex; align-items: center">2 oferte</span>
+        </a>
+      </div>
+    </sc-if>
+
+    <sc-if value="{{isPast}}" hint-placeholder-val="{{ false }}">
+      <div class="u" style="background: #FFFFFF; border-radius: 22px; overflow: hidden">
+        <div style="display: flex; align-items: center; gap: 12px; padding: 12px 16px">
+          <img src="assets/people/person-client-1.webp" alt="" style="width: 44px; height: 44px; border-radius: 50%; object-fit: cover; display: block; flex-shrink: 0">
+          <span style="flex-grow: 1; display: flex; flex-direction: column"><span style="font-size: 16px; font-weight: 500">Curățenie 2 h</span><span style="font-size: 13px; color: #6E6E73">9 oct. · Elena P. · ★ 5</span></span>
+          <span style="display: flex; flex-direction: column; align-items: flex-end"><span style="font-size: 15px; font-weight: 500">138,00 lei</span><a href="Recurente.dc.html" style="font-size: 13px">Repetă</a></span>
+        </div>
+        <div style="display: flex; align-items: center; gap: 12px; padding: 12px 16px 12px 0; margin-left: 16px; border-top: 0.5px solid #D1D1D6">
+          <img src="assets/people/person-jobzer-1.webp" alt="" style="width: 44px; height: 44px; border-radius: 50%; object-fit: cover; display: block; flex-shrink: 0">
+          <span style="flex-grow: 1; display: flex; flex-direction: column"><span style="font-size: 16px; font-weight: 500">Cărat și mutat</span><span style="font-size: 13px; color: #6E6E73">2 oct. · Radu C. · ★ 5</span></span>
+          <span style="display: flex; flex-direction: column; align-items: flex-end"><span style="font-size: 15px; font-weight: 500">92,00 lei</span><a href="Dialog.dc.html" style="font-size: 13px">Din nou</a></span>
+        </div>
+        <a href="Chitante.dc.html" style="display: flex; align-items: center; padding: 14px 16px 14px 0; margin-left: 16px; border-top: 0.5px solid #D1D1D6; color: #B35600; font-size: 16px; text-decoration: none">Toate chitanțele și facturile</a>
+      </div>
+    </sc-if>
+  </div>
+
+  <nav aria-label="Meniu" style="position: absolute; left: 16px; right: 16px; bottom: 24px; height: 64px; border-radius: 32px; background: rgba(255,255,255,0.9); backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px); box-shadow: 0 10px 30px rgba(0,0,0,0.12); display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); padding: 6px; box-sizing: border-box">
+    <a href="Acasa.dc.html" class="pr" style="display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px; font-size: 11px; font-weight: 500; color: #6E6E73; text-decoration: none"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 11l8-7 8 7v9h-5v-6H9v6H4z"></path></svg>Acasă</a>
+    <a href="Activitate.dc.html" style="border-radius: 26px; background: #FFF4E5; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px; font-size: 11px; font-weight: 500; color: #B35600; text-decoration: none"><svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="5"></rect></svg>Activitate</a>
+    <a href="Mesaje.dc.html" class="pr" style="display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px; font-size: 11px; font-weight: 500; color: #6E6E73; text-decoration: none"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 5h14a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H10l-5 4V7a2 2 0 0 1 2-2z"></path></svg>Mesaje</a>
+    <a href="Cont.dc.html" class="pr" style="display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px; font-size: 11px; font-weight: 500; color: #6E6E73; text-decoration: none"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"></circle><path d="M4 21c1-4 4-6 8-6s7 2 8 6"></path></svg>Cont</a>
+  </nav>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+  constructor(props) { super(props); this.state = { tab: 'now' }; }
+  seg(on) {
+    return 'height: 34px; border-radius: 8px; border: 0; font-family: inherit; font-size: 14px; font-weight: 500; cursor: pointer; color: #1C1C1E; transition: background .2s, box-shadow .2s; ' +
+      (on ? 'background: #FFFFFF; box-shadow: 0 2px 6px rgba(0,0,0,0.12);' : 'background: transparent;');
+  }
+  renderVals() {
+    const now = this.state.tab === 'now';
+    return {
+      isNow: now, isPast: !now,
+      nowAttr: now ? 'true' : 'false', pastAttr: now ? 'false' : 'true',
+      nowStyle: this.seg(now), pastStyle: this.seg(!now),
+      showNow: () => this.setState({ tab: 'now' }),
+      showPast: () => this.setState({ tab: 'past' })
+    };
+  }
+}
+</script>
+</body>
+</html>

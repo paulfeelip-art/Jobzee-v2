@@ -1,0 +1,253 @@
+<!doctype html>
+<html lang="ro">
+<head>
+<meta charset="utf-8">
+<title>Jobzee · Profilul meu (Jobzer)</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<style>
+.th{--bg:#F2F2F7;--surf:#FFFFFF;--surf2:#F2F2F7;--surf3:#E5E5EA;--ink:#1C1C1E;--ink2:#6E6E73;--ink3:#C7C7CC;--sep:#D1D1D6;--brand:#FF9F0A;--onbrand:#1C1C1E;--btext:#B35600;--bsoft:#FFF4E5;--bsoft2:#FFE7C2;--ok:#34C759;--oktext:#1F7A35;--oksoft:#E8F7EC;--glass:rgba(255,255,255,0.82);--glass2:rgba(255,255,255,0.94);--scrim:rgba(0,0,0,0.38);--shadow:rgba(0,0,0,0.10);--invbg:#1C1C1E;--invink:#FFFFFF;--land:#F5F1E8;--road:#FFFFFF;--park:#D3EAC7;--water:#BCDDF7;--aur1:#FFB347;--aur2:#FFD8A8;--aur3:#FFC2D1}
+body{margin:0}
+a{color:var(--btext)}
+@keyframes up{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+@keyframes pop{0%{opacity:0;transform:scale(.5)}65%{opacity:1;transform:scale(1.08)}100%{opacity:1;transform:none}}
+@keyframes sheet{from{opacity:0;transform:translateY(70%)}to{opacity:1;transform:none}}
+@keyframes ring{0%{transform:scale(.6);opacity:.55}100%{transform:scale(2.6);opacity:0}}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-7px)}}
+@keyframes drift{0%,100%{transform:translate(0,0) scale(1)}33%{transform:translate(30px,-24px) scale(1.12)}66%{transform:translate(-26px,18px) scale(.94)}}
+@keyframes glow{0%,100%{opacity:.45}50%{opacity:1}}
+@keyframes shimmer{0%{background-position:-200% 0}100%{background-position:200% 0}}
+@keyframes drop{0%{opacity:0;transform:translateY(-24px) scale(.7)}60%{opacity:1;transform:translateY(3px) scale(1.06)}100%{opacity:1;transform:none}}
+@keyframes tick{0%,42%{transform:none}50%,92%{transform:translateY(-40px)}100%{transform:none}}
+@keyframes fadeSlide{0%,42%{opacity:1;transform:none}50%,92%{opacity:0;transform:translateY(-8px)}100%{opacity:1;transform:none}}
+@keyframes fadeSlide2{0%,42%{opacity:0;transform:translateY(8px)}50%,92%{opacity:1;transform:none}100%{opacity:0;transform:translateY(8px)}}
+@keyframes dotA{0%,45%{width:16px;opacity:1}50%,95%{width:6px;opacity:.35}100%{width:16px;opacity:1}}
+@keyframes dotB{0%,45%{width:6px;opacity:.35}50%,95%{width:16px;opacity:1}100%{width:6px;opacity:.35}}
+@keyframes halo{0%{box-shadow:0 0 0 0 rgba(255,159,10,.55)}100%{box-shadow:0 0 0 18px rgba(255,159,10,0)}}
+@keyframes heat{0%,100%{transform:scale(1);opacity:.8}50%{transform:scale(1.15);opacity:1}}
+.u{animation:up .55s cubic-bezier(.2,.8,.2,1) both}
+.d1{animation-delay:.08s}.d2{animation-delay:.16s}.d3{animation-delay:.24s}.d4{animation-delay:.32s}.d5{animation-delay:.4s}.d6{animation-delay:.48s}
+.pop{animation:pop .6s cubic-bezier(.2,.9,.3,1.3) both}
+.sheet{animation:sheet .7s cubic-bezier(.2,.9,.25,1) both}
+.float{animation:float 4.5s ease-in-out infinite}
+.glow{animation:glow 1.8s ease-in-out infinite}
+.drop{animation:drop .8s cubic-bezier(.2,.8,.2,1) both}
+.pr{transition:transform .22s cubic-bezier(.3,.7,.4,1.4), opacity .2s}.pr:active{transform:scale(.95)}
+.ic{display:inline-block;background:currentColor;-webkit-mask-position:center;mask-position:center;-webkit-mask-size:contain;mask-size:contain;-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;flex-shrink:0}
+.glass{background:var(--glass);backdrop-filter:blur(24px) saturate(1.6);-webkit-backdrop-filter:blur(24px) saturate(1.6)}
+@media (prefers-reduced-motion: reduce){*{animation:none!important;transition:none!important}}
+
+.sg{display:grid;padding:2px;border-radius:10px;background:var(--surf3)}
+.sg button{border:0;height:32px;border-radius:8px;background:transparent;font-family:inherit;font-size:13px;font-weight:500;color:var(--ink);cursor:pointer;transition:all .25s}
+.sg button[aria-pressed="true"]{background:var(--surf);box-shadow:0 2px 6px var(--shadow)}
+.jsw{width:51px;height:31px;border-radius:16px;border:0;padding:2px;cursor:pointer;flex-shrink:0;position:relative;transition:background .25s}
+.jsw::after{content:"";position:absolute;top:2px;left:2px;width:27px;height:27px;border-radius:14px;background:#fff;box-shadow:0 2px 4px rgba(0,0,0,.2);transition:transform .3s cubic-bezier(.3,1.3,.4,1)}
+.jsw[aria-pressed="true"]{background:var(--ok)}.jsw[aria-pressed="true"]::after{transform:translateX(20px)}.jsw[aria-pressed="false"]{background:var(--surf3)}
+.lbl{font-size:13px;font-weight:500;color:var(--ink2);padding:0 12px;text-transform:uppercase;letter-spacing:.3px}
+.grp{background:var(--surf);border-radius:24px;overflow:hidden}
+.rw{display:flex;align-items:center;gap:12px;padding:11px 16px 11px 0;margin-left:16px;color:var(--ink);text-decoration:none}
+.rw+.rw{border-top:0.5px solid var(--sep)}
+.dchip{border:0;width:40px;height:40px;border-radius:20px;font-family:inherit;font-size:14px;font-weight:500;cursor:pointer;transition:all .25s}
+.dchip[aria-pressed="true"]{background:var(--brand);color:var(--onbrand)}.dchip[aria-pressed="false"]{background:var(--surf);color:var(--ink)}
+
+.colfix>*{flex-shrink:0}
+.scroll{scrollbar-width:none}.scroll::-webkit-scrollbar{display:none}
+@keyframes inUp{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+.in{animation:inUp .35s cubic-bezier(.2,.8,.2,1) both}
+.cat{border:0;background:transparent;padding:0;font-family:inherit;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:5px;color:var(--ink);font-size:11px;font-weight:500;line-height:1.2;text-align:center}
+.cat img{width:100%;aspect-ratio:1;border-radius:30%;display:block;box-shadow:0 4px 12px var(--shadow);transition:transform .25s cubic-bezier(.3,1.4,.4,1),box-shadow .25s}
+.cat[aria-pressed="true"] img{box-shadow:0 0 0 3px var(--bg),0 0 0 5.5px var(--brand);transform:scale(.94)}
+.chip{border:0;height:32px;padding:0 12px;border-radius:16px;font-family:inherit;font-size:13px;font-weight:500;cursor:pointer;transition:all .25s;white-space:nowrap}
+.chip[aria-pressed="true"]{background:var(--brand);color:var(--onbrand)}.chip[aria-pressed="false"]{background:var(--surf2);color:var(--ink)}
+.stp{display:flex;align-items:center;height:36px;border-radius:18px;background:var(--surf2)}
+.stp button{width:36px;height:36px;border:0;background:transparent;font-size:18px;color:var(--ink);cursor:pointer;font-family:inherit}
+.tag{display:inline-flex;align-items:center;gap:4px;height:22px;padding:0 8px;border-radius:11px;font-size:11px;font-weight:500;white-space:nowrap}
+.t-ok{background:var(--oksoft);color:var(--oktext)}.t-wait{background:var(--bsoft);color:var(--btext)}.t-no{background:var(--surf2);color:var(--ink2)}
+.fld2{width:100%;box-sizing:border-box;border:0;outline:0;background:var(--surf2);border-radius:14px;padding:10px 12px;font-family:inherit;font-size:15px;color:var(--ink)}
+
+</style>
+</helmet>
+<div class="th" style="width: 390px; height: 844px; box-sizing: border-box; background: var(--bg); font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Helvetica Neue', system-ui, sans-serif; color: var(--ink); position: relative; overflow: hidden">
+<div class="scroll colfix" style="height: 100%; overflow-y: auto; box-sizing: border-box; padding: 52px 16px 120px; display: flex; flex-direction: column; gap: 12px">
+  <div style="display: flex; align-items: center; justify-content: space-between"><a href="ContJobzer.dc.html" aria-label="Înapoi" class="pr" style="width: 40px; height: 40px; border-radius: 20px; background: var(--surf); color: var(--ink); display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 14px var(--shadow)"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 5l-7 7 7 7"></path></svg></a><a href="Profil.dc.html" class="pr" style="height: 36px; padding: 0 14px; border-radius: 18px; background: var(--surf); display: flex; align-items: center; font-size: 14px; font-weight: 500; text-decoration: none">Cum te văd clienții ›</a></div>
+  <div class="u"><h1 style="margin: 0 4px; font-size: 32px; line-height: 1.1; font-weight: 600; letter-spacing: -0.8px">Profilul meu</h1></div>
+  <div class="card u d1" style="background: var(--surf); border-radius: 24px; padding: 14px; display: flex; gap: 14px; align-items: center">
+    <span style="position: relative; width: 60px; height: 60px; flex-shrink: 0"><svg width="60" height="60" viewBox="0 0 52 52" aria-hidden="true"><circle cx="26" cy="26" r="22" fill="none" stroke="var(--surf3)" stroke-width="5"></circle><circle cx="26" cy="26" r="22" fill="none" stroke="var(--brand)" stroke-width="5" stroke-linecap="round" stroke-dasharray="138" style="{{ring}}" transform="rotate(-90 26 26)"></circle></svg><span style="position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 600">{{pct}}</span></span>
+    <span style="display: flex; flex-direction: column; gap: 5px; flex-grow: 1"><sc-for list="{{checks}}" as="c" hint-placeholder-count="5"><span style="display: flex; align-items: center; gap: 8px"><span style="{{c.st}}">✓</span><span style="{{c.tx}}">{{c.t}}</span></span></sc-for></span>
+  </div>
+  <span style="font-size: 13px; color: var(--ink2); padding: 0 6px; margin-top: -4px">{{nextTxt}}</span>
+
+  <div style="display: flex; align-items: baseline; justify-content: space-between; padding: 6px 6px 0"><span class="lbl" style="padding: 0">Competențe · {{nSk}}</span><span style="font-size: 12px; color: var(--ink2)">Atinge una ca s-o editezi</span></div>
+  <sc-if value="{{tSk}}" hint-placeholder-val="{{ false }}"><div class="in" style="padding: 11px 14px; border-radius: 16px; background: var(--invbg); color: var(--invink); font-size: 14px; line-height: 1.35">✓ {{toast}}</div></sc-if>
+  <sc-for list="{{skills}}" as="k" hint-placeholder-count="3">
+    <div class="in" style="background: var(--surf); border-radius: 24px; overflow: hidden; margin-bottom: 8px">
+      <button type="button" onClick="{{k.toggle}}" style="width: 100%; border: 0; background: transparent; padding: 12px 14px; display: flex; gap: 12px; align-items: center; font-family: inherit; color: var(--ink); text-align: left; cursor: pointer">
+        <img src="{{k.src}}" alt="" style="width: 50px; height: 50px; border-radius: 15px; flex-shrink: 0">
+        <span style="flex-grow: 1; min-width: 0; display: flex; flex-direction: column; gap: 4px"><span style="font-size: 16px; font-weight: 600">{{k.n}}</span><span style="font-size: 12px; color: var(--ink2)">{{k.sub}}</span>
+          <span style="display: flex; gap: 5px; flex-wrap: wrap"><sc-if value="{{k.hasJobs}}" hint-placeholder-val="{{ true }}"><span class="tag t-no">{{k.jobs}}</span></sc-if><span class="{{k.certTag}}">{{k.certTxt}}</span><span class="{{k.phTag}}">{{k.ph}}</span></span></span>
+        <sc-if value="{{k.closed}}" hint-placeholder-val="{{ true }}"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--ink3)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 5l7 7-7 7"></path></svg></sc-if>
+        <sc-if value="{{k.open}}" hint-placeholder-val="{{ false }}"><span style="transform: rotate(90deg); display: flex"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--ink3)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 5l7 7-7 7"></path></svg></span></sc-if>
+      </button>
+      <sc-if value="{{k.open}}" hint-placeholder-val="{{ false }}"><div class="in" style="padding: 2px 14px 14px; display: flex; flex-direction: column; gap: 12px; box-shadow: inset 0 0.5px 0 var(--sep)">
+        <span style="font-size: 13px; font-weight: 500; color: var(--ink2); padding-top: 10px">Nivel</span>
+        <div class="sg" style="grid-template-columns: repeat(3, minmax(0, 1fr)); margin-top: -6px"><sc-for list="{{k.lvls}}" as="l" hint-placeholder-count="3"><button type="button" onClick="{{l.pick}}" aria-pressed="{{l.attr}}">{{l.t}}</button></sc-for></div>
+        <span style="font-size: 12px; line-height: 1.35; color: var(--ink2); margin-top: -6px">{{k.lvlHint}}</span>
+        <div style="display: flex; align-items: center; justify-content: space-between"><span style="font-size: 15px">Experiență</span><span class="stp"><button type="button" onClick="{{k.yMinus}}" aria-label="Mai puțin experiență">−</button><span style="min-width: 70px; text-align: center; font-size: 15px; font-weight: 500; font-variant-numeric: tabular-nums">{{k.yrs}}</span><button type="button" onClick="{{k.yPlus}}" aria-label="Mai mult experiență">+</button></span></div>
+        <div style="display: flex; flex-direction: column; gap: 8px"><span style="display: flex; align-items: center; justify-content: space-between"><span style="font-size: 15px">Preț de pornire</span><span class="stp"><button type="button" onClick="{{k.pMinus}}" aria-label="Mai puțin preț">−</button><span style="min-width: 70px; text-align: center; font-size: 15px; font-weight: 500; font-variant-numeric: tabular-nums">{{k.price}}</span><button type="button" onClick="{{k.pPlus}}" aria-label="Mai mult preț">+</button></span></span>
+          <div class="sg" style="grid-template-columns: repeat(2, minmax(0, 1fr))"><button type="button" onClick="{{k.setL}}" aria-pressed="{{k.uL}}">Pe lucrare</button><button type="button" onClick="{{k.setH}}" aria-pressed="{{k.uH}}">Pe oră</button></div>
+          <span style="font-size: 12px; color: var(--ink2)">{{k.mkt}} Clientul vede „de la”, iar prețul final îl dai în ofertă.</span></div>
+        <sc-if value="{{k.hasSpecs}}" hint-placeholder-val="{{ true }}"><span style="font-size: 13px; font-weight: 500; color: var(--ink2)">Ce faci exact</span>
+        <div style="display: flex; gap: 6px; flex-wrap: wrap"><sc-for list="{{k.specs}}" as="x" hint-placeholder-count="4"><button type="button" class="chip" onClick="{{x.pick}}" aria-pressed="{{x.attr}}">{{x.t}}</button></sc-for></div></sc-if>
+        <div style="display: flex; align-items: center; gap: 10px; padding: 10px 12px; border-radius: 16px; background: var(--surf2)">
+          <img src="assets/ui/shield.png" alt="" style="width: 24px; height: 24px">
+          <span style="flex-grow: 1; display: flex; flex-direction: column; gap: 1px"><span style="font-size: 14px; font-weight: 500">Calificare sau certificat</span>
+            <sc-if value="{{k.certNo}}" hint-placeholder-val="{{ false }}"><span style="font-size: 12px; color: var(--ink2)">Opțional. Un act verificat primește insigna ✓ pe profil.</span></sc-if>
+            <sc-if value="{{k.certOk}}" hint-placeholder-val="{{ true }}"><span style="font-size: 12px; color: var(--oktext)">{{k.certName}}</span></sc-if>
+            <sc-if value="{{k.certWait}}" hint-placeholder-val="{{ false }}"><span style="font-size: 12px; color: var(--btext)">{{k.certName}}</span></sc-if></span>
+          <sc-if value="{{k.certNo}}" hint-placeholder-val="{{ false }}"><button type="button" onClick="{{k.upCert}}" class="pr" style="height: 32px; padding: 0 12px; border: 0; border-radius: 16px; background: var(--invbg); color: var(--invink); font-family: inherit; font-size: 13px; font-weight: 500; cursor: pointer">Încarcă</button></sc-if>
+        </div>
+        <div style="display: flex; gap: 8px"><button type="button" onClick="{{k.addPh}}" class="pr" style="flex: 1; height: 42px; border: 0; border-radius: 21px; background: var(--bsoft); color: var(--btext); font-family: inherit; font-size: 14px; font-weight: 500; cursor: pointer">+ Adaugă poze</button>
+          <button type="button" onClick="{{k.del}}" class="pr" style="height: 42px; padding: 0 14px; border: 0; border-radius: 21px; background: transparent; color: #D70015; font-family: inherit; font-size: 14px; font-weight: 500; cursor: pointer">Scoate</button></div>
+      </div></sc-if>
+    </div>
+  </sc-for>
+
+  <sc-if value="{{add0}}" hint-placeholder-val="{{ true }}"><button type="button" onClick="{{openAdd}}" class="pr" style="height: 52px; border: 0; border-radius: 26px; background: var(--surf); color: var(--btext); font-family: inherit; font-size: 16px; font-weight: 500; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px; box-shadow: inset 0 0 0 1.5px var(--bsoft2)"><span style="width: 24px; height: 24px; border-radius: 12px; background: var(--brand); color: var(--onbrand); display: flex; align-items: center; justify-content: center; font-size: 18px">+</span>Adaugă o competență</button></sc-if>
+  <sc-if value="{{add1}}" hint-placeholder-val="{{ false }}"><div class="in" style="background: var(--surf); border-radius: 24px; padding: 14px; display: flex; flex-direction: column; gap: 12px; box-shadow: inset 0 0 0 2px var(--brand)">
+    <div style="display: flex; align-items: center; justify-content: space-between"><span style="font-size: 16px; font-weight: 600">Ce competență adaugi?</span><button type="button" onClick="{{closeAdd}}" class="pr" style="height: 30px; padding: 0 10px; border: 0; border-radius: 15px; background: var(--surf2); color: var(--ink); font-family: inherit; font-size: 13px; cursor: pointer">Renunță</button></div>
+    <label><span style="position: absolute; left: -9999px">Caută categoria</span><input class="fld2" value="{{q}}" onChange="{{onQ}}" placeholder="Caută: gresie, fitness, meditații…"></label>
+    <div style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px 10px"><sc-for list="{{cats}}" as="c" hint-placeholder-count="8"><button type="button" class="cat pr" onClick="{{c.pick}}"><img src="{{c.src}}" alt="">{{c.n}}</button></sc-for></div>
+    <sc-if value="{{noCats}}" hint-placeholder-val="{{ false }}"><span style="font-size: 13px; color: var(--ink2); text-align: center">Nicio categorie nu se potrivește. Încearcă alt cuvânt.</span></sc-if>
+  </div></sc-if>
+  <sc-if value="{{add2}}" hint-placeholder-val="{{ false }}"><div class="in" style="background: var(--surf); border-radius: 24px; padding: 14px; display: flex; flex-direction: column; gap: 12px; box-shadow: inset 0 0 0 2px var(--brand)">
+    <div style="display: flex; align-items: center; gap: 12px"><img src="{{pcSrc}}" alt="" style="width: 50px; height: 50px; border-radius: 15px"><span style="flex-grow: 1; font-size: 17px; font-weight: 600">{{pcN}}</span><button type="button" onClick="{{backAdd}}" class="pr" style="height: 30px; padding: 0 10px; border: 0; border-radius: 15px; background: var(--surf2); color: var(--ink); font-family: inherit; font-size: 13px; cursor: pointer">Schimbă</button></div>
+    <span style="font-size: 13px; font-weight: 500; color: var(--ink2)">Cât de bine o faci?</span>
+    <div class="sg" style="grid-template-columns: repeat(3, minmax(0, 1fr)); margin-top: -6px"><sc-for list="{{nl}}" as="l" hint-placeholder-count="3"><button type="button" onClick="{{l.pick}}" aria-pressed="{{l.attr}}">{{l.t}}</button></sc-for></div>
+    <div class="sg" style="grid-template-columns: repeat(2, minmax(0, 1fr))"><button type="button" onClick="{{setNL}}" aria-pressed="{{nuL}}">Pe lucrare</button><button type="button" onClick="{{setNH}}" aria-pressed="{{nuH}}">Pe oră</button></div>
+    <div style="display: flex; align-items: center; justify-content: space-between"><span style="font-size: 15px">Preț de pornire</span><span class="stp"><button type="button" onClick="{{npM}}" aria-label="Mai puțin preț">−</button><span style="min-width: 70px; text-align: center; font-size: 15px; font-weight: 500; font-variant-numeric: tabular-nums">{{nprice}}</span><button type="button" onClick="{{npP}}" aria-label="Mai mult preț">+</button></span></div>
+    <button type="button" onClick="{{save}}" class="pr" style="height: 50px; border: 0; border-radius: 25px; background: var(--brand); color: var(--onbrand); font-family: inherit; font-size: 16px; font-weight: 500; cursor: pointer">Adaugă în profil</button>
+    <span style="font-size: 12px; color: var(--ink2); text-align: center">Experiența, actele și pozele le completezi imediat după.</span>
+  </div></sc-if>
+
+  <div style="display: flex; align-items: baseline; justify-content: space-between; padding: 10px 6px 0"><span class="lbl" style="padding: 0">Portofoliu · {{nPh}} poze</span><span style="font-size: 12px; color: var(--ink2)">Lucrări reale, făcute de tine</span></div>
+  <sc-if value="{{tPh}}" hint-placeholder-val="{{ false }}"><div class="in" style="padding: 11px 14px; border-radius: 16px; background: var(--invbg); color: var(--invink); font-size: 14px; line-height: 1.35">✓ {{toast}}</div></sc-if>
+  <div class="scroll" style="display: flex; gap: 6px; overflow-x: auto; margin: 0 -16px; padding: 0 16px; scrollbar-width: none"><sc-for list="{{pfs}}" as="f" hint-placeholder-count="4"><button type="button" class="chip" onClick="{{f.pick}}" aria-pressed="{{f.attr}}" style="flex-shrink: 0">{{f.t}}</button></sc-for></div>
+  <div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 6px">
+    <sc-if value="{{canAddPh}}" hint-placeholder-val="{{ true }}"><button type="button" onClick="{{addPhoto}}" class="pr" style="aspect-ratio: 1; border: 0; border-radius: 18px; background: var(--bsoft); color: var(--btext); font-family: inherit; font-size: 12px; font-weight: 500; cursor: pointer; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px"><img src="assets/ui/camera.png" alt="" style="width: 30px; height: 30px">Adaugă poze</button></sc-if>
+    <sc-for list="{{photos}}" as="p" hint-placeholder-count="5">
+      <div class="in" style="position: relative; aspect-ratio: 1; border-radius: 18px; overflow: hidden; {{p.st}}">
+        <span style="position: absolute; left: 0; right: 0; bottom: 0; padding: 18px 7px 6px; background: linear-gradient(transparent, rgba(0,0,0,.62)); color: #FFFFFF; font-size: 10px; line-height: 1.25; font-weight: 500">{{p.cap}}<br><span style="opacity: .75">{{p.sk}}</span></span>
+        <button type="button" onClick="{{p.rm}}" aria-label="Șterge poza" style="position: absolute; right: 5px; top: 5px; width: 24px; height: 24px; border: 0; border-radius: 12px; background: rgba(0,0,0,.45); color: #FFFFFF; font-size: 13px; cursor: pointer; display: flex; align-items: center; justify-content: center; padding: 0">✕</button>
+      </div>
+    </sc-for>
+  </div>
+  <span style="font-size: 12px; line-height: 1.4; color: var(--ink2); padding: 0 6px">Leagă fiecare poză de o competență: clienții care caută „montaj mobilier” văd întâi pozele de montaj. Fără fețe de clienți și fără adrese în poze.</span>
+
+  <div style="display: flex; align-items: baseline; justify-content: space-between; padding: 10px 6px 0"><span class="lbl" style="padding: 0">Despre tine</span><span style="font-size: 12px; color: var(--ink2)">{{bioN}}</span></div>
+  <div style="background: var(--surf); border-radius: 22px; padding: 12px 14px; display: flex; flex-direction: column; gap: 8px">
+    <sc-if value="{{bioView}}" hint-placeholder-val="{{ true }}"><span style="font-size: 15px; line-height: 1.45">{{bio}}</span><button type="button" onClick="{{editBio}}" style="align-self: flex-start; border: 0; background: transparent; padding: 0; color: var(--btext); font-family: inherit; font-size: 14px; font-weight: 500; cursor: pointer">Editează</button></sc-if>
+    <sc-if value="{{bioEdit}}" hint-placeholder-val="{{ false }}"><label><span style="position: absolute; left: -9999px">Despre tine</span><textarea class="fld2" value="{{bio}}" onChange="{{onBio}}" style="height: 96px; resize: none; line-height: 1.4"></textarea></label><button type="button" onClick="{{doneBio}}" style="align-self: flex-end; height: 34px; padding: 0 14px; border: 0; border-radius: 17px; background: var(--invbg); color: var(--invink); font-family: inherit; font-size: 14px; font-weight: 500; cursor: pointer">Gata</button></sc-if>
+  </div>
+
+  <sc-if value="{{tBio}}" hint-placeholder-val="{{ false }}"><div class="in" style="padding: 11px 14px; border-radius: 16px; background: var(--invbg); color: var(--invink); font-size: 14px; line-height: 1.35">✓ {{toast}}</div></sc-if>
+  <span class="lbl" style="padding: 10px 6px 0">Disponibilitate</span>
+  <div style="background: var(--surf); border-radius: 22px; padding: 12px 14px; display: flex; flex-direction: column; gap: 10px">
+    <div style="display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: 4px"><sc-for list="{{days}}" as="d" hint-placeholder-count="7"><button type="button" class="dchip" onClick="{{d.pick}}" aria-pressed="{{d.attr}}" style="width: 100%">{{d.t}}</button></sc-for></div>
+    <span style="font-size: 14px">Cât de departe mergi</span>
+    <div class="sg" style="grid-template-columns: repeat(4, minmax(0, 1fr))"><sc-for list="{{radii}}" as="r" hint-placeholder-count="4"><button type="button" onClick="{{r.pick}}" aria-pressed="{{r.attr}}">{{r.t}}</button></sc-for></div>
+    <a href="Disponibilitate.dc.html" style="font-size: 14px; font-weight: 500; color: var(--btext); text-decoration: none">Program detaliat pe ore ›</a>
+  </div>
+
+  <span class="lbl" style="padding: 10px 6px 0">Verificări și acte</span>
+  <div class="grp">
+    <div class="rw"><img src="assets/ui/profile.png" alt="" style="width: 24px; height: 24px"><span style="flex-grow: 1; font-size: 15px">Identitate</span><span class="tag t-ok">✓ Verificată</span></div>
+    <div class="rw"><img src="assets/ui/briefcase.png" alt="" style="width: 24px; height: 24px"><span style="flex-grow: 1; font-size: 15px">PFA · CUI RO41234567</span><span class="tag t-ok">✓ Verificat</span></div>
+    <div class="rw"><img src="assets/ui/shield.png" alt="" style="width: 24px; height: 24px"><span style="flex-grow: 1; font-size: 15px">Cazier</span><span class="tag t-wait">În analiză</span></div>
+    <a href="#asigurare" class="rw pr"><img src="assets/ui/check.png" alt="" style="width: 24px; height: 24px"><span style="flex-grow: 1; font-size: 15px">Asigurare de răspundere</span><span style="font-size: 14px; color: var(--btext)">Adaugă</span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--ink3)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 5l7 7-7 7"></path></svg></a>
+    <a href="GearEchipament.dc.html" class="rw pr"><img src="assets/ui/work_tools.png" alt="" style="width: 24px; height: 24px"><span style="flex-grow: 1; font-size: 15px">Echipamentul meu</span><span style="font-size: 14px; color: var(--ink2)">7 declarate</span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--ink3)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 5l7 7-7 7"></path></svg></a>
+  </div>
+</div>
+<div class="glass" style="position: absolute; left: 0; right: 0; bottom: 0; padding: 12px 16px 30px; box-shadow: 0 -8px 24px var(--shadow); display: flex; flex-direction: column; gap: 8px"><sc-if value="{{tEnd}}" hint-placeholder-val="{{ false }}"><div class="in" style="padding: 11px 14px; border-radius: 16px; background: var(--invbg); color: var(--invink); font-size: 14px; line-height: 1.35">✓ {{toast}}</div></sc-if><button type="button" onClick="{{saveAll}}" class="pr" style="width: 100%; height: 54px; border: 0; border-radius: 27px; background: var(--brand); color: var(--onbrand); font-family: inherit; font-size: 17px; font-weight: 500; cursor: pointer; box-shadow: 0 10px 24px rgba(255,159,10,0.3)">Salvează</button></div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.n = 10;
+    this.state = { skills: [{"i": "mobila", "n": "Montaj mobilier", "lvl": 2, "yrs": 8, "unit": "l", "price": 120, "jobs": 54, "cert": "ok", "certName": "Calificare tâmplar · verificată", "specs": [["Mobilier IKEA", true], ["Bucătării", true], ["Dressing", false], ["Montaj TV și rafturi", true], ["Paturi și somiere", false]], "mkt": "100–180 lei"}, {"i": "reparatii", "n": "Reparații mici", "lvl": 1, "yrs": 5, "unit": "h", "price": 80, "jobs": 22, "cert": "no", "certName": "", "specs": [["Agățat tablouri și oglinzi", true], ["Reglaj uși și sertare", true], ["Silicon și chituri", false], ["Înlocuit mânere și yale", true]], "mkt": "70–110 lei/h"}, {"i": "tamplarie", "n": "Tâmplărie și uși", "lvl": 1, "yrs": 3, "unit": "l", "price": 150, "jobs": 10, "cert": "wait", "certName": "Diplomă școală profesională · în verificare", "specs": [["Montaj uși interioare", true], ["Reglaj și balamale", true], ["Pervaze și plinte", false]], "mkt": "120–250 lei"}], open: 'mobila', photos: [{"id": "p1", "src": "assets/services/service-mobila.webp", "pos": "50% 50%", "sk": "mobila", "cap": "Dulap cu rafturi, Floreasca"}, {"id": "p2", "src": "assets/services/service-electrocasnice.webp", "pos": "50% 50%", "sk": "mobila", "cap": "Bucătărie montată, hotă inclusă"}, {"id": "p3", "src": "assets/services/service-sanitar.webp", "pos": "55% 50%", "sk": "reparatii", "cap": "Sifon schimbat"}, {"id": "p4", "src": "assets/services/service-electrica.webp", "pos": "50% 40%", "sk": "reparatii", "cap": "Corpuri de iluminat"}, {"id": "p5", "src": "assets/services/service-zugraveala.webp", "pos": "50% 50%", "sk": "tamplarie", "cap": "Ușă nouă, finisaj"}], pool: [{"src": "assets/services/service-mobila.webp", "pos": "18% 50%", "cap": "Detaliu: balamale reglate"}, {"src": "assets/services/service-mutat-obiecte.webp", "pos": "50% 50%", "cap": "Mobilă livrată și montată"}, {"src": "assets/services/service-electrocasnice.webp", "pos": "80% 40%", "cap": "Detaliu: blat și sertare"}, {"src": "assets/photos/hero-jobzer-outdoor.webp", "pos": "60% 40%", "cap": "Echipamentul meu"}],
+      pf: 'all', add: 0, pick: '', nlvl: 1, nunit: 'l', nprice: 100, q: '', bio: 'Montez mobilier de 8 ani, de la IKEA la bucătării pe comandă. Vin cu toate uneltele și las curat după mine.',
+      days: { L: true, Ma: true, Mi: true, J: true, V: true, S: true, D: false }, radius: 5, toast: '', bioEdit: false };
+  }
+  componentWillUnmount() { clearTimeout(this.tt); }
+  toast(t, at) { this.setState({ toast: t, toastAt: at || 'sk' }); clearTimeout(this.tt); this.tt = setTimeout(() => this.setState({ toast: '' }), 2200); }
+  upd(i, fn) { this.setState({ skills: this.state.skills.map((k) => k.i === i ? fn(Object.assign({}, k)) : k) }); }
+  renderVals() {
+    const s = this.state, C = [{"n": "Montaj mobilier", "i": "mobila"}, {"n": "Curățenie", "i": "curatenie"}, {"n": "Mutat și cărat", "i": "mutat-obiecte"}, {"n": "Instalații sanitare", "i": "sanitar"}, {"n": "Electricitate", "i": "electrica"}, {"n": "Electrocasnice", "i": "electrocasnice"}, {"n": "Zugrăveli", "i": "zugraveala"}, {"n": "Grădină și curte", "i": "gradina"}, {"n": "Animale de companie", "i": "animale"}, {"n": "Cumpărături", "i": "cumparaturi"}, {"n": "Îngrijire persoane", "i": "ingrijire-persoane"}, {"n": "IT și tehnică", "i": "it"}, {"n": "Reparații mici", "i": "reparatii"}, {"n": "Tâmplărie și uși", "i": "tamplarie"}, {"n": "Gresie și parchet", "i": "gresie"}, {"n": "Climă și centrale", "i": "clima"}, {"n": "Lăcătuș și yale", "i": "lacatus"}, {"n": "Spălat auto", "i": "auto"}, {"n": "Livrări locale", "i": "livrari"}, {"n": "Gătit acasă", "i": "gatit"}, {"n": "Babysitting", "i": "babysitting"}, {"n": "Meditații", "i": "meditatii"}, {"n": "Evenimente", "i": "evenimente"}, {"n": "Foto și video", "i": "foto"}, {"n": "Frumusețe acasă", "i": "frumusete"}, {"n": "Fitness", "i": "fitness"}, {"n": "Călcat și croitorie", "i": "calcat"}, {"n": "Dezinsecție", "i": "dezinsectie"}, {"n": "Geamuri", "i": "geamuri"}, {"n": "Acte și birou", "i": "acte"}];
+    const LV = ['Începător', 'Experimentat', 'Expert'];
+    const lei = (k) => k.price + (k.unit === 'h' ? ' lei/h' : ' lei');
+    const nPh = (i) => s.photos.filter((p) => p.sk === i).length;
+    const skills = s.skills.map((k) => {
+      const open = s.open === k.i;
+      return { n: k.n, src: 'assets/cat/' + k.i + '.svg', sub: LV[k.lvl] + ' · ' + k.yrs + ' ani · de la ' + lei(k) + (k.unit === 'h' ? '' : ' / lucrare'),
+        jobs: k.jobs + ' lucrări în Jobzee', hasJobs: k.jobs > 0, ph: nPh(k.i) + (nPh(k.i) === 1 ? ' poză' : ' poze'), phTag: 'tag ' + (nPh(k.i) ? 't-no' : 't-wait'),
+        certTag: 'tag ' + (k.cert === 'ok' ? 't-ok' : k.cert === 'wait' ? 't-wait' : 't-no'), certTxt: k.cert === 'ok' ? '✓ Calificare verificată' : k.cert === 'wait' ? 'Act în verificare' : 'Fără act',
+        open: open, closed: !open, toggle: () => this.setState({ open: open ? '' : k.i }),
+        lvls: LV.map((t, li) => ({ t: t, attr: k.lvl === li ? 'true' : 'false', pick: () => this.upd(k.i, (x) => { x.lvl = li; return x; }) })),
+        lvlHint: ['Ai făcut lucrarea de câteva ori și o faci corect.', 'O faci des, fără ajutor, și știi să rezolvi neprevăzutele.', 'Peste 5 ani sau peste 50 de lucrări. Clienții te pot întreba de detalii tehnice.'][k.lvl],
+        yrs: k.yrs + (k.yrs === 1 ? ' an' : ' ani'), yMinus: () => this.upd(k.i, (x) => { x.yrs = Math.max(0, x.yrs - 1); return x; }), yPlus: () => this.upd(k.i, (x) => { x.yrs = Math.min(40, x.yrs + 1); return x; }),
+        uL: k.unit === 'l' ? 'true' : 'false', uH: k.unit === 'h' ? 'true' : 'false', setL: () => this.upd(k.i, (x) => { x.unit = 'l'; return x; }), setH: () => this.upd(k.i, (x) => { x.unit = 'h'; return x; }),
+        price: lei(k), pMinus: () => this.upd(k.i, (x) => { x.price = Math.max(10, x.price - 10); return x; }), pPlus: () => this.upd(k.i, (x) => { x.price = x.price + 10; return x; }), mkt: 'În zona ta, alți Jobzeri cer ' + k.mkt + '.',
+        hasSpecs: k.specs.length > 0, specs: k.specs.map((sp, si) => ({ t: sp[0], attr: sp[1] ? 'true' : 'false', pick: () => this.upd(k.i, (x) => { x.specs = x.specs.map((y, yi) => yi === si ? [y[0], !y[1]] : y); return x; }) })),
+        certOk: k.cert === 'ok', certWait: k.cert === 'wait', certNo: k.cert === 'no', certName: k.certName,
+        upCert: () => { this.upd(k.i, (x) => { x.cert = 'wait'; x.certName = 'Document încărcat · în verificare (de obicei 24 h)'; return x; }); this.toast('Am primit documentul. Îl verificăm în 24 de ore.', 'sk'); },
+        addPh: () => { this.setState({ pf: k.i }); this.addPhoto(k.i); },
+        del: () => { this.setState({ skills: s.skills.filter((x) => x.i !== k.i), photos: s.photos.map((p) => p.sk === k.i ? Object.assign({}, p, { sk: '' }) : p), open: '' }); this.toast(k.n + ' a fost scoasă din profil.'); } };
+    });
+    // portofoliu
+    const sname = (i) => (s.skills.find((k) => k.i === i) || { n: 'Fără competență' }).n;
+    const shown = s.photos.filter((p) => s.pf === 'all' || p.sk === s.pf);
+    const photos = shown.map((p) => ({ id: p.id, st: 'background-image: url(' + p.src + '); background-size: cover; background-position: ' + p.pos, cap: p.cap, sk: sname(p.sk),
+      rm: () => { this.setState({ photos: s.photos.filter((x) => x.id !== p.id), pool: s.pool.concat([{ src: p.src, pos: p.pos, cap: p.cap }]) }); this.toast('Poza a fost ștearsă.', 'ph'); } }));
+    const pfs = [{ t: 'Toate · ' + s.photos.length, k: 'all' }].concat(s.skills.map((k) => ({ t: k.n + ' · ' + nPh(k.i), k: k.i }))).map((x) => ({ t: x.t, attr: s.pf === x.k ? 'true' : 'false', pick: () => this.setState({ pf: x.k }) }));
+    // adăugare competență: 0 închis, 1 alege categoria, 2 detalii
+    const q = s.q.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+    const avail = C.filter((c) => !s.skills.some((k) => k.i === c.i) && (!q || c.n.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').indexOf(q) >= 0));
+    const cats = avail.slice(0, 16).map((c) => ({ n: c.n, src: 'assets/cat/' + c.i + '.svg', pick: () => this.setState({ pick: c.i, add: 2, nlvl: 1, nunit: 'l', nprice: 100 }) }));
+    const pc = C.find((c) => c.i === s.pick) || C[0];
+    const nl = LV.map((t, li) => ({ t: t, attr: s.nlvl === li ? 'true' : 'false', pick: () => this.setState({ nlvl: li }) }));
+    const save = () => {
+      const k = { i: pc.i, n: pc.n, lvl: s.nlvl, yrs: 1, unit: s.nunit, price: s.nprice, jobs: 0, cert: 'no', certName: '', specs: [], mkt: 'prețuri diferite, după lucrare' };
+      this.setState({ skills: s.skills.concat([k]), add: 0, pick: '', q: '', open: pc.i }); this.toast(pc.n + ' a fost adăugată. Pune și 2–3 poze cu lucrări.');
+    };
+    // completare profil: doar lucruri pe care Jobzerul le poate face
+    const checks = [['Poză de profil', true], ['Descriere', s.bio.trim().length >= 40], ['Cel puțin 3 competențe', s.skills.length >= 3], ['Minim 6 poze în portofoliu', s.photos.length >= 6], ['Un act pentru fiecare meserie calificată', s.skills.every((k) => k.cert !== 'no' || k.i === 'reparatii')]];
+    const done = checks.filter((c) => c[1]).length, pct = Math.round(done / checks.length * 100);
+    const next = checks.find((c) => !c[1]);
+    const days = ['L', 'Ma', 'Mi', 'J', 'V', 'S', 'D'].map((d) => ({ t: d, attr: s.days[d] ? 'true' : 'false', pick: () => { const x = Object.assign({}, s.days); x[d] = !x[d]; this.setState({ days: x }); } }));
+    const radii = [3, 5, 10, 20].map((r) => ({ t: r + ' km', attr: s.radius === r ? 'true' : 'false', pick: () => this.setState({ radius: r }) }));
+    return { skills: skills, nSk: s.skills.length, photos: photos, nPh: s.photos.length, pfs: pfs, emptyPh: photos.length === 0,
+      addPhoto: () => this.addPhoto(s.pf === 'all' ? (s.skills[0] || { i: '' }).i : s.pf), canAddPh: s.pool.length > 0,
+      add0: s.add === 0, add1: s.add === 1, add2: s.add === 2, openAdd: () => this.setState({ add: 1, q: '' }), closeAdd: () => this.setState({ add: 0, pick: '', q: '' }), backAdd: () => this.setState({ add: 1 }),
+      q: s.q, onQ: (e) => this.setState({ q: e.target.value }), cats: cats, noCats: cats.length === 0,
+      pcN: pc.n, pcSrc: 'assets/cat/' + pc.i + '.svg', nl: nl, nuL: s.nunit === 'l' ? 'true' : 'false', nuH: s.nunit === 'h' ? 'true' : 'false', setNL: () => this.setState({ nunit: 'l' }), setNH: () => this.setState({ nunit: 'h' }),
+      nprice: s.nprice + (s.nunit === 'h' ? ' lei/h' : ' lei'), npM: () => this.setState({ nprice: Math.max(10, s.nprice - 10) }), npP: () => this.setState({ nprice: s.nprice + 10 }), save: save,
+      pct: pct + '%', ring: 'stroke-dashoffset: ' + (138 - 138 * pct / 100).toFixed(1) + '; transition: stroke-dashoffset .6s', nextTxt: next ? 'Pasul următor: ' + next[0].toLowerCase() + '.' : 'Profil complet. Clienții văd tot ce trebuie ca să te aleagă.',
+      checks: checks.map((c) => ({ t: c[0], st: 'width: 18px; height: 18px; border-radius: 9px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; font-size: 11px; ' + (c[1] ? 'background: var(--ok); color: #FFFFFF' : 'box-shadow: inset 0 0 0 1.5px var(--ink3); color: transparent'), tx: 'font-size: 13px; ' + (c[1] ? 'color: var(--ink2)' : 'color: var(--ink); font-weight: 500') })),
+      bio: s.bio, onBio: (e) => this.setState({ bio: e.target.value.slice(0, 220) }), bioN: s.bio.length + '/220', bioEdit: s.bioEdit, bioView: !s.bioEdit, editBio: () => this.setState({ bioEdit: true }), doneBio: () => { this.setState({ bioEdit: false }); this.toast('Descrierea a fost salvată.', 'bio'); },
+      days: days, radii: radii, toast: s.toast, hasToast: !!s.toast, saveAll: () => this.toast('Profilul a fost salvat. Clienții văd modificările imediat.', 'end'),
+      tSk: !!s.toast && s.toastAt === 'sk', tPh: !!s.toast && s.toastAt === 'ph', tBio: !!s.toast && s.toastAt === 'bio', tEnd: !!s.toast && s.toastAt === 'end' };
+  }
+  addPhoto(sk) {
+    const s = this.state; if (!s.pool.length) { this.toast('Ai adăugat toate pozele din galerie.', 'ph'); return; }
+    const p = s.pool[0];
+    this.setState({ photos: [{ id: 'n' + (this.n++), src: p.src, pos: p.pos, cap: p.cap, sk: sk }].concat(s.photos), pool: s.pool.slice(1) });
+    this.toast('Poza a fost adăugată la ' + ((s.skills.find((k) => k.i === sk) || { n: 'portofoliu' }).n) + '.', 'ph');
+  }
+}
+</script>
+</body>
+</html>

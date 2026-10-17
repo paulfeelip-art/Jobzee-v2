@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="ro">
+<head>
+<meta charset="utf-8">
+<title>Jobzee · Siguranță · întunecat</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<style>
+.th{--bg:#000000;--surf:#1C1C1E;--surf2:#2C2C2E;--surf3:#3A3A3C;--ink:#FFFFFF;--ink2:#98989D;--ink3:#48484A;--sep:#38383A;--brand:#FF9F0A;--onbrand:#1C1C1E;--btext:#FFB340;--bsoft:rgba(255,159,10,0.16);--bsoft2:rgba(255,159,10,0.28);--ok:#30D158;--oktext:#30D158;--oksoft:rgba(48,209,88,0.16);--glass:rgba(36,36,38,0.78);--glass2:rgba(28,28,30,0.95);--scrim:rgba(0,0,0,0.6);--shadow:rgba(0,0,0,0.5);--invbg:#FFFFFF;--invink:#000000;--land:#1B1C1F;--road:#2E3035;--park:#1C2A20;--water:#17283A;--aur1:#B35600;--aur2:#5A2E00;--aur3:#5B1F3A}
+body{margin:0}
+a{color:var(--btext)}
+@keyframes up{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+@keyframes pop{0%{opacity:0;transform:scale(.5)}65%{opacity:1;transform:scale(1.08)}100%{opacity:1;transform:none}}
+@keyframes sheet{from{opacity:0;transform:translateY(70%)}to{opacity:1;transform:none}}
+@keyframes ring{0%{transform:scale(.6);opacity:.55}100%{transform:scale(2.6);opacity:0}}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-7px)}}
+@keyframes drift{0%,100%{transform:translate(0,0) scale(1)}33%{transform:translate(30px,-24px) scale(1.12)}66%{transform:translate(-26px,18px) scale(.94)}}
+@keyframes glow{0%,100%{opacity:.45}50%{opacity:1}}
+@keyframes shimmer{0%{background-position:-200% 0}100%{background-position:200% 0}}
+@keyframes drop{0%{opacity:0;transform:translateY(-24px) scale(.7)}60%{opacity:1;transform:translateY(3px) scale(1.06)}100%{opacity:1;transform:none}}
+@keyframes tick{0%,42%{transform:none}50%,92%{transform:translateY(-40px)}100%{transform:none}}
+@keyframes fadeSlide{0%,42%{opacity:1;transform:none}50%,92%{opacity:0;transform:translateY(-8px)}100%{opacity:1;transform:none}}
+@keyframes fadeSlide2{0%,42%{opacity:0;transform:translateY(8px)}50%,92%{opacity:1;transform:none}100%{opacity:0;transform:translateY(8px)}}
+@keyframes dotA{0%,45%{width:16px;opacity:1}50%,95%{width:6px;opacity:.35}100%{width:16px;opacity:1}}
+@keyframes dotB{0%,45%{width:6px;opacity:.35}50%,95%{width:16px;opacity:1}100%{width:6px;opacity:.35}}
+@keyframes halo{0%{box-shadow:0 0 0 0 rgba(255,159,10,.55)}100%{box-shadow:0 0 0 18px rgba(255,159,10,0)}}
+@keyframes heat{0%,100%{transform:scale(1);opacity:.8}50%{transform:scale(1.15);opacity:1}}
+.u{animation:up .55s cubic-bezier(.2,.8,.2,1) both}
+.d1{animation-delay:.08s}.d2{animation-delay:.16s}.d3{animation-delay:.24s}.d4{animation-delay:.32s}.d5{animation-delay:.4s}.d6{animation-delay:.48s}
+.pop{animation:pop .6s cubic-bezier(.2,.9,.3,1.3) both}
+.sheet{animation:sheet .7s cubic-bezier(.2,.9,.25,1) both}
+.float{animation:float 4.5s ease-in-out infinite}
+.glow{animation:glow 1.8s ease-in-out infinite}
+.drop{animation:drop .8s cubic-bezier(.2,.8,.2,1) both}
+.pr{transition:transform .22s cubic-bezier(.3,.7,.4,1.4), opacity .2s}.pr:active{transform:scale(.95)}
+.ic{display:inline-block;background:currentColor;-webkit-mask-position:center;mask-position:center;-webkit-mask-size:contain;mask-size:contain;-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;flex-shrink:0}
+.glass{background:var(--glass);backdrop-filter:blur(24px) saturate(1.6);-webkit-backdrop-filter:blur(24px) saturate(1.6)}
+@media (prefers-reduced-motion: reduce){*{animation:none!important;transition:none!important}}
+
+.sg{display:grid;padding:2px;border-radius:10px;background:var(--surf3)}
+.sg button{border:0;height:32px;border-radius:8px;background:transparent;font-family:inherit;font-size:13px;font-weight:500;color:var(--ink);cursor:pointer;transition:all .25s}
+.sg button[aria-pressed="true"]{background:var(--surf);box-shadow:0 2px 6px var(--shadow)}
+.jsw{width:51px;height:31px;border-radius:16px;border:0;padding:2px;cursor:pointer;flex-shrink:0;position:relative;transition:background .25s}
+.jsw::after{content:"";position:absolute;top:2px;left:2px;width:27px;height:27px;border-radius:14px;background:#fff;box-shadow:0 2px 4px rgba(0,0,0,.2);transition:transform .3s cubic-bezier(.3,1.3,.4,1)}
+.jsw[aria-pressed="true"]{background:var(--ok)}.jsw[aria-pressed="true"]::after{transform:translateX(20px)}.jsw[aria-pressed="false"]{background:var(--surf3)}
+.lbl{font-size:13px;font-weight:500;color:var(--ink2);padding:0 12px;text-transform:uppercase;letter-spacing:.3px}
+.grp{background:var(--surf);border-radius:24px;overflow:hidden}
+.rw{display:flex;align-items:center;gap:12px;padding:11px 16px 11px 0;margin-left:16px;color:var(--ink);text-decoration:none}
+.rw+.rw{border-top:0.5px solid var(--sep)}
+.dchip{border:0;width:40px;height:40px;border-radius:20px;font-family:inherit;font-size:14px;font-weight:500;cursor:pointer;transition:all .25s}
+.dchip[aria-pressed="true"]{background:var(--brand);color:var(--onbrand)}.dchip[aria-pressed="false"]{background:var(--surf);color:var(--ink)}
+
+@keyframes sosring{0%{transform:scale(1);opacity:.5}100%{transform:scale(1.6);opacity:0}}
+.sosr{position:absolute;inset:0;border-radius:50%;background:#FF3B30;animation:sosring 1.8s ease-out infinite}
+
+</style>
+</helmet>
+<div class="th" style="width: 390px; height: 844px; box-sizing: border-box; background: var(--bg); font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Helvetica Neue', system-ui, sans-serif; color: var(--ink); position: relative; overflow: hidden">
+<div style="padding: 56px 16px 28px; height: 100%; box-sizing: border-box; display: flex; flex-direction: column; gap: 12px">
+  <div style="display: flex; align-items: center; justify-content: space-between"><a href="JobActivDark.dc.html" aria-label="Înapoi" class="pr" style="width: 40px; height: 40px; border-radius: 20px; background: var(--surf); color: var(--ink); display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 14px var(--shadow)"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 5l-7 7 7 7"></path></svg></a><span style="height: 30px; padding: 0 12px; border-radius: 15px; background: var(--surf); display: flex; align-items: center; gap: 6px; font-size: 13px; font-weight: 500"><span class="glow" style="width: 7px; height: 7px; border-radius: 4px; background: var(--ok)"></span>Sarcină activă · Andrei P.</span></div>
+  <div class="u"><h1 style="margin: 0 4px; font-size: 32px; line-height: 1.1; font-weight: 600; letter-spacing: -0.8px">Siguranță</h1><p style="margin: 6px 4px 0; font-size: 15px; line-height: 1.4; color: var(--ink2)">Dacă ceva nu e în regulă la lucrare, ai ajutor imediat.</p></div>
+  <div class="u d1" style="background: var(--surf); border-radius: 30px; padding: 22px 16px 18px; display: flex; flex-direction: column; align-items: center; gap: 14px">
+    <sc-if value="{{notCalled}}" hint-placeholder-val="{{ true }}">
+      <button type="button" onPointerDown="{{start}}" onPointerUp="{{stop}}" onPointerLeave="{{stop}}" aria-label="SOS, ține apăsat 3 secunde" style="position: relative; width: 140px; height: 140px; border-radius: 70px; border: 0; padding: 0; background: transparent; cursor: pointer">
+        <span class="sosr"></span><span style="{{ring}}"></span>
+        <span style="position: absolute; inset: 0; border-radius: 70px; background: #FF3B30; color: #FFFFFF; display: flex; align-items: center; justify-content: center; font-family: inherit; font-size: 28px; font-weight: 600; box-shadow: 0 14px 34px rgba(255,59,48,0.45)">{{sosTxt}}</span>
+      </button>
+      <span style="font-size: 14px; color: var(--ink2); text-align: center">Ține apăsat 3 secunde. Sunăm la 112 și trimitem locația ta exactă.</span>
+    </sc-if>
+    <sc-if value="{{called}}" hint-placeholder-val="{{ false }}">
+      <div class="pop" style="display: flex; flex-direction: column; align-items: center; gap: 8px; text-align: center">
+        <span style="width: 100px; height: 100px; border-radius: 50px; background: #FF3B30; color: #FFFFFF; display: flex; align-items: center; justify-content: center"><svg width="44" height="44" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6.6 3.5l2.3-.4 1.6 4.3-1.9 1.4a11 11 0 0 0 6.6 6.6l1.4-1.9 4.3 1.6-.4 2.3a2 2 0 0 1-2 1.6A16 16 0 0 1 5 5.5a2 2 0 0 1 1.6-2z"></path></svg></span>
+        <span style="font-size: 20px; font-weight: 600">Sunăm la 112…</span>
+        <span style="font-size: 14px; color: var(--ink2)">Locația a fost trimisă. Echipa Jobzee e anunțată și te sună imediat după.</span>
+        <button type="button" onClick="{{reset}}" style="border: 0; background: transparent; color: var(--btext); font-family: inherit; font-size: 15px; font-weight: 500; cursor: pointer">Am apăsat din greșeală</button>
+      </div>
+    </sc-if>
+  </div>
+  <div class="grp u d2">
+    <div class="rw" style="padding-right: 12px"><span style="flex-grow: 1; display: flex; flex-direction: column"><span style="font-size: 15px">Partajează traseul live</span><span style="font-size: 12px; color: var(--ink2)">{{shareTxt}}</span></span><button type="button" class="jsw" onClick="{{toggleShare}}" aria-pressed="{{shareAttr}}" aria-label="Partajează traseul"></button></div>
+    <a href="#echipa" class="rw pr"><span style="flex-grow: 1; display: flex; flex-direction: column"><span style="font-size: 15px">Mă simt nesigur · anunță echipa Jobzee</span><span style="font-size: 12px; color: var(--ink2)">Discret, fără ca celălalt să știe. Răspuns în 2 min.</span></span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--ink3)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 5l7 7-7 7"></path></svg></a>
+    <a href="ProblemaDark.dc.html" class="rw pr"><span style="flex-grow: 1; display: flex; flex-direction: column"><span style="font-size: 15px">Raportează o problemă cu lucrarea</span><span style="font-size: 12px; color: var(--ink2)">Plata rămâne blocată până se lămurește</span></span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--ink3)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 5l7 7-7 7"></path></svg></a>
+  </div>
+  <span style="font-size: 12px; line-height: 1.4; color: var(--ink2); padding: 0 6px">Același ecran există și pentru client, pe durata lucrării. Datele de siguranță se păstrează 30 de zile.</span>
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+  constructor(props) { super(props); this.state = { hold: 0, share: true, called: false }; }
+  componentWillUnmount() { clearInterval(this.i); }
+  renderVals() {
+    const s = this.state;
+    const start = () => { if (s.called) return; clearInterval(this.i); this.i = setInterval(() => { const h = this.state.hold + 1; if (h >= 3) { clearInterval(this.i); this.setState({ hold: 3, called: true }); } else this.setState({ hold: h }); }, 1000); this.setState({ hold: 0 }); };
+    const stop = () => { if (!this.state.called) { clearInterval(this.i); this.setState({ hold: 0 }); } };
+    return {
+      start, stop, called: s.called, notCalled: !s.called,
+      sosTxt: s.called ? 'Sunăm la 112' : (s.hold > 0 ? 'Ține apăsat… ' + (3 - s.hold) : 'SOS'),
+      ring: 'position: absolute; inset: -8px; border-radius: 50%; background: conic-gradient(#FFFFFF ' + (s.hold / 3 * 360) + 'deg, transparent 0); opacity: .9; transition: background .2s',
+      shareAttr: s.share ? 'true' : 'false', toggleShare: () => this.setState({ share: !s.share }),
+      shareTxt: s.share ? 'Ana (soție) vede unde ești până termini' : 'Nimeni nu îți vede traseul',
+      reset: () => this.setState({ hold: 0, called: false })
+    };
+  }
+}
+</script>
+</body>
+</html>

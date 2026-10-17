@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="ro">
+<head>
+<meta charset="utf-8">
+<title>Jobzee · Ce știi să faci · întunecat</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<style>
+.th{--bg:#000000;--surf:#1C1C1E;--surf2:#2C2C2E;--surf3:#3A3A3C;--ink:#FFFFFF;--ink2:#98989D;--ink3:#48484A;--sep:#38383A;--brand:#FF9F0A;--onbrand:#1C1C1E;--btext:#FFB340;--bsoft:rgba(255,159,10,0.16);--bsoft2:rgba(255,159,10,0.28);--ok:#30D158;--oktext:#30D158;--oksoft:rgba(48,209,88,0.16);--glass:rgba(36,36,38,0.78);--glass2:rgba(28,28,30,0.95);--scrim:rgba(0,0,0,0.6);--shadow:rgba(0,0,0,0.5);--invbg:#FFFFFF;--invink:#000000;--land:#1B1C1F;--road:#2E3035;--park:#1C2A20;--water:#17283A;--aur1:#B35600;--aur2:#5A2E00;--aur3:#5B1F3A}
+body{margin:0}
+a{color:var(--btext)}
+@keyframes up{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+@keyframes pop{0%{opacity:0;transform:scale(.5)}65%{opacity:1;transform:scale(1.08)}100%{opacity:1;transform:none}}
+@keyframes sheet{from{opacity:0;transform:translateY(70%)}to{opacity:1;transform:none}}
+@keyframes ring{0%{transform:scale(.6);opacity:.55}100%{transform:scale(2.6);opacity:0}}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-7px)}}
+@keyframes drift{0%,100%{transform:translate(0,0) scale(1)}33%{transform:translate(30px,-24px) scale(1.12)}66%{transform:translate(-26px,18px) scale(.94)}}
+@keyframes glow{0%,100%{opacity:.45}50%{opacity:1}}
+@keyframes shimmer{0%{background-position:-200% 0}100%{background-position:200% 0}}
+@keyframes drop{0%{opacity:0;transform:translateY(-24px) scale(.7)}60%{opacity:1;transform:translateY(3px) scale(1.06)}100%{opacity:1;transform:none}}
+@keyframes tick{0%,42%{transform:none}50%,92%{transform:translateY(-40px)}100%{transform:none}}
+@keyframes fadeSlide{0%,42%{opacity:1;transform:none}50%,92%{opacity:0;transform:translateY(-8px)}100%{opacity:1;transform:none}}
+@keyframes fadeSlide2{0%,42%{opacity:0;transform:translateY(8px)}50%,92%{opacity:1;transform:none}100%{opacity:0;transform:translateY(8px)}}
+@keyframes dotA{0%,45%{width:16px;opacity:1}50%,95%{width:6px;opacity:.35}100%{width:16px;opacity:1}}
+@keyframes dotB{0%,45%{width:6px;opacity:.35}50%,95%{width:16px;opacity:1}100%{width:6px;opacity:.35}}
+@keyframes halo{0%{box-shadow:0 0 0 0 rgba(255,159,10,.55)}100%{box-shadow:0 0 0 18px rgba(255,159,10,0)}}
+@keyframes heat{0%,100%{transform:scale(1);opacity:.8}50%{transform:scale(1.15);opacity:1}}
+.u{animation:up .55s cubic-bezier(.2,.8,.2,1) both}
+.d1{animation-delay:.08s}.d2{animation-delay:.16s}.d3{animation-delay:.24s}.d4{animation-delay:.32s}.d5{animation-delay:.4s}.d6{animation-delay:.48s}
+.pop{animation:pop .6s cubic-bezier(.2,.9,.3,1.3) both}
+.sheet{animation:sheet .7s cubic-bezier(.2,.9,.25,1) both}
+.float{animation:float 4.5s ease-in-out infinite}
+.glow{animation:glow 1.8s ease-in-out infinite}
+.drop{animation:drop .8s cubic-bezier(.2,.8,.2,1) both}
+.pr{transition:transform .22s cubic-bezier(.3,.7,.4,1.4), opacity .2s}.pr:active{transform:scale(.95)}
+.ic{display:inline-block;background:currentColor;-webkit-mask-position:center;mask-position:center;-webkit-mask-size:contain;mask-size:contain;-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;flex-shrink:0}
+.glass{background:var(--glass);backdrop-filter:blur(24px) saturate(1.6);-webkit-backdrop-filter:blur(24px) saturate(1.6)}
+@media (prefers-reduced-motion: reduce){*{animation:none!important;transition:none!important}}
+
+.sg{display:grid;padding:2px;border-radius:10px;background:var(--surf3)}
+.sg button{border:0;height:32px;border-radius:8px;background:transparent;font-family:inherit;font-size:13px;font-weight:500;color:var(--ink);cursor:pointer;transition:all .25s}
+.sg button[aria-pressed="true"]{background:var(--surf);box-shadow:0 2px 6px var(--shadow)}
+.jsw{width:51px;height:31px;border-radius:16px;border:0;padding:2px;cursor:pointer;flex-shrink:0;position:relative;transition:background .25s}
+.jsw::after{content:"";position:absolute;top:2px;left:2px;width:27px;height:27px;border-radius:14px;background:#fff;box-shadow:0 2px 4px rgba(0,0,0,.2);transition:transform .3s cubic-bezier(.3,1.3,.4,1)}
+.jsw[aria-pressed="true"]{background:var(--ok)}.jsw[aria-pressed="true"]::after{transform:translateX(20px)}.jsw[aria-pressed="false"]{background:var(--surf3)}
+.lbl{font-size:13px;font-weight:500;color:var(--ink2);padding:0 12px;text-transform:uppercase;letter-spacing:.3px}
+.grp{background:var(--surf);border-radius:24px;overflow:hidden}
+.rw{display:flex;align-items:center;gap:12px;padding:11px 16px 11px 0;margin-left:16px;color:var(--ink);text-decoration:none}
+.rw+.rw{border-top:0.5px solid var(--sep)}
+.dchip{border:0;width:40px;height:40px;border-radius:20px;font-family:inherit;font-size:14px;font-weight:500;cursor:pointer;transition:all .25s}
+.dchip[aria-pressed="true"]{background:var(--brand);color:var(--onbrand)}.dchip[aria-pressed="false"]{background:var(--surf);color:var(--ink)}
+
+.colfix>*{flex-shrink:0}
+.scroll{scrollbar-width:none}.scroll::-webkit-scrollbar{display:none}
+@keyframes inUp{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+.in{animation:inUp .35s cubic-bezier(.2,.8,.2,1) both}
+.cat{border:0;background:transparent;padding:0;font-family:inherit;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:5px;color:var(--ink);font-size:11px;font-weight:500;line-height:1.2;text-align:center}
+.cat img{width:100%;aspect-ratio:1;border-radius:30%;display:block;box-shadow:0 4px 12px var(--shadow);transition:transform .25s cubic-bezier(.3,1.4,.4,1),box-shadow .25s}
+.cat[aria-pressed="true"] img{box-shadow:0 0 0 3px var(--bg),0 0 0 5.5px var(--brand);transform:scale(.94)}
+.chip{border:0;height:32px;padding:0 12px;border-radius:16px;font-family:inherit;font-size:13px;font-weight:500;cursor:pointer;transition:all .25s;white-space:nowrap}
+.chip[aria-pressed="true"]{background:var(--brand);color:var(--onbrand)}.chip[aria-pressed="false"]{background:var(--surf2);color:var(--ink)}
+.stp{display:flex;align-items:center;height:36px;border-radius:18px;background:var(--surf2)}
+.stp button{width:36px;height:36px;border:0;background:transparent;font-size:18px;color:var(--ink);cursor:pointer;font-family:inherit}
+.tag{display:inline-flex;align-items:center;gap:4px;height:22px;padding:0 8px;border-radius:11px;font-size:11px;font-weight:500;white-space:nowrap}
+.t-ok{background:var(--oksoft);color:var(--oktext)}.t-wait{background:var(--bsoft);color:var(--btext)}.t-no{background:var(--surf2);color:var(--ink2)}
+.fld2{width:100%;box-sizing:border-box;border:0;outline:0;background:var(--surf2);border-radius:14px;padding:10px 12px;font-family:inherit;font-size:15px;color:var(--ink)}
+
+</style>
+</helmet>
+<div class="th" style="width: 390px; height: 844px; box-sizing: border-box; background: var(--bg); font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Helvetica Neue', system-ui, sans-serif; color: var(--ink); position: relative; overflow: hidden">
+<div class="colfix" style="padding: 54px 16px 28px; height: 100%; box-sizing: border-box; display: flex; flex-direction: column; gap: 12px">
+  <div style="display: flex; align-items: center; gap: 12px"><div><a href="DevinoJobzerDark.dc.html" aria-label="Înapoi" class="pr" style="width: 40px; height: 40px; border-radius: 20px; background: var(--surf); color: var(--ink); display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 14px var(--shadow)"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 5l-7 7 7 7"></path></svg></a></div>
+    <span style="flex-grow: 1; height: 6px; border-radius: 3px; background: var(--surf3); overflow: hidden"><span style="display: block; width: 50%; height: 100%; border-radius: 3px; background: var(--brand)"></span></span><span style="font-size: 13px; font-weight: 500; color: var(--ink2)">2/4</span></div>
+  <div class="u"><h1 style="margin: 0 4px; font-size: 32px; line-height: 1.1; font-weight: 600; letter-spacing: -0.8px">Ce știi să faci?</h1><p style="margin: 6px 4px 0; font-size: 15px; line-height: 1.4; color: var(--ink2)">Alege tot ce faci bine. Detaliile, prețul și pozele le adaugi după, în profil.</p></div>
+  <label class="u d1" style="display: flex; align-items: center; gap: 8px; height: 44px; padding: 0 14px; border-radius: 22px; background: var(--surf); color: var(--ink2); box-shadow: 0 2px 10px var(--shadow)"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="M20 20l-4-4"></path></svg><span style="position: absolute; left: -9999px">Caută o competență</span><input value="{{q}}" onChange="{{onQ}}" placeholder="Caută: „gresie”, „babysitting”…" style="flex-grow: 1; min-width: 0; border: 0; outline: 0; background: transparent; font-family: inherit; font-size: 16px; color: var(--ink)"></label>
+  <div class="scroll" style="flex-grow: 1; flex-shrink: 1; min-height: 0; overflow-y: auto; margin: 0 -16px; padding: 4px 16px 8px; display: flex; flex-direction: column; gap: 12px">
+  <div class="u d2" style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px 12px; padding: 4px 2px">
+    <sc-for list="{{cats}}" as="c" hint-placeholder-count="12"><button type="button" class="cat pr" onClick="{{c.pick}}" aria-pressed="{{c.attr}}"><img src="{{c.src}}" alt="">{{c.n}}</button></sc-for>
+  </div>
+  <sc-if value="{{none}}" hint-placeholder-val="{{ false }}"><span style="text-align: center; font-size: 14px; color: var(--ink2); padding: 10px">Nu găsim „{{q}}”. Alege cea mai apropiată categorie, iar în profil scrii exact ce faci.</span></sc-if>
+  <sc-if value="{{showAll}}" hint-placeholder-val="{{ true }}"><button type="button" onClick="{{more}}" class="pr" style="align-self: center; height: 36px; padding: 0 16px; border: 0; border-radius: 18px; background: var(--surf); color: var(--btext); font-family: inherit; font-size: 14px; font-weight: 500; cursor: pointer">Vezi toate cele 30 de categorii</button></sc-if>
+  </div>
+  <div class="grp"><div class="rw" style="padding-right: 12px"><span style="flex-grow: 1; display: flex; flex-direction: column"><span style="font-size: 15px">Am uneltele mele</span><span style="font-size: 12px; color: var(--ink2)">Primești și cereri „vino cu unelte”</span></span><button type="button" class="jsw" onClick="{{toggleTools}}" aria-pressed="{{toolsAttr}}" aria-label="Am uneltele mele"></button></div></div>
+  <sc-if value="{{hasChosen}}" hint-placeholder-val="{{ true }}"><span style="font-size: 12px; color: var(--ink2); text-align: center">{{chosenTxt}}</span></sc-if>
+  <sc-if value="{{ctaOn}}" hint-placeholder-val="{{ true }}"><a href="IdentitateDark.dc.html" class="pr" style="display: flex; align-items: center; justify-content: center; height: 56px; border-radius: 28px; background: var(--brand); color: var(--onbrand); font-size: 17px; font-weight: 500; text-decoration: none; box-shadow: 0 10px 24px rgba(255,159,10,0.32)">{{cta}}</a></sc-if>
+  <sc-if value="{{ctaOff}}" hint-placeholder-val="{{ false }}"><span style="display: flex; align-items: center; justify-content: center; height: 56px; border-radius: 28px; background: var(--surf3); color: var(--ink2); font-size: 16px; font-weight: 500">{{cta}}</span></sc-if>
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+  constructor(props) { super(props); this.state = { sel: { mobila: true, reparatii: true, tamplarie: true }, q: '', all: false, tools: true }; }
+  renderVals() {
+    const s = this.state, C = [{"n": "Montaj mobilier", "i": "mobila"}, {"n": "Curățenie", "i": "curatenie"}, {"n": "Mutat și cărat", "i": "mutat-obiecte"}, {"n": "Instalații sanitare", "i": "sanitar"}, {"n": "Electricitate", "i": "electrica"}, {"n": "Electrocasnice", "i": "electrocasnice"}, {"n": "Zugrăveli", "i": "zugraveala"}, {"n": "Grădină și curte", "i": "gradina"}, {"n": "Animale de companie", "i": "animale"}, {"n": "Cumpărături", "i": "cumparaturi"}, {"n": "Îngrijire persoane", "i": "ingrijire-persoane"}, {"n": "IT și tehnică", "i": "it"}, {"n": "Reparații mici", "i": "reparatii"}, {"n": "Tâmplărie și uși", "i": "tamplarie"}, {"n": "Gresie și parchet", "i": "gresie"}, {"n": "Climă și centrale", "i": "clima"}, {"n": "Lăcătuș și yale", "i": "lacatus"}, {"n": "Spălat auto", "i": "auto"}, {"n": "Livrări locale", "i": "livrari"}, {"n": "Gătit acasă", "i": "gatit"}, {"n": "Babysitting", "i": "babysitting"}, {"n": "Meditații", "i": "meditatii"}, {"n": "Evenimente", "i": "evenimente"}, {"n": "Foto și video", "i": "foto"}, {"n": "Frumusețe acasă", "i": "frumusete"}, {"n": "Fitness", "i": "fitness"}, {"n": "Călcat și croitorie", "i": "calcat"}, {"n": "Dezinsecție", "i": "dezinsectie"}, {"n": "Geamuri", "i": "geamuri"}, {"n": "Acte și birou", "i": "acte"}];
+    const top = ['mobila', 'reparatii', 'curatenie', 'mutat-obiecte', 'sanitar', 'electrica', 'tamplarie', 'zugraveala', 'gradina', 'it', 'animale', 'cumparaturi'];
+    const norm = (x) => x.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+    const q = norm(s.q.trim());
+    let list = q ? C.filter((c) => norm(c.n).indexOf(q) >= 0) : (s.all ? C : top.map((k) => C.find((c) => c.i === k)));
+    const cats = list.map((c) => ({ n: c.n, src: 'assets/cat/' + c.i + '.svg', attr: s.sel[c.i] ? 'true' : 'false', pick: () => { const o = Object.assign({}, s.sel); if (o[c.i]) delete o[c.i]; else o[c.i] = true; this.setState({ sel: o }); } }));
+    const n = Object.keys(s.sel).length;
+    const chosen = C.filter((c) => s.sel[c.i]).map((c) => c.n);
+    return { cats: cats, none: cats.length === 0, q: s.q, onQ: (e) => this.setState({ q: e.target.value }), showAll: !q && !s.all, more: () => this.setState({ all: true }),
+      cta: n ? 'Continuă · ' + n + (n === 1 ? ' competență' : ' competențe') : 'Alege cel puțin o competență', ctaOn: n > 0, ctaOff: n === 0,
+      chosenTxt: chosen.join(' · '), hasChosen: n > 0,
+      toolsAttr: s.tools ? 'true' : 'false', toggleTools: () => this.setState({ tools: !s.tools }) };
+  }
+}
+</script>
+</body>
+</html>

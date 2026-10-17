@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="ro">
+<head>
+<meta charset="utf-8">
+<title>Jobzee · Plată refuzată</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<style>
+body{margin:0}
+a{color:#B35600}a:hover{color:#8F4500}
+@keyframes sheet{from{transform:translateY(100%)}to{transform:none}}
+@keyframes fade{from{opacity:0}to{opacity:1}}
+@keyframes shake{0%,100%{transform:translateX(0)}20%{transform:translateX(-10px)}40%{transform:translateX(9px)}60%{transform:translateX(-6px)}80%{transform:translateX(4px)}}
+@keyframes up{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+.sheet{animation:sheet .55s cubic-bezier(.2,.9,.25,1) both}
+.fade{animation:fade .4s ease both}
+.shake{animation:shake .5s ease .55s both}
+.u{animation:up .45s cubic-bezier(.2,.8,.2,1) both}.d1{animation-delay:.6s}.d2{animation-delay:.7s}.d3{animation-delay:.8s}
+.pr{transition:transform .2s cubic-bezier(.3,.7,.4,1.4)}.pr:active{transform:scale(.96)}
+@keyframes zf{0%,100%{transform:translateY(0) rotate(0)}50%{transform:translateY(-8px) rotate(-3deg)}}.zf{animation:zf 3.6s ease-in-out infinite}
+@keyframes zw{0%,100%{transform:rotate(0)}20%{transform:rotate(-8deg)}40%{transform:rotate(6deg)}60%{transform:rotate(-4deg)}}.zw{transform-origin:50% 90%;animation:zw 2.4s ease-in-out .6s infinite}
+@media (prefers-reduced-motion: reduce){*{animation:none!important;transition:none!important}}
+</style>
+</helmet>
+<div style="width: 390px; height: 844px; box-sizing: border-box; background: #8E8A82; font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Helvetica Neue', system-ui, sans-serif; color: #1C1C1E; position: relative; overflow: hidden">
+  <div class="fade" style="position: absolute; inset: 0; background: rgba(0,0,0,0.35)"></div>
+  <div class="sheet" style="position: absolute; left: 8px; right: 8px; bottom: 8px; background: #FFFFFF; border-radius: 38px; padding: 26px 18px 24px; display: flex; flex-direction: column; gap: 14px; align-items: stretch">
+    <span class="shake" style="align-self: center; position: relative; display: block"><img src="assets/mascot/zee-ups.png" alt="" style="width: 110px; height: 119px; display: block; "><span style="position: absolute; right: -8px; bottom: 12px; width: 38px; height: 38px; border-radius: 19px; background: #FFE5E3; color: #D70015; display: flex; align-items: center; justify-content: center; border: 3px solid #FFFFFF"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" aria-hidden="true"><rect x="3" y="6" width="18" height="13" rx="3"></rect><path d="M3 10h18"></path></svg></span></span>
+    <div class="u d1" style="text-align: center; display: flex; flex-direction: column; gap: 6px">
+      <span style="font-size: 22px; font-weight: 600; letter-spacing: -0.5px">Banca a refuzat plata</span>
+      <span style="font-size: 15px; line-height: 1.45; color: #6E6E73">Nu s-a blocat nimic pe card. De obicei e o limită de plată online sau fonduri insuficiente.</span>
+    </div>
+    <div class="u d2" style="background: #FFF4E5; border-radius: 18px; padding: 12px 14px; display: flex; align-items: center; gap: 10px; font-size: 14px">
+      <img src="assets/people/person-jobzer-3.webp" alt="" style="width: 32px; height: 32px; border-radius: 50%; object-fit: cover; display: block; flex-shrink: 0">
+      <span style="flex-grow: 1">Oferta lui Mihai rămâne rezervată</span>
+      <span style="font-weight: 600; color: #B35600; font-variant-numeric: tabular-nums">{{left}}</span>
+    </div>
+    <div class="u d3" style="display: flex; flex-direction: column; gap: 8px">
+      <a href="Plata.dc.html" class="pr" style="display: flex; align-items: center; justify-content: center; height: 54px; border-radius: 27px; background: #1C1C1E; color: #FFFFFF; font-size: 17px; font-weight: 500; text-decoration: none">Plătește cu Apple Pay</a>
+      <a href="Plata.dc.html" class="pr" style="display: flex; align-items: center; justify-content: center; height: 54px; border-radius: 27px; background: #FF9F0A; color: #1C1C1E; font-size: 17px; font-weight: 500; text-decoration: none">Folosește alt card</a>
+      <a href="Plata.dc.html" style="align-self: center; font-size: 15px; text-decoration: none; padding: 6px">Reîncearcă același card</a>
+    </div>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+  constructor(props) { super(props); this.state = { s: 299 }; }
+  componentDidMount() { this.i = setInterval(() => this.setState({ s: this.state.s > 0 ? this.state.s - 1 : 299 }), 1000); }
+  componentWillUnmount() { clearInterval(this.i); }
+  renderVals() { const m = Math.floor(this.state.s / 60), s = this.state.s % 60; return { left: m + ':' + (s < 10 ? '0' + s : s) }; }
+}
+</script>
+</body>
+</html>

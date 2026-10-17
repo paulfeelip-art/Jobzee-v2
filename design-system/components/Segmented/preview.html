@@ -1,0 +1,21 @@
+<!-- @dsCard group="Controale" height=150 subtitle="Sortarea ofertelor" -->
+<div class="jz" style="background: var(--bg); padding: 20px; display: flex; flex-direction: column; gap: 12px; max-width: 390px">
+  <div class="jz-seg" id="seg">
+    <button type="button" class="jz-seg__item" aria-pressed="true">Recomandat</button>
+    <button type="button" class="jz-seg__item" aria-pressed="false">Preț</button>
+    <button type="button" class="jz-seg__item" aria-pressed="false">Distanță</button>
+    <button type="button" class="jz-seg__item" aria-pressed="false">Notă</button>
+  </div>
+  <div class="jz-seg">
+    <button type="button" class="jz-seg__item" aria-pressed="false">Acum</button>
+    <button type="button" class="jz-seg__item" aria-pressed="true">Programează</button>
+  </div>
+</div>
+<script>
+document.querySelectorAll('.jz-seg').forEach(function (s) {
+  s.addEventListener('click', function (e) {
+    var b = e.target.closest('.jz-seg__item'); if (!b) return;
+    s.querySelectorAll('.jz-seg__item').forEach(function (x) { x.setAttribute('aria-pressed', x === b ? 'true' : 'false'); });
+  });
+});
+</script>

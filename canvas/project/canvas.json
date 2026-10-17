@@ -1,0 +1,1970 @@
+{
+  "v": 3,
+  "attachments": {},
+  "boards": {
+    "Acasa.dc.html": {
+      "h": 844,
+      "is_interactive": true,
+      "radius": 36,
+      "title": "07 Acasă client + recomandare „câștigă”",
+      "w": 390,
+      "x": 0,
+      "y": 1524
+    },
+    "AcasaDark.dc.html": {
+      "h": 806,
+      "is_interactive": true,
+      "radius": 36,
+      "title": "07 Acasă client + recomandare „câștigă” · întunecat",
+      "w": 418,
+      "x": 5200,
+      "y": 1442
+    },
+    "Activitate.dc.html": {
+      "h": 844,
+      "is_interactive": true,
+      "radius": 36,
+      "title": "22 Activitate",
+      "w": 390,
+      "x": 0,
+      "y": 8316
+    },
+    "ActivitateDark.dc.html": {
+      "h": 806,
+      "is_interactive": true,
+      "radius": 36,
+      "title": "22 Activitate · întunecat",
+      "w": 418,
+      "x": 5200,
+      "y": 7922
+    },
+    "Adresa.dc.html": {
+      "h": 844,
+      "is_interactive": true,
+      "radius": 36,
+      "title": "27 Adresa exactă",
+      "w": 390,
+      "x": 470,
+      "y": 9540
+    },
+    "AdresaDark.dc.html": {
+      "h": 806,
+      "is_interactive": true,
+      "radius": 36,
+      "title": "27 Adresa exactă · întunecat",
+      "w": 418,
+      "x": 5704,
+      "y": 9089
+    },
+    "Anulare.dc.html": {
+      "h": 844,
+      "is_interactive": true,
+      "radius": 36,
+      "title": "32 Anulare",
+      "w": 390,
+      "x": 2820,
+      "y": 9540
+    },
+    "AnulareDark.dc.html": {
+      "h": 806,
+      "is_interactive": true,
+      "radius": 36,
+      "title": "32 Anulare · întunecat",
+      "w": 418,
+      "x": 8224,
+      "y": 9089
+    },
+    "Castig.dc.html": {
+      "h": 844,
+      "is_interactive": true,
+      "radius": 36,
+      "title": "14 Acasă Jobzer: cereri (listă, hartă, ofertă rapidă)",
+      "w": 390,
+      "x": 0,
+      "y": 5532
+    },
+    "CastigDark.dc.html": {
+      "h": 806,
+      "is_interactive": true,
+      "radius": 36,
+      "title": "14 Acasă Jobzer: cereri (listă, hartă, ofertă rapidă) · întunecat",
+      "w": 418,
+      "x": 5200,
+      "y": 5266
+    },
+    "CerereMultipla.dc.html": {
+      "h": 844,
+      "is_interactive": true,
+      "radius": 36,
+      "title": "70 O cerere, mai multe servicii",
+      "w": 390,
+      "x": 3290,
+      "y": 16300
+    },
+    "CerereMultiplaDark.dc.html": {
+      "h": 844,
+      "is_interactive": true,
+      "radius": 36,
+      "title": "70 O cerere, mai multe servicii · întunecat",
+      "w": 390,
+      "x": 8490,
+      "y": 16300
+    },
+    "Chat.dc.html": {
+      "h": 844,
+      "is_interactive": true,
+      "radius": 36,
+      "title": "24 Chat cu Jobzerul",
+      "w": 390,
+      "x": 940,
+      "y": 8316
+    },
+    "ChatDark.dc.html": {
+      "h": 806,
+      "is_interactive": true,
+      "radius": 36,
+      "title": "24 Chat cu Jobzerul · întunecat",
+      "w": 418,
+      "x": 6208,
+      "y": 7922
+    },
+    "ChatJobzer.dc.html": {
+      "h": 844,
+      "is_interactive": true,
+      "radius": 36,
+      "title": "38 Chat cu clientul (Jobzer)",
+      "w": 390,
+      "x": 1880,
+      "y": 10764
+    },
+    "ChatJobzerDark.dc.html": {
+      "h": 806,
+      "is_interactive": true,
+      "radius": 36,
+      "title": "38 Chat cu clientul (Jobzer) · întunecat",
+      "w": 418,
+      "x": 7216,
+      "y": 10257
+    },
+    "Chitante.dc.html": {
+      "h": 844,
+      "is_interactive": true,
+      "radius": 36,
+      "title": "64 Chitanțe și facturi",
+      "w": 390,
+      "x": 470,
+      "y": 16300
+    },
+    "ChitanteDark.dc.html": {
+      "h": 844,
+      "is_interactive": true,
+      "radius": 36,
+      "title": "64 Chitanțe și facturi · întunecat",
+      "w": 390,
+      "x": 5670,
+      "y": 16300
+    },
+    "Cod.dc.html": {
+      "h": 844,
+      "is_interactive": true,
+      "radius": 36,
+      "title": "04 Cod SMS",
+      "w": 390,
+      "x": 1410,
+      "y": 300
+    },
+    "CodDark.dc.html": {
+      "h": 806,
+      "is_interactive": true,
+      "radius": 36,
+      "title": "04 Cod SMS · întunecat",
+      "w": 418,
+      "x": 6712,
+      "y": 274
+    },
+    "CodGresit.dc.html": {
+      "h": 844,
+      "is_interactive": true,
+      "radius": 36,
+      "title": "45 Cod greșit / expirat",
+      "w": 390,
+      "x": 1410,
+      "y": 12324
+    },
+    "CodGresitDark.dc.html": {
+      "h": 844,
+      "is_interactive": true,
+      "radius": 36,
+      "title": "45 Cod greșit / expirat · întunecat",
+      "w": 390,
+      "x": 6610,
+      "y": 12324
+    },
+    "Confirma.dc.html": {
+      "h": 844,
+      "is_interactive": true,
+      "radius": 36,
+      "title": "12 Confirmă și plătește",
+      "w": 390,
+      "x": 940,
+      "y": 4308
+    },
+    "ConfirmaDark.dc.html": {
+      "h": 806,
+      "is_interactive": true,
+      "radius": 36,
+      "title": "12 Confirmă și plătește · întunecat",
+      "w": 418,
+      "x": 6208,
+      "y": 4098
+    },
+    "Cont.dc.html": {
+      "h": 844,
+      "is_interactive": true,
+      "radius": 36,
+      "title": "Cont client: rol activ + recomandare",
+      "w": 390,
+      "x": 1410,
+      "y": 8316
+    },
+    "ContDark.dc.html": {
+      "h": 806,
+      "is_interactive": true,
+      "radius": 36,
+      "title": "Cont client: rol activ + recomandare · întunecat",
+      "w": 418,
+      "x": 6712,
+      "y": 7922
+    },
+    "ContJobzer.dc.html": {
+      "h": 844,
+      "is_interactive": true,
+      "radius": 36,
+      "title": "60 Profil Jobzer + rol + recomandare",
+      "w": 390,
+      "x": 470,
+      "y": 14772
+    },
+    "ContJobzerDark.dc.html": {
+      "h": 844,
+      "is_interactive": true,
+      "radius": 36,
+      "title": "60 Profil Jobzer + rol + recomandare · întunecat",
+      "w": 390,
+      "x": 5670,
+      "y": 14772
+    },
+    "ContTrimitere.dc.html": {
+      "h": 844,
+      "is_interactive": true,
+      "radius": 36,
+      "title": "06b Cont cerut la trimitere (vizitator)",
+      "w": 390,
+      "x": 1410,
+      "y": 1524
+    },
+    "ContTrimitereDark.dc.html": {
+      "h": 806,
+      "is_interactive": true,
+      "radius": 36,
+      "title": "06b Cont cerut la trimitere (vizitator) · întunecat",
+      "w": 418,
+      "x": 6712,
+      "y": 1442
+    },
+    "DevinoJobzer.dc.html": {
+      "h": 844,
+      "is_interactive": true,
+      "radius": 36,
+      "title": "19 Devino Jobzer: forma legală",
+      "w": 390,
+      "x": 0,
+      "y": 6756
+    },
+    "DevinoJobzerDark.dc.html": {
+      "h": 806,
+      "is_interactive": true,
+      "radius": 36,
+      "title": "19 Devino Jobzer: forma legală · întunecat",
+      "w": 418,
+      "x": 5200,
+      "y": 6433
+    },
+    "Dialog.dc.html": {
+      "h": 844,
+      "is_interactive": true,
+      "radius": 36,
+      "title": "05 Conversație cu Jobzee",
+      "w": 390,
+      "x": 470,
+      "y": 1524
+    },
+    "DialogDark.dc.html": {
+      "h": 806,
+      "is_interactive": true,
+      "radius": 36,
+      "title": "05 Conversație cu Jobzee · întunecat",
+      "w": 418,
+      "x": 5704,
+      "y": 1442
+    },
+    "Disponibilitate.dc.html": {
+      "h": 980,
+      "is_interactive": true,
+      "radius": 36,
+      "title": "68 Program și zonă (Jobzer)",
+      "w": 390,
+      "x": 2350,
+      "y": 16300
+    },
+    "DisponibilitateDark.dc.html": {
+      "h": 980,
+      "is_interactive": true,
+      "radius": 36,
+      "title": "68 Program și zonă (Jobzer) · întunecat",
+      "w": 390,
+      "x": 7550,
+      "y": 16300
+    },
+    "Email.dc.html": {
+      "h": 844,
+      "is_interactive": true,
+      "radius": 36,
+      "title": "05 Creează cont cu e-mail",
+      "w": 390,
+      "x": 1880,
+      "y": 300
+    },
+    "EmailDark.dc.html": {
+      "h": 806,
+      "is_interactive": true,
+      "radius": 36,
+      "title": "05 Creează cont cu e-mail · întunecat",
+      "w": 418,
+      "x": 7216,
+      "y": 274
+    },
+    "Extra.dc.html": {
+      "h": 844,
+      "is_interactive": true,
+      "radius": 36,
+      "title": "31 Muncă în plus: aprobare",
+      "w": 390,
+      "x": 2350,
+      "y": 9540
+    },
+    "ExtraDark.dc.html": {
+      "h": 806,
+      "is_interactive": true,
+      "radius": 36,
+      "title": "31 Muncă în plus: aprobare · întunecat",
+      "w": 418,
+      "x": 7720,
+      "y": 9089
+    },
+    "Facturi.dc.html": {
+      "h": 844,
+      "is_interactive": true,
+      "radius": 36,
+      "title": "69 Facturi și plăți (PFA/SRL, e-Factura)",
+      "w": 390,
+      "x": 2820,
+      "y": 16300
+    },
+    "FacturiDark.dc.html": {
+      "h": 844,
+      "is_interactive": true,
+      "radius": 36,
+      "title": "69 Facturi și plăți (PFA/SRL, e-Factura) · întunecat",
+      "w": 390,
+      "x": 8020,
+      "y": 16300
+    },
+    "FaraInternet.dc.html": {
+      "h": 844,
+      "is_interactive": true,
+      "radius": 36,
+      "title": "43 Fără internet",
+      "w": 390,
+      "x": 470,
+      "y": 12324
+    },
+    "FaraInternetDark.dc.html": {
+      "h": 844,
+      "is_interactive": true,
+      "radius": 36,
+      "title": "43 Fără internet · întunecat",
+      "w": 390,
+      "x": 5670,
+      "y": 12324
+    },
+    "FaraOferte.dc.html": {
+      "h": 844,
+      "is_interactive": true,
+      "radius": 36,
+      "title": "29 Încă nicio ofertă",
+      "w": 390,
+      "x": 1410,
+      "y": 9540
+    },
+    "FaraOferteDark.dc.html": {
+      "h": 806,
+      "is_interactive": true,
+      "radius": 36,
+      "title": "29 Încă nicio ofertă · întunecat",
+      "w": 418,
+      "x": 6712,
+      "y": 9089
+    },
+    "Fisa.dc.html": {
+      "h": 844,
+      "is_interactive": true,
+      "radius": 36,
+      "title": "06 Fișa cererii: când, unde, estimare",
+      "w": 390,
+      "x": 940,
+      "y": 1524
+    },
+    "FisaDark.dc.html": {
+      "h": 806,
+      "is_interactive": true,
+      "radius": 36,
+      "title": "06 Fișa cererii: când, unde, estimare · întunecat",
+      "w": 418,
+      "x": 6208,
+      "y": 1442
+    },
+    "GPSOprit.dc.html": {
+      "h": 844,
+      "is_interactive": true,
+      "radius": 36,
+      "title": "46 Locație oprită",
+      "w": 390,
+      "x": 1880,
+      "y": 12324
+    },
+    "GPSOpritDark.dc.html": {
+      "h": 844,
+      "is_interactive": true,
+      "radius": 36,
+      "title": "46 Locație oprită · întunecat",
+      "w": 390,
+      "x": 7080,
+      "y": 12324
+    },
+    "GearBuilder.dc.html": {
+      "h": 844,
+      "is_interactive": true,
+      "radius": 36,
+      "title": "76 Smart Kit Builder",
+      "w": 390,
+      "x": 1410,
+      "y": 17500
+    },
+    "GearBuilderDark.dc.html": {
+      "h": 844,
+      "is_interactive": true,
+      "radius": 36,
+      "title": "76 Smart Kit Builder · întunecat",
+      "w": 390,
+      "x": 6610,
+      "y": 17500
+    },
+    "GearCarte.dc.html": {
+      "h": 1000,
+      "is_interactive": true,
+      "radius": 36,
+      "title": "81 Carte de vizită",
+      "w": 390,
+      "x": 3760,
+      "y": 17500
+    },
+    "GearCarteDark.dc.html": {
+      "h": 1000,
+      "is_interactive": true,
+      "radius": 36,
+      "title": "81 Carte de vizită · întunecat",
+      "w": 390,
+      "x": 8960,
+      "y": 17500
+    },
+    "GearCheckout.dc.html": {
+      "h": 844,
+      "is_interactive": true,
+      "radius": 36,
+      "title": "85 Checkout",
+      "w": 390,
+      "x": 1410,
+      "y": 19000
+    },
+    "GearCheckoutDark.dc.html": {
+      "h": 844,
+      "is_interactive": true,
+      "radius": 36,
+      "title": "85 Checkout · întunecat",
+      "w": 390,
+      "x": 6610,
+      "y": 19000
+    },
+    "GearConfirmare.dc.html": {
+      "h": 844,
+      "is_interactive": true,
+      "radius": 36,
+      "title": "86 Comandă plasată",
+      "w": 390,
+      "x": 1880,
+      "y": 19000
+    },
+    "GearConfirmareDark.dc.html": {
+      "h": 844,
+      "is_interactive": true,
+      "radius": 36,
+      "title": "86 Comandă plasată · întunecat",
+      "w": 390,
+      "x": 7080,
+      "y": 19000
+    },
+    "GearCos.dc.html": {
+      "h": 844,
+      "is_interactive": true,
+      "radius": 36,
+      "title": "84 Coș",
+      "w": 390,
+      "x": 940,
+      "y": 19000
+    },
+    "GearCosDark.dc.html": {
+      "h": 844,
+      "is_interactive": true,
+      "radius": 36,
+      "title": "84 Coș · întunecat",
+      "w": 390,
+      "x": 6140,
+      "y": 19000
+    },
+    "GearDesignuri.dc.html": {
+      "h": 844,
+      "is_interactive": true,
+      "radius": 36,
+      "title": "89 Designurile mele",
+      "w": 390,
+      "x": 3290,
+      "y": 19000
+    },
+    "GearDesignuriDark.dc.html": {
+      "h": 844,
+      "is_interactive": true,
+      "radius": 36,
+      "title": "89 Designurile mele · întunecat",
+      "w": 390,
+      "x": 8490,
+      "y": 19000
+    },
+    "GearEchipament.dc.html": {
+      "h": 960,
+      "is_interactive": true,
+      "radius": 36,
+      "title": "88 Echipamentul meu",
+      "w": 390,
+      "x": 2820,
+      "y": 19000
+    },
+    "GearEchipamentDark.dc.html": {
+      "h": 960,
+      "is_interactive": true,
+      "radius": 36,
+      "title": "88 Echipamentul meu · întunecat",
+      "w": 390,
+      "x": 8020,
+      "y": 19000
+    },
+    "GearFlyer.dc.html": {
+      "h": 980,
+      "is_interactive": true,
+      "radius": 36,
+      "title": "82 Flyer",
+      "w": 390,
+      "x": 0,
+      "y": 19000
+    },
+    "GearFlyerDark.dc.html": {
+      "h": 980,
+      "is_interactive": true,
+      "radius": 36,
+      "title": "82 Flyer · întunecat",
+      "w": 390,
+      "x": 5200,
+      "y": 19000
+    },
+    "GearGrowth.dc.html": {
+      "h": 980,
+      "is_interactive": true,
+      "radius": 36,
+      "title": "90 Growth Insights",
+      "w": 390,
+      "x": 3760,
+      "y": 19000
+    },
+    "GearGrowthDark.dc.html": {
+      "h": 980,
+      "is_interactive": true,
+      "radius": 36,
+      "title": "90 Growth Insights · întunecat",
+      "w": 390,
+      "x": 8960,
+      "y": 19000
+    },
+    "GearHub.dc.html": {
+      "h": 1000,
+      "is_interactive": true,
+      "radius": 36,
+      "title": "73 Gear & Growth",
+      "w": 390,
+      "x": 0,
+      "y": 17500
+    },
+    "GearHubDark.dc.html": {
+      "h": 1000,
+      "is_interactive": true,
+      "radius": 36,
+      "title": "73 Gear & Growth · întunecat",
+      "w": 390,
+      "x": 5200,
+      "y": 17500
+    },
+    "GearIdentity.dc.html": {
+      "h": 1000,
+      "is_interactive": true,
+      "radius": 36,
+      "title": "79 Jobzee Identity",
+      "w": 390,
+      "x": 2820,
+      "y": 17500
+    },
+    "GearIdentityDark.dc.html": {
+      "h": 1000,
+      "is_interactive": true,
+      "radius": 36,
+      "title": "79 Jobzee Identity · întunecat",
+      "w": 390,
+      "x": 8020,
+      "y": 17500
+    },
+    "GearKit.dc.html": {
+      "h": 1060,
+      "is_interactive": true,
+      "radius": 36,
+      "title": "75 Detaliu kit",
+      "w": 390,
+      "x": 940,
+      "y": 17500
+    },
+    "GearKitDark.dc.html": {
+      "h": 1060,
+      "is_interactive": true,
+      "radius": 36,
+      "title": "75 Detaliu kit · întunecat",
+      "w": 390,
+      "x": 6140,
+      "y": 17500
+    },
+    "GearKituri.dc.html": {
+      "h": 1080,
+      "is_interactive": true,
+      "radius": 36,
+      "title": "74 Kituri Jobzee",
+      "w": 390,
+      "x": 470,
+      "y": 17500
+    },
+    "GearKituriDark.dc.html": {
+      "h": 1080,
+      "is_interactive": true,
+      "radius": 36,
+      "title": "74 Kituri Jobzee · întunecat",
+      "w": 390,
+      "x": 5670,
+      "y": 17500
+    },
+    "GearProdus.dc.html": {
+      "h": 980,
+      "is_interactive": true,
+      "radius": 36,
+      "title": "78 Detaliu produs",
+      "w": 390,
+      "x": 2350,
+      "y": 17500
+    },
+    "GearProdusDark.dc.html": {
+      "h": 980,
+      "is_interactive": true,
+      "radius": 36,
+      "title": "78 Detaliu produs · întunecat",
+      "w": 390,
+      "x": 7550,
+      "y": 17500
+    },
+    "GearQR.dc.html": {
+      "h": 980,
+      "is_interactive": true,
+      "radius": 36,
+      "title": "83 Profil QR public",
+      "w": 390,
+      "x": 470,
+      "y": 19000
+    },
+    "GearQRDark.dc.html": {
+      "h": 980,
+      "is_interactive": true,
+      "radius": 36,
+      "title": "83 Profil QR public · întunecat",
+      "w": 390,
+      "x": 5670,
+      "y": 19000
+    },
+    "GearShop.dc.html": {
+      "h": 1000,
+      "is_interactive": true,
+      "radius": 36,
+      "title": "77 Gear Shop",
+      "w": 390,
+      "x": 1880,
+      "y": 17500
+    },
+    "GearShopDark.dc.html": {
+      "h": 1000,
+      "is_interactive": true,
+      "radius": 36,
+      "title": "77 Gear Shop · întunecat",
+      "w": 390,
+      "x": 7080,
+      "y": 17500
+    },
+    "GearUrmarire.dc.html": {
+      "h": 844,
+      "is_interactive": true,
+      "radius": 36,
+      "title": "87 Urmărire comandă",
+      "w": 390,
+      "x": 2350,
+      "y": 19000
+    },
+    "GearUrmarireDark.dc.html": {
+      "h": 844,
+      "is_interactive": true,
+      "radius": 36,
+      "title": "87 Urmărire comandă · întunecat",
+      "w": 390,
+      "x": 7550,
+      "y": 19000
+    },
+    "GolActivitate.dc.html": {
+      "h": 844,
+      "is_interactive": true,
+      "radius": 36,
+      "title": "47 Gol: prima cerere",
+      "w": 390,
+      "x": 2350,
+      "y": 12324
+    },
+    "GolActivitateDark.dc.html": {
+      "h": 844,
+      "is_interactive": true,
+      "radius": 36,
+      "title": "47 Gol: prima cerere · întunecat",
+      "w": 390,
+      "x": 7550,
+      "y": 12324
+    },
+    "GolIncasari.dc.html": {
+      "h": 844,
+      "is_interactive": true,
+      "radius": 36,
+      "title": "49 Gol: Jobzer nou, fără încasări",
+      "w": 390,
+      "x": 3290,
+      "y": 12324
+    },
+    "GolIncasariDark.dc.html": {
+      "h": 844,
+      "is_interactive": true,
+      "radius": 36,
+      "title": "49 Gol: Jobzer nou, fără încasări · întunecat",
+      "w": 390,
+      "x": 8490,
+      "y": 12324
+    },
+    "GolMesaje.dc.html": {
+      "h": 844,
+      "is_interactive": true,
+      "radius": 36,
+      "title": "48 Gol: niciun mesaj",
+      "w": 390,
+      "x": 2820,
+      "y": 12324
+    },
+    "GolMesajeDark.dc.html": {
+      "h": 844,
+      "is_interactive": true,
+      "radius": 36,
+      "title": "48 Gol: niciun mesaj · întunecat",
+      "w": 390,
+      "x": 8020,
+      "y": 12324
+    },
+    "Identitate.dc.html": {
+      "h": 844,
+      "is_interactive": true,
+      "radius": 36,
+      "title": "35 Onboarding 3/4: identitate + cazier",
+      "w": 390,
+      "x": 470,
+      "y": 10764
+    },
+    "IdentitateDark.dc.html": {
+      "h": 806,
+      "is_interactive": true,
+      "radius": 36,
+      "title": "35 Onboarding 3/4: identitate + cazier · întunecat",
+      "w": 418,
+      "x": 5704,
+      "y": 10257
+    },
+    "InLucru.dc.html": {
+      "h": 844,
+      "is_interactive": true,
+      "radius": 36,
+      "title": "11 În lucru",
+      "w": 390,
+      "x": 470,
+      "y": 4308
+    },
+    "InLucruDark.dc.html": {
+      "h": 806,
+      "is_interactive": true,
+      "radius": 36,
+      "title": "11 În lucru · întunecat",
+      "w": 418,
+      "x": 5704,
+      "y": 4098
+    },
+    "Incarcare.dc.html": {
+      "h": 844,
+      "is_interactive": true,
+      "radius": 36,
+      "title": "42 Încărcare (schelet)",
+      "w": 390,
+      "x": 0,
+      "y": 12324
+    },
+    "IncarcareDark.dc.html": {
+      "h": 844,
+      "is_interactive": true,
+      "radius": 36,
+      "title": "42 Încărcare (schelet) · întunecat",
+      "w": 390,
+      "x": 5200,
+      "y": 12324
+    },
+    "Incasari.dc.html": {
+      "h": 844,
+      "is_interactive": true,
+      "radius": 36,
+      "title": "18 Încasări + analiză și strategie",
+      "w": 390,
+      "x": 1880,
+      "y": 5532
+    },
+    "IncasariDark.dc.html": {
+      "h": 806,
+      "is_interactive": true,
+      "radius": 36,
+      "title": "18 Încasări + analiză și strategie · întunecat",
+      "w": 418,
+      "x": 7216,
+      "y": 5266
+    },
+    "JobActiv.dc.html": {
+      "h": 844,
+      "is_interactive": true,
+      "radius": 36,
+      "title": "16 Spre client + cod",
+      "w": 390,
+      "x": 940,
+      "y": 5532
+    },
+    "JobActivDark.dc.html": {
+      "h": 806,
+      "is_interactive": true,
+      "radius": 36,
+      "title": "16 Spre client + cod · întunecat",
+      "w": 418,
+      "x": 6208,
+      "y": 5266
+    },
+    "JobGata.dc.html": {
+      "h": 844,
+      "is_interactive": true,
+      "radius": 36,
+      "title": "17 Lucrez / Am terminat",
+      "w": 390,
+      "x": 1410,
+      "y": 5532
+    },
+    "JobGataDark.dc.html": {
+      "h": 806,
+      "is_interactive": true,
+      "radius": 36,
+      "title": "17 Lucrez / Am terminat · întunecat",
+      "w": 418,
+      "x": 6712,
+      "y": 5266
+    },
+    "Main.dc.html": {
+      "h": 844,
+      "is_interactive": true,
+      "radius": 36,
+      "title": "02 Autentificare (sau „Mă uit întâi, fără cont”)",
+      "w": 390,
+      "x": 470,
+      "y": 300
+    },
+    "MainDark.dc.html": {
+      "h": 806,
+      "is_interactive": true,
+      "radius": 36,
+      "title": "02 Autentificare (sau „Mă uit întâi, fără cont”) · întunecat",
+      "w": 418,
+      "x": 5704,
+      "y": 274
+    },
+    "Mascota.dc.html": {
+      "h": 1000,
+      "is_interactive": true,
+      "radius": 36,
+      "title": "62 Mascota oficială: poze și stări",
+      "w": 390,
+      "x": 1410,
+      "y": 14772
+    },
+    "MascotaDark.dc.html": {
+      "h": 1000,
+      "is_interactive": true,
+      "radius": 36,
+      "title": "62 Mascota oficială: poze și stări · întunecat",
+      "w": 390,
+      "x": 6610,
+      "y": 14772
+    },
+    "Mesaje.dc.html": {
+      "h": 844,
+      "is_interactive": true,
+      "radius": 36,
+      "title": "23 Mesaje · active și istoric",
+      "w": 390,
+      "x": 470,
+      "y": 8316
+    },
+    "MesajeDark.dc.html": {
+      "h": 806,
+      "is_interactive": true,
+      "radius": 36,
+      "title": "23 Mesaje · active și istoric · întunecat",
+      "w": 418,
+      "x": 5704,
+      "y": 7922
+    },
+    "Niveluri.dc.html": {
+      "h": 1180,
+      "is_interactive": true,
+      "radius": 36,
+      "title": "41 Niveluri Start → Black",
+      "w": 390,
+      "x": 3290,
+      "y": 10764
+    },
+    "NiveluriDark.dc.html": {
+      "h": 1126,
+      "is_interactive": true,
+      "radius": 36,
+      "title": "41 Niveluri Start → Black · întunecat",
+      "w": 418,
+      "x": 8728,
+      "y": 10257
+    },
+    "Notificari.dc.html": {
+      "h": 844,
+      "is_interactive": true,
+      "radius": 36,
+      "title": "63 Notificări (client)",
+      "w": 390,
+      "x": 0,
+      "y": 16300
+    },
+    "NotificariDark.dc.html": {
+      "h": 844,
+      "is_interactive": true,
+      "radius": 36,
+      "title": "63 Notificări (client) · întunecat",
+      "w": 390,
+      "x": 5200,
+      "y": 16300
+    },
+    "Oferta.dc.html": {
+      "h": 844,
+      "is_interactive": true,
+      "radius": 36,
+      "title": "15 Cerere nouă → trimite oferta",
+      "w": 390,
+      "x": 470,
+      "y": 5532
+    },
+    "OfertaDark.dc.html": {
+      "h": 806,
+      "is_interactive": true,
+      "radius": 36,
+      "title": "15 Cerere nouă → trimite oferta · întunecat",
+      "w": 418,
+      "x": 5704,
+      "y": 5266
+    },
+    "OfertaPierduta.dc.html": {
+      "h": 844,
+      "is_interactive": true,
+      "radius": 36,
+      "title": "39 Oferta nu a fost aleasă",
+      "w": 390,
+      "x": 2350,
+      "y": 10764
+    },
+    "OfertaPierdutaDark.dc.html": {
+      "h": 806,
+      "is_interactive": true,
+      "radius": 36,
+      "title": "39 Oferta nu a fost aleasă · întunecat",
+      "w": 418,
+      "x": 7720,
+      "y": 10257
+    },
+    "OfertaRapida.dc.html": {
+      "h": 844,
+      "is_interactive": true,
+      "radius": 36,
+      "title": "67 Ofertă în 2 atingeri (din notificare)",
+      "w": 390,
+      "x": 1880,
+      "y": 16300
+    },
+    "Oferte.dc.html": {
+      "h": 844,
+      "is_interactive": true,
+      "radius": 36,
+      "title": "07 Oferte primite",
+      "w": 390,
+      "x": 0,
+      "y": 2748
+    },
+    "OferteDark.dc.html": {
+      "h": 806,
+      "is_interactive": true,
+      "radius": 36,
+      "title": "07 Oferte primite · întunecat",
+      "w": 418,
+      "x": 5200,
+      "y": 2610
+    },
+    "PeDrum.dc.html": {
+      "h": 844,
+      "is_interactive": true,
+      "radius": 36,
+      "title": "10 Pe drum + cod de start",
+      "w": 390,
+      "x": 0,
+      "y": 4308
+    },
+    "PeDrumDark.dc.html": {
+      "h": 806,
+      "is_interactive": true,
+      "radius": 36,
+      "title": "10 Pe drum + cod de start · întunecat",
+      "w": 418,
+      "x": 5200,
+      "y": 4098
+    },
+    "PeOra.dc.html": {
+      "h": 844,
+      "is_interactive": true,
+      "radius": 36,
+      "title": "30 Lucrare pe oră (contor + plafon)",
+      "w": 390,
+      "x": 1880,
+      "y": 9540
+    },
+    "PeOraDark.dc.html": {
+      "h": 806,
+      "is_interactive": true,
+      "radius": 36,
+      "title": "30 Lucrare pe oră (contor + plafon) · întunecat",
+      "w": 418,
+      "x": 7216,
+      "y": 9089
+    },
+    "Permisiuni.dc.html": {
+      "h": 844,
+      "is_interactive": true,
+      "radius": 36,
+      "title": "26 Permisiuni (din Setări; în flux se cer pe rând)",
+      "w": 390,
+      "x": 0,
+      "y": 9540
+    },
+    "PermisiuniDark.dc.html": {
+      "h": 806,
+      "is_interactive": true,
+      "radius": 36,
+      "title": "26 Permisiuni (din Setări; în flux se cer pe rând) · întunecat",
+      "w": 418,
+      "x": 5200,
+      "y": 9089
+    },
+    "Plata.dc.html": {
+      "h": 844,
+      "is_interactive": true,
+      "radius": 36,
+      "title": "09 Confirmă și blochează plata",
+      "w": 390,
+      "x": 940,
+      "y": 2748
+    },
+    "PlataDark.dc.html": {
+      "h": 806,
+      "is_interactive": true,
+      "radius": 36,
+      "title": "09 Confirmă și blochează plata · întunecat",
+      "w": 418,
+      "x": 6208,
+      "y": 2610
+    },
+    "PlataRefuzata.dc.html": {
+      "h": 844,
+      "is_interactive": true,
+      "radius": 36,
+      "title": "44 Plată refuzată",
+      "w": 390,
+      "x": 940,
+      "y": 12324
+    },
+    "PlataRefuzataDark.dc.html": {
+      "h": 844,
+      "is_interactive": true,
+      "radius": 36,
+      "title": "44 Plată refuzată · întunecat",
+      "w": 390,
+      "x": 6140,
+      "y": 12324
+    },
+    "PlatiFiscal.dc.html": {
+      "h": 844,
+      "is_interactive": true,
+      "radius": 36,
+      "title": "36 Onboarding 4/4: IBAN + termeni",
+      "w": 390,
+      "x": 940,
+      "y": 10764
+    },
+    "PlatiFiscalDark.dc.html": {
+      "h": 806,
+      "is_interactive": true,
+      "radius": 36,
+      "title": "36 Onboarding 4/4: IBAN + termeni · întunecat",
+      "w": 418,
+      "x": 6208,
+      "y": 10257
+    },
+    "PrintStudio.dc.html": {
+      "h": 1000,
+      "is_interactive": true,
+      "radius": 36,
+      "title": "80 Print Studio",
+      "w": 390,
+      "x": 3290,
+      "y": 17500
+    },
+    "PrintStudioDark.dc.html": {
+      "h": 1000,
+      "is_interactive": true,
+      "radius": 36,
+      "title": "80 Print Studio · întunecat",
+      "w": 390,
+      "x": 8490,
+      "y": 17500
+    },
+    "Problema.dc.html": {
+      "h": 844,
+      "is_interactive": true,
+      "radius": 36,
+      "title": "33 Problemă / dispută",
+      "w": 390,
+      "x": 3290,
+      "y": 9540
+    },
+    "ProblemaDark.dc.html": {
+      "h": 806,
+      "is_interactive": true,
+      "radius": 36,
+      "title": "33 Problemă / dispută · întunecat",
+      "w": 418,
+      "x": 8728,
+      "y": 9089
+    },
+    "Profil.dc.html": {
+      "h": 1180,
+      "is_interactive": true,
+      "radius": 36,
+      "title": "08 Profil Jobzer (public)",
+      "w": 390,
+      "x": 470,
+      "y": 2748
+    },
+    "ProfilDark.dc.html": {
+      "h": 1126,
+      "is_interactive": true,
+      "radius": 36,
+      "title": "08 Profil Jobzer (public) · întunecat",
+      "w": 418,
+      "x": 5704,
+      "y": 2610
+    },
+    "ProfilEdit.dc.html": {
+      "h": 844,
+      "is_interactive": true,
+      "radius": 36,
+      "title": "20 Profilul meu: competențe, portofoliu, acte",
+      "w": 390,
+      "x": 470,
+      "y": 6756
+    },
+    "ProfilEditDark.dc.html": {
+      "h": 806,
+      "is_interactive": true,
+      "radius": 36,
+      "title": "20 Profilul meu: competențe, portofoliu, acte · întunecat",
+      "w": 418,
+      "x": 5704,
+      "y": 6433
+    },
+    "Programare.dc.html": {
+      "h": 844,
+      "is_interactive": true,
+      "radius": 36,
+      "title": "28 Programare",
+      "w": 390,
+      "x": 940,
+      "y": 9540
+    },
+    "ProgramareDark.dc.html": {
+      "h": 806,
+      "is_interactive": true,
+      "radius": 36,
+      "title": "28 Programare · întunecat",
+      "w": 418,
+      "x": 6208,
+      "y": 9089
+    },
+    "Promovare.dc.html": {
+      "h": 844,
+      "is_interactive": true,
+      "radius": 36,
+      "title": "21 Promovare și vizibilitate",
+      "w": 390,
+      "x": 940,
+      "y": 6756
+    },
+    "PromovareDark.dc.html": {
+      "h": 806,
+      "is_interactive": true,
+      "radius": 36,
+      "title": "21 Promovare și vizibilitate · întunecat",
+      "w": 418,
+      "x": 6208,
+      "y": 6433
+    },
+    "Radar.dc.html": {
+      "h": 844,
+      "is_interactive": true,
+      "radius": 36,
+      "title": "06c Radar live: timp, skill, preț + alegere directă",
+      "w": 390,
+      "x": 1880,
+      "y": 1524
+    },
+    "RadarDark.dc.html": {
+      "h": 806,
+      "is_interactive": true,
+      "radius": 36,
+      "title": "06c Radar live: timp, skill, preț + alegere directă · întunecat",
+      "w": 418,
+      "x": 7216,
+      "y": 1442
+    },
+    "Recenzie.dc.html": {
+      "h": 844,
+      "is_interactive": true,
+      "radius": 36,
+      "title": "13 Recenzie",
+      "w": 390,
+      "x": 1410,
+      "y": 4308
+    },
+    "RecenzieClient.dc.html": {
+      "h": 844,
+      "is_interactive": true,
+      "radius": 36,
+      "title": "40 Jobzerul evaluează clientul",
+      "w": 390,
+      "x": 2820,
+      "y": 10764
+    },
+    "RecenzieClientDark.dc.html": {
+      "h": 806,
+      "is_interactive": true,
+      "radius": 36,
+      "title": "40 Jobzerul evaluează clientul · întunecat",
+      "w": 418,
+      "x": 8224,
+      "y": 10257
+    },
+    "RecenzieDark.dc.html": {
+      "h": 806,
+      "is_interactive": true,
+      "radius": 36,
+      "title": "13 Recenzie · întunecat",
+      "w": 418,
+      "x": 6712,
+      "y": 4098
+    },
+    "Recurente.dc.html": {
+      "h": 844,
+      "is_interactive": true,
+      "radius": 36,
+      "title": "65 Cerere recurentă",
+      "w": 390,
+      "x": 940,
+      "y": 16300
+    },
+    "RecurenteDark.dc.html": {
+      "h": 844,
+      "is_interactive": true,
+      "radius": 36,
+      "title": "65 Cerere recurentă · întunecat",
+      "w": 390,
+      "x": 6140,
+      "y": 16300
+    },
+    "Rol.dc.html": {
+      "h": 844,
+      "is_interactive": true,
+      "radius": 36,
+      "title": "06 Alege rolul: client sau Jobzer",
+      "w": 390,
+      "x": 2350,
+      "y": 300
+    },
+    "RolDark.dc.html": {
+      "h": 806,
+      "is_interactive": true,
+      "radius": 36,
+      "title": "06 Alege rolul: client sau Jobzer · întunecat",
+      "w": 418,
+      "x": 7720,
+      "y": 274
+    },
+    "SarciniJobzer.dc.html": {
+      "h": 844,
+      "is_interactive": true,
+      "radius": 36,
+      "title": "37 Sarcinile mele (Jobzer)",
+      "w": 390,
+      "x": 1410,
+      "y": 10764
+    },
+    "SarciniJobzerDark.dc.html": {
+      "h": 806,
+      "is_interactive": true,
+      "radius": 36,
+      "title": "37 Sarcinile mele (Jobzer) · întunecat",
+      "w": 418,
+      "x": 6712,
+      "y": 10257
+    },
+    "SchimbaRol.dc.html": {
+      "h": 844,
+      "is_interactive": true,
+      "radius": 36,
+      "title": "59 Schimbă rolul (din Cont)",
+      "w": 390,
+      "x": 0,
+      "y": 14772
+    },
+    "SchimbaRolDark.dc.html": {
+      "h": 844,
+      "is_interactive": true,
+      "radius": 36,
+      "title": "59 Schimbă rolul (din Cont) · întunecat",
+      "w": 390,
+      "x": 5200,
+      "y": 14772
+    },
+    "Servicii.dc.html": {
+      "h": 1240,
+      "is_interactive": true,
+      "radius": 36,
+      "title": "61 Toate serviciile (30 de familii)",
+      "w": 390,
+      "x": 940,
+      "y": 14772
+    },
+    "ServiciiDark.dc.html": {
+      "h": 1240,
+      "is_interactive": true,
+      "radius": 36,
+      "title": "61 Toate serviciile (30 de familii) · întunecat",
+      "w": 390,
+      "x": 6140,
+      "y": 14772
+    },
+    "Siguranta.dc.html": {
+      "h": 844,
+      "is_interactive": true,
+      "radius": 36,
+      "title": "72 Siguranță și SOS",
+      "w": 390,
+      "x": 4230,
+      "y": 16300
+    },
+    "SigurantaDark.dc.html": {
+      "h": 844,
+      "is_interactive": true,
+      "radius": 36,
+      "title": "72 Siguranță și SOS · întunecat",
+      "w": 390,
+      "x": 9430,
+      "y": 16300
+    },
+    "Skilluri.dc.html": {
+      "h": 844,
+      "is_interactive": true,
+      "radius": 36,
+      "title": "34 Onboarding Jobzer 2/4: competențe",
+      "w": 390,
+      "x": 0,
+      "y": 10764
+    },
+    "SkilluriDark.dc.html": {
+      "h": 806,
+      "is_interactive": true,
+      "radius": 36,
+      "title": "34 Onboarding Jobzer 2/4: competențe · întunecat",
+      "w": 418,
+      "x": 5200,
+      "y": 10257
+    },
+    "Splash.dc.html": {
+      "h": 844,
+      "is_interactive": true,
+      "radius": 36,
+      "title": "01 Splash animat → autentificare",
+      "w": 390,
+      "x": 0,
+      "y": 300
+    },
+    "SplashDark.dc.html": {
+      "h": 806,
+      "is_interactive": true,
+      "radius": 36,
+      "title": "01 Splash animat → autentificare · întunecat",
+      "w": 418,
+      "x": 5200,
+      "y": 274
+    },
+    "StartJobzer.dc.html": {
+      "h": 844,
+      "is_interactive": true,
+      "radius": 36,
+      "title": "66 Start Jobzer (onboarding scurt)",
+      "w": 390,
+      "x": 1410,
+      "y": 16300
+    },
+    "StartJobzerDark.dc.html": {
+      "h": 844,
+      "is_interactive": true,
+      "radius": 36,
+      "title": "66 Start Jobzer (onboarding scurt) · întunecat",
+      "w": 390,
+      "x": 6610,
+      "y": 16300
+    },
+    "Statistici.dc.html": {
+      "h": 920,
+      "is_interactive": true,
+      "radius": 36,
+      "title": "71 Statistici Jobzer",
+      "w": 390,
+      "x": 3760,
+      "y": 16300
+    },
+    "StatisticiDark.dc.html": {
+      "h": 920,
+      "is_interactive": true,
+      "radius": 36,
+      "title": "71 Statistici Jobzer · întunecat",
+      "w": 390,
+      "x": 8960,
+      "y": 16300
+    },
+    "Telefon.dc.html": {
+      "h": 844,
+      "is_interactive": true,
+      "radius": 36,
+      "title": "03 Număr de telefon",
+      "w": 390,
+      "x": 940,
+      "y": 300
+    },
+    "TelefonDark.dc.html": {
+      "h": 806,
+      "is_interactive": true,
+      "radius": 36,
+      "title": "03 Număr de telefon · întunecat",
+      "w": 418,
+      "x": 6208,
+      "y": 274
+    }
+  },
+  "createdOnFiles": {
+    "at": "2026-10-16T15:30:00Z",
+    "v": 1
+  },
+  "designSystems": [],
+  "launch": {
+    "view": "canvas"
+  },
+  "notes": {
+    "darkhead": {
+      "kind": "title1",
+      "maxW": 2000,
+      "text": "Mod întunecat — fiecare ecran, în oglindă",
+      "w": 240,
+      "x": 5200,
+      "y": -260
+    },
+    "lighthead": {
+      "kind": "title1",
+      "maxW": 2000,
+      "text": "Mod luminos",
+      "w": 240,
+      "x": 0,
+      "y": -260
+    },
+    "row1": {
+      "kind": "title1",
+      "maxW": 2740,
+      "text": "1 · Start: splash, cont, alegerea rolului",
+      "w": 240,
+      "x": 0,
+      "y": 40
+    },
+    "row10": {
+      "kind": "title1",
+      "maxW": 3680,
+      "text": "10 · Stări de sistem: încărcare, erori, ecrane goale",
+      "w": 240,
+      "x": 0,
+      "y": 12064
+    },
+    "row10d": {
+      "kind": "title1",
+      "maxW": 3680,
+      "text": "10 · Stări de sistem: încărcare, erori, ecrane goale · întunecat",
+      "w": 240,
+      "x": 5200,
+      "y": 11497
+    },
+    "row12": {
+      "kind": "title1",
+      "maxW": 1800,
+      "text": "12 · Roluri, toate serviciile, mascota",
+      "w": 240,
+      "x": 0,
+      "y": 14512
+    },
+    "row12d": {
+      "kind": "title1",
+      "maxW": 1800,
+      "text": "12 · Roluri, toate serviciile, mascota · întunecat",
+      "w": 240,
+      "x": 5200,
+      "y": 14512
+    },
+    "row13": {
+      "kind": "title1",
+      "maxW": 4620,
+      "text": "13 · Utile zi de zi: notificări, chitanțe, recurente, Jobzer pro, siguranță",
+      "w": 240,
+      "x": 0,
+      "y": 16040
+    },
+    "row13d": {
+      "kind": "title1",
+      "maxW": 4620,
+      "text": "13 · Utile zi de zi: notificări, chitanțe, recurente, Jobzer pro, siguranță · întunecat",
+      "w": 240,
+      "x": 5200,
+      "y": 16040
+    },
+    "row14": {
+      "kind": "title1",
+      "maxW": 4620,
+      "text": "14 · Gear & Growth: kituri, shop, identitate",
+      "w": 240,
+      "x": 0,
+      "y": 17240
+    },
+    "row14d": {
+      "kind": "title1",
+      "maxW": 4620,
+      "text": "14 · Gear & Growth: kituri, shop, identitate · întunecat",
+      "w": 240,
+      "x": 5200,
+      "y": 17240
+    },
+    "row15": {
+      "kind": "title1",
+      "maxW": 4620,
+      "text": "15 · Gear & Growth: print, comenzi, echipament, growth",
+      "w": 240,
+      "x": 0,
+      "y": 18740
+    },
+    "row15d": {
+      "kind": "title1",
+      "maxW": 4620,
+      "text": "15 · Gear & Growth: print, comenzi, echipament, growth · întunecat",
+      "w": 240,
+      "x": 5200,
+      "y": 18740
+    },
+    "row1d": {
+      "kind": "title1",
+      "maxW": 2740,
+      "text": "1 · Start: splash, cont, alegerea rolului · întunecat",
+      "w": 240,
+      "x": 5200,
+      "y": 26
+    },
+    "row2": {
+      "kind": "title1",
+      "maxW": 2270,
+      "text": "2 · Cererea: conversația cu Jobzee, fișa, radar live",
+      "w": 240,
+      "x": 0,
+      "y": 1264
+    },
+    "row2d": {
+      "kind": "title1",
+      "maxW": 2270,
+      "text": "2 · Cererea: conversația cu Jobzee, fișa, radar live · întunecat",
+      "w": 240,
+      "x": 5200,
+      "y": 1194
+    },
+    "row3": {
+      "kind": "title1",
+      "maxW": 1330,
+      "text": "3 · Oferte, alegere, plată",
+      "w": 240,
+      "x": 0,
+      "y": 2488
+    },
+    "row3d": {
+      "kind": "title1",
+      "maxW": 1330,
+      "text": "3 · Oferte, alegere, plată · întunecat",
+      "w": 240,
+      "x": 5200,
+      "y": 2362
+    },
+    "row4": {
+      "kind": "title1",
+      "maxW": 1800,
+      "text": "4 · Sarcina live (client)",
+      "w": 240,
+      "x": 0,
+      "y": 4048
+    },
+    "row4d": {
+      "kind": "title1",
+      "maxW": 1800,
+      "text": "4 · Sarcina live (client) · întunecat",
+      "w": 240,
+      "x": 5200,
+      "y": 3850
+    },
+    "row5": {
+      "kind": "title1",
+      "maxW": 2270,
+      "text": "5 · Jobzer: cereri și lucru",
+      "w": 240,
+      "x": 0,
+      "y": 5272
+    },
+    "row5d": {
+      "kind": "title1",
+      "maxW": 2270,
+      "text": "5 · Jobzer: cereri și lucru · întunecat",
+      "w": 240,
+      "x": 5200,
+      "y": 5018
+    },
+    "row6": {
+      "kind": "title1",
+      "maxW": 1330,
+      "text": "6 · Jobzer: profil și vizibilitate",
+      "w": 240,
+      "x": 0,
+      "y": 6496
+    },
+    "row6d": {
+      "kind": "title1",
+      "maxW": 1330,
+      "text": "6 · Jobzer: profil și vizibilitate · întunecat",
+      "w": 240,
+      "x": 5200,
+      "y": 6185
+    },
+    "row7": {
+      "kind": "title1",
+      "maxW": 1800,
+      "text": "7 · Comun",
+      "w": 240,
+      "x": 0,
+      "y": 8056
+    },
+    "row7d": {
+      "kind": "title1",
+      "maxW": 1800,
+      "text": "7 · Comun · întunecat",
+      "w": 240,
+      "x": 5200,
+      "y": 7674
+    },
+    "row8": {
+      "kind": "title1",
+      "maxW": 3680,
+      "text": "8 · Client: situații și stări",
+      "w": 240,
+      "x": 0,
+      "y": 9280
+    },
+    "row8d": {
+      "kind": "title1",
+      "maxW": 3680,
+      "text": "8 · Client: situații și stări · întunecat",
+      "w": 240,
+      "x": 5200,
+      "y": 8841
+    },
+    "row9": {
+      "kind": "title1",
+      "maxW": 3680,
+      "text": "9 · Jobzer: onboarding, sarcini, niveluri",
+      "w": 240,
+      "x": 0,
+      "y": 10504
+    },
+    "row9d": {
+      "kind": "title1",
+      "maxW": 3680,
+      "text": "9 · Jobzer: onboarding, sarcini, niveluri · întunecat",
+      "w": 240,
+      "x": 5200,
+      "y": 10009
+    }
+  },
+  "order": [
+    "Splash.dc.html",
+    "Main.dc.html",
+    "Telefon.dc.html",
+    "Cod.dc.html",
+    "Email.dc.html",
+    "Rol.dc.html",
+    "Acasa.dc.html",
+    "Dialog.dc.html",
+    "Fisa.dc.html",
+    "ContTrimitere.dc.html",
+    "Radar.dc.html",
+    "Oferte.dc.html",
+    "Profil.dc.html",
+    "Plata.dc.html",
+    "PeDrum.dc.html",
+    "InLucru.dc.html",
+    "Confirma.dc.html",
+    "Recenzie.dc.html",
+    "Castig.dc.html",
+    "Oferta.dc.html",
+    "JobActiv.dc.html",
+    "JobGata.dc.html",
+    "Incasari.dc.html",
+    "DevinoJobzer.dc.html",
+    "ProfilEdit.dc.html",
+    "Promovare.dc.html",
+    "Activitate.dc.html",
+    "Mesaje.dc.html",
+    "Chat.dc.html",
+    "Cont.dc.html",
+    "Permisiuni.dc.html",
+    "Adresa.dc.html",
+    "Programare.dc.html",
+    "FaraOferte.dc.html",
+    "PeOra.dc.html",
+    "Extra.dc.html",
+    "Anulare.dc.html",
+    "Problema.dc.html",
+    "Skilluri.dc.html",
+    "Identitate.dc.html",
+    "PlatiFiscal.dc.html",
+    "SarciniJobzer.dc.html",
+    "ChatJobzer.dc.html",
+    "OfertaPierduta.dc.html",
+    "RecenzieClient.dc.html",
+    "Niveluri.dc.html",
+    "Incarcare.dc.html",
+    "FaraInternet.dc.html",
+    "PlataRefuzata.dc.html",
+    "CodGresit.dc.html",
+    "GPSOprit.dc.html",
+    "GolActivitate.dc.html",
+    "GolMesaje.dc.html",
+    "GolIncasari.dc.html",
+    "SchimbaRol.dc.html",
+    "ContJobzer.dc.html",
+    "Servicii.dc.html",
+    "Mascota.dc.html",
+    "Notificari.dc.html",
+    "Chitante.dc.html",
+    "Recurente.dc.html",
+    "StartJobzer.dc.html",
+    "OfertaRapida.dc.html",
+    "Disponibilitate.dc.html",
+    "Facturi.dc.html",
+    "SplashDark.dc.html",
+    "MainDark.dc.html",
+    "TelefonDark.dc.html",
+    "CodDark.dc.html",
+    "EmailDark.dc.html",
+    "RolDark.dc.html",
+    "AcasaDark.dc.html",
+    "DialogDark.dc.html",
+    "FisaDark.dc.html",
+    "ContTrimitereDark.dc.html",
+    "RadarDark.dc.html",
+    "OferteDark.dc.html",
+    "ProfilDark.dc.html",
+    "PlataDark.dc.html",
+    "PeDrumDark.dc.html",
+    "InLucruDark.dc.html",
+    "ConfirmaDark.dc.html",
+    "RecenzieDark.dc.html",
+    "CastigDark.dc.html",
+    "OfertaDark.dc.html",
+    "JobActivDark.dc.html",
+    "JobGataDark.dc.html",
+    "IncasariDark.dc.html",
+    "DevinoJobzerDark.dc.html",
+    "ProfilEditDark.dc.html",
+    "PromovareDark.dc.html",
+    "ActivitateDark.dc.html",
+    "MesajeDark.dc.html",
+    "ChatDark.dc.html",
+    "ContDark.dc.html",
+    "PermisiuniDark.dc.html",
+    "AdresaDark.dc.html",
+    "ProgramareDark.dc.html",
+    "FaraOferteDark.dc.html",
+    "PeOraDark.dc.html",
+    "ExtraDark.dc.html",
+    "AnulareDark.dc.html",
+    "ProblemaDark.dc.html",
+    "SkilluriDark.dc.html",
+    "IdentitateDark.dc.html",
+    "PlatiFiscalDark.dc.html",
+    "SarciniJobzerDark.dc.html",
+    "ChatJobzerDark.dc.html",
+    "OfertaPierdutaDark.dc.html",
+    "RecenzieClientDark.dc.html",
+    "NiveluriDark.dc.html",
+    "IncarcareDark.dc.html",
+    "FaraInternetDark.dc.html",
+    "PlataRefuzataDark.dc.html",
+    "CodGresitDark.dc.html",
+    "GPSOpritDark.dc.html",
+    "GolActivitateDark.dc.html",
+    "GolMesajeDark.dc.html",
+    "GolIncasariDark.dc.html",
+    "SchimbaRolDark.dc.html",
+    "ContJobzerDark.dc.html",
+    "ServiciiDark.dc.html",
+    "MascotaDark.dc.html",
+    "NotificariDark.dc.html",
+    "ChitanteDark.dc.html",
+    "RecurenteDark.dc.html",
+    "StartJobzerDark.dc.html",
+    "DisponibilitateDark.dc.html",
+    "FacturiDark.dc.html",
+    "CerereMultipla.dc.html",
+    "CerereMultiplaDark.dc.html",
+    "Statistici.dc.html",
+    "StatisticiDark.dc.html",
+    "Siguranta.dc.html",
+    "SigurantaDark.dc.html",
+    "GearHub.dc.html",
+    "GearHubDark.dc.html",
+    "GearKituri.dc.html",
+    "GearKituriDark.dc.html",
+    "GearKit.dc.html",
+    "GearKitDark.dc.html",
+    "GearBuilder.dc.html",
+    "GearBuilderDark.dc.html",
+    "GearShop.dc.html",
+    "GearShopDark.dc.html",
+    "GearProdus.dc.html",
+    "GearProdusDark.dc.html",
+    "GearIdentity.dc.html",
+    "GearIdentityDark.dc.html",
+    "PrintStudio.dc.html",
+    "PrintStudioDark.dc.html",
+    "GearCarte.dc.html",
+    "GearCarteDark.dc.html",
+    "GearFlyer.dc.html",
+    "GearFlyerDark.dc.html",
+    "GearQR.dc.html",
+    "GearQRDark.dc.html",
+    "GearCos.dc.html",
+    "GearCosDark.dc.html",
+    "GearCheckout.dc.html",
+    "GearCheckoutDark.dc.html",
+    "GearConfirmare.dc.html",
+    "GearConfirmareDark.dc.html",
+    "GearUrmarire.dc.html",
+    "GearUrmarireDark.dc.html",
+    "GearEchipament.dc.html",
+    "GearEchipamentDark.dc.html",
+    "GearDesignuri.dc.html",
+    "GearDesignuriDark.dc.html",
+    "GearGrowth.dc.html",
+    "GearGrowthDark.dc.html"
+  ],
+  "pages": [],
+  "title": "Jobzee App Screens"
+}

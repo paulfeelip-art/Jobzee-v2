@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="ro">
+<head>
+<meta charset="utf-8">
+<title>Jobzee · Încasări și analiză</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<style>
+.th{--bg:#000000;--surf:#1C1C1E;--surf2:#2C2C2E;--surf3:#3A3A3C;--ink:#FFFFFF;--ink2:#98989D;--ink3:#48484A;--sep:#38383A;--brand:#FF9F0A;--onbrand:#1C1C1E;--btext:#FFB340;--bsoft:rgba(255,159,10,0.16);--bsoft2:rgba(255,159,10,0.28);--ok:#30D158;--oktext:#30D158;--oksoft:rgba(48,209,88,0.16);--glass:rgba(36,36,38,0.78);--glass2:rgba(28,28,30,0.95);--scrim:rgba(0,0,0,0.6);--shadow:rgba(0,0,0,0.5);--invbg:#FFFFFF;--invink:#000000;--land:#1B1C1F;--road:#2E3035;--park:#1C2A20;--water:#17283A;--aur1:#B35600;--aur2:#5A2E00;--aur3:#5B1F3A}
+body{margin:0}
+a{color:var(--btext)}
+@keyframes up{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+@keyframes pop{0%{opacity:0;transform:scale(.5)}65%{opacity:1;transform:scale(1.08)}100%{opacity:1;transform:none}}
+@keyframes sheet{from{opacity:0;transform:translateY(70%)}to{opacity:1;transform:none}}
+@keyframes ring{0%{transform:scale(.6);opacity:.55}100%{transform:scale(2.6);opacity:0}}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-7px)}}
+@keyframes drift{0%,100%{transform:translate(0,0) scale(1)}33%{transform:translate(30px,-24px) scale(1.12)}66%{transform:translate(-26px,18px) scale(.94)}}
+@keyframes glow{0%,100%{opacity:.45}50%{opacity:1}}
+@keyframes shimmer{0%{background-position:-200% 0}100%{background-position:200% 0}}
+@keyframes drop{0%{opacity:0;transform:translateY(-24px) scale(.7)}60%{opacity:1;transform:translateY(3px) scale(1.06)}100%{opacity:1;transform:none}}
+@keyframes tick{0%,42%{transform:none}50%,92%{transform:translateY(-40px)}100%{transform:none}}
+@keyframes fadeSlide{0%,42%{opacity:1;transform:none}50%,92%{opacity:0;transform:translateY(-8px)}100%{opacity:1;transform:none}}
+@keyframes fadeSlide2{0%,42%{opacity:0;transform:translateY(8px)}50%,92%{opacity:1;transform:none}100%{opacity:0;transform:translateY(8px)}}
+@keyframes dotA{0%,45%{width:16px;opacity:1}50%,95%{width:6px;opacity:.35}100%{width:16px;opacity:1}}
+@keyframes dotB{0%,45%{width:6px;opacity:.35}50%,95%{width:16px;opacity:1}100%{width:6px;opacity:.35}}
+@keyframes halo{0%{box-shadow:0 0 0 0 rgba(255,159,10,.55)}100%{box-shadow:0 0 0 18px rgba(255,159,10,0)}}
+@keyframes heat{0%,100%{transform:scale(1);opacity:.8}50%{transform:scale(1.15);opacity:1}}
+.u{animation:up .55s cubic-bezier(.2,.8,.2,1) both}
+.d1{animation-delay:.08s}.d2{animation-delay:.16s}.d3{animation-delay:.24s}.d4{animation-delay:.32s}.d5{animation-delay:.4s}.d6{animation-delay:.48s}
+.pop{animation:pop .6s cubic-bezier(.2,.9,.3,1.3) both}
+.sheet{animation:sheet .7s cubic-bezier(.2,.9,.25,1) both}
+.float{animation:float 4.5s ease-in-out infinite}
+.glow{animation:glow 1.8s ease-in-out infinite}
+.drop{animation:drop .8s cubic-bezier(.2,.8,.2,1) both}
+.pr{transition:transform .22s cubic-bezier(.3,.7,.4,1.4), opacity .2s}.pr:active{transform:scale(.95)}
+.ic{display:inline-block;background:currentColor;-webkit-mask-position:center;mask-position:center;-webkit-mask-size:contain;mask-size:contain;-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;flex-shrink:0}
+.glass{background:var(--glass);backdrop-filter:blur(24px) saturate(1.6);-webkit-backdrop-filter:blur(24px) saturate(1.6)}
+@media (prefers-reduced-motion: reduce){*{animation:none!important;transition:none!important}}
+
+.sg{display:grid;padding:2px;border-radius:10px;background:var(--surf3)}
+.sg button{border:0;height:32px;border-radius:8px;background:transparent;font-family:inherit;font-size:13px;font-weight:500;color:var(--ink);cursor:pointer;transition:all .25s}
+.sg button[aria-pressed="true"]{background:var(--surf);box-shadow:0 2px 6px var(--shadow)}
+.jsw{width:51px;height:31px;border-radius:16px;border:0;padding:2px;cursor:pointer;flex-shrink:0;position:relative;transition:background .25s}
+.jsw::after{content:"";position:absolute;top:2px;left:2px;width:27px;height:27px;border-radius:14px;background:#fff;box-shadow:0 2px 4px rgba(0,0,0,.2);transition:transform .3s cubic-bezier(.3,1.3,.4,1)}
+.jsw[aria-pressed="true"]{background:var(--ok)}.jsw[aria-pressed="true"]::after{transform:translateX(20px)}.jsw[aria-pressed="false"]{background:var(--surf3)}
+.lbl{font-size:13px;font-weight:500;color:var(--ink2);padding:0 12px;text-transform:uppercase;letter-spacing:.3px}
+.grp{background:var(--surf);border-radius:24px;overflow:hidden}
+.rw{display:flex;align-items:center;gap:12px;padding:11px 16px 11px 0;margin-left:16px;color:var(--ink);text-decoration:none}
+.rw+.rw{border-top:0.5px solid var(--sep)}
+.dchip{border:0;width:40px;height:40px;border-radius:20px;font-family:inherit;font-size:14px;font-weight:500;cursor:pointer;transition:all .25s}
+.dchip[aria-pressed="true"]{background:var(--brand);color:var(--onbrand)}.dchip[aria-pressed="false"]{background:var(--surf);color:var(--ink)}
+.colfix>*{flex-shrink:0}.scroll{scrollbar-width:none}.scroll::-webkit-scrollbar{display:none}@keyframes inUp{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}.in{animation:inUp .3s cubic-bezier(.2,.8,.2,1) both}
+</style>
+</helmet>
+<div class="th" style="width: 390px; height: 844px; box-sizing: border-box; background: var(--bg); font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Helvetica Neue', system-ui, sans-serif; color: var(--ink); position: relative; overflow: hidden">
+<div class="scroll colfix" style="position: absolute; inset: 0; overflow-y: auto; padding: 56px 16px 110px; display: flex; flex-direction: column; gap: 12px">
+  <div style="display: flex; align-items: center; justify-content: space-between"><h1 style="margin: 0 4px; font-size: 34px; font-weight: 600; letter-spacing: -0.9px">Încasări</h1><img src="assets/mascot/zee-bani.png" alt="" style="width: 54px; height: 58px"></div>
+  <div class="sg" style="grid-template-columns: repeat(2, minmax(0, 1fr))"><button type="button" onClick="{{goI}}" aria-pressed="{{tI}}">Încasări</button><button type="button" onClick="{{goA}}" aria-pressed="{{tA}}">Analiză și strategie</button></div>
+  <sc-if value="{{isIn}}" hint-placeholder-val="{{ false }}"><div class="in" style="display: flex; flex-direction: column; gap: 12px">
+      <div style="background: var(--invbg); color: var(--invink); border-radius: 28px; padding: 18px; display: flex; flex-direction: column; gap: 6px">
+        <span style="display: flex; justify-content: space-between; font-size: 13px; font-weight: 500; opacity: .7"><span>SĂPTĂMÂNA ASTA</span><span>13–19 oct.</span></span>
+        <span style="font-size: 40px; font-weight: 600; letter-spacing: -1.2px; color: var(--brand)">460,00 lei</span>
+        <span style="font-size: 13px; opacity: .75">Primești 100% din prețurile tale. Taxa Jobzee o plătește clientul.</span>
+        <div style="display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: 8px; align-items: end; height: 82px; margin-top: 6px"><div style="display: flex; flex-direction: column; align-items: center; gap: 4px"><div style="width: 100%; height: 38px; border-radius: 7px; background: rgba(128,128,128,.45)"></div><span style="font-size: 11px; opacity: .7">L</span></div><div style="display: flex; flex-direction: column; align-items: center; gap: 4px"><div style="width: 100%; height: 12px; border-radius: 7px; background: rgba(128,128,128,.45)"></div><span style="font-size: 11px; opacity: .7">Ma</span></div><div style="display: flex; flex-direction: column; align-items: center; gap: 4px"><div style="width: 100%; height: 30px; border-radius: 7px; background: rgba(128,128,128,.45)"></div><span style="font-size: 11px; opacity: .7">Mi</span></div><div style="display: flex; flex-direction: column; align-items: center; gap: 4px"><div style="width: 100%; height: 6px; border-radius: 7px; background: rgba(128,128,128,.45)"></div><span style="font-size: 11px; opacity: .7">J</span></div><div style="display: flex; flex-direction: column; align-items: center; gap: 4px"><div style="width: 100%; height: 60px; border-radius: 7px; background: var(--brand)"></div><span style="font-size: 11px; opacity: 1">V</span></div><div style="display: flex; flex-direction: column; align-items: center; gap: 4px"><div style="width: 100%; height: 6px; border-radius: 7px; background: rgba(128,128,128,.3)"></div><span style="font-size: 11px; opacity: .7">S</span></div><div style="display: flex; flex-direction: column; align-items: center; gap: 4px"><div style="width: 100%; height: 6px; border-radius: 7px; background: rgba(128,128,128,.3)"></div><span style="font-size: 11px; opacity: .7">D</span></div></div>
+      </div>
+      <div style="display: flex; gap: 8px"><a href="#transfer" class="pr" style="flex: 1; height: 50px; border-radius: 25px; background: var(--brand); color: var(--onbrand); display: flex; align-items: center; justify-content: center; font-size: 16px; font-weight: 500; text-decoration: none">Transfer acum</a><a href="FacturiDark.dc.html" class="pr" style="flex: 1; height: 50px; border-radius: 25px; background: var(--surf); color: var(--ink); display: flex; align-items: center; justify-content: center; font-size: 16px; font-weight: 500; text-decoration: none">Facturi PFA</a></div>
+      <div class="grp">
+        <div class="rw"><span style="flex-grow: 1; display: flex; flex-direction: column"><span style="font-size: 15px">Montaj mobilier</span><span style="font-size: 12px; color: var(--ink2)">Vineri · Andrei</span></span><span style="font-size: 15px; font-weight: 600; color: var(--oktext)">+150,00</span></div>
+        <div class="rw"><span style="flex-grow: 1; display: flex; flex-direction: column"><span style="font-size: 15px">Bacșiș</span><span style="font-size: 12px; color: var(--ink2)">Vineri · Andrei</span></span><span style="font-size: 15px; font-weight: 600; color: var(--oktext)">+60,00</span></div>
+        <div class="rw"><span style="flex-grow: 1; display: flex; flex-direction: column"><span style="font-size: 15px">Reparații mici · 2 h</span><span style="font-size: 12px; color: var(--ink2)">Miercuri · Radu</span></span><span style="font-size: 15px; font-weight: 600; color: var(--oktext)">+160,00</span></div>
+        <div class="rw"><span style="flex-grow: 1; display: flex; flex-direction: column"><span style="font-size: 15px">Montaj TV</span><span style="font-size: 12px; color: var(--ink2)">Luni · Elena</span></span><span style="font-size: 15px; font-weight: 600; color: var(--oktext)">+90,00</span></div>
+        <div class="rw"><span style="flex-grow: 1; display: flex; flex-direction: column"><span style="font-size: 15px">Promovare 1 zi</span><span style="font-size: 12px; color: var(--ink2)">Plătită separat, cu cardul</span></span><span style="font-size: 15px; color: var(--ink2)">−19,00</span></div>
+      </div>
+    </div></sc-if>
+  <sc-if value="{{isAn}}" hint-placeholder-val="{{ true }}"><div class="in" style="display: flex; flex-direction: column; gap: 10px">
+      <div class="sg" style="grid-template-columns: repeat(3, minmax(0, 1fr))"><sc-for list="{{pers}}" as="p" hint-placeholder-count="3"><button type="button" onClick="{{p.pick}}" aria-pressed="{{p.attr}}">{{p.t}}</button></sc-for></div>
+      <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px"><sc-for list="{{kpis}}" as="k" hint-placeholder-count="4"><div style="background: var(--surf); border-radius: 20px; padding: 12px; display: flex; flex-direction: column; gap: 2px"><span style="font-size: 12px; color: var(--ink2)">{{k.t}}</span><span style="font-size: 22px; font-weight: 600; letter-spacing: -0.4px; font-variant-numeric: tabular-nums">{{k.v}}</span><span style="{{k.dSt}}">{{k.d}}</span></div></sc-for></div>
+      <span style="font-size: 11px; color: var(--ink2); padding: 0 6px; margin-top: -4px">{{cmpTxt}}</span>
+
+      <div style="display: flex; flex-direction: column; gap: 2px; padding: 12px 4px 0"><span style="font-size: 19px; font-weight: 600; letter-spacing: -0.3px">Ce servicii merg cel mai bine</span><span style="font-size: 12px; color: var(--ink2)">Din lucrările tale finalizate în Jobzee</span></div>
+      <div style="background: var(--surf); border-radius: 24px; padding: 14px; display: flex; flex-direction: column; gap: 12px">
+        <div class="sg" style="grid-template-columns: repeat(3, minmax(0, 1fr))"><sc-for list="{{sorts}}" as="o" hint-placeholder-count="3"><button type="button" onClick="{{o.pick}}" aria-pressed="{{o.attr}}">{{o.t}}</button></sc-for></div>
+        <sc-for list="{{svc}}" as="x" hint-placeholder-count="4"><div style="display: flex; gap: 10px; align-items: center"><img src="{{x.src}}" alt="" style="width: 40px; height: 40px; border-radius: 12px; flex-shrink: 0">
+          <span style="flex-grow: 1; min-width: 0; display: flex; flex-direction: column; gap: 4px"><span style="display: flex; justify-content: space-between; gap: 8px"><span style="font-size: 14px; font-weight: 600">{{x.n}}</span><span style="font-size: 14px; font-weight: 600; font-variant-numeric: tabular-nums; white-space: nowrap">{{x.main}}</span></span>
+            <span style="height: 6px; border-radius: 3px; background: var(--surf2)"><span style="{{x.bar}}; display: block"></span></span><span style="font-size: 11px; color: var(--ink2)">{{x.sub}}</span></span></div></sc-for>
+        <div style="display: flex; gap: 10px; align-items: flex-start; padding: 12px; border-radius: 18px; background: var(--bsoft)"><img src="assets/ui/sparkles.png" alt="" style="width: 22px; height: 22px; flex-shrink: 0"><span style="flex-grow: 1; display: flex; flex-direction: column; gap: 6px"><span style="font-size: 13px; line-height: 1.4">{{svcTip}} Pune preț și poze bune la serviciul care îți aduce cel mai mult pe oră.</span><a href="ProfilEditDark.dc.html" style="font-size: 13px; font-weight: 600; color: var(--btext); text-decoration: none">Ajustează competențele ›</a></span></div>
+      </div>
+
+      <div style="display: flex; flex-direction: column; gap: 2px; padding: 12px 4px 0"><span style="font-size: 19px; font-weight: 600; letter-spacing: -0.3px">Când apar cererile</span><span style="font-size: 12px; color: var(--ink2)">Atinge o căsuță ca să vezi detaliile</span></div>
+      <div style="background: var(--surf); border-radius: 24px; padding: 14px; display: flex; flex-direction: column; gap: 12px">
+        <div class="sg" style="grid-template-columns: repeat(3, minmax(0, 1fr))"><sc-for list="{{hms}}" as="h" hint-placeholder-count="3"><button type="button" onClick="{{h.pick}}" aria-pressed="{{h.attr}}" style="font-size: 12px">{{h.t}}</button></sc-for></div>
+        <div style="display: grid; grid-template-columns: 44px repeat(7, minmax(0, 1fr)); gap: 4px; align-items: center">
+          <span></span><sc-for list="{{days}}" as="d" hint-placeholder-count="7"><span style="font-size: 11px; font-weight: 500; color: var(--ink2); text-align: center">{{d.d}}</span></sc-for>
+        </div>
+        <sc-for list="{{rows}}" as="r" hint-placeholder-count="5"><div style="display: grid; grid-template-columns: 44px repeat(7, minmax(0, 1fr)); gap: 4px; align-items: center; margin-top: -8px">
+          <span style="font-size: 11px; color: var(--ink2); font-variant-numeric: tabular-nums">{{r.sl}}</span>
+          <sc-for list="{{r.cells}}" as="c" hint-placeholder-count="7"><button type="button" onClick="{{c.pick}}" aria-label="{{c.lab}}" style="{{c.st}}"><sc-if value="{{c.dot}}" hint-placeholder-val="{{ false }}"><span style="position: absolute; right: 4px; top: 4px; width: 7px; height: 7px; border-radius: 4px; background: var(--invbg)"></span></sc-if></button></sc-for>
+        </div></sc-for>
+        <span style="font-size: 13px; line-height: 1.4; padding: 10px 12px; border-radius: 14px; background: var(--surf2)">{{cellTxt}}</span>
+        <span style="display: flex; align-items: center; gap: 6px; font-size: 11px; color: var(--ink2)"><span style="width: 7px; height: 7px; border-radius: 4px; background: var(--invbg)"></span>Multe cereri și tu offline: aici pierzi cele mai multe lucrări.</span>
+        <div style="display: flex; gap: 10px; align-items: flex-start; padding: 12px; border-radius: 18px; background: var(--bsoft)"><img src="assets/ui/sparkles.png" alt="" style="width: 22px; height: 22px; flex-shrink: 0"><span style="flex-grow: 1; display: flex; flex-direction: column; gap: 6px"><span style="font-size: 13px; line-height: 1.4">Sâmbătă între 10 și 13 apar cele mai multe cereri din zona ta, iar tu nu ești online. Dacă pornești programul sâmbăta dimineața, ai acces la cererile din vârful săptămânii.</span><a href="DisponibilitateDark.dc.html" style="font-size: 13px; font-weight: 600; color: var(--btext); text-decoration: none">Adaugă sâmbăta în program ›</a></span></div>
+      </div>
+
+      <div style="display: flex; flex-direction: column; gap: 2px; padding: 12px 4px 0"><span style="font-size: 19px; font-weight: 600; letter-spacing: -0.3px">Promovările tale</span><span style="font-size: 12px; color: var(--ink2)">Câștigul socotit doar din cererile venite cât a fost activă promovarea</span></div>
+      <div style="background: var(--surf); border-radius: 24px; padding: 14px; display: flex; flex-direction: column; gap: 12px">
+        <sc-for list="{{promos}}" as="x" hint-placeholder-count="3"><div style="display: flex; gap: 10px; align-items: center; padding-bottom: 10px; box-shadow: inset 0 -0.5px 0 var(--sep)">
+          <span style="flex-grow: 1; display: flex; flex-direction: column; gap: 2px"><span style="font-size: 14px; font-weight: 600">{{x.t}} · {{x.d}}</span><span style="font-size: 12px; color: var(--ink2)">{{x.v}} · {{x.o}}</span><span style="font-size: 12px; color: var(--ink2)">Cost {{x.cost}} · câștig {{x.rev}}</span></span>
+          <span style="{{x.roiSt}}">{{x.roi}}</span></div></sc-for>
+        <span style="font-size: 13px; line-height: 1.4">{{promoSum}}</span>
+        <div style="display: flex; gap: 10px; align-items: flex-start; padding: 12px; border-radius: 18px; background: var(--bsoft)"><img src="assets/ui/sparkles.png" alt="" style="width: 22px; height: 22px; flex-shrink: 0"><span style="flex-grow: 1; display: flex; flex-direction: column; gap: 6px"><span style="font-size: 13px; line-height: 1.4">Promovarea de weekend ți-a adus cele mai multe cereri. Cea din 28 sep. (o zi lucrătoare, la prânz) nu a adus nicio lucrare: promovează în intervalele cu multe cereri.</span><a href="PromovareDark.dc.html" style="font-size: 13px; font-weight: 600; color: var(--btext); text-decoration: none">Programează o promovare ›</a></span></div>
+      </div>
+
+      <div style="display: flex; flex-direction: column; gap: 2px; padding: 12px 4px 0"><span style="font-size: 19px; font-weight: 600; letter-spacing: -0.3px">Prețul tău față de zonă</span><span style="font-size: 12px; color: var(--ink2)">Montaj mobilier · câte oferte câștigi, după preț</span></div>
+      <div style="background: var(--surf); border-radius: 24px; padding: 14px; display: flex; flex-direction: column; gap: 12px">
+        <div style="display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 8px; align-items: end; height: 120px"><sc-for list="{{bands}}" as="b" hint-placeholder-count="5"><span style="display: flex; flex-direction: column; align-items: center; gap: 4px; justify-content: flex-end; height: 100%"><span style="font-size: 12px; font-weight: 600">{{b.v}}</span><span style="{{b.st}}"></span></span></sc-for></div>
+        <div style="display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 8px; margin-top: -6px"><sc-for list="{{bands}}" as="b" hint-placeholder-count="5"><span style="font-size: 10px; color: var(--ink2); text-align: center">{{b.t}}</span></sc-for></div>
+        <span style="display: flex; justify-content: space-between; font-size: 13px"><span style="color: var(--ink2)">Oferta ta medie</span><span style="font-weight: 600">152 lei</span></span>
+        <span style="display: flex; justify-content: space-between; font-size: 13px; margin-top: -6px"><span style="color: var(--ink2)">Mediana în zona ta</span><span style="font-weight: 600">160 lei</span></span>
+        <div style="display: flex; gap: 10px; align-items: flex-start; padding: 12px; border-radius: 18px; background: var(--bsoft)"><img src="assets/ui/sparkles.png" alt="" style="width: 22px; height: 22px; flex-shrink: 0"><span style="flex-grow: 1; display: flex; flex-direction: column; gap: 6px"><span style="font-size: 13px; line-height: 1.4">Între 150 și 170 lei câștigi mai mult de jumătate din oferte. Peste 170 lei șansele scad la o treime: urcă prețul doar la lucrările mari sau urgente.</span></span></div>
+      </div>
+
+      <div style="display: flex; flex-direction: column; gap: 2px; padding: 12px 4px 0"><span style="font-size: 19px; font-weight: 600; letter-spacing: -0.3px">Cât de repede răspunzi</span><span style="font-size: 12px; color: var(--ink2)">Oferte câștigate, după timpul de răspuns</span></div>
+      <div style="background: var(--surf); border-radius: 24px; padding: 14px; display: flex; flex-direction: column; gap: 12px">
+        <sc-for list="{{resp}}" as="r" hint-placeholder-count="3"><div style="display: flex; flex-direction: column; gap: 4px"><span style="display: flex; justify-content: space-between; font-size: 13px"><span>{{r.t}}</span><span style="font-weight: 600">{{r.v}}</span></span><span style="height: 8px; border-radius: 4px; background: var(--surf2)"><span style="{{r.bar}}; display: block"></span></span></div></sc-for>
+        <span style="font-size: 13px; color: var(--ink2)">Tu răspunzi de obicei în 3 min. Oferta rapidă din Acasă te ajută să ajungi sub 2 min.</span>
+      </div>
+      <span style="font-size: 11px; line-height: 1.4; color: var(--ink2); padding: 0 6px">Cifrele vin din activitatea ta în Jobzee. Cererile din zonă sunt numărate anonim. Nimic din această pagină nu schimbă felul în care ești ales de clienți.</span>
+    </div></sc-if>
+</div>
+<nav aria-label="Meniu" class="glass" style="position: absolute; left: 16px; right: 16px; bottom: 24px; height: 64px; border-radius: 32px; box-shadow: 0 10px 30px var(--shadow); display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); padding: 6px; box-sizing: border-box; z-index: 5"><a href="CastigDark.dc.html" class="pr" style="border-radius: 26px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px; font-size: 11px; text-decoration: none; color: var(--ink2); font-weight: 500"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 11l8-7 8 7v9h-5v-6H9v6H4z"></path></svg>Acasă</a><a href="SarciniJobzerDark.dc.html" class="pr" style="border-radius: 26px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px; font-size: 11px; text-decoration: none; color: var(--ink2); font-weight: 500"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="5"></rect><path d="M8 9h8M8 13h8M8 17h5"></path></svg>Sarcini</a><a href="IncasariDark.dc.html" class="pr" aria-current="page" style="border-radius: 26px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px; font-size: 11px; text-decoration: none; background: var(--bsoft); color: var(--btext); font-weight: 500"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="6" width="18" height="13" rx="4"></rect><path d="M16 12.5h2"></path></svg>Încasări</a><a href="ContJobzerDark.dc.html" class="pr" style="border-radius: 26px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px; font-size: 11px; text-decoration: none; color: var(--ink2); font-weight: 500"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"></circle><path d="M4 21c1-4 4-6 8-6s7 2 8 6"></path></svg>Profil</a></nav>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+  constructor(props) { super(props); this.state = { tab: 'an', p: 30, sort: 'rev', hm: 'dem', cell: [5, 1], pf: 0 }; }
+  renderVals() {
+    const s = this.state, K = { 7: 0.26, 30: 1, 90: 2.85 }[s.p], prevK = { 7: 0.9, 30: 0.88, 90: 0.93 }[s.p];
+    const SV = [{"i": "mobila", "n": "Montaj mobilier", "rev": 1840, "jobs": 12, "hrs": 23.5, "sent": 19, "won": 12, "avg": 152, "zone": 160}, {"i": "reparatii", "n": "Reparații mici", "rev": 920, "jobs": 9, "hrs": 10.0, "sent": 13, "won": 9, "avg": 85, "zone": 90}, {"i": "it", "n": "Montaj TV și rafturi", "rev": 630, "jobs": 6, "hrs": 6.5, "sent": 15, "won": 6, "avg": 118, "zone": 110}, {"i": "tamplarie", "n": "Tâmplărie și uși", "rev": 410, "jobs": 2, "hrs": 5.0, "sent": 7, "won": 2, "avg": 210, "zone": 180}], SL = ["07–10", "10–13", "13–16", "16–19", "19–22"];
+    const DEM = [[3, 4, 3, 4, 3, 9, 6], [5, 5, 6, 5, 6, 16, 12], [4, 3, 4, 4, 5, 11, 8], [9, 10, 11, 14, 12, 8, 5], [6, 7, 7, 8, 5, 3, 2]], ON = [[0.2, 0.2, 0.2, 0.2, 0.2, 0, 0], [0.6, 0.5, 0.6, 0.5, 0.6, 0, 0], [0.7, 0.6, 0.7, 0.6, 0.7, 0.1, 0], [0.9, 0.8, 0.9, 0.4, 0.9, 0.3, 0], [0.5, 0.4, 0.5, 0.2, 0.4, 0, 0]], ERN = [[0, 0, 0, 0, 0, 0, 0], [150, 0, 160, 90, 120, 0, 0], [80, 120, 0, 150, 90, 0, 0], [320, 240, 300, 150, 480, 120, 0], [90, 160, 80, 0, 90, 0, 0]], PR = [{"d": "13 oct.", "t": "Promovare 1 zi", "cost": 19, "views": 140, "offers": 5, "won": 2, "rev": 270}, {"d": "4 oct.", "t": "Promovare weekend", "cost": 39, "views": 260, "offers": 7, "won": 2, "rev": 310}, {"d": "28 sep.", "t": "Promovare 1 zi", "cost": 19, "views": 95, "offers": 2, "won": 0, "rev": 0}];
+    const D = ['L', 'Ma', 'Mi', 'J', 'V', 'S', 'D'], DL = ['Luni', 'Marți', 'Miercuri', 'Joi', 'Vineri', 'Sâmbătă', 'Duminică'];
+    const lei = (v) => Math.round(v).toLocaleString('ro-RO') + ' lei';
+    const rnd = (v) => Math.max(0, Math.round(v));
+    const sv = SV.map((x) => ({ i: x.i, n: x.n, rev: x.rev * K, jobs: rnd(x.jobs * K) || 1, hrs: x.hrs * K, sent: rnd(x.sent * K) || 1, won: rnd(x.won * K) || 1, avg: x.avg, zone: x.zone }));
+    const tot = sv.reduce((a, x) => a + x.rev, 0), jobs = sv.reduce((a, x) => a + x.jobs, 0), hrs = sv.reduce((a, x) => a + x.hrs, 0);
+    const sent = sv.reduce((a, x) => a + x.sent, 0), won = sv.reduce((a, x) => a + x.won, 0);
+    const kpi = (t, v, d, up) => ({ t: t, v: v, d: (up ? '↑ ' : '↓ ') + d, dSt: 'font-size: 12px; font-weight: 600; color: ' + (up ? 'var(--oktext)' : '#D70015') });
+    const kpis = [kpi('Câștig net', lei(tot), Math.round((1 / prevK - 1) * 100) + '%', true), kpi('Lucrări', String(jobs), '2', true),
+      kpi('Câștig pe oră', lei(tot / hrs), '4 lei', true), kpi('Oferte câștigate', Math.round(won / sent * 100) + '%', '3 p.p.', false)];
+    // servicii
+    const key = { rev: (x) => x.rev, ph: (x) => x.rev / x.hrs, win: (x) => x.won / x.sent }[s.sort];
+    const ord = sv.slice().sort((a, b) => key(b) - key(a)), mx = key(ord[0]);
+    const svc = ord.map((x) => ({ n: x.n, src: 'assets/cat/' + x.i + '.svg', main: s.sort === 'rev' ? lei(x.rev) : s.sort === 'ph' ? lei(x.rev / x.hrs) + '/h' : Math.round(x.won / x.sent * 100) + '%',
+      sub: x.jobs + (x.jobs === 1 ? ' lucrare' : ' lucrări') + ' · ' + Math.round(x.rev / x.hrs) + ' lei/h · câștigi ' + Math.round(x.won / x.sent * 100) + '% din oferte',
+      bar: 'height: 6px; border-radius: 3px; background: var(--brand); transition: width .5s; width: ' + Math.max(6, Math.round(key(x) / mx * 100)) + '%' }));
+    const byH = sv.slice().sort((a, b) => b.rev / b.hrs - a.rev / a.hrs);
+    const svcTip = byH[0].n + ' îți aduce cel mai mult pe oră (' + Math.round(byH[0].rev / byH[0].hrs) + ' lei/h), deși ' + ord[0].n.toLowerCase() + (s.sort === 'rev' ? ' aduce cei mai mulți bani în total.' : ' e pe primul loc la ce ai ales.');
+    const so = (k, t) => ({ t: t, attr: s.sort === k ? 'true' : 'false', pick: () => this.setState({ sort: k }) });
+    // harta orelor
+    const M = s.hm === 'dem' ? DEM : s.hm === 'ern' ? ERN : ON, mmax = Math.max.apply(null, M.map((r) => Math.max.apply(null, r))) || 1;
+    const rows = SL.map((sl, ri) => ({ sl: sl, cells: D.map((d, ci) => { const v = M[ri][ci], a = v / mmax, sel = s.cell[0] === ci && s.cell[1] === ri;
+      const gap = DEM[ri][ci] >= 8 && ON[ri][ci] < 0.3;
+      return { st: 'height: 30px; border: 0; border-radius: 8px; cursor: pointer; padding: 0; position: relative; transition: transform .2s; background: ' + (v ? 'rgba(255,159,10,' + (0.12 + a * 0.88).toFixed(2) + ')' : 'var(--surf2)') + (sel ? '; box-shadow: 0 0 0 2.5px var(--invbg); transform: scale(1.06)' : ''),
+        dot: gap && s.hm === 'dem', pick: () => this.setState({ cell: [ci, ri] }), lab: DL[ci] + ' ' + sl }; }) }));
+    const c = s.cell, cd = DEM[c[1]][c[0]], co = ON[c[1]][c[0]], ce = ERN[c[1]][c[0]];
+    const cellTxt = DL[c[0]] + ', ' + SL[c[1]] + ': ' + rnd(cd * K) + ' cereri în zona ta · ai fost online ' + Math.round(co * 100) + '% din timp · ai câștigat ' + lei(ce * K);
+    const cellGap = cd >= 8 && co < 0.3;
+    const hmo = (k, t) => ({ t: t, attr: s.hm === k ? 'true' : 'false', pick: () => this.setState({ hm: k }) });
+    // promovări
+    const pr = PR.map((x) => ({ d: x.d, t: x.t, cost: lei(x.cost), v: x.views + ' vizualizări în plus', o: x.offers + ' cereri primite, ' + x.won + ' câștigate', rev: x.rev ? lei(x.rev) : '0 lei',
+      roi: x.rev ? 'x' + (x.rev / x.cost).toFixed(1).replace('.', ',') : 'fără câștig', roiSt: 'height: 24px; padding: 0 9px; border-radius: 12px; font-size: 12px; font-weight: 600; display: inline-flex; align-items: center; ' + (x.rev / x.cost >= 3 ? 'background: var(--oksoft); color: var(--oktext)' : x.rev ? 'background: var(--bsoft); color: var(--btext)' : 'background: var(--surf2); color: var(--ink2)') }));
+    const pc = PR.reduce((a, x) => a + x.cost, 0), prv = PR.reduce((a, x) => a + x.rev, 0);
+    // preț vs zonă (Montaj mobilier): rată de câștig pe benzi de preț
+    const bands = [['sub 130', 74], ['130–150', 66], ['150–170', 58], ['170–190', 31], ['peste 190', 12]];
+    const bandBars = bands.map((b, i) => ({ t: b[0], v: b[1] + '%', st: 'width: 100%; border-radius: 8px 8px 4px 4px; height: ' + Math.round(b[1] * 1.1) + 'px; background: ' + (i === 2 ? 'var(--brand)' : 'var(--bsoft2)') }));
+    const resp = [['sub 2 min', 61], ['2–10 min', 38], ['peste 10 min', 12]].map((r) => ({ t: r[0], v: r[1] + '%', bar: 'height: 8px; border-radius: 4px; background: var(--brand); width: ' + r[1] + '%' }));
+    const per = (k, t) => ({ t: t, attr: s.p === k ? 'true' : 'false', pick: () => this.setState({ p: k }) });
+    return { isIn: s.tab === 'in', isAn: s.tab === 'an', tI: s.tab === 'in' ? 'true' : 'false', tA: s.tab === 'an' ? 'true' : 'false', goI: () => this.setState({ tab: 'in' }), goA: () => this.setState({ tab: 'an' }),
+      pers: [per(7, '7 zile'), per(30, '30 de zile'), per(90, '3 luni')], kpis: kpis, sorts: [so('rev', 'Venit'), so('ph', 'Lei pe oră'), so('win', 'Rată de câștig')], svc: svc, svcTip: svcTip,
+      hms: [hmo('dem', 'Cereri în zonă'), hmo('on', 'Când ești online'), hmo('ern', 'Câștigul tău')], days: D.map((d) => ({ d: d })), rows: rows, cellTxt: cellTxt, cellGap: cellGap,
+      promos: pr, promoSum: 'Ai plătit ' + lei(pc) + ' pe promovări și ai câștigat ' + lei(prv) + ' din cererile venite în timpul lor (x' + (prv / pc).toFixed(1).replace('.', ',') + ').',
+      bands: bandBars, resp: resp, cmpTxt: 'Săgețile compară cu ' + { 7: 'cele 7 zile', 30: 'cele 30 de zile', 90: 'cele 3 luni' }[s.p] + ' dinainte.' };
+  }
+}
+</script>
+</body>
+</html>

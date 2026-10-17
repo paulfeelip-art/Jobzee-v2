@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="ro">
+<head>
+<meta charset="utf-8">
+<title>Jobzee · Cod SMS</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<style>
+body{margin:0}
+a{color:#B35600}a:hover{color:#8F4500}
+@keyframes up{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+@keyframes pop{0%{transform:scale(.5);opacity:0}70%{transform:scale(1.1);opacity:1}100%{transform:scale(1);opacity:1}}
+@keyframes ring{0%,100%{box-shadow:0 0 0 0 rgba(255,159,10,.5)}50%{box-shadow:0 0 0 6px rgba(255,159,10,0)}}
+@keyframes spin{to{transform:rotate(360deg)}}
+.u{animation:up .55s cubic-bezier(.2,.8,.2,1) both}.d1{animation-delay:.07s}.d2{animation-delay:.14s}.d3{animation-delay:.21s}
+.pop{animation:pop .45s cubic-bezier(.2,.9,.3,1.3) both}.p1{animation-delay:.25s}.p2{animation-delay:.4s}
+.ring{animation:ring 1.6s ease-in-out infinite}
+.spin{animation:spin 8s linear infinite}
+.pr{transition:transform .2s cubic-bezier(.3,.7,.4,1.4)}.pr:active{transform:scale(.96)}
+@media (prefers-reduced-motion: reduce){*{animation:none!important;transition:none!important}}
+</style>
+</helmet>
+<div style="width: 390px; height: 844px; box-sizing: border-box; background: #F2F2F7; font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Helvetica Neue', system-ui, sans-serif; color: #1C1C1E; display: flex; flex-direction: column; padding: 56px 20px 34px">
+  <a href="Telefon.dc.html" aria-label="Înapoi" class="pr" style="width: 44px; height: 44px; border-radius: 22px; background: #FFFFFF; display: flex; align-items: center; justify-content: center; color: #1C1C1E; box-shadow: 0 2px 10px rgba(0,0,0,0.05)">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 5l-7 7 7 7"></path></svg>
+  </a>
+
+  <h1 class="u" style="margin: 26px 4px 8px; font-size: 34px; line-height: 1.08; font-weight: 600; letter-spacing: -0.9px">Introdu codul</h1>
+  <p class="u d1" style="margin: 0 4px; font-size: 17px; color: #6E6E73">Trimis la 0712 345 678</p>
+
+  <div class="u d2" style="margin-top: 30px; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px">
+    <label for="d1" style="position: absolute; left: -9999px">Cifra 1</label>
+    <input id="d1" value="4" inputmode="numeric" class="pop p1" style="height: 76px; min-width: 0; box-sizing: border-box; border-radius: 22px; border: 0; background: #FFFFFF; text-align: center; font-family: inherit; font-size: 32px; font-weight: 600; color: #1C1C1E; box-shadow: 0 2px 10px rgba(0,0,0,0.04)">
+    <label for="d2" style="position: absolute; left: -9999px">Cifra 2</label>
+    <input id="d2" value="8" inputmode="numeric" class="pop p2" style="height: 76px; min-width: 0; box-sizing: border-box; border-radius: 22px; border: 0; background: #FFFFFF; text-align: center; font-family: inherit; font-size: 32px; font-weight: 600; color: #1C1C1E; box-shadow: 0 2px 10px rgba(0,0,0,0.04)">
+    <label for="d3" style="position: absolute; left: -9999px">Cifra 3</label>
+    <input id="d3" value="" inputmode="numeric" class="ring" style="height: 76px; min-width: 0; box-sizing: border-box; border-radius: 22px; border: 2px solid #FF9F0A; background: #FFFFFF; text-align: center; font-family: inherit; font-size: 32px; font-weight: 600; color: #1C1C1E">
+    <label for="d4" style="position: absolute; left: -9999px">Cifra 4</label>
+    <input id="d4" value="" inputmode="numeric" style="height: 76px; min-width: 0; box-sizing: border-box; border-radius: 22px; border: 0; background: #FFFFFF; text-align: center; font-family: inherit; font-size: 32px; font-weight: 600; color: #1C1C1E; box-shadow: 0 2px 10px rgba(0,0,0,0.04)">
+  </div>
+
+  <div class="u d3" style="margin-top: 20px; align-self: center; display: flex; align-items: center; gap: 8px; height: 36px; padding: 0 14px; border-radius: 18px; background: #FFFFFF; font-size: 14px; color: #6E6E73">
+    <svg class="spin" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#FF9F0A" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M12 3a9 9 0 1 0 9 9"></path></svg>
+    Retrimitem în 0:42
+  </div>
+
+  <div style="flex-grow: 1"></div>
+  <a href="Rol.dc.html" class="pr" style="display: flex; align-items: center; justify-content: center; height: 56px; border-radius: 28px; background: #FF9F0A; color: #1C1C1E; font-size: 17px; font-weight: 500; text-decoration: none; box-shadow: 0 10px 24px rgba(255,159,10,0.35)">Confirmă</a>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>

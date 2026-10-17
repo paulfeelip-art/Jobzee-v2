@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="ro">
+<head>
+<meta charset="utf-8">
+<title>Jobzee · Oferte primite</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<style>
+body{margin:0}
+a{color:#B35600}a:hover{color:#8F4500}
+@keyframes up{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+@keyframes sheet{from{transform:translateY(40%);opacity:0}to{transform:none;opacity:1}}
+@keyframes drop{0%{opacity:0;transform:translateY(-20px) scale(.6)}60%{opacity:1;transform:translateY(2px) scale(1.1)}100%{opacity:1;transform:none}}
+@keyframes live{0%{box-shadow:0 0 0 0 rgba(52,199,89,.55)}100%{box-shadow:0 0 0 8px rgba(52,199,89,0)}}
+.u{animation:up .5s cubic-bezier(.2,.8,.2,1) both}
+.sheet{animation:sheet .65s cubic-bezier(.2,.9,.25,1) both}
+.drop{animation:drop .7s cubic-bezier(.2,.8,.2,1) both}.q1{animation-delay:.15s}.q2{animation-delay:.3s}.q3{animation-delay:.45s}.q4{animation-delay:.6s}
+.live{animation:live 1.4s ease-out infinite}
+.pr{transition:transform .2s cubic-bezier(.3,.7,.4,1.4)}.pr:active{transform:scale(.97)}
+@media (prefers-reduced-motion: reduce){*{animation:none!important;transition:none!important}}
+</style>
+</helmet>
+<div style="width: 390px; height: 844px; box-sizing: border-box; background: #F5F1E8; font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Helvetica Neue', system-ui, sans-serif; color: #1C1C1E; position: relative; overflow: hidden">
+  <svg width="390" height="260" viewBox="0 0 390 260" aria-hidden="true" style="position: absolute; left: 0; top: 0; display: block">
+    <rect width="390" height="260" fill="#F5F1E8"></rect>
+    <rect x="40" y="150" width="80" height="54" rx="18" fill="#D3EAC7"></rect>
+    <path d="M-10 80 L400 50 M-10 200 L400 230 M120 -10 L100 270 M282 -10 L300 270" stroke="#FFFFFF" stroke-width="14" stroke-linecap="round" fill="none"></path>
+    <path d="M-10 140 L400 150 M200 -10 L192 270" stroke="#FFFFFF" stroke-width="6" fill="none"></path>
+    <circle cx="196" cy="150" r="10" fill="#FF9F0A" stroke="#FFFFFF" stroke-width="4"></circle>
+  </svg>
+  <span class="drop q1" style="position: absolute; left: 102px; top: 108px; width: 18px; height: 18px; border-radius: 9px; background: #FFFFFF; border: 4px solid #1C1C1E; box-sizing: border-box"></span>
+  <span class="drop q2" style="position: absolute; left: 244px; top: 86px; width: 18px; height: 18px; border-radius: 9px; background: #FFFFFF; border: 4px solid #1C1C1E; box-sizing: border-box"></span>
+  <span class="drop q3" style="position: absolute; left: 290px; top: 180px; width: 18px; height: 18px; border-radius: 9px; background: #FFFFFF; border: 4px solid #1C1C1E; box-sizing: border-box"></span>
+  <span class="drop q4" style="position: absolute; left: 54px; top: 64px; width: 18px; height: 18px; border-radius: 9px; background: #FFFFFF; border: 4px solid #1C1C1E; box-sizing: border-box"></span>
+  <a href="Fisa.dc.html" aria-label="Înapoi" class="pr" style="position: absolute; left: 16px; top: 56px; width: 44px; height: 44px; border-radius: 22px; background: rgba(255,255,255,0.86); backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px); display: flex; align-items: center; justify-content: center; color: #1C1C1E; box-shadow: 0 4px 14px rgba(0,0,0,0.08)">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 5l-7 7 7 7"></path></svg>
+  </a>
+
+  <div class="sheet" style="position: absolute; left: 0; right: 0; bottom: 0; top: 196px; background: #FFFFFF; border-radius: 34px 34px 0 0; padding: 10px 16px 28px; display: flex; flex-direction: column; gap: 12px; box-sizing: border-box; box-shadow: 0 -8px 30px rgba(0,0,0,0.08)">
+    <div style="width: 36px; height: 5px; border-radius: 3px; background: #D1D1D6; align-self: center"></div>
+    <div style="display: flex; flex-direction: column; gap: 2px; padding: 0 4px">
+      <span style="display: flex; align-items: center; gap: 10px; font-size: 24px; font-weight: 600; letter-spacing: -0.6px">4 oferte <span class="live" style="width: 9px; height: 9px; border-radius: 5px; background: #34C759"></span></span>
+      <span style="font-size: 13px; color: #6E6E73">Potrivite după skill, distanță, preț și disponibilitate</span>
+    </div>
+    <div style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); padding: 2px; border-radius: 10px; background: #EEEEF0">
+      <sc-for list="{{sorts}}" as="s" hint-placeholder-count="4">
+        <button type="button" onClick="{{s.pick}}" aria-pressed="{{s.on}}" style="{{s.style}}">{{s.label}}</button>
+      </sc-for>
+    </div>
+
+    <div style="display: flex; flex-direction: column; gap: 6px">
+      <sc-for list="{{offers}}" as="o" hint-placeholder-count="4">
+        <button type="button" onClick="{{o.pick}}" aria-pressed="{{o.on}}" class="u pr" style="{{o.style}}">
+          <img src="{{o.img}}" alt="" style="width: 46px; height: 46px; border-radius: 23px; object-fit: cover; flex-shrink: 0">
+          <span style="flex-grow: 1; min-width: 0; display: flex; flex-direction: column; gap: 2px; text-align: left">
+            <span style="display: flex; align-items: center; gap: 6px; font-size: 16px; font-weight: 500">{{o.name}} <span style="{{o.tierStyle}}">{{o.tier}}</span><sc-if value="{{o.promo}}" hint-placeholder-val="{{ false }}"><span style="font-size: 11px; font-weight: 500; color: #6E6E73; background: #F2F2F7; border-radius: 6px; padding: 2px 6px">Promovat</span></sc-if></span>
+            <span style="font-size: 13px; color: #6E6E73">{{o.meta}}</span>
+          </span>
+          <span style="display: flex; flex-direction: column; align-items: flex-end; flex-shrink: 0">
+            <span style="font-size: 17px; font-weight: 600">{{o.total}} lei</span>
+            <span style="font-size: 12px; color: #6E6E73">{{o.eta}}</span>
+          </span>
+        </button>
+      </sc-for>
+    </div>
+
+    <div style="flex-grow: 1"></div>
+    <a href="Plata.dc.html" class="pr" style="display: flex; align-items: center; justify-content: center; height: 56px; border-radius: 28px; background: #FF9F0A; color: #1C1C1E; font-size: 17px; font-weight: 500; text-decoration: none; box-shadow: 0 10px 24px rgba(255,159,10,0.35)">{{cta}}</a>
+    <a href="Profil.dc.html" style="align-self: center; font-size: 15px; padding: 4px">{{profileLink}}</a>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+  constructor(props) { super(props); this.state = { sort: 'rec', sel: 'mihai' }; }
+  fmt(bani) { const l = Math.floor(bani / 100), b = bani % 100; return l + ',' + (b < 10 ? '0' + b : b); }
+  renderVals() {
+    const base = [
+      { id: 'ana', ini: 'AD', name: 'Ana D.', tier: 'Start', rating: 4.7, done: 8, min: 15, km: 3.6, lei: 120, match: 84, promo: true },
+      { id: 'mihai', ini: 'MI', name: 'Mihai I.', tier: 'Gold', rating: 4.9, done: 86, min: 6, km: 1.4, lei: 150, match: 98, promo: false },
+      { id: 'radu', ini: 'RC', name: 'Radu C.', tier: 'Gold', rating: 5.0, done: 120, min: 4, km: 0.9, lei: 170, match: 95, promo: false },
+      { id: 'elena', ini: 'EP', name: 'Elena P.', tier: 'Plus', rating: 4.8, done: 41, min: 12, km: 3.0, lei: 135, match: 91, promo: false }
+    ];
+    const s = this.state.sort;
+    const list = base.slice();
+    if (s === 'rec') list.sort((a, b) => (b.promo - a.promo) || (b.match - a.match));
+    if (s === 'pret') list.sort((a, b) => a.lei - b.lei);
+    if (s === 'dist') list.sort((a, b) => a.km - b.km);
+    if (s === 'nota') list.sort((a, b) => b.rating - a.rating);
+    const sel = base.find((o) => o.id === this.state.sel);
+    const tot = (o) => this.fmt(Math.round(o.lei * 100 * 1.15));
+    const offers = list.map((o, i) => {
+      const on = o.id === this.state.sel;
+      return {
+        ini: o.ini, img: 'assets/people/' + ({ AD: 'person-jobzer-2', MI: 'person-jobzer-3', RC: 'person-jobzer-1', EP: 'person-client-1' })[o.ini] + '.webp', name: o.name, tier: o.tier, promo: o.promo,
+        tierStyle: 'font-size: 11px; font-weight: 600; padding: 2px 7px; border-radius: 7px; ' + (o.tier === 'Gold' ? 'background: #FFF4E5; color: #B35600;' : 'background: #F2F2F7; color: #1C1C1E;'),
+        meta: String(o.rating).replace('.', ',') + ' ★ · ' + o.done + ' sarcini · ' + o.match + '% potrivire',
+        eta: o.min + ' min · ' + String(o.km).replace('.', ',') + ' km',
+        total: tot(o), on: on ? 'true' : 'false',
+        style: 'width: 100%; display: flex; align-items: center; gap: 12px; padding: 10px 12px; border-radius: 22px; cursor: pointer; font-family: inherit; color: #1C1C1E; animation-delay: ' + (0.25 + i * 0.07) + 's; transition: background .25s, box-shadow .25s, transform .2s; ' +
+          (on ? 'border: 0; background: #FFF8EE; box-shadow: inset 0 0 0 2px #FF9F0A;' : 'border: 0; background: #FFFFFF; box-shadow: inset 0 0 0 1px #EEEEF0;'),
+        pick: () => this.setState({ sel: o.id })
+      };
+    });
+    const sorts = [['rec', 'Recomandat'], ['pret', 'Preț'], ['dist', 'Distanță'], ['nota', 'Notă']].map(([k, l]) => ({
+      label: l, on: s === k ? 'true' : 'false',
+      style: 'height: 32px; border-radius: 8px; border: 0; font-family: inherit; font-size: 13px; font-weight: 500; cursor: pointer; color: #1C1C1E; transition: background .2s, box-shadow .2s; ' +
+        (s === k ? 'background: #FFFFFF; box-shadow: 0 2px 6px rgba(0,0,0,0.12);' : 'background: transparent;'),
+      pick: () => this.setState({ sort: k })
+    }));
+    const first = sel.name.split(' ')[0];
+    return { offers, sorts, cta: 'Alege ' + first + ' · ' + tot(sel) + ' lei', profileLink: 'Vezi profilul lui ' + first };
+  }
+}
+</script>
+</body>
+</html>

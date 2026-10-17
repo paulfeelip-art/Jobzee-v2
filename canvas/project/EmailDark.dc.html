@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="ro">
+<head>
+<meta charset="utf-8">
+<title>Jobzee · Creează cont · întunecat</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<style>
+.th{--bg:#000000;--surf:#1C1C1E;--surf2:#2C2C2E;--surf3:#3A3A3C;--ink:#FFFFFF;--ink2:#98989D;--ink3:#48484A;--sep:#38383A;--brand:#FF9F0A;--onbrand:#1C1C1E;--btext:#FFB340;--bsoft:rgba(255,159,10,0.16);--bsoft2:rgba(255,159,10,0.28);--ok:#30D158;--oktext:#30D158;--oksoft:rgba(48,209,88,0.16);--glass:rgba(36,36,38,0.78);--glass2:rgba(28,28,30,0.95);--scrim:rgba(0,0,0,0.6);--shadow:rgba(0,0,0,0.5);--invbg:#FFFFFF;--invink:#000000;--land:#1B1C1F;--road:#2E3035;--park:#1C2A20;--water:#17283A;--aur1:#B35600;--aur2:#5A2E00;--aur3:#5B1F3A}
+body{margin:0}
+a{color:var(--btext)}
+@keyframes up{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+@keyframes pop{0%{opacity:0;transform:scale(.5)}65%{opacity:1;transform:scale(1.08)}100%{opacity:1;transform:none}}
+@keyframes sheet{from{opacity:0;transform:translateY(70%)}to{opacity:1;transform:none}}
+@keyframes ring{0%{transform:scale(.6);opacity:.55}100%{transform:scale(2.6);opacity:0}}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-7px)}}
+@keyframes drift{0%,100%{transform:translate(0,0) scale(1)}33%{transform:translate(30px,-24px) scale(1.12)}66%{transform:translate(-26px,18px) scale(.94)}}
+@keyframes glow{0%,100%{opacity:.45}50%{opacity:1}}
+@keyframes shimmer{0%{background-position:-200% 0}100%{background-position:200% 0}}
+@keyframes drop{0%{opacity:0;transform:translateY(-24px) scale(.7)}60%{opacity:1;transform:translateY(3px) scale(1.06)}100%{opacity:1;transform:none}}
+@keyframes tick{0%,42%{transform:none}50%,92%{transform:translateY(-40px)}100%{transform:none}}
+@keyframes fadeSlide{0%,42%{opacity:1;transform:none}50%,92%{opacity:0;transform:translateY(-8px)}100%{opacity:1;transform:none}}
+@keyframes fadeSlide2{0%,42%{opacity:0;transform:translateY(8px)}50%,92%{opacity:1;transform:none}100%{opacity:0;transform:translateY(8px)}}
+@keyframes dotA{0%,45%{width:16px;opacity:1}50%,95%{width:6px;opacity:.35}100%{width:16px;opacity:1}}
+@keyframes dotB{0%,45%{width:6px;opacity:.35}50%,95%{width:16px;opacity:1}100%{width:6px;opacity:.35}}
+@keyframes halo{0%{box-shadow:0 0 0 0 rgba(255,159,10,.55)}100%{box-shadow:0 0 0 18px rgba(255,159,10,0)}}
+@keyframes heat{0%,100%{transform:scale(1);opacity:.8}50%{transform:scale(1.15);opacity:1}}
+.u{animation:up .55s cubic-bezier(.2,.8,.2,1) both}
+.d1{animation-delay:.08s}.d2{animation-delay:.16s}.d3{animation-delay:.24s}.d4{animation-delay:.32s}.d5{animation-delay:.4s}.d6{animation-delay:.48s}
+.pop{animation:pop .6s cubic-bezier(.2,.9,.3,1.3) both}
+.sheet{animation:sheet .7s cubic-bezier(.2,.9,.25,1) both}
+.float{animation:float 4.5s ease-in-out infinite}
+.glow{animation:glow 1.8s ease-in-out infinite}
+.drop{animation:drop .8s cubic-bezier(.2,.8,.2,1) both}
+.pr{transition:transform .22s cubic-bezier(.3,.7,.4,1.4), opacity .2s}.pr:active{transform:scale(.95)}
+.ic{display:inline-block;background:currentColor;-webkit-mask-position:center;mask-position:center;-webkit-mask-size:contain;mask-size:contain;-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;flex-shrink:0}
+.glass{background:var(--glass);backdrop-filter:blur(24px) saturate(1.6);-webkit-backdrop-filter:blur(24px) saturate(1.6)}
+@media (prefers-reduced-motion: reduce){*{animation:none!important;transition:none!important}}
+
+@keyframes bar{from{width:0}}
+.fld{display:flex;flex-direction:column;gap:2px;padding:10px 16px;background:var(--surf)}
+.fld label{font-size:12px;color:var(--ink2);font-weight:500}
+.fld input{border:0;outline:0;background:transparent;font:400 17px/24px inherit;font-family:inherit;color:var(--ink);padding:0}
+.fld:focus-within{box-shadow:inset 0 0 0 2px var(--brand);border-radius:inherit}
+
+</style>
+</helmet>
+<div class="th" style="width: 390px; height: 844px; box-sizing: border-box; background: var(--bg); font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Helvetica Neue', system-ui, sans-serif; color: var(--ink); position: relative; overflow: hidden">
+<div style="padding: 58px 16px 34px; height: 100%; box-sizing: border-box; display: flex; flex-direction: column; gap: 16px">
+  <div class="u" style="display: flex; align-items: center; justify-content: space-between">
+    <a href="MainDark.dc.html" aria-label="Înapoi" class="pr glass" style="width: 40px; height: 40px; border-radius: 20px; display: flex; align-items: center; justify-content: center; color: var(--ink); box-shadow: 0 4px 14px var(--shadow)"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 5l-7 7 7 7"></path></svg></a>
+    <img src="assets/brand/jobzee-mark.png" alt="" style="height: 30px; width: auto; display: block; flex-shrink: 0">
+    <span style="width: 40px"></span>
+  </div>
+  <div class="u d1" style="padding: 4px 4px 0"><h1 style="margin: 0; font-size: 32px; font-weight: 600; letter-spacing: -0.8px">Creează cont</h1>
+    <p style="margin: 6px 0 0; font-size: 16px; color: var(--ink2)">Durează un minut. Îți confirmăm adresa printr-un link.</p></div>
+  <div class="u d2" style="border-radius: 22px; overflow: hidden; display: flex; flex-direction: column; gap: 1px; background: var(--sep)">
+    <div class="fld"><label for="nm">Nume și prenume</label><input id="nm" value="Andrei Popescu" autocomplete="name"></div>
+    <div class="fld"><label for="em">E-mail</label><input id="em" type="email" value="andrei@exemplu.ro" autocomplete="email"></div>
+    <div class="fld" style="flex-direction: row; align-items: center; gap: 10px"><span style="flex-grow: 1; display: flex; flex-direction: column; gap: 2px"><label for="pw">Parolă</label><input id="pw" type="{{pwType}}" value="Jobzee2029!" autocomplete="new-password"></span>
+      <button type="button" onClick="{{toggleEye}}" class="pr" style="border: 0; background: var(--surf2); color: var(--ink); height: 32px; padding: 0 12px; border-radius: 16px; font: 500 13px/1 inherit; font-family: inherit; cursor: pointer">{{eyeLabel}}</button></div>
+  </div>
+  <div class="u d3" style="display: flex; flex-direction: column; gap: 8px; padding: 0 6px">
+    <div style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 6px">
+      <span style="height: 6px; border-radius: 3px; background: var(--ok); animation: bar .5s ease .4s both"></span><span style="height: 6px; border-radius: 3px; background: var(--ok); animation: bar .5s ease .55s both"></span><span style="height: 6px; border-radius: 3px; background: var(--ok); animation: bar .5s ease .7s both"></span><span style="height: 6px; border-radius: 3px; background: var(--surf3)"></span></div>
+    <span style="font-size: 13px; color: var(--oktext); font-weight: 500">Parolă puternică · minim 8 caractere, o cifră, un simbol</span>
+  </div>
+  <div class="u d4" style="display: flex; align-items: flex-start; gap: 12px; padding: 4px 6px">
+    <button type="button" onClick="{{toggleTerms}}" aria-pressed="{{termsAttr}}" aria-label="Accept termenii" style="{{boxStyle}}"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg></button>
+    <span style="font-size: 14px; line-height: 1.4; color: var(--ink2)">Accept <a href="#termeni">Termenii</a> și <a href="#gdpr">Politica de confidențialitate</a>. Am peste 18 ani.</span>
+  </div>
+  <div style="flex-grow: 1"></div>
+  <sc-if value="{{termsOn}}" hint-placeholder-val="{{ false }}">
+    <a href="RolDark.dc.html" class="pop pr" style="display: flex; align-items: center; justify-content: center; height: 56px; border-radius: 28px; background: var(--brand); color: var(--onbrand); font-size: 17px; font-weight: 500; text-decoration: none; box-shadow: 0 10px 24px rgba(255,159,10,0.35)">Creează contul</a>
+  </sc-if>
+  <sc-if value="{{termsOff}}" hint-placeholder-val="{{ true }}">
+    <div style="display: flex; flex-direction: column; gap: 8px; align-items: center"><span style="display: flex; align-items: center; justify-content: center; width: 100%; height: 56px; border-radius: 28px; background: var(--surf3); color: var(--ink2); font-size: 17px; font-weight: 500">Creează contul</span>
+    <span style="font-size: 13px; color: var(--ink2)">Bifează acordul ca să continui</span></div>
+  </sc-if>
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+  constructor(props) { super(props); this.state = { show: false, terms: false }; }
+  renderVals() {
+    const s = this.state;
+    return {
+      pwType: s.show ? 'text' : 'password',
+      eyeLabel: s.show ? 'Ascunde' : 'Arată',
+      toggleEye: () => this.setState({ show: !s.show }),
+      toggleTerms: () => this.setState({ terms: !s.terms }),
+      termsOn: s.terms, termsOff: !s.terms, termsAttr: s.terms ? 'true' : 'false',
+      boxStyle: 'width: 26px; height: 26px; border-radius: 13px; border: 0; cursor: pointer; flex-shrink: 0; display: flex; align-items: center; justify-content: center; transition: background .25s, transform .3s cubic-bezier(.2,.9,.3,1.4); ' +
+        (s.terms ? 'background: var(--brand); color: var(--onbrand); transform: scale(1.08);' : 'background: var(--surf); box-shadow: inset 0 0 0 2px var(--ink3); color: transparent;')
+    };
+  }
+}
+</script>
+</body>
+</html>

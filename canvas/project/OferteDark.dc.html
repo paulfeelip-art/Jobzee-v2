@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="ro">
+<head>
+<meta charset="utf-8">
+<title>Jobzee · Oferte (întunecat)</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<style>
+body{margin:0}
+a{color:#FFB340}a:hover{color:#FFD08A}
+@keyframes up{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+@keyframes sheet{from{transform:translateY(40%);opacity:0}to{transform:none;opacity:1}}
+@keyframes live{0%{box-shadow:0 0 0 0 rgba(48,209,88,.55)}100%{box-shadow:0 0 0 8px rgba(48,209,88,0)}}
+.u{animation:up .5s cubic-bezier(.2,.8,.2,1) both}
+.sheet{animation:sheet .65s cubic-bezier(.2,.9,.25,1) both}
+.live{animation:live 1.4s ease-out infinite}
+.pr{transition:transform .2s cubic-bezier(.3,.7,.4,1.4)}.pr:active{transform:scale(.97)}
+@media (prefers-reduced-motion: reduce){*{animation:none!important;transition:none!important}}
+</style>
+</helmet>
+<div style="width: 390px; height: 844px; box-sizing: border-box; background: #1B1C1F; font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Helvetica Neue', system-ui, sans-serif; color: #FFFFFF; position: relative; overflow: hidden">
+  <svg width="390" height="260" viewBox="0 0 390 260" aria-hidden="true" style="position: absolute; left: 0; top: 0; display: block">
+    <rect width="390" height="260" fill="#1B1C1F"></rect>
+    <rect x="40" y="150" width="80" height="54" rx="18" fill="#1C2A20"></rect>
+    <path d="M-10 80 L400 50 M-10 200 L400 230 M120 -10 L100 270 M282 -10 L300 270" stroke="#2E3035" stroke-width="14" stroke-linecap="round" fill="none"></path>
+    <circle cx="196" cy="150" r="10" fill="#FF9F0A" stroke="#1C1C1E" stroke-width="4"></circle>
+    <circle cx="110" cy="116" r="7" fill="#FFFFFF"></circle><circle cx="252" cy="94" r="7" fill="#FFFFFF"></circle><circle cx="298" cy="188" r="7" fill="#FFFFFF"></circle>
+  </svg>
+  <a href="AcasaDark.dc.html" aria-label="Înapoi" class="pr" style="position: absolute; left: 16px; top: 56px; width: 44px; height: 44px; border-radius: 22px; background: rgba(44,44,46,0.88); display: flex; align-items: center; justify-content: center; color: #FFFFFF">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 5l-7 7 7 7"></path></svg>
+  </a>
+
+  <div class="sheet" style="position: absolute; left: 0; right: 0; bottom: 0; top: 196px; background: #1C1C1E; border-radius: 34px 34px 0 0; padding: 10px 16px 28px; display: flex; flex-direction: column; gap: 12px; box-sizing: border-box">
+    <div style="width: 36px; height: 5px; border-radius: 3px; background: #48484A; align-self: center"></div>
+    <div style="display: flex; flex-direction: column; gap: 2px; padding: 0 4px">
+      <span style="display: flex; align-items: center; gap: 10px; font-size: 24px; font-weight: 600; letter-spacing: -0.6px">4 oferte <span class="live" style="width: 9px; height: 9px; border-radius: 5px; background: #30D158"></span></span>
+      <span style="font-size: 13px; color: #AEAEB2">Potrivite după skill, distanță, preț și disponibilitate</span>
+    </div>
+    <div style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); padding: 2px; border-radius: 10px; background: #2C2C2E">
+      <sc-for list="{{sorts}}" as="s" hint-placeholder-count="4">
+        <button type="button" onClick="{{s.pick}}" aria-pressed="{{s.on}}" style="{{s.style}}">{{s.label}}</button>
+      </sc-for>
+    </div>
+    <div style="display: flex; flex-direction: column; gap: 6px">
+      <sc-for list="{{offers}}" as="o" hint-placeholder-count="4">
+        <button type="button" onClick="{{o.pick}}" aria-pressed="{{o.on}}" class="u pr" style="{{o.style}}">
+          <img src="{{o.img}}" alt="" style="width: 46px; height: 46px; border-radius: 23px; object-fit: cover; flex-shrink: 0">
+          <span style="flex-grow: 1; min-width: 0; display: flex; flex-direction: column; gap: 2px; text-align: left">
+            <span style="display: flex; align-items: center; gap: 6px; font-size: 16px; font-weight: 500">{{o.name}} <span style="{{o.tierStyle}}">{{o.tier}}</span><sc-if value="{{o.promo}}" hint-placeholder-val="{{ false }}"><span style="font-size: 11px; font-weight: 500; color: #AEAEB2; background: #2C2C2E; border-radius: 6px; padding: 2px 6px">Promovat</span></sc-if></span>
+            <span style="font-size: 13px; color: #AEAEB2">{{o.meta}}</span>
+          </span>
+          <span style="display: flex; flex-direction: column; align-items: flex-end; flex-shrink: 0"><span style="font-size: 17px; font-weight: 600">{{o.total}} lei</span><span style="font-size: 12px; color: #AEAEB2">{{o.eta}}</span></span>
+        </button>
+      </sc-for>
+    </div>
+    <div style="flex-grow: 1"></div>
+    <a href="PeDrumDark.dc.html" class="pr" style="display: flex; align-items: center; justify-content: center; height: 56px; border-radius: 28px; background: #FF9F0A; color: #000000; font-size: 17px; font-weight: 500; text-decoration: none">{{cta}}</a>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+  constructor(props) { super(props); this.state = { sort: 'rec', sel: 'mihai' }; }
+  fmt(bani) { const l = Math.floor(bani / 100), b = bani % 100; return l + ',' + (b < 10 ? '0' + b : b); }
+  renderVals() {
+    const base = [
+      { id: 'ana', ini: 'AD', name: 'Ana D.', tier: 'Start', rating: 4.7, done: 8, min: 15, km: 3.6, lei: 120, match: 84, promo: true },
+      { id: 'mihai', ini: 'MI', name: 'Mihai I.', tier: 'Gold', rating: 4.9, done: 86, min: 6, km: 1.4, lei: 150, match: 98, promo: false },
+      { id: 'radu', ini: 'RC', name: 'Radu C.', tier: 'Gold', rating: 5.0, done: 120, min: 4, km: 0.9, lei: 170, match: 95, promo: false },
+      { id: 'elena', ini: 'EP', name: 'Elena P.', tier: 'Plus', rating: 4.8, done: 41, min: 12, km: 3.0, lei: 135, match: 91, promo: false }
+    ];
+    const s = this.state.sort, list = base.slice();
+    if (s === 'rec') list.sort((a, b) => (b.promo - a.promo) || (b.match - a.match));
+    if (s === 'pret') list.sort((a, b) => a.lei - b.lei);
+    if (s === 'dist') list.sort((a, b) => a.km - b.km);
+    if (s === 'nota') list.sort((a, b) => b.rating - a.rating);
+    const sel = base.find((o) => o.id === this.state.sel);
+    const tot = (o) => this.fmt(Math.round(o.lei * 100 * 1.15));
+    const offers = list.map((o, i) => {
+      const on = o.id === this.state.sel;
+      return {
+        ini: o.ini, img: 'assets/people/' + ({ AD: 'person-jobzer-2', MI: 'person-jobzer-3', RC: 'person-jobzer-1', EP: 'person-client-1' })[o.ini] + '.webp', name: o.name, tier: o.tier, promo: o.promo,
+        tierStyle: 'font-size: 11px; font-weight: 600; padding: 2px 7px; border-radius: 7px; ' + (o.tier === 'Gold' ? 'background: #4A3416; color: #FFB340;' : 'background: #2C2C2E; color: #FFFFFF;'),
+        meta: String(o.rating).replace('.', ',') + ' ★ · ' + o.done + ' sarcini · ' + o.match + '% potrivire',
+        eta: o.min + ' min · ' + String(o.km).replace('.', ',') + ' km', total: tot(o), on: on ? 'true' : 'false',
+        style: 'width: 100%; display: flex; align-items: center; gap: 12px; padding: 10px 12px; border-radius: 22px; border: 0; cursor: pointer; font-family: inherit; color: #FFFFFF; animation-delay: ' + (0.25 + i * 0.07) + 's; transition: background .25s, box-shadow .25s; ' +
+          (on ? 'background: #2A2116; box-shadow: inset 0 0 0 2px #FF9F0A;' : 'background: #1C1C1E; box-shadow: inset 0 0 0 1px #38383A;'),
+        pick: () => this.setState({ sel: o.id })
+      };
+    });
+    const sorts = [['rec', 'Recomandat'], ['pret', 'Preț'], ['dist', 'Distanță'], ['nota', 'Notă']].map(([k, l]) => ({
+      label: l, on: s === k ? 'true' : 'false',
+      style: 'height: 32px; border-radius: 8px; border: 0; font-family: inherit; font-size: 13px; font-weight: 500; cursor: pointer; color: #FFFFFF; transition: background .2s; ' + (s === k ? 'background: #636366;' : 'background: transparent;'),
+      pick: () => this.setState({ sort: k })
+    }));
+    return { offers, sorts, cta: 'Alege ' + sel.name.split(' ')[0] + ' · ' + tot(sel) + ' lei' };
+  }
+}
+</script>
+</body>
+</html>

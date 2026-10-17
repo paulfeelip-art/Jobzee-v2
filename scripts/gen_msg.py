@@ -1,0 +1,392 @@
+
+
+# ================================================================ MESAGERIE: un singur motor pentru Mesaje, Dialog, Chat, ChatJobzer
+# Reguli: fiecare mesaj are id unic; nu se trimite nimic cât timp celălalt „scrie”; dublu-tap ignorat;
+# un răspuns automat nu se repetă niciodată; o cerere închisă mută conversația în Istoric (doar citire)
+# și pornește o conversație nouă; nicio mențiune „AI”: vorbește Jobzee.
+
+MSG_CSS = SEG_CSS + """
+@keyframes bubIn{from{opacity:0;transform:translateY(8px) scale(.97)}to{opacity:1;transform:none}}
+@keyframes dotB{0%,80%,100%{transform:translateY(0);opacity:.35}40%{transform:translateY(-4px);opacity:1}}
+.bub{animation:bubIn .28s cubic-bezier(.2,.8,.2,1) both}
+.dot{width:7px;height:7px;border-radius:4px;background:var(--ink2);display:block;animation:dotB 1.2s infinite}
+.dot2{animation-delay:.15s}.dot3{animation-delay:.3s}
+.qr{border:0;height:38px;padding:0 15px;border-radius:19px;background:var(--surf);color:var(--btext);box-shadow:inset 0 0 0 1.5px var(--brand);font-family:inherit;font-size:15px;font-weight:500;cursor:pointer;white-space:nowrap;animation:bubIn .3s both}
+.ib{width:40px;height:40px;border-radius:20px;border:0;display:flex;align-items:center;justify-content:center;cursor:pointer;flex-shrink:0;padding:0}
+.fld{flex-grow:1;min-width:0;height:40px;border-radius:20px;border:0;box-shadow:inset 0 0 0 1px var(--sep);background:var(--surf);padding:0 14px;font-family:inherit;font-size:16px;color:var(--ink);outline:0}
+.fld::placeholder{color:var(--ink2)}
+.scroll{scrollbar-width:none}.scroll::-webkit-scrollbar{display:none}
+.row{display:flex;align-items:center;gap:12px;width:100%;padding:10px 14px 10px 12px;border:0;background:transparent;font-family:inherit;color:var(--ink);text-align:left;cursor:pointer}
+.row+.row{box-shadow:inset 0 0.5px 0 var(--sep)}
+"""
+
+MSG_ENGINE = r"""constructor(props) {
+    super(props);
+    this.n = 0;
+    const C = __CFG__;
+    this.C = C;
+    const threads = C.seed.map((th) => Object.assign({ step: 0, ss: '', retry: 0, data: {}, used: [], unread: 0 }, th, { msgs: th.msgs.map((m) => Object.assign({ id: 's' + (this.n++), kind: 'text', t: th.when || '' }, m)) }));
+    this.state = { view: C.view, tab: 'active', tid: C.tid, draft: '', typing: '', q: '', threads: threads };
+  }
+  componentWillUnmount() { clearTimeout(this.t1); }
+  now() { const d = new Date(); return String(d.getHours()).padStart(2, '0') + ':' + String(d.getMinutes()).padStart(2, '0'); }
+  mk(me, text, x) { return Object.assign({ id: 'm' + (this.n++), me: me, text: text, t: this.now(), kind: 'text' }, x || {}); }
+  norm(s) { return String(s || '').toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '').trim(); }
+  cur() { const s = this.state; return s.threads.find((t) => t.id === s.tid); }
+  put(id, add, patch, extra) {
+    const threads = this.state.threads.map((t) => t.id === id ? Object.assign({}, t, patch || {}, { msgs: t.msgs.concat(add || []) }) : t);
+    this.setState(Object.assign({ threads: threads }, extra || {}));
+  }
+  later(id, r, ms) {
+    if (!r || !r.msgs.length) { if (r && r.patch) this.put(id, [], r.patch); return; }
+    this.setState({ typing: id });
+    clearTimeout(this.t1);
+    this.t1 = setTimeout(() => { this.setState({ typing: '' }); this.put(id, r.msgs, r.patch); }, ms || 800);
+  }
+  send(raw) {
+    const text = String(raw || '').trim();
+    const th = this.cur();
+    if (!text || !th || this.state.typing || th.status !== 'active') return;
+    const last = th.msgs[th.msgs.length - 1];
+    if (last && last.me && last.text === text && Date.now() - (this.at || 0) < 2000) return;
+    this.at = Date.now();
+    const photo = text === '__photo' || this.norm(text) === 'adaug o poza';
+    const mine = photo ? this.mk(true, 'Poză atașată', { kind: 'photo' }) : this.mk(true, text);
+    const r = th.kind === 'jobzee' ? this.jz(th, photo ? '__photo' : text) : this.reply(th, text);
+    this.put(th.id, [mine], r && r.now ? r.now : {}, { draft: '' });
+    this.later(th.id, r, th.kind === 'jobzee' ? 750 : 1300);
+  }
+  // ---------- conversația cu Jobzee: pregătește cererea, pas cu pas, fără să repete întrebări
+  svcOf(t) {
+    const L = [[/montaj|mobil|ikea|dulap|birou|raft|pat\b|comoda/, 'Montaj mobilier'], [/curat|geam|aspir|calcat|menaj/, 'Curățenie'], [/repar|robinet|priz|bec|usa|yala|instal|chiuveta|scurge/, 'Reparații mici'],
+      [/mut|transport|car\b|cara|duba/, 'Mutat și transport'], [/gradin|iarba|gazon|tuns|curte/, 'Grădină'], [/calculator|laptop|imprimant|wifi|router|televizor|\btv\b/, 'IT și tehnică'], [/zugrav|vopsi|perete|gresie|faianta/, 'Zugrăveli și finisaje']];
+    const hit = L.find((x) => x[0].test(t));
+    return hit ? hit[1] : null;
+  }
+  est(svc) { return { 'Montaj mobilier': '120–220 lei', 'Curățenie': '150–300 lei', 'Reparații mici': '80–180 lei', 'Mutat și transport': '200–450 lei', 'Grădină': '100–250 lei', 'IT și tehnică': '90–200 lei', 'Zugrăveli și finisaje': '300–900 lei' }[svc] || ''; }
+  review(d, out) {
+    out.push(this.mk(false, 'Am pregătit cererea. Uită-te peste ea înainte s-o trimit.'));
+    const rows = [['Serviciu', d.svc], ['Când', d.cand], ['Unde', d.unde], ['Detalii', d.det || (d.photo ? '1 poză atașată' : 'Fără detalii în plus')]];
+    out.push(this.mk(false, '', { kind: 'card', rows: rows.map((r) => ({ k: r[0], v: r[1] })), est: this.est(d.svc), photo: !!d.photo }));
+  }
+  jz(th, text) {
+    const t = this.norm(text), d = Object.assign({}, th.data), out = [];
+    let step = th.step, sub = th.ss || '', retry = th.retry, edit = th.edit, status = th.status, label = th.closedLabel, title = th.topic;
+    const J = (x) => out.push(this.mk(false, x));
+    const next = (n, q) => { retry = 0; sub = ''; if (edit || n === 4) { edit = false; step = 4; this.review(d, out); } else { step = n; if (q) J(q); } };
+    const lc = (x) => x.charAt(0).toLowerCase() + x.slice(1);
+    const cu = { 'Montaj mobilier': 'montajul mobilei', 'Curățenie': 'curățenia', 'Reparații mici': 'reparația', 'Mutat și transport': 'mutatul', 'Grădină': 'grădina', 'IT și tehnică': 'partea tehnică', 'Zugrăveli și finisaje': 'zugrăveala' };
+    if (text === '__photo') {
+      d.photo = true;
+      if (step === 3) { J('Mulțumesc, poza îi ajută mult pe Jobzeri.'); next(4); }
+      else J('Mulțumesc, am atașat poza la cerere.');
+      return { msgs: out, patch: { data: d, step: step, ss: sub, retry: retry, edit: edit } };
+    }
+    if (step === 0) {
+      if (sub === '' && t === 'altceva') { J('Sigur. Descrie-mi în câteva cuvinte de ce ai nevoie și găsesc eu categoria potrivită.'); sub = 'free'; }
+      else {
+        let svc = this.svcOf(t);
+        if (!svc && retry === 0) { J('Ca să-ți găsesc Jobzerii potriviți, spune-mi ce fel de lucrare este. De exemplu: un montaj, o curățenie sau o reparație.'); retry = 1; }
+        else {
+          if (!svc) { svc = 'Alte servicii'; d.det = text; } else if (text.length > 24) d.det = text;
+          d.svc = svc; title = svc;
+          next(1, svc === 'Alte servicii' ? 'Am notat. Când ai nevoie de cineva?' : 'Perfect, te ajut cu ' + cu[svc] + '. Când ai nevoie de cineva?');
+        }
+      }
+    } else if (step === 1) {
+      let c = null, say = '';
+      if (sub === 'prog') { c = text; say = 'Am notat: ' + lc(text) + '.'; }
+      else if (/^programez/.test(t)) { sub = 'prog'; J('Ce zi și ce oră ți se potrivesc?'); }
+      else if (/urgent|acum|imediat|repede|cat mai/.test(t)) { c = 'Urgent'; say = 'Bine, caut Jobzeri care pot ajunge cât mai repede.'; }
+      else if (/azi|astazi|diseara|in seara|dupa-amiaza|dupa ora|pranz/.test(t)) { c = 'Azi' + (t === 'azi' ? '' : ', ' + text); say = 'Bine, caut Jobzeri liberi azi.'; }
+      else if (/maine|poimaine|luni|marti|miercuri|joi|vineri|sambata|duminica|saptamana|dimineata|seara|\d/.test(t)) { c = text; say = 'Am notat: ' + lc(text) + '.'; }
+      else if (retry === 0) { J('Spune-mi doar cât de repede: urgent, azi sau într-o anumită zi.'); retry = 1; }
+      else { c = text; say = 'Am notat.'; }
+      if (c) { d.cand = c; next(2, say + ' Unde să vină Jobzerul?'); }
+    } else if (step === 2) {
+      let u = null, say = '';
+      if (sub === 'addr') { u = text; say = 'Mulțumesc, am salvat adresa.'; }
+      else if (/locatia asta|aici|acasa|la mine/.test(t)) { u = 'Str. Barbu Văcărescu 120, Floreasca'; say = 'Folosesc adresa ta: Str. Barbu Văcărescu 120, Floreasca.'; }
+      else if (/^alta adresa/.test(t)) { sub = 'addr'; J('Scrie-mi adresa completă: strada, numărul și, dacă e cazul, blocul și apartamentul.'); }
+      else if (/\d|str\b|strada|bd\b|bulevard|calea|sos|aleea|piata/.test(t)) { u = text; say = 'Mulțumesc, am salvat adresa.'; }
+      else if (retry === 0) { J('Ca să știe Jobzerul unde să vină, alege „Locația asta” sau scrie-mi adresa.'); retry = 1; }
+      else { u = text; say = 'Am notat.'; }
+      if (u) { d.unde = u; next(3, say + ' Mai vrei să adaugi ceva? O poză sau un detaliu îi ajută pe Jobzeri să-ți facă o ofertă corectă.'); }
+    } else if (step === 3) {
+      if (!/^(e suficient|nu|gata|nimic|atat|asta e tot)/.test(t)) { d.det = (d.det ? d.det + ' · ' : '') + text; J('Am adăugat detaliul.'); }
+      next(4);
+    } else if (step === 4) {
+      if (sub === 'edit') {
+        const m = /servic/.test(t) ? [0, 'Ce serviciu îți trebuie?'] : /cand/.test(t) ? [1, 'Când ai nevoie de cineva?'] : /adres|unde/.test(t) ? [2, 'Unde să vină Jobzerul?'] : /detal|poz/.test(t) ? [3, 'Ce vrei să adaugi?'] : null;
+        if (m) { step = m[0]; sub = ''; edit = true; retry = 0; J(m[1]); }
+        else J('Alege ce vrei să schimbi: serviciul, ziua, adresa sau detaliile.');
+      } else if (/^(trimite|da\b|ok|gata|e bine|perfect|trimite-o)/.test(t)) {
+        J('Am trimis cererea. Îți scriu aici imediat ce primești prima ofertă.');
+        out.push(this.mk(false, 'Cerere trimisă · ' + d.svc + ' · ' + this.now(), { kind: 'system' }));
+        step = 5; status = 'closed'; label = 'Cerere trimisă';
+      } else if (/modific|schimb/.test(t)) { sub = 'edit'; J('Sigur. Ce vrei să schimbi?'); }
+      else { J(['Dacă totul e în regulă, apasă „Trimite cererea”. Dacă nu, alege „Modific ceva”.', 'Pot trimite cererea așa cum e sau o modificăm împreună. Cum preferi?'][retry % 2]); retry++; }
+    }
+    return { msgs: out, patch: { data: d, step: step, ss: sub, retry: retry, edit: edit, status: status, closedLabel: label, topic: title, when: status === 'closed' ? 'azi, ' + this.now() : th.when } };
+  }
+  quickJz(th) {
+    if (th.status !== 'active') return [];
+    const s = th.step, b = th.ss || '';
+    if (s === 0) return b ? [] : ['Montaj mobilier', 'Curățenie', 'Reparații mici', 'Altceva'];
+    if (s === 1) return b === 'prog' ? ['Mâine dimineață', 'Mâine seară', 'Sâmbătă'] : ['Urgent', 'Azi', 'Programez'];
+    if (s === 2) return b === 'addr' ? [] : ['Locația asta', 'Altă adresă'];
+    if (s === 3) return ['Adaug o poză', 'E suficient'];
+    if (s === 4) return b === 'edit' ? ['Serviciul', 'Când', 'Adresa', 'Detaliile'] : ['Trimite cererea', 'Modific ceva'];
+    return [];
+  }
+  // ---------- chat cu un om (Jobzer, client, suport): răspunsurile simulate nu se repetă niciodată
+  reply(th, text) {
+    const t = this.norm(text), used = th.used || [];
+    const i = (th.replies || []).findIndex((x, k) => used.indexOf(k) < 0 && (x.k === '' || new RegExp(x.k).test(t)));
+    if (i < 0) return { msgs: [], patch: {} };
+    return { msgs: [this.mk(false, th.replies[i].r)], now: { used: used.concat([i]) }, patch: {} };
+  }
+  // ---------- ciclu de viață
+  closeChat() {
+    const th = this.cur(); if (!th || th.status !== 'active') return;
+    this.put(th.id, [this.mk(false, th.closeMsg, { kind: 'system' })], { status: 'closed', closedLabel: th.closeLabel, when: 'azi, ' + this.now() });
+  }
+  newJz(draft) {
+    const s = this.state;
+    const live = s.threads.find((t) => t.kind === 'jobzee' && t.status === 'active');
+    let threads = s.threads;
+    if (live && live.msgs.length <= 1) { this.setState({ tid: live.id, view: 'thread', draft: draft || '' }); return; }
+    if (live) threads = threads.map((t) => t === live ? Object.assign({}, t, { status: 'closed', closedLabel: 'Neterminată', when: 'azi, ' + this.now() }) : t);
+    const id = 'jz' + (this.n++);
+    const th = { id: id, kind: 'jobzee', title: 'Jobzee', topic: 'Conversație nouă', sub: 'Te ajut să pregătești cererea', status: 'active', step: 0, ss: '', retry: 0, data: {}, used: [], unread: 0, when: 'azi',
+      msgs: [this.mk(false, 'Conversație nouă · azi, ' + this.now(), { kind: 'divider' }), this.mk(false, 'Bună din nou, Paul! Cu ce te pot ajuta de data asta?')] };
+    this.setState({ threads: [th].concat(threads), tid: id, view: 'thread', draft: draft || '', typing: '' });
+  }
+  resume(id) {
+    const s = this.state;
+    let threads = s.threads.filter((t) => !(t.kind === 'jobzee' && t.status === 'active' && t.msgs.length <= 2 && t.id !== id));
+    threads = threads.map((t) => t.kind === 'jobzee' && t.status === 'active' ? Object.assign({}, t, { status: 'closed', closedLabel: 'Neterminată', when: 'azi, ' + this.now() }) : t);
+    threads = threads.map((t) => t.id === id ? Object.assign({}, t, { status: 'active', closedLabel: '' }) : t);
+    this.setState({ threads: threads, tid: id, view: 'thread' });
+  }
+  open(id) { this.setState({ tid: id, view: 'thread', draft: '', threads: this.state.threads.map((t) => t.id === id ? Object.assign({}, t, { unread: 0 }) : t) }); }
+  // ---------- ce vede ecranul
+  lastTxt(th) {
+    for (let i = th.msgs.length - 1; i >= 0; i--) { const m = th.msgs[i];
+      if (m.kind === 'text') return (m.me ? 'Tu: ' : '') + m.text;
+      if (m.kind === 'photo') return (m.me ? 'Tu: ' : '') + 'Poză';
+      if (m.kind === 'card') return 'Cererea e gata de trimis';
+      if (m.kind === 'system') return m.text; }
+    return '';
+  }
+  renderVals() {
+    const s = this.state, C = this.C;
+    const zee = (th) => th.status === 'closed' ? 'assets/mascot/zee-fericit.png' : s.typing === th.id ? 'assets/mascot/zee-gandeste.png' : 'assets/mascot/zee-salut.png';
+    const chip = (th) => th.status === 'closed' ? th.closedLabel : '';
+    const chipSt = (l) => 'height: 20px; padding: 0 8px; border-radius: 10px; font-size: 11px; font-weight: 500; display: inline-flex; align-items: center; white-space: nowrap; ' +
+      (l === 'Finalizată' || l === 'Lucrare încheiată' ? 'background: var(--oksoft); color: var(--oktext)' : l === 'Anulată' ? 'background: var(--surf2); color: var(--ink2)' : 'background: var(--bsoft); color: var(--btext)');
+    const q = this.norm(s.q);
+    const row = (th) => ({ id: th.id, title: th.kind === 'jobzee' ? 'Jobzee' : th.title, sub: th.kind === 'jobzee' ? (th.topic || 'Conversație nouă') : th.topic, last: this.lastTxt(th), when: th.when || '',
+      isZee: th.kind === 'jobzee' || th.kind === 'support', img: th.kind === 'jobzee' || th.kind === 'support' ? zee(th) : th.avatar, chip: chip(th), hasChip: !!chip(th), chipStyle: chipSt(chip(th)),
+      unread: th.unread, hasUnread: th.unread > 0, open: () => this.open(th.id) });
+    const match = (th) => !q || this.norm([th.title, th.topic, this.lastTxt(th)].join(' ')).indexOf(q) >= 0;
+    const act = s.threads.filter((t) => t.status === 'active' && match(t)).sort((a, b) => (a.kind === 'jobzee' ? -1 : 0) - (b.kind === 'jobzee' ? -1 : 0)).map(row);
+    const hist = s.threads.filter((t) => t.status === 'closed' && match(t)).map(row);
+    const nAct = s.threads.filter((t) => t.status === 'active').length, nHist = s.threads.filter((t) => t.status === 'closed').length;
+    const th = this.cur() || s.threads[0];
+    const isJz = th.kind === 'jobzee', active = th.status === 'active', typing = s.typing === th.id;
+    const bub = 'max-width: 80%; padding: 10px 14px; font-size: 16px; line-height: 1.38; white-space: pre-wrap; word-break: break-word; ';
+    const msgs = th.msgs.map((m, i) => {
+      const nx = th.msgs[i + 1];
+      const tail = !nx || nx.me !== m.me || nx.kind === 'divider' || nx.kind === 'system';
+      return { id: m.id, text: m.text, t: m.t, rows: m.rows || [], est: m.est || '', hasEst: !!m.est, noEst: !m.est,
+        isText: m.kind === 'text', isPhoto: m.kind === 'photo', isCard: m.kind === 'card', isDiv: m.kind === 'divider', isSys: m.kind === 'system',
+        wrap: 'display: flex; flex-direction: column; gap: 3px; ' + (m.me ? 'align-items: flex-end' : 'align-items: flex-start') + '; margin-bottom: ' + (tail ? 8 : 0) + 'px',
+        style: bub + (m.me ? 'background: var(--brand); color: var(--onbrand); border-radius: ' + (tail ? '20px 20px 6px 20px' : '20px') : 'background: var(--surf); color: var(--ink); border-radius: ' + (tail ? '20px 20px 20px 6px' : '20px')),
+        meta: tail, metaTxt: m.me && i === th.msgs.length - 1 ? 'Livrat · ' + m.t : m.t };
+    });
+    const qs = isJz ? this.quickJz(th) : (active ? (th.quick || []).filter((x) => !th.msgs.some((m) => m.me && m.text === x)) : []);
+    const quick = typing ? [] : qs.map((x) => ({ text: x, pick: () => this.send(x) }));
+    const d = th.data || {};
+    const fl = [['Serviciu', !!d.svc], ['Când', !!d.cand], ['Unde', !!d.unde], ['Detalii', th.step >= 4]];
+    const fields = fl.map((f) => ({ label: (f[1] ? '✓ ' : '') + f[0], style: 'height: 26px; padding: 0 10px; border-radius: 13px; font-size: 12px; font-weight: 500; display: flex; align-items: center; transition: all .3s; ' + (f[1] ? 'background: var(--bsoft); color: var(--btext)' : 'background: var(--surf2); color: var(--ink2)') }));
+    const canSend = active && !typing && s.draft.trim().length > 0;
+    const sample = ['Am de montat un birou IKEA și un dulap mic', 'Azi, după ora 17', 'La mine acasă', 'Cutiile sunt deja în sufragerie', 'Trimite cererea'][Math.min(th.step, 4)];
+    return {
+      isList: s.view === 'list', isThread: s.view === 'thread', isAct: s.tab === 'active', isHist: s.tab === 'hist',
+      tA: s.tab === 'active' ? 'true' : 'false', tH: s.tab === 'hist' ? 'true' : 'false', goA: () => this.setState({ tab: 'active' }), goH: () => this.setState({ tab: 'hist' }),
+      labA: 'Active · ' + nAct, labH: 'Istoric · ' + nHist, act: act, hist: hist, histEmpty: hist.length === 0, actEmpty: act.length === 0,
+      q: s.q, onQ: (e) => this.setState({ q: e.target.value }),
+      back: () => this.setState({ view: 'list', typing: '', draft: '' }),
+      title: isJz ? 'Jobzee' : th.title, sub: typing ? (isJz ? 'Jobzee scrie…' : th.title.split(' ')[0] + ' scrie…') : active ? th.sub : th.closedLabel + ' · ' + (th.when || ''),
+      isZee: isJz || th.kind === 'support', img: isJz || th.kind === 'support' ? zee(th) : th.avatar, isJz: isJz, isPerson: th.kind === 'jobzer' || th.kind === 'client',
+      topic: th.topic || '', hasTopic: !isJz && !!th.topic, fields: fields, showFields: isJz && active,
+      msgs: msgs, typing: typing, quick: quick, hasQuick: quick.length > 0,
+      active: active, closed: !active, jzClosed: !active && isJz, chatClosed: !active && !isJz && th.kind !== 'support',
+      sent: !active && isJz && th.closedLabel === 'Cerere trimisă', unfinished: !active && isJz && th.closedLabel === 'Neterminată',
+      canClose: active && !!th.closeAsk, closeAsk: th.closeAsk || '', closeBtn: th.closeBtn || '', doClose: () => this.closeChat(),
+      draft: s.draft, onDraft: (e) => this.setState({ draft: e.target.value }), onKey: (e) => { if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); this.send(this.state.draft); } },
+      doSend: () => this.send(this.state.draft), sendStyle: 'background: ' + (canSend ? 'var(--brand)' : 'var(--surf3)') + '; color: ' + (canSend ? 'var(--onbrand)' : 'var(--ink2)') + '; transition: background .2s',
+      ph: !active ? 'Conversația s-a încheiat' : typing ? 'Așteaptă o clipă…' : isJz ? 'Scrie-i lui Jobzee…' : 'Mesaj către ' + th.title.split(' ')[0],
+      photo: () => this.send('__photo'), dictate: () => { if (active && !typing) this.setState({ draft: sample }); },
+      newJz: () => this.newJz(''), again: () => this.newJz(th.againDraft || ''), resume: () => this.resume(th.id),
+      isHub: C.mode === 'hub', notHub: C.mode !== 'hub'
+    };
+  }"""
+
+
+def _seed_hub():
+    return [
+        dict(id='jz1', kind='jobzee', title='Jobzee', topic='Conversație nouă', status='active', when='azi', sub='Te ajut să pregătești cererea',
+             msgs=[dict(me=False, text='Bună, Paul! Sunt Jobzee. Spune-mi pe scurt cu ce te pot ajuta și pregătesc eu cererea pentru tine.', t='11:52')]),
+        dict(id='mihai', kind='jobzer', title='Mihai I.', avatar='assets/people/person-jobzer-3.webp', topic='Montaj mobilier · 150 lei', sub='Pe drum · ajunge în 10 min', status='active', when='11:48', unread=1,
+             quick=['Sunt acasă', 'Interfonul e 12', 'Poți parca în curte', 'Mulțumesc!'],
+             replies=[dict(k='acasa|astept', r='Perfect, ne vedem imediat.'), dict(k='interfon', r='Am notat, sun la 12 când ajung.'),
+                      dict(k='parc|curte', r='Mulțumesc că mi-ai spus, parchez în curte.'), dict(k='cat|cand|unde esti|intarzi|mai ai', r='Mai am cam 5 minute, sunt pe Barbu Văcărescu.'),
+                      dict(k='pret|cost|lei|plat', r='Rămâne cum am stabilit în ofertă: 150 lei, plătești din aplicație la final.'), dict(k='multum|mersi', r='Cu plăcere!'), dict(k='', r='Am văzut, mulțumesc!')],
+             closeAsk='Lucrarea e gata? Confirm-o și conversația trece în Istoric.', closeBtn='Confirmă', closeMsg='Lucrare confirmată · 150 lei · plata s-a făcut din aplicație', closeLabel='Finalizată',
+             againDraft='Aș vrea din nou ajutorul lui Mihai I. pentru ',
+             msgs=[dict(me=False, text='Bună! Am văzut pozele, plec acum spre tine.', t='11:41'), dict(me=True, text='Super, mulțumesc! Totul e încă în cutii.', t='11:42'),
+                   dict(me=False, text='Ajung în aproximativ 10 minute. Am la mine toate uneltele.', t='11:48')]),
+        dict(id='sup', kind='support', title='Suport Jobzee', topic='Suntem aici 24/7', sub='Răspundem de obicei în câteva minute', status='active', when='1 oct.',
+             replies=[dict(k='', r='Mulțumim! Un coleg din echipa Jobzee îți răspunde în câteva minute.'), dict(k='', r='Am adăugat mesajul la discuție. Revenim imediat.')],
+             msgs=[dict(me=False, text='Bună, Paul! Dacă ai nevoie de ajutor cu o cerere sau cu o plată, scrie-ne aici.', t='1 oct.')]),
+        dict(id='jz0', kind='jobzee', title='Jobzee', topic='Curățenie', status='closed', closedLabel='Cerere trimisă', when='9 oct.',
+             msgs=[dict(me=False, text='Bună, Paul! Cu ce te pot ajuta azi?'), dict(me=True, text='Am nevoie de o curățenie generală, 2 camere.'),
+                   dict(me=False, text='Perfect, te ajut cu curățenia. Când ai nevoie de cineva?'), dict(me=True, text='Sâmbătă dimineață'),
+                   dict(me=False, text='Am notat: sâmbătă dimineață. Am trimis cererea și îți scriu aici la prima ofertă.'), dict(me=False, kind='system', text='Cerere trimisă · Curățenie · 9 oct.')]),
+        dict(id='elena', kind='jobzer', title='Elena P.', avatar='assets/people/person-client-1.webp', topic='Curățenie · 180 lei', status='closed', closedLabel='Finalizată', when='11 oct.',
+             againDraft='Aș vrea din nou o curățenie cu Elena P. ',
+             msgs=[dict(me=False, text='Bună ziua! Ajung la 9:00, cum am stabilit.'), dict(me=True, text='Bună ziua, vă aștept. Mulțumesc!'),
+                   dict(me=False, text='Am terminat. Am lăsat produsele de curățat sub chiuvetă.'), dict(me=True, text='Arată impecabil, mulțumesc mult!'),
+                   dict(me=False, text='Mulțumesc și eu, o zi bună!'), dict(me=False, kind='system', text='Lucrare confirmată · 180 lei · 11 oct.')]),
+        dict(id='radu', kind='jobzer', title='Radu C.', avatar='assets/people/person-jobzer-1.webp', topic='Instalare imprimantă', status='closed', closedLabel='Anulată', when='2 oct.',
+             againDraft='Am nevoie de ajutor cu instalarea unei imprimante ',
+             msgs=[dict(me=False, text='Bună! Ce model de imprimantă ai?'), dict(me=True, text='HP LaserJet. Aș vrea să meargă pe Wi-Fi.'),
+                   dict(me=False, kind='system', text='Cerere anulată de tine înainte de start · fără costuri')]),
+    ]
+
+
+def _msg_thread_markup(close_href, close_label, mode):
+    """Antet + fir de mesaje + răspunsuri rapide + bară de scriere / bară de final. Comun pentru toate modurile."""
+    back = ('<button type="button" onClick="{{back}}" aria-label="Înapoi la conversații" class="ib pr" style="background: transparent; color: var(--btext)">' + BACK + '</button>') if mode == 'hub' else \
+           ('<a href="' + close_href + '" aria-label="' + close_label + '" class="ib pr" style="background: var(--surf2); color: var(--ink); text-decoration: none">' + (CLOSE if close_label == 'Închide' else BACK) + '</a>')
+    hist = '' if mode == 'hub' else '<a href="Mesaje.dc.html" aria-label="Istoric conversații" class="ib pr" style="background: var(--surf2); color: var(--ink); text-decoration: none"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"></path><path d="M3 3v5h5M12 7v5l3 2"></path></svg></a>'
+    return '''<div style="height: 100%; display: flex; flex-direction: column">
+  <div class="glass" style="padding: 50px 12px 10px; box-shadow: 0 0.5px 0 var(--sep); display: flex; flex-direction: column; gap: 10px; z-index: 2">
+    <div style="display: flex; align-items: center; gap: 10px">
+      ''' + back + '''
+      <sc-if value="{{isZee}}" hint-placeholder-val="{{ true }}"><span style="width: 42px; height: 42px; border-radius: 21px; background: var(--bsoft); display: flex; align-items: center; justify-content: center; flex-shrink: 0"><img src="{{img}}" alt="" style="width: 32px; height: 35px"></span></sc-if>
+      <sc-if value="{{isPerson}}" hint-placeholder-val="{{ false }}"><img src="{{img}}" alt="" style="width: 42px; height: 42px; border-radius: 21px; object-fit: cover; flex-shrink: 0"></sc-if>
+      <span style="flex-grow: 1; min-width: 0; display: flex; flex-direction: column"><span style="font-size: 17px; font-weight: 600">{{title}}</span><span style="font-size: 12px; color: var(--ink2); white-space: nowrap; overflow: hidden; text-overflow: ellipsis">{{sub}}</span></span>
+      <sc-if value="{{isJz}}" hint-placeholder-val="{{ true }}"><button type="button" onClick="{{newJz}}" class="pr" style="height: 34px; padding: 0 12px; border: 0; border-radius: 17px; background: var(--surf2); color: var(--ink); font-family: inherit; font-size: 13px; font-weight: 500; cursor: pointer; flex-shrink: 0">+ Nouă</button></sc-if>
+      ''' + hist + '''
+    </div>
+    <sc-if value="{{showFields}}" hint-placeholder-val="{{ true }}"><div style="display: flex; gap: 6px"><sc-for list="{{fields}}" as="f" hint-placeholder-count="4"><span style="{{f.style}}">{{f.label}}</span></sc-for></div></sc-if>
+    <sc-if value="{{hasTopic}}" hint-placeholder-val="{{ false }}"><span style="font-size: 12px; color: var(--ink2); padding-left: 52px">{{topic}}</span></sc-if>
+  </div>
+  <sc-if value="{{canClose}}" hint-placeholder-val="{{ false }}"><div style="margin: 10px 12px 0; padding: 10px 10px 10px 14px; border-radius: 18px; background: var(--bsoft); display: flex; align-items: center; gap: 10px"><span style="flex-grow: 1; font-size: 13px; line-height: 1.35">{{closeAsk}}</span><button type="button" onClick="{{doClose}}" class="pr" style="height: 34px; padding: 0 14px; border: 0; border-radius: 17px; background: var(--invbg); color: var(--invink); font-family: inherit; font-size: 14px; font-weight: 500; cursor: pointer">{{closeBtn}}</button></div></sc-if>
+  <div class="scroll" style="flex-grow: 1; min-height: 0; overflow-y: auto; display: flex; flex-direction: column-reverse; padding: 12px 14px 6px">
+    <div style="display: flex; flex-direction: column">
+      <sc-for list="{{msgs}}" as="m" hint-placeholder-count="3">
+        <sc-if value="{{m.isDiv}}" hint-placeholder-val="{{ false }}"><div class="bub" style="align-self: center; margin: 6px 0 12px; height: 24px; padding: 0 12px; border-radius: 12px; background: var(--surf2); color: var(--ink2); font-size: 12px; font-weight: 500; display: flex; align-items: center">{{m.text}}</div></sc-if>
+        <sc-if value="{{m.isSys}}" hint-placeholder-val="{{ false }}"><div class="bub" style="align-self: center; margin: 4px 0 12px; max-width: 86%; padding: 6px 12px; border-radius: 12px; background: var(--oksoft); color: var(--oktext); font-size: 12px; font-weight: 500; text-align: center">✓ {{m.text}}</div></sc-if>
+        <sc-if value="{{m.isText}}" hint-placeholder-val="{{ true }}"><div class="bub" style="{{m.wrap}}"><div style="{{m.style}}">{{m.text}}</div><sc-if value="{{m.meta}}" hint-placeholder-val="{{ true }}"><span style="font-size: 11px; color: var(--ink2); padding: 0 6px">{{m.metaTxt}}</span></sc-if></div></sc-if>
+        <sc-if value="{{m.isPhoto}}" hint-placeholder-val="{{ false }}"><div class="bub" style="{{m.wrap}}"><img src="assets/photos/hero-client-home.webp" alt="Poză atașată" style="width: 170px; height: 120px; border-radius: 18px; object-fit: cover; display: block"><span style="font-size: 11px; color: var(--ink2); padding: 0 6px">{{m.metaTxt}}</span></div></sc-if>
+        <sc-if value="{{m.isCard}}" hint-placeholder-val="{{ false }}"><div class="bub" style="align-self: flex-start; width: 84%; margin-bottom: 8px; border-radius: 22px; background: var(--surf); box-shadow: inset 0 0 0 1.5px var(--brand); padding: 12px 14px; display: flex; flex-direction: column; gap: 8px">
+          <span style="display: flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 600; color: var(--btext)"><img src="assets/brand/jobzee-mark.png" alt="" style="height: 18px; width: auto">Cererea ta</span>
+          <sc-for list="{{m.rows}}" as="r" hint-placeholder-count="4"><span style="display: flex; gap: 10px; font-size: 14px; line-height: 1.3"><span style="width: 64px; flex-shrink: 0; color: var(--ink2)">{{r.k}}</span><span style="flex-grow: 1">{{r.v}}</span></span></sc-for>
+          <sc-if value="{{m.hasEst}}" hint-placeholder-val="{{ true }}"><span style="padding-top: 8px; box-shadow: inset 0 0.5px 0 var(--sep); display: flex; flex-direction: column; gap: 2px"><span style="font-size: 12px; color: var(--ink2)">De obicei, în zona ta</span><span style="font-size: 18px; font-weight: 600">{{m.est}}</span><span style="font-size: 11px; color: var(--ink2)">Prețul final vine din ofertele Jobzerilor.</span></span></sc-if>
+          <sc-if value="{{m.noEst}}" hint-placeholder-val="{{ false }}"><span style="padding-top: 8px; box-shadow: inset 0 0.5px 0 var(--sep); font-size: 12px; color: var(--ink2)">Prețul îl afli din ofertele Jobzerilor.</span></sc-if>
+          <a href="Fisa.dc.html" style="font-size: 13px; font-weight: 500; color: var(--btext); text-decoration: none">Vezi fișa completă ›</a>
+        </div></sc-if>
+      </sc-for>
+      <sc-if value="{{typing}}" hint-placeholder-val="{{ false }}"><div class="bub" style="align-self: flex-start; display: flex; gap: 5px; padding: 14px 16px; border-radius: 20px 20px 20px 6px; background: var(--surf); margin-bottom: 8px"><span class="dot"></span><span class="dot dot2"></span><span class="dot dot3"></span></div></sc-if>
+    </div>
+  </div>
+  <sc-if value="{{hasQuick}}" hint-placeholder-val="{{ true }}"><div style="padding: 4px 12px 10px; display: flex; gap: 8px; flex-wrap: wrap; justify-content: flex-end"><sc-for list="{{quick}}" as="x" hint-placeholder-count="3"><button type="button" onClick="{{x.pick}}" class="qr pr">{{x.text}}</button></sc-for></div></sc-if>
+  <sc-if value="{{active}}" hint-placeholder-val="{{ true }}"><div class="glass" style="padding: 8px 12px 30px; display: flex; gap: 8px; align-items: center; box-shadow: 0 -0.5px 0 var(--sep)">
+    <button type="button" onClick="{{photo}}" aria-label="Atașează o poză" class="ib pr" style="background: var(--surf2); color: var(--ink)"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 8h3l2-3h6l2 3h3v11H4z"></path><circle cx="12" cy="13" r="3.5"></circle></svg></button>
+    <label for="msg-in" style="position: absolute; left: -9999px">Mesaj</label>
+    <input id="msg-in" class="fld" value="{{draft}}" onChange="{{onDraft}}" onKeyDown="{{onKey}}" placeholder="{{ph}}" autocomplete="off">
+    <sc-if value="{{isJz}}" hint-placeholder-val="{{ true }}"><button type="button" onClick="{{dictate}}" aria-label="Dictează" class="ib pr" style="background: var(--surf2); color: var(--ink)"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="3" width="6" height="11" rx="3"></rect><path d="M5 11a7 7 0 0 0 14 0M12 18v3"></path></svg></button></sc-if>
+    <button type="button" onClick="{{doSend}}" aria-label="Trimite" class="ib pr" style="{{sendStyle}}"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5M6 11l6-6 6 6"></path></svg></button>
+  </div></sc-if>
+  <sc-if value="{{closed}}" hint-placeholder-val="{{ false }}"><div class="glass" style="padding: 12px 14px 30px; display: flex; flex-direction: column; gap: 10px; box-shadow: 0 -0.5px 0 var(--sep)">
+    <span style="font-size: 13px; color: var(--ink2); text-align: center">Conversația s-a încheiat. O găsești oricând în Istoric, doar pentru citire.</span>
+    <sc-if value="{{sent}}" hint-placeholder-val="{{ false }}"><div style="display: flex; gap: 8px"><a href="Radar.dc.html" class="pr" style="flex: 1; height: 48px; border-radius: 24px; background: var(--surf2); color: var(--ink); display: flex; align-items: center; justify-content: center; font-size: 15px; font-weight: 500; text-decoration: none">Urmărește pe radar</a><button type="button" onClick="{{newJz}}" class="pr" style="flex: 1; height: 48px; border: 0; border-radius: 24px; background: var(--brand); color: var(--onbrand); font-family: inherit; font-size: 15px; font-weight: 500; cursor: pointer">Conversație nouă</button></div></sc-if>
+    <sc-if value="{{unfinished}}" hint-placeholder-val="{{ false }}"><div style="display: flex; gap: 8px"><button type="button" onClick="{{resume}}" class="pr" style="flex: 1; height: 48px; border: 0; border-radius: 24px; background: var(--surf2); color: var(--ink); font-family: inherit; font-size: 15px; font-weight: 500; cursor: pointer">Continuă de aici</button><button type="button" onClick="{{newJz}}" class="pr" style="flex: 1; height: 48px; border: 0; border-radius: 24px; background: var(--brand); color: var(--onbrand); font-family: inherit; font-size: 15px; font-weight: 500; cursor: pointer">Conversație nouă</button></div></sc-if>
+    <sc-if value="{{chatClosed}}" hint-placeholder-val="{{ false }}"><div style="display: flex; gap: 8px">''' + (
+        '<a href="Recenzie.dc.html" class="pr" style="flex: 1; height: 48px; border-radius: 24px; background: var(--surf2); color: var(--ink); display: flex; align-items: center; justify-content: center; font-size: 15px; font-weight: 500; text-decoration: none">Lasă o recenzie</a>'
+        if mode != 'chatj' else '<a href="Incasari.dc.html" class="pr" style="flex: 1; height: 48px; border-radius: 24px; background: var(--surf2); color: var(--ink); display: flex; align-items: center; justify-content: center; font-size: 15px; font-weight: 500; text-decoration: none">Vezi încasarea</a>') + (
+        '<button type="button" onClick="{{again}}" class="pr" style="flex: 1; height: 48px; border: 0; border-radius: 24px; background: var(--brand); color: var(--onbrand); font-family: inherit; font-size: 15px; font-weight: 500; cursor: pointer">Cerere nouă</button>' if mode == 'hub' else
+        '<a href="' + ('Dialog.dc.html' if mode == 'chat' else 'Castig.dc.html') + '" class="pr" style="flex: 1; height: 48px; border-radius: 24px; background: var(--brand); color: var(--onbrand); display: flex; align-items: center; justify-content: center; font-size: 15px; font-weight: 500; text-decoration: none">' + ('Cerere nouă' if mode == 'chat' else 'Cereri noi') + '</a>') + '''</div></sc-if>
+  </div></sc-if>
+</div>'''
+
+
+def _msg_page(title, cfg, body, extra=''):
+    import json as _j
+    logic = MSG_ENGINE.replace('__CFG__', _j.dumps(cfg, ensure_ascii=False))
+    return page(title, 'L', body, MSG_CSS + extra, logic)
+
+
+def mesaje_hub():
+    cfg = dict(mode='hub', view='list', tid='jz1', seed=_seed_hub())
+    row = '''<button type="button" onClick="{{r.open}}" class="row pr">
+          <sc-if value="{{r.isZee}}" hint-placeholder-val="{{ true }}"><span style="width: 50px; height: 50px; border-radius: 25px; background: var(--bsoft); display: flex; align-items: center; justify-content: center; flex-shrink: 0"><img src="{{r.img}}" alt="" style="width: 36px; height: 39px"></span></sc-if>
+          <sc-if value="{{r.notZee}}" hint-placeholder-val="{{ false }}"><img src="{{r.img}}" alt="" style="width: 50px; height: 50px; border-radius: 25px; object-fit: cover; flex-shrink: 0"></sc-if>
+          <span style="flex-grow: 1; min-width: 0; display: flex; flex-direction: column; gap: 2px">
+            <span style="display: flex; align-items: center; gap: 6px"><span style="font-size: 16px; font-weight: 600; white-space: nowrap">{{r.title}}</span><span style="font-size: 13px; color: var(--ink2); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; flex-grow: 1">{{r.sub}}</span><span style="font-size: 12px; color: var(--ink2); flex-shrink: 0">{{r.when}}</span></span>
+            <span style="display: flex; align-items: center; gap: 6px"><span style="font-size: 14px; color: var(--ink2); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; flex-grow: 1">{{r.last}}</span>
+              <sc-if value="{{r.hasChip}}" hint-placeholder-val="{{ false }}"><span style="{{r.chipStyle}}">{{r.chip}}</span></sc-if>
+              <sc-if value="{{r.hasUnread}}" hint-placeholder-val="{{ false }}"><span style="min-width: 20px; height: 20px; border-radius: 10px; background: var(--brand); color: var(--onbrand); font-size: 12px; font-weight: 600; display: flex; align-items: center; justify-content: center">{{r.unread}}</span></sc-if></span>
+          </span>
+        </button>'''
+    b = '''<sc-if value="{{isList}}" hint-placeholder-val="{{ true }}"><div style="padding: 60px 16px 0; display: flex; flex-direction: column; gap: 12px">
+  <h1 class="u" style="margin: 0 4px; font-size: 34px; font-weight: 600; letter-spacing: -0.9px">Mesaje</h1>
+  <label class="u d1" style="display: flex; align-items: center; gap: 8px; height: 40px; padding: 0 12px; border-radius: 12px; background: var(--surf2); color: var(--ink2)"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="M20 20l-4-4"></path></svg><span style="position: absolute; left: -9999px">Caută în conversații</span><input value="{{q}}" onChange="{{onQ}}" placeholder="Caută o persoană sau o lucrare" style="flex-grow: 1; min-width: 0; border: 0; outline: 0; background: transparent; font-family: inherit; font-size: 16px; color: var(--ink)"></label>
+  <div class="sg u d1" style="grid-template-columns: repeat(2, minmax(0, 1fr))"><button type="button" onClick="{{goA}}" aria-pressed="{{tA}}">{{labA}}</button><button type="button" onClick="{{goH}}" aria-pressed="{{tH}}">{{labH}}</button></div>
+  <sc-if value="{{isAct}}" hint-placeholder-val="{{ true }}"><div class="grp u d2" style="border-radius: 22px">
+    <sc-for list="{{act}}" as="r" hint-placeholder-count="3">''' + row + '''</sc-for>
+  </div>
+  <sc-if value="{{actEmpty}}" hint-placeholder-val="{{ false }}"><span style="font-size: 14px; color: var(--ink2); text-align: center; padding: 20px">Nicio conversație activă pentru „{{q}}”.</span></sc-if>
+  <span class="note" style="font-size: 12px; line-height: 1.4; color: var(--ink2); padding: 0 6px">Fiecare cerere are conversația ei. Când cererea se încheie, conversația trece în Istoric. Numărul tău de telefon rămâne ascuns.</span></sc-if>
+  <sc-if value="{{isHist}}" hint-placeholder-val="{{ false }}"><div class="grp" style="border-radius: 22px">
+    <sc-for list="{{hist}}" as="r" hint-placeholder-count="3">''' + row + '''</sc-for>
+  </div>
+  <sc-if value="{{histEmpty}}" hint-placeholder-val="{{ false }}"><div style="display: flex; flex-direction: column; align-items: center; gap: 8px; padding: 24px"><img src="assets/mascot/zee-doarme.png" alt="" style="width: 110px; height: 119px"><span style="font-size: 14px; color: var(--ink2); text-align: center">Aici apar conversațiile încheiate.</span></div></sc-if>
+  <span style="font-size: 12px; line-height: 1.4; color: var(--ink2); padding: 0 6px">Conversațiile din Istoric se pot citi oricând, dar nu se mai scrie în ele. Pentru o lucrare nouă, Jobzee pornește o conversație nouă.</span></sc-if>
+</div>
+''' + tabbar('client', 'mesaje', {'acasa': 'Acasa.dc.html', 'activitate': 'Activitate.dc.html', 'mesaje': 'Mesaje.dc.html', 'cont': 'Cont.dc.html'}) + '''</sc-if>
+<sc-if value="{{isThread}}" hint-placeholder-val="{{ false }}">''' + _msg_thread_markup('', '', 'hub') + '''</sc-if>'''
+    # rândul are nevoie și de opusul lui isZee
+    out = _msg_page('Mesaje', cfg, b)
+    return out.replace("isZee: th.kind === 'jobzee' || th.kind === 'support', img: th.kind === 'jobzee' || th.kind === 'support' ? zee(th) : th.avatar, chip:",
+                       "isZee: th.kind === 'jobzee' || th.kind === 'support', notZee: !(th.kind === 'jobzee' || th.kind === 'support'), img: th.kind === 'jobzee' || th.kind === 'support' ? zee(th) : th.avatar, chip:")
+
+
+def dialog_jz():
+    seed = [dict(id='jz1', kind='jobzee', title='Jobzee', topic='Conversație nouă', status='active', when='azi', sub='Te ajut să pregătești cererea',
+                 msgs=[dict(me=False, text='Bună, Paul! Sunt Jobzee. Spune-mi pe scurt cu ce te pot ajuta și pregătesc eu cererea pentru tine.', t='11:52')])]
+    return _msg_page('Conversație cu Jobzee', dict(mode='dialog', view='thread', tid='jz1', seed=seed), _msg_thread_markup('Acasa.dc.html', 'Închide', 'dialog'))
+
+
+def chat_client():
+    hub = {t['id']: t for t in _seed_hub()}
+    m = dict(hub['mihai']); m['unread'] = 0
+    return _msg_page('Chat cu Mihai', dict(mode='chat', view='thread', tid='mihai', seed=[m]), _msg_thread_markup('Mesaje.dc.html', 'Înapoi', 'chat'))
+
+
+def chat_jobzer():
+    a = dict(id='andrei', kind='client', title='Andrei P.', avatar='assets/people/person-client-2.webp', topic='Montaj birou și dulap · Str. Barbu Văcărescu 120, ap. 12, et. 3', sub='Client · ★ 4,9 · numărul rămâne ascuns', status='active', when='11:42',
+             quick=['Am ajuns', 'Întârzii 5 minute', 'Care e interfonul?', 'Am terminat'],
+             replies=[dict(k='ajuns|jos|la poarta', r='Cobor imediat!'), dict(k='intarzi|minute', r='Nicio problemă, mulțumesc că m-ai anunțat.'),
+                      dict(k='interfon|etaj|apartament', r='Interfonul e 12, etajul 3.'), dict(k='terminat|gata', r='Super! Mă uit acum și confirm în aplicație.'),
+                      dict(k='multum|mersi', r='Eu îți mulțumesc!'), dict(k='', r='Am văzut, mulțumesc!')],
+             closeAsk='Ai terminat lucrarea? Clientul primește cererea de confirmare.', closeBtn='Am terminat', closeMsg='Clientul a confirmat lucrarea · 150 lei intră în încasări', closeLabel='Lucrare încheiată',
+             msgs=[dict(me=True, text='Bună! Am văzut pozele, plec acum spre tine.', t='11:41'), dict(me=False, text='Super, mulțumesc! Totul e încă în cutii.', t='11:42')])
+    return _msg_page('Chat cu clientul', dict(mode='chatj', view='thread', tid='andrei', seed=[a]), _msg_thread_markup('JobActiv.dc.html', 'Înapoi', 'chatj'))
+
+
+MSG_PAGES = [('Mesaje', mesaje_hub), ('Dialog', dialog_jz), ('Chat', chat_client), ('ChatJobzer', chat_jobzer)]

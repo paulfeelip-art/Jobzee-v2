@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="ro">
+<head>
+<meta charset="utf-8">
+<title>Jobzee · Facturi și plăți · întunecat</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<style>
+.th{--bg:#000000;--surf:#1C1C1E;--surf2:#2C2C2E;--surf3:#3A3A3C;--ink:#FFFFFF;--ink2:#98989D;--ink3:#48484A;--sep:#38383A;--brand:#FF9F0A;--onbrand:#1C1C1E;--btext:#FFB340;--bsoft:rgba(255,159,10,0.16);--bsoft2:rgba(255,159,10,0.28);--ok:#30D158;--oktext:#30D158;--oksoft:rgba(48,209,88,0.16);--glass:rgba(36,36,38,0.78);--glass2:rgba(28,28,30,0.95);--scrim:rgba(0,0,0,0.6);--shadow:rgba(0,0,0,0.5);--invbg:#FFFFFF;--invink:#000000;--land:#1B1C1F;--road:#2E3035;--park:#1C2A20;--water:#17283A;--aur1:#B35600;--aur2:#5A2E00;--aur3:#5B1F3A}
+body{margin:0}
+a{color:var(--btext)}
+@keyframes up{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+@keyframes pop{0%{opacity:0;transform:scale(.5)}65%{opacity:1;transform:scale(1.08)}100%{opacity:1;transform:none}}
+@keyframes sheet{from{opacity:0;transform:translateY(70%)}to{opacity:1;transform:none}}
+@keyframes ring{0%{transform:scale(.6);opacity:.55}100%{transform:scale(2.6);opacity:0}}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-7px)}}
+@keyframes drift{0%,100%{transform:translate(0,0) scale(1)}33%{transform:translate(30px,-24px) scale(1.12)}66%{transform:translate(-26px,18px) scale(.94)}}
+@keyframes glow{0%,100%{opacity:.45}50%{opacity:1}}
+@keyframes shimmer{0%{background-position:-200% 0}100%{background-position:200% 0}}
+@keyframes drop{0%{opacity:0;transform:translateY(-24px) scale(.7)}60%{opacity:1;transform:translateY(3px) scale(1.06)}100%{opacity:1;transform:none}}
+@keyframes tick{0%,42%{transform:none}50%,92%{transform:translateY(-40px)}100%{transform:none}}
+@keyframes fadeSlide{0%,42%{opacity:1;transform:none}50%,92%{opacity:0;transform:translateY(-8px)}100%{opacity:1;transform:none}}
+@keyframes fadeSlide2{0%,42%{opacity:0;transform:translateY(8px)}50%,92%{opacity:1;transform:none}100%{opacity:0;transform:translateY(8px)}}
+@keyframes dotA{0%,45%{width:16px;opacity:1}50%,95%{width:6px;opacity:.35}100%{width:16px;opacity:1}}
+@keyframes dotB{0%,45%{width:6px;opacity:.35}50%,95%{width:16px;opacity:1}100%{width:6px;opacity:.35}}
+@keyframes halo{0%{box-shadow:0 0 0 0 rgba(255,159,10,.55)}100%{box-shadow:0 0 0 18px rgba(255,159,10,0)}}
+@keyframes heat{0%,100%{transform:scale(1);opacity:.8}50%{transform:scale(1.15);opacity:1}}
+.u{animation:up .55s cubic-bezier(.2,.8,.2,1) both}
+.d1{animation-delay:.08s}.d2{animation-delay:.16s}.d3{animation-delay:.24s}.d4{animation-delay:.32s}.d5{animation-delay:.4s}.d6{animation-delay:.48s}
+.pop{animation:pop .6s cubic-bezier(.2,.9,.3,1.3) both}
+.sheet{animation:sheet .7s cubic-bezier(.2,.9,.25,1) both}
+.float{animation:float 4.5s ease-in-out infinite}
+.glow{animation:glow 1.8s ease-in-out infinite}
+.drop{animation:drop .8s cubic-bezier(.2,.8,.2,1) both}
+.pr{transition:transform .22s cubic-bezier(.3,.7,.4,1.4), opacity .2s}.pr:active{transform:scale(.95)}
+.ic{display:inline-block;background:currentColor;-webkit-mask-position:center;mask-position:center;-webkit-mask-size:contain;mask-size:contain;-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;flex-shrink:0}
+.glass{background:var(--glass);backdrop-filter:blur(24px) saturate(1.6);-webkit-backdrop-filter:blur(24px) saturate(1.6)}
+@media (prefers-reduced-motion: reduce){*{animation:none!important;transition:none!important}}
+
+.sg{display:grid;padding:2px;border-radius:10px;background:var(--surf3)}
+.sg button{border:0;height:32px;border-radius:8px;background:transparent;font-family:inherit;font-size:13px;font-weight:500;color:var(--ink);cursor:pointer;transition:all .25s}
+.sg button[aria-pressed="true"]{background:var(--surf);box-shadow:0 2px 6px var(--shadow)}
+.jsw{width:51px;height:31px;border-radius:16px;border:0;padding:2px;cursor:pointer;flex-shrink:0;position:relative;transition:background .25s}
+.jsw::after{content:"";position:absolute;top:2px;left:2px;width:27px;height:27px;border-radius:14px;background:#fff;box-shadow:0 2px 4px rgba(0,0,0,.2);transition:transform .3s cubic-bezier(.3,1.3,.4,1)}
+.jsw[aria-pressed="true"]{background:var(--ok)}.jsw[aria-pressed="true"]::after{transform:translateX(20px)}.jsw[aria-pressed="false"]{background:var(--surf3)}
+.lbl{font-size:13px;font-weight:500;color:var(--ink2);padding:0 12px;text-transform:uppercase;letter-spacing:.3px}
+.grp{background:var(--surf);border-radius:24px;overflow:hidden}
+.rw{display:flex;align-items:center;gap:12px;padding:11px 16px 11px 0;margin-left:16px;color:var(--ink);text-decoration:none}
+.rw+.rw{border-top:0.5px solid var(--sep)}
+.dchip{border:0;width:40px;height:40px;border-radius:20px;font-family:inherit;font-size:14px;font-weight:500;cursor:pointer;transition:all .25s}
+.dchip[aria-pressed="true"]{background:var(--brand);color:var(--onbrand)}.dchip[aria-pressed="false"]{background:var(--surf);color:var(--ink)}
+
+</style>
+</helmet>
+<div class="th" style="width: 390px; height: 844px; box-sizing: border-box; background: var(--bg); font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Helvetica Neue', system-ui, sans-serif; color: var(--ink); position: relative; overflow: hidden">
+<div style="padding: 56px 16px 0; display: flex; flex-direction: column; gap: 12px">
+  <div style="display: flex; align-items: center; justify-content: space-between"><a href="ContJobzerDark.dc.html" aria-label="Înapoi" class="pr" style="width: 40px; height: 40px; border-radius: 20px; background: var(--surf); color: var(--ink); display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 14px var(--shadow)"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 5l-7 7 7 7"></path></svg></a><span style="height: 30px; padding: 0 12px; border-radius: 15px; background: var(--surf); display: flex; align-items: center; font-size: 13px; font-weight: 500">PFA · Mihai Ionescu</span></div>
+  <div class="u"><h1 style="margin: 0 4px; font-size: 32px; line-height: 1.1; font-weight: 600; letter-spacing: -0.8px">Facturi și plăți</h1></div>
+  <div class="u d1" style="position: relative; overflow: hidden; border-radius: 28px; background: var(--invbg); color: var(--invink); padding: 16px 18px; display: flex; flex-direction: column; gap: 4px">
+    <span style="font-size: 13px; opacity: .65">Următorul virament · luni, 20 oct.</span>
+    <span style="font-size: 36px; font-weight: 600; letter-spacing: -1px">412,00 lei</span>
+    <span style="font-size: 13px; opacity: .65">În cont BT •••• 2210 · săptămânal, fără comision</span>
+    <img src="assets/mascot/zee-bani.png" alt="" class="float" style="position: absolute; right: 12px; bottom: 4px; width: 70px; height: 76px">
+  </div>
+  <div class="grp u d2"><div class="rw" style="padding-right: 12px"><span style="flex-grow: 1; display: flex; flex-direction: column"><span style="font-size: 15px">Factură automată după fiecare lucrare</span><span style="font-size: 12px; color: var(--ink2)">Serie JBZ · trimisă în e-Factura (ANAF)</span></span><button type="button" class="jsw" onClick="{{toggleAuto}}" aria-pressed="{{autoAttr}}" aria-label="Facturare automată"></button></div></div>
+  <span class="lbl">Facturi emise · octombrie</span>
+  <div class="grp u d3">
+    <sc-for list="{{rows}}" as="r" hint-placeholder-count="4">
+      <div class="rw" style="align-items: flex-start; padding-right: 14px">
+        <span class="ic" aria-hidden="true" style="width: 22px; height: 22px; color: var(--btext); -webkit-mask-image: url(assets/icons/icon-acte.svg); mask-image: url(assets/icons/icon-acte.svg); margin-top: 2px"></span>
+        <span style="flex-grow: 1; display: flex; flex-direction: column; gap: 3px"><span style="display: flex; justify-content: space-between"><span style="font-size: 15px; font-weight: 500">{{r.nr}}</span><span style="font-size: 15px; font-variant-numeric: tabular-nums">{{r.v}}</span></span>
+          <span style="font-size: 12px; color: var(--ink2)">{{r.d}} · {{r.c}}</span>
+          <span style="display: flex; align-items: center; gap: 8px"><span style="{{r.stStyle}}">{{r.stTxt}}</span><sc-if value="{{r.isErr}}" hint-placeholder-val="{{ false }}"><button type="button" onClick="{{r.fix}}" style="border: 0; background: transparent; padding: 0; font-family: inherit; font-size: 13px; font-weight: 500; color: var(--btext); cursor: pointer">Corectează și retrimite</button></sc-if></span></span>
+      </div>
+    </sc-for>
+  </div>
+  <a href="#export" class="u d4 pr" style="display: flex; align-items: center; justify-content: center; height: 50px; border-radius: 25px; background: var(--surf); color: var(--ink); font-size: 15px; font-weight: 500; text-decoration: none">Export pentru contabil · octombrie (ZIP)</a>
+</div>
+<nav aria-label="Meniu" class="glass" style="position: absolute; left: 16px; right: 16px; bottom: 24px; height: 64px; border-radius: 32px; box-shadow: 0 10px 30px var(--shadow); display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); padding: 6px; box-sizing: border-box; z-index: 5"><a href="CastigDark.dc.html" class="pr" style="border-radius: 26px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px; font-size: 11px; text-decoration: none; color: var(--ink2); font-weight: 500"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 11l8-7 8 7v9h-5v-6H9v6H4z"></path></svg>Acasă</a><a href="SarciniJobzerDark.dc.html" class="pr" style="border-radius: 26px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px; font-size: 11px; text-decoration: none; color: var(--ink2); font-weight: 500"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="5"></rect><path d="M8 9h8M8 13h8M8 17h5"></path></svg>Sarcini</a><a href="IncasariDark.dc.html" class="pr" aria-current="page" style="border-radius: 26px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px; font-size: 11px; text-decoration: none; background: var(--bsoft); color: var(--btext); font-weight: 500"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="6" width="18" height="13" rx="4"></rect><path d="M16 12.5h2"></path></svg>Încasări</a><a href="ContJobzerDark.dc.html" class="pr" style="border-radius: 26px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px; font-size: 11px; text-decoration: none; color: var(--ink2); font-weight: 500"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"></circle><path d="M4 21c1-4 4-6 8-6s7 2 8 6"></path></svg>Profil</a></nav>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+  constructor(props) { super(props); this.state = { fixed: false, auto: true }; }
+  renderVals() {
+    const s = this.state;
+    const L = { ok: ['Trimisă în e-Factura ✓', 'var(--oksoft)', 'var(--oktext)'], pending: ['Se trimite…', 'var(--bsoft)', 'var(--btext)'], err: ['Respinsă: CUI greșit', 'rgba(255,59,48,0.12)', '#D70015'] };
+    const rows = [{"id": "42", "nr": "JBZ-0042", "c": "Andrei P. · montaj birou", "d": "17 oct.", "v": "150,00", "st": "pending"}, {"id": "41", "nr": "JBZ-0041", "c": "Ioana M. · montaj TV", "d": "15 oct.", "v": "90,00", "st": "ok"}, {"id": "40", "nr": "JBZ-0040", "c": "SC Alfa SRL · rafturi", "d": "12 oct.", "v": "240,00", "st": "err"}, {"id": "39", "nr": "JBZ-0039", "c": "Dan R. · dulap", "d": "10 oct.", "v": "170,00", "st": "ok"}].map(r => { const st = (r.st === 'err' && s.fixed) ? 'pending' : r.st; const l = L[st];
+      return { nr: r.nr, c: r.c, d: r.d, v: r.v + ' lei', stTxt: l[0], stStyle: 'height: 24px; padding: 0 9px; border-radius: 12px; font-size: 11px; font-weight: 500; display: inline-flex; align-items: center; background: ' + l[1] + '; color: ' + l[2],
+        isErr: st === 'err', fix: () => this.setState({ fixed: true }) }; });
+    return { rows, autoAttr: s.auto ? 'true' : 'false', toggleAuto: () => this.setState({ auto: !s.auto }) };
+  }
+}
+</script>
+</body>
+</html>

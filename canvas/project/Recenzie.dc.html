@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="ro">
+<head>
+<meta charset="utf-8">
+<title>Jobzee · Recenzie</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<style>
+body{margin:0}
+a{color:#B35600}a:hover{color:#8F4500}
+@keyframes up{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+@keyframes pop{0%{transform:scale(.6);opacity:0}70%{transform:scale(1.08);opacity:1}100%{transform:none;opacity:1}}
+@keyframes star{0%{transform:scale(0) rotate(-30deg);opacity:0}70%{transform:scale(1.2) rotate(6deg);opacity:1}100%{transform:none;opacity:1}}
+.u{animation:up .55s cubic-bezier(.2,.8,.2,1) both}.d1{animation-delay:.08s}.d2{animation-delay:.16s}.d3{animation-delay:.6s}.d4{animation-delay:.7s}.d5{animation-delay:.8s}
+.pop{animation:pop .6s cubic-bezier(.2,.9,.3,1.3) both}
+.star{animation:star .5s cubic-bezier(.2,.9,.3,1.4) both}
+.pr{transition:transform .2s cubic-bezier(.3,.7,.4,1.4)}.pr:active{transform:scale(.92)}
+@media (prefers-reduced-motion: reduce){*{animation:none!important;transition:none!important}}
+</style>
+</helmet>
+<div style="width: 390px; height: 844px; box-sizing: border-box; background: #FFFFFF; font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Helvetica Neue', system-ui, sans-serif; color: #1C1C1E; display: flex; flex-direction: column; padding: 52px 20px 30px">
+  <div style="display: flex; justify-content: flex-end">
+    <a href="Acasa.dc.html" style="font-size: 17px; color: #B35600; text-decoration: none; padding: 8px">Mai târziu</a>
+  </div>
+
+  <div style="display: flex; flex-direction: column; align-items: center; gap: 10px; margin-top: 6px">
+    <img class="pop" src="assets/people/person-jobzer-3.webp" alt="" style="width: 92px; height: 92px; border-radius: 50%; object-fit: cover; display: block; flex-shrink: 0; box-shadow: 0 0 0 4px #FFFFFF, 0 0 0 7px #FF9F0A">
+    <h1 class="u d1" style="margin: 6px 0 0; font-size: 28px; font-weight: 600; letter-spacing: -0.7px">Cum a fost cu Mihai?</h1>
+    <span class="u d2" style="font-size: 15px; color: #6E6E73">Plătit 172,50 lei · chitanța e în Activitate</span>
+  </div>
+
+  <div style="margin-top: 24px; display: flex; justify-content: center; gap: 2px">
+    <sc-for list="{{stars}}" as="s" hint-placeholder-count="5">
+      <button type="button" onClick="{{s.pick}}" aria-label="{{s.label}}" class="star pr" style="{{s.style}}">
+        <svg width="46" height="46" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.8l2.8 5.7 6.3.9-4.6 4.4 1.1 6.2L12 17l-5.6 3 1.1-6.2L2.9 9.4l6.3-.9z" fill="{{s.fill}}" stroke-linejoin="round"></path></svg>
+      </button>
+    </sc-for>
+  </div>
+  <span class="u d3" style="text-align: center; font-size: 15px; font-weight: 500; color: #B35600; margin-top: 4px">{{ratingLabel}}</span>
+
+  <div class="u d3" style="margin-top: 18px; display: flex; flex-wrap: wrap; gap: 8px; justify-content: center">
+    <sc-for list="{{tags}}" as="t" hint-placeholder-count="5">
+      <button type="button" onClick="{{t.pick}}" aria-pressed="{{t.on}}" class="pr" style="{{t.style}}">{{t.label}}</button>
+    </sc-for>
+  </div>
+
+  <label for="comentariu" style="position: absolute; left: -9999px">Comentariu</label>
+  <textarea id="comentariu" class="u d4" placeholder="Câteva cuvinte (opțional)" style="margin-top: 18px; height: 84px; box-sizing: border-box; resize: none; border-radius: 20px; border: 0; background: #F2F2F7; padding: 14px 16px; font-family: inherit; font-size: 16px; color: #1C1C1E"></textarea>
+
+  <button type="button" onClick="{{toggleFav}}" aria-pressed="{{favAttr}}" class="u d5 pr" style="margin-top: 12px; height: 50px; border-radius: 25px; border: 0; background: #F2F2F7; color: #1C1C1E; font-family: inherit; font-size: 16px; display: flex; align-items: center; justify-content: center; gap: 8px; cursor: pointer">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="{{favFill}}" stroke="#FF2D55" stroke-width="2" stroke-linejoin="round" aria-hidden="true" style="{{favIcon}}"><path d="M12 20s-7-4.5-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.5-7 10-7 10z"></path></svg>
+    Salvează-l pe Mihai la favoriți
+  </button>
+
+  <div style="flex-grow: 1"></div>
+  <p style="margin: 0 0 12px; text-align: center; font-size: 13px; color: #6E6E73">Mihai vede recenzia doar după ce te evaluează și el.</p>
+  <a href="Acasa.dc.html" class="pr" style="display: flex; align-items: center; justify-content: center; height: 56px; border-radius: 28px; background: #FF9F0A; color: #1C1C1E; font-size: 17px; font-weight: 500; text-decoration: none; box-shadow: 0 10px 24px rgba(255,159,10,0.35)">Trimite</a>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+  constructor(props) { super(props); this.state = { rating: 5, tags: { Punctual: true, Atent: true }, fav: true }; }
+  renderVals() {
+    const r = this.state.rating;
+    const stars = [1, 2, 3, 4, 5].map((n) => ({
+      label: n + ' stele', fill: n <= r ? '#FF9F0A' : '#E5E5EA',
+      style: 'width: 56px; height: 56px; border: 0; background: transparent; padding: 0; cursor: pointer; display: flex; align-items: center; justify-content: center; animation-delay: ' + (0.2 + n * 0.07) + 's',
+      pick: () => this.setState({ rating: n })
+    }));
+    const labels = ['', 'Slab', 'Ok', 'Bine', 'Foarte bine', 'Excelent!'];
+    const tags = ['Punctual', 'Atent', 'Curat', 'Rapid', 'Comunicativ'].map((l) => {
+      const on = !!this.state.tags[l];
+      return {
+        label: l, on: on ? 'true' : 'false',
+        style: 'height: 40px; padding: 0 16px; border-radius: 20px; font-family: inherit; font-size: 15px; font-weight: 500; cursor: pointer; border: 0; transition: background .25s, color .25s; ' +
+          (on ? 'background: #FF9F0A; color: #1C1C1E;' : 'background: #F2F2F7; color: #1C1C1E;'),
+        pick: () => { const t = Object.assign({}, this.state.tags); t[l] = !on; this.setState({ tags: t }); }
+      };
+    });
+    const fav = this.state.fav;
+    return {
+      stars, tags, ratingLabel: labels[r],
+      favAttr: fav ? 'true' : 'false', favFill: fav ? '#FF2D55' : 'none',
+      favIcon: 'transition: transform .3s cubic-bezier(.2,.9,.3,1.6); transform: scale(' + (fav ? 1.15 : 1) + ')',
+      toggleFav: () => this.setState({ fav: !fav })
+    };
+  }
+}
+</script>
+</body>
+</html>

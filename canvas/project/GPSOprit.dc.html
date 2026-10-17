@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="ro">
+<head>
+<meta charset="utf-8">
+<title>Jobzee · Locație oprită</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<style>
+body{margin:0}
+a{color:#B35600}a:hover{color:#8F4500}
+@keyframes up{from{opacity:0;transform:translateY(20px) scale(.97)}to{opacity:1;transform:none}}
+@keyframes search{0%{transform:translate(0,0)}25%{transform:translate(14px,-6px)}50%{transform:translate(4px,10px)}75%{transform:translate(-12px,2px)}100%{transform:translate(0,0)}}
+.u{animation:up .6s cubic-bezier(.2,.9,.25,1) both}.d1{animation-delay:.12s}
+.search{animation:search 4s ease-in-out infinite}
+.pr{transition:transform .2s cubic-bezier(.3,.7,.4,1.4)}.pr:active{transform:scale(.96)}
+@keyframes zf{0%,100%{transform:translateY(0) rotate(0)}50%{transform:translateY(-8px) rotate(-3deg)}}.zf{animation:zf 3.6s ease-in-out infinite}
+@keyframes zw{0%,100%{transform:rotate(0)}20%{transform:rotate(-8deg)}40%{transform:rotate(6deg)}60%{transform:rotate(-4deg)}}.zw{transform-origin:50% 90%;animation:zw 2.4s ease-in-out .6s infinite}
+@media (prefers-reduced-motion: reduce){*{animation:none!important;transition:none!important}}
+</style>
+</helmet>
+<div style="width: 390px; height: 844px; box-sizing: border-box; background: #EDEAE3; font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Helvetica Neue', system-ui, sans-serif; color: #1C1C1E; position: relative; overflow: hidden">
+  <svg width="390" height="844" viewBox="0 0 390 844" aria-hidden="true" style="position: absolute; left: 0; top: 0; display: block; filter: grayscale(1) blur(2px); opacity: 0.55">
+    <rect width="390" height="844" fill="#F5F1E8"></rect>
+    <rect x="150" y="300" width="96" height="70" rx="22" fill="#D3EAC7"></rect>
+    <path d="M-10 160 L400 120 M-10 380 L400 420 M120 -10 L92 860 M282 -10 L312 860 M-10 620 L400 600" stroke="#FFFFFF" stroke-width="16" fill="none"></path>
+  </svg>
+
+  <div class="u" style="position: absolute; left: 16px; right: 16px; top: 200px; background: rgba(255,255,255,0.95); backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px); border-radius: 32px; padding: 26px 20px 20px; display: flex; flex-direction: column; align-items: center; gap: 12px; text-align: center; box-shadow: 0 20px 50px rgba(0,0,0,0.14)">
+    <span class="zf" style="position: relative; display: block"><img src="assets/mascot/zee-cauta.png" alt="" style="width: 100px; height: 108px; display: block; "></span>
+    <span style="font-size: 22px; font-weight: 600; letter-spacing: -0.5px">Nu știm unde ești</span>
+    <span style="font-size: 15px; line-height: 1.45; color: #6E6E73">Pornește locația ca să-ți arătăm Jobzerii din apropiere. Sau scrie adresa, merge la fel de bine.</span>
+    <a href="Permisiuni.dc.html" class="pr" style="align-self: stretch; margin-top: 6px; display: flex; align-items: center; justify-content: center; height: 54px; border-radius: 27px; background: #FF9F0A; color: #1C1C1E; font-size: 17px; font-weight: 500; text-decoration: none">Pornește locația</a>
+    <a href="Adresa.dc.html" class="pr" style="align-self: stretch; display: flex; align-items: center; justify-content: center; height: 50px; border-radius: 25px; background: #F2F2F7; color: #1C1C1E; font-size: 16px; text-decoration: none">Scrie adresa</a>
+  </div>
+
+  <p class="u d1" style="position: absolute; left: 24px; right: 24px; bottom: 40px; margin: 0; text-align: center; font-size: 13px; line-height: 1.45; color: #6E6E73">Locația o folosim doar cât aplicația e deschisă sau ai o sarcină activă.</p>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="ro">
+<head>
+<meta charset="utf-8">
+<title>Jobzee · Mascota Jobzee · întunecat</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<style>
+.th{--bg:#000000;--surf:#1C1C1E;--surf2:#2C2C2E;--surf3:#3A3A3C;--ink:#FFFFFF;--ink2:#98989D;--ink3:#48484A;--sep:#38383A;--brand:#FF9F0A;--onbrand:#1C1C1E;--btext:#FFB340;--bsoft:rgba(255,159,10,0.16);--bsoft2:rgba(255,159,10,0.28);--ok:#30D158;--oktext:#30D158;--oksoft:rgba(48,209,88,0.16);--glass:rgba(36,36,38,0.78);--glass2:rgba(28,28,30,0.95);--scrim:rgba(0,0,0,0.6);--shadow:rgba(0,0,0,0.5);--invbg:#FFFFFF;--invink:#000000;--land:#1B1C1F;--road:#2E3035;--park:#1C2A20;--water:#17283A;--aur1:#B35600;--aur2:#5A2E00;--aur3:#5B1F3A}
+body{margin:0}
+a{color:var(--btext)}
+@keyframes up{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+@keyframes pop{0%{opacity:0;transform:scale(.5)}65%{opacity:1;transform:scale(1.08)}100%{opacity:1;transform:none}}
+@keyframes sheet{from{opacity:0;transform:translateY(70%)}to{opacity:1;transform:none}}
+@keyframes ring{0%{transform:scale(.6);opacity:.55}100%{transform:scale(2.6);opacity:0}}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-7px)}}
+@keyframes drift{0%,100%{transform:translate(0,0) scale(1)}33%{transform:translate(30px,-24px) scale(1.12)}66%{transform:translate(-26px,18px) scale(.94)}}
+@keyframes glow{0%,100%{opacity:.45}50%{opacity:1}}
+@keyframes shimmer{0%{background-position:-200% 0}100%{background-position:200% 0}}
+@keyframes drop{0%{opacity:0;transform:translateY(-24px) scale(.7)}60%{opacity:1;transform:translateY(3px) scale(1.06)}100%{opacity:1;transform:none}}
+@keyframes tick{0%,42%{transform:none}50%,92%{transform:translateY(-40px)}100%{transform:none}}
+@keyframes fadeSlide{0%,42%{opacity:1;transform:none}50%,92%{opacity:0;transform:translateY(-8px)}100%{opacity:1;transform:none}}
+@keyframes fadeSlide2{0%,42%{opacity:0;transform:translateY(8px)}50%,92%{opacity:1;transform:none}100%{opacity:0;transform:translateY(8px)}}
+@keyframes dotA{0%,45%{width:16px;opacity:1}50%,95%{width:6px;opacity:.35}100%{width:16px;opacity:1}}
+@keyframes dotB{0%,45%{width:6px;opacity:.35}50%,95%{width:16px;opacity:1}100%{width:6px;opacity:.35}}
+@keyframes halo{0%{box-shadow:0 0 0 0 rgba(255,159,10,.55)}100%{box-shadow:0 0 0 18px rgba(255,159,10,0)}}
+@keyframes heat{0%,100%{transform:scale(1);opacity:.8}50%{transform:scale(1.15);opacity:1}}
+.u{animation:up .55s cubic-bezier(.2,.8,.2,1) both}
+.d1{animation-delay:.08s}.d2{animation-delay:.16s}.d3{animation-delay:.24s}.d4{animation-delay:.32s}.d5{animation-delay:.4s}.d6{animation-delay:.48s}
+.pop{animation:pop .6s cubic-bezier(.2,.9,.3,1.3) both}
+.sheet{animation:sheet .7s cubic-bezier(.2,.9,.25,1) both}
+.float{animation:float 4.5s ease-in-out infinite}
+.glow{animation:glow 1.8s ease-in-out infinite}
+.drop{animation:drop .8s cubic-bezier(.2,.8,.2,1) both}
+.pr{transition:transform .22s cubic-bezier(.3,.7,.4,1.4), opacity .2s}.pr:active{transform:scale(.95)}
+.ic{display:inline-block;background:currentColor;-webkit-mask-position:center;mask-position:center;-webkit-mask-size:contain;mask-size:contain;-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;flex-shrink:0}
+.glass{background:var(--glass);backdrop-filter:blur(24px) saturate(1.6);-webkit-backdrop-filter:blur(24px) saturate(1.6)}
+@media (prefers-reduced-motion: reduce){*{animation:none!important;transition:none!important}}
+
+</style>
+</helmet>
+<div class="th" style="width: 390px; height: 1000px; box-sizing: border-box; background: var(--bg); font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Helvetica Neue', system-ui, sans-serif; color: var(--ink); position: relative; overflow: hidden">
+<div style="padding: 52px 14px 0; display: flex; flex-direction: column; gap: 12px">
+  <div class="u" style="display: flex; align-items: center; gap: 10px"><img src="assets/brand/jobzee-mark.png" alt="" style="height: 40px; width: auto; display: block; flex-shrink: 0"><img src="assets/brand/jobzee-wordmark.png" alt="jobzee" style="height: 34px; width: auto; display: block"></div>
+  <div class="u d1"><h1 style="margin: 0 2px; font-size: 28px; font-weight: 600; letter-spacing: -0.7px">Mascota oficială</h1>
+  <p style="margin: 6px 2px 0; font-size: 13px; line-height: 1.4; color: var(--ink2)">Pinul portocaliu cu cheie franceză, cu brațe și pantofi. Nu are față: emoția o dă poza. Nu se redesenează, nu se recolorează. Apare la stări goale, erori, succes și în conversațiile cu Jobzee, niciodată pe butoane sau lângă sume.</p></div>
+  <div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 6px"><div class="pop" style="animation-delay: 0.00s; background: var(--surf); border-radius: 24px; padding: 10px 6px; display: flex; flex-direction: column; align-items: center; gap: 2px; text-align: center; position: relative"><img src="assets/mascot/zee-salut.png" alt="" style="width: 70px; height: 76px"><span style="font-size: 13px; font-weight: 500">Salut</span><span style="font-size: 10px; line-height: 1.25; color: var(--ink2)">Bun venit, permisiuni, suport</span></div><div class="pop" style="animation-delay: 0.04s; background: var(--surf); border-radius: 24px; padding: 10px 6px; display: flex; flex-direction: column; align-items: center; gap: 2px; text-align: center; position: relative"><img src="assets/mascot/zee-gandeste.png" alt="" style="width: 70px; height: 76px"><span style="position: absolute; right: 8px; top: 8px; height: 16px; padding: 0 5px; border-radius: 8px; background: var(--bsoft); color: var(--btext); font-size: 9px; font-weight: 600; display: flex; align-items: center">LIVE</span><span style="font-size: 13px; font-weight: 500">Gândește</span><span style="font-size: 10px; line-height: 1.25; color: var(--ink2)">Jobzee se gândește</span></div><div class="pop" style="animation-delay: 0.08s; background: var(--surf); border-radius: 24px; padding: 10px 6px; display: flex; flex-direction: column; align-items: center; gap: 2px; text-align: center; position: relative"><img src="assets/mascot/zee-cauta.png" alt="" style="width: 70px; height: 76px"><span style="position: absolute; right: 8px; top: 8px; height: 16px; padding: 0 5px; border-radius: 8px; background: var(--bsoft); color: var(--btext); font-size: 9px; font-weight: 600; display: flex; align-items: center">LIVE</span><span style="font-size: 13px; font-weight: 500">Caută</span><span style="font-size: 10px; line-height: 1.25; color: var(--ink2)">Radar fără oferte, GPS</span></div><div class="pop" style="animation-delay: 0.12s; background: var(--surf); border-radius: 24px; padding: 10px 6px; display: flex; flex-direction: column; align-items: center; gap: 2px; text-align: center; position: relative"><img src="assets/mascot/zee-potrivire.png" alt="" style="width: 70px; height: 76px"><span style="position: absolute; right: 8px; top: 8px; height: 16px; padding: 0 5px; border-radius: 8px; background: var(--bsoft); color: var(--btext); font-size: 9px; font-weight: 600; display: flex; align-items: center">LIVE</span><span style="font-size: 13px; font-weight: 500">Potrivește</span><span style="font-size: 10px; line-height: 1.25; color: var(--ink2)">Radar cu primele oferte</span></div><div class="pop" style="animation-delay: 0.16s; background: var(--surf); border-radius: 24px; padding: 10px 6px; display: flex; flex-direction: column; align-items: center; gap: 2px; text-align: center; position: relative"><img src="assets/mascot/zee-asculta.png" alt="" style="width: 70px; height: 76px"><span style="position: absolute; right: 8px; top: 8px; height: 16px; padding: 0 5px; border-radius: 8px; background: var(--bsoft); color: var(--btext); font-size: 9px; font-weight: 600; display: flex; align-items: center">LIVE</span><span style="font-size: 13px; font-weight: 500">Ascultă</span><span style="font-size: 10px; line-height: 1.25; color: var(--ink2)">Dictare vocală</span></div><div class="pop" style="animation-delay: 0.20s; background: var(--surf); border-radius: 24px; padding: 10px 6px; display: flex; flex-direction: column; align-items: center; gap: 2px; text-align: center; position: relative"><img src="assets/mascot/zee-fericit.png" alt="" style="width: 70px; height: 76px"><span style="font-size: 13px; font-weight: 500">Bravo</span><span style="font-size: 10px; line-height: 1.25; color: var(--ink2)">Fișă gata, 3+ oferte</span></div><div class="pop" style="animation-delay: 0.24s; background: var(--surf); border-radius: 24px; padding: 10px 6px; display: flex; flex-direction: column; align-items: center; gap: 2px; text-align: center; position: relative"><img src="assets/mascot/zee-sarbatoare.png" alt="" style="width: 70px; height: 76px"><span style="font-size: 13px; font-weight: 500">Sare de bucurie</span><span style="font-size: 10px; line-height: 1.25; color: var(--ink2)">Plată reușită, serie pornită</span></div><div class="pop" style="animation-delay: 0.28s; background: var(--surf); border-radius: 24px; padding: 10px 6px; display: flex; flex-direction: column; align-items: center; gap: 2px; text-align: center; position: relative"><img src="assets/mascot/zee-bani.png" alt="" style="width: 70px; height: 76px"><span style="font-size: 13px; font-weight: 500">La treabă</span><span style="font-size: 10px; line-height: 1.25; color: var(--ink2)">Start Jobzer, încasări</span></div><div class="pop" style="animation-delay: 0.32s; background: var(--surf); border-radius: 24px; padding: 10px 6px; display: flex; flex-direction: column; align-items: center; gap: 2px; text-align: center; position: relative"><img src="assets/mascot/zee-alearga.png" alt="" style="width: 70px; height: 76px"><span style="font-size: 13px; font-weight: 500">Pe drum</span><span style="font-size: 10px; line-height: 1.25; color: var(--ink2)">Jobzerul vine spre tine</span></div><div class="pop" style="animation-delay: 0.36s; background: var(--surf); border-radius: 24px; padding: 10px 6px; display: flex; flex-direction: column; align-items: center; gap: 2px; text-align: center; position: relative"><img src="assets/mascot/zee-arata.png" alt="" style="width: 70px; height: 76px"><span style="font-size: 13px; font-weight: 500">Arată</span><span style="font-size: 10px; line-height: 1.25; color: var(--ink2)">Sfaturi, pasul următor</span></div><div class="pop" style="animation-delay: 0.40s; background: var(--surf); border-radius: 24px; padding: 10px 6px; display: flex; flex-direction: column; align-items: center; gap: 2px; text-align: center; position: relative"><img src="assets/mascot/zee-ups.png" alt="" style="width: 70px; height: 76px"><span style="font-size: 13px; font-weight: 500">Verifică telefonul</span><span style="font-size: 10px; line-height: 1.25; color: var(--ink2)">Fără internet, plată refuzată</span></div><div class="pop" style="animation-delay: 0.44s; background: var(--surf); border-radius: 24px; padding: 10px 6px; display: flex; flex-direction: column; align-items: center; gap: 2px; text-align: center; position: relative"><img src="assets/mascot/zee-trist.png" alt="" style="width: 70px; height: 76px"><span style="font-size: 13px; font-weight: 500">Ridică din umeri</span><span style="font-size: 10px; line-height: 1.25; color: var(--ink2)">Anulare, ofertă pierdută</span></div><div class="pop" style="animation-delay: 0.48s; background: var(--surf); border-radius: 24px; padding: 10px 6px; display: flex; flex-direction: column; align-items: center; gap: 2px; text-align: center; position: relative"><img src="assets/mascot/zee-doarme.png" alt="" style="width: 70px; height: 76px"><span style="font-size: 13px; font-weight: 500">La laptop</span><span style="font-size: 10px; line-height: 1.25; color: var(--ink2)">Ecrane goale</span></div></div>
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":1000}}'>
+class Component extends DCLogic {
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>

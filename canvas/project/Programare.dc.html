@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="ro">
+<head>
+<meta charset="utf-8">
+<title>Jobzee · Programare</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<style>
+body{margin:0}
+a{color:#B35600}a:hover{color:#8F4500}
+@keyframes up{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+.u{animation:up .5s cubic-bezier(.2,.8,.2,1) both}.d1{animation-delay:.08s}.d2{animation-delay:.16s}.d3{animation-delay:.24s}.d4{animation-delay:.32s}
+.pr{transition:transform .2s cubic-bezier(.3,.7,.4,1.4)}.pr:active{transform:scale(.93)}
+@media (prefers-reduced-motion: reduce){*{animation:none!important;transition:none!important}}
+</style>
+</helmet>
+<div style="width: 390px; height: 844px; box-sizing: border-box; background: #F2F2F7; font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Helvetica Neue', system-ui, sans-serif; color: #1C1C1E; display: flex; flex-direction: column; padding: 52px 16px 30px; gap: 12px">
+  <a href="Fisa.dc.html" aria-label="Înapoi la Fișa" class="pr" style="align-self: flex-start; width: 40px; height: 40px; border-radius: 20px; background: #FFFFFF; color: #1C1C1E; display: flex; align-items: center; justify-content: center; flex-shrink: 0; box-shadow: 0 4px 14px rgba(0,0,0,0.08); text-decoration: none"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 5l-7 7 7 7"></path></svg></a>
+  <h1 class="u" style="margin: 0 4px; font-size: 34px; font-weight: 600; letter-spacing: -0.9px">Când?</h1>
+
+  <div class="u d1" style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 2px; padding: 2px; border-radius: 10px; background: #E3E3E8">
+    <button type="button" onClick="{{setNow}}" aria-pressed="{{nowAttr}}" style="{{nowStyle}}">Acum</button>
+    <button type="button" onClick="{{setLater}}" aria-pressed="{{laterAttr}}" style="{{laterStyle}}">Programează</button>
+  </div>
+
+  <sc-if value="{{isNow}}" hint-placeholder-val="{{ false }}">
+    <div class="u" style="background: #FFFFFF; border-radius: 22px; padding: 18px 16px; display: flex; flex-direction: column; gap: 6px">
+      <span style="font-size: 17px; font-weight: 500">Cât mai repede</span>
+      <span style="font-size: 14px; line-height: 1.45; color: #6E6E73">Cererea pleacă imediat la Jobzerii disponibili. Primele oferte vin de obicei în câteva minute.</span>
+    </div>
+  </sc-if>
+
+  <sc-if value="{{isLater}}" hint-placeholder-val="{{ true }}">
+    <div style="display: flex; flex-direction: column; gap: 12px">
+      <span class="u d2" style="font-size: 13px; font-weight: 500; color: #6E6E73; padding: 4px 12px 0">ZIUA</span>
+      <div class="u d2" style="display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: 5px">
+        <sc-for list="{{days}}" as="d" hint-placeholder-count="7">
+          <button type="button" onClick="{{d.pick}}" aria-pressed="{{d.on}}" class="pr" style="{{d.style}}"><span style="font-size: 11px; font-weight: 500; opacity: 0.75">{{d.wd}}</span><span style="font-size: 19px; font-weight: 600">{{d.n}}</span></button>
+        </sc-for>
+      </div>
+      <span class="u d3" style="font-size: 13px; font-weight: 500; color: #6E6E73; padding: 4px 12px 0">ORA DE ÎNCEPUT</span>
+      <div class="u d3" style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 6px">
+        <sc-for list="{{slots}}" as="s" hint-placeholder-count="12">
+          <button type="button" onClick="{{s.pick}}" aria-pressed="{{s.on}}" class="pr" style="{{s.style}}">{{s.t}}</button>
+        </sc-for>
+      </div>
+      <div class="u d4" style="background: #FFFFFF; border-radius: 22px; padding: 12px 16px; display: flex; align-items: center; justify-content: space-between">
+        <span style="display: flex; flex-direction: column"><span style="font-size: 16px">Sunt flexibil ± 1 h</span><span style="font-size: 13px; color: #6E6E73">Primești mai multe oferte</span></span>
+        <button type="button" onClick="{{toggleFlex}}" aria-pressed="{{flexAttr}}" aria-label="Flexibil" style="{{flexSw}}"><span style="width: 27px; height: 27px; border-radius: 14px; background: #FFFFFF; display: block; box-shadow: 0 2px 4px rgba(0,0,0,0.2)"></span></button>
+      </div>
+    </div>
+  </sc-if>
+
+  <div style="flex-grow: 1"></div>
+  <a href="Fisa.dc.html" class="pr" style="display: flex; align-items: center; justify-content: center; height: 56px; border-radius: 28px; background: #FF9F0A; color: #1C1C1E; font-size: 17px; font-weight: 500; text-decoration: none; box-shadow: 0 10px 24px rgba(255,159,10,0.35)">{{cta}}</a>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+  constructor(props) { super(props); this.state = { mode: 'later', day: 1, slot: '10:00', flex: true }; }
+  seg(on) {
+    return 'height: 34px; border-radius: 8px; border: 0; font-family: inherit; font-size: 14px; font-weight: 500; cursor: pointer; color: #1C1C1E; transition: background .2s, box-shadow .2s; ' +
+      (on ? 'background: #FFFFFF; box-shadow: 0 2px 6px rgba(0,0,0,0.12);' : 'background: transparent;');
+  }
+  renderVals() {
+    const wds = ['Sâm', 'Dum', 'Lun', 'Mar', 'Mie', 'Joi', 'Vin'];
+    const days = wds.map((wd, i) => {
+      const on = this.state.day === i;
+      return {
+        wd: i === 0 ? 'Azi' : wd, n: 17 + i, on: on ? 'true' : 'false',
+        style: 'height: 62px; border-radius: 16px; border: 0; font-family: inherit; cursor: pointer; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px; transition: background .2s, color .2s; ' +
+          (on ? 'background: #FF9F0A; color: #1C1C1E;' : 'background: #FFFFFF; color: #1C1C1E;'),
+        pick: () => this.setState({ day: i })
+      };
+    });
+    const times = ['08:00', '09:00', '10:00', '11:00', '12:00', '13:00', '14:00', '15:00', '16:00', '17:00', '18:00', '19:00'];
+    const full = { '09:00': true, '13:00': true };
+    const slots = times.map((t) => {
+      const on = this.state.slot === t, busy = !!full[t];
+      return {
+        t, on: on ? 'true' : 'false',
+        style: 'height: 44px; border-radius: 14px; border: 0; font-family: inherit; font-size: 15px; font-weight: 500; cursor: pointer; transition: background .2s, color .2s; ' +
+          (on ? 'background: #1C1C1E; color: #FFFFFF;' : busy ? 'background: #FFFFFF; color: #AEAEB2; text-decoration: line-through;' : 'background: #FFFFFF; color: #1C1C1E;'),
+        pick: () => this.setState({ slot: t })
+      };
+    });
+    const later = this.state.mode === 'later';
+    const f = this.state.flex;
+    return {
+      isNow: !later, isLater: later, days, slots,
+      nowAttr: later ? 'false' : 'true', laterAttr: later ? 'true' : 'false',
+      nowStyle: this.seg(!later), laterStyle: this.seg(later),
+      setNow: () => this.setState({ mode: 'now' }), setLater: () => this.setState({ mode: 'later' }),
+      flexAttr: f ? 'true' : 'false', toggleFlex: () => this.setState({ flex: !f }),
+      flexSw: 'width: 51px; height: 31px; border-radius: 16px; border: 0; padding: 2px; cursor: pointer; display: flex; flex-shrink: 0; transition: background .25s; ' + (f ? 'background: #34C759; justify-content: flex-end;' : 'background: #E9E9EA; justify-content: flex-start;'),
+      cta: later ? ((this.state.day === 0 ? 'Azi' : wds[this.state.day] + ' ' + (17 + this.state.day) + ' oct.') + ', ' + this.state.slot + ' · Gata') : 'Acum · Gata'
+    };
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="ro">
+<head>
+<meta charset="utf-8">
+<title>Jobzee · Detaliu produs · întunecat</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<style>
+.th{--bg:#000000;--surf:#1C1C1E;--surf2:#2C2C2E;--surf3:#3A3A3C;--ink:#FFFFFF;--ink2:#98989D;--ink3:#48484A;--sep:#38383A;--brand:#FF9F0A;--onbrand:#1C1C1E;--btext:#FFB340;--bsoft:rgba(255,159,10,0.16);--bsoft2:rgba(255,159,10,0.28);--ok:#30D158;--oktext:#30D158;--oksoft:rgba(48,209,88,0.16);--glass:rgba(36,36,38,0.78);--glass2:rgba(28,28,30,0.95);--scrim:rgba(0,0,0,0.6);--shadow:rgba(0,0,0,0.5);--invbg:#FFFFFF;--invink:#000000;--land:#1B1C1F;--road:#2E3035;--park:#1C2A20;--water:#17283A;--aur1:#B35600;--aur2:#5A2E00;--aur3:#5B1F3A}
+body{margin:0}
+a{color:var(--btext)}
+@keyframes up{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+@keyframes pop{0%{opacity:0;transform:scale(.5)}65%{opacity:1;transform:scale(1.08)}100%{opacity:1;transform:none}}
+@keyframes sheet{from{opacity:0;transform:translateY(70%)}to{opacity:1;transform:none}}
+@keyframes ring{0%{transform:scale(.6);opacity:.55}100%{transform:scale(2.6);opacity:0}}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-7px)}}
+@keyframes drift{0%,100%{transform:translate(0,0) scale(1)}33%{transform:translate(30px,-24px) scale(1.12)}66%{transform:translate(-26px,18px) scale(.94)}}
+@keyframes glow{0%,100%{opacity:.45}50%{opacity:1}}
+@keyframes shimmer{0%{background-position:-200% 0}100%{background-position:200% 0}}
+@keyframes drop{0%{opacity:0;transform:translateY(-24px) scale(.7)}60%{opacity:1;transform:translateY(3px) scale(1.06)}100%{opacity:1;transform:none}}
+@keyframes tick{0%,42%{transform:none}50%,92%{transform:translateY(-40px)}100%{transform:none}}
+@keyframes fadeSlide{0%,42%{opacity:1;transform:none}50%,92%{opacity:0;transform:translateY(-8px)}100%{opacity:1;transform:none}}
+@keyframes fadeSlide2{0%,42%{opacity:0;transform:translateY(8px)}50%,92%{opacity:1;transform:none}100%{opacity:0;transform:translateY(8px)}}
+@keyframes dotA{0%,45%{width:16px;opacity:1}50%,95%{width:6px;opacity:.35}100%{width:16px;opacity:1}}
+@keyframes dotB{0%,45%{width:6px;opacity:.35}50%,95%{width:16px;opacity:1}100%{width:6px;opacity:.35}}
+@keyframes halo{0%{box-shadow:0 0 0 0 rgba(255,159,10,.55)}100%{box-shadow:0 0 0 18px rgba(255,159,10,0)}}
+@keyframes heat{0%,100%{transform:scale(1);opacity:.8}50%{transform:scale(1.15);opacity:1}}
+.u{animation:up .55s cubic-bezier(.2,.8,.2,1) both}
+.d1{animation-delay:.08s}.d2{animation-delay:.16s}.d3{animation-delay:.24s}.d4{animation-delay:.32s}.d5{animation-delay:.4s}.d6{animation-delay:.48s}
+.pop{animation:pop .6s cubic-bezier(.2,.9,.3,1.3) both}
+.sheet{animation:sheet .7s cubic-bezier(.2,.9,.25,1) both}
+.float{animation:float 4.5s ease-in-out infinite}
+.glow{animation:glow 1.8s ease-in-out infinite}
+.drop{animation:drop .8s cubic-bezier(.2,.8,.2,1) both}
+.pr{transition:transform .22s cubic-bezier(.3,.7,.4,1.4), opacity .2s}.pr:active{transform:scale(.95)}
+.ic{display:inline-block;background:currentColor;-webkit-mask-position:center;mask-position:center;-webkit-mask-size:contain;mask-size:contain;-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;flex-shrink:0}
+.glass{background:var(--glass);backdrop-filter:blur(24px) saturate(1.6);-webkit-backdrop-filter:blur(24px) saturate(1.6)}
+@media (prefers-reduced-motion: reduce){*{animation:none!important;transition:none!important}}
+
+.sg{display:grid;padding:2px;border-radius:10px;background:var(--surf3)}
+.sg button{border:0;height:32px;border-radius:8px;background:transparent;font-family:inherit;font-size:13px;font-weight:500;color:var(--ink);cursor:pointer;transition:all .25s}
+.sg button[aria-pressed="true"]{background:var(--surf);box-shadow:0 2px 6px var(--shadow)}
+.jsw{width:51px;height:31px;border-radius:16px;border:0;padding:2px;cursor:pointer;flex-shrink:0;position:relative;transition:background .25s}
+.jsw::after{content:"";position:absolute;top:2px;left:2px;width:27px;height:27px;border-radius:14px;background:#fff;box-shadow:0 2px 4px rgba(0,0,0,.2);transition:transform .3s cubic-bezier(.3,1.3,.4,1)}
+.jsw[aria-pressed="true"]{background:var(--ok)}.jsw[aria-pressed="true"]::after{transform:translateX(20px)}.jsw[aria-pressed="false"]{background:var(--surf3)}
+.lbl{font-size:13px;font-weight:500;color:var(--ink2);padding:0 12px;text-transform:uppercase;letter-spacing:.3px}
+.grp{background:var(--surf);border-radius:24px;overflow:hidden}
+.rw{display:flex;align-items:center;gap:12px;padding:11px 16px 11px 0;margin-left:16px;color:var(--ink);text-decoration:none}
+.rw+.rw{border-top:0.5px solid var(--sep)}
+.dchip{border:0;width:40px;height:40px;border-radius:20px;font-family:inherit;font-size:14px;font-weight:500;cursor:pointer;transition:all .25s}
+.dchip[aria-pressed="true"]{background:var(--brand);color:var(--onbrand)}.dchip[aria-pressed="false"]{background:var(--surf);color:var(--ink)}
+
+.badge{display:inline-flex;align-items:center;gap:4px;height:22px;padding:0 8px;border-radius:11px;font-size:11px;font-weight:500;white-space:nowrap}
+.b-ok{background:var(--oksoft);color:var(--oktext)}.b-mto{background:var(--bsoft);color:var(--btext)}.b-q{background:var(--surf2);color:var(--ink2)}
+.card{background:var(--surf);border-radius:24px;padding:14px;display:flex;flex-direction:column;gap:8px;text-decoration:none;color:var(--ink)}
+.cta{display:flex;align-items:center;justify-content:center;height:56px;border-radius:28px;background:var(--brand);color:var(--onbrand);font-size:17px;font-weight:500;text-decoration:none;border:0;font-family:inherit;cursor:pointer;box-shadow:0 10px 24px rgba(255,159,10,0.3)}
+.cta2{display:flex;align-items:center;justify-content:center;height:50px;border-radius:25px;background:var(--surf);color:var(--ink);font-size:16px;font-weight:500;text-decoration:none;border:0;font-family:inherit;cursor:pointer}
+.note{font-size:12px;line-height:1.4;color:var(--ink2);padding:0 6px}
+.qty{display:flex;align-items:center;height:30px;border-radius:15px;background:var(--surf2)}
+.qty button{width:30px;height:30px;border:0;background:transparent;font-size:17px;color:var(--ink);cursor:pointer;font-family:inherit}
+
+</style>
+</helmet>
+<div class="th" style="width: 390px; height: 980px; box-sizing: border-box; background: var(--bg); font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Helvetica Neue', system-ui, sans-serif; color: var(--ink); position: relative; overflow: hidden">
+<div style="padding: 56px 16px 0; display: flex; flex-direction: column; gap: 12px">
+  <div style="display: flex; align-items: center; justify-content: space-between"><a href="GearShopDark.dc.html" aria-label="Înapoi" class="pr" style="width: 40px; height: 40px; border-radius: 20px; background: var(--surf); color: var(--ink); display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 14px var(--shadow)"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 5l-7 7 7 7"></path></svg></a><button type="button" aria-label="Favorit" class="pr" style="width: 40px; height: 40px; border: 0; border-radius: 20px; background: var(--surf); display: flex; align-items: center; justify-content: center"><img src="assets/ui/favorite.png" alt="" style="width: 20px; height: 20px; display: block; flex-shrink: 0; "></button></div>
+  <div class="u" style="height: 220px; border-radius: 30px; background: linear-gradient(160deg, var(--bsoft2), var(--bsoft)); display: flex; align-items: center; justify-content: center; position: relative"><img src="assets/ui/work_tools.png" alt="" style="width: 120px; height: 120px; display: block; flex-shrink: 0; ">
+    <span style="position: absolute; bottom: 12px; left: 0; right: 0; display: flex; gap: 5px; justify-content: center"><sc-for list="{{dots}}" as="d" hint-placeholder-count="3"><button type="button" onClick="{{d.pick}}" aria-label="Imagine" style="{{d.st}}; border: 0; padding: 0; cursor: pointer"></button></sc-for></span></div>
+  <div class="u d1"><span class="badge b-ok">Disponibil la partener · confirmat azi 09:40</span>
+    <h1 style="margin: 8px 0 2px; font-size: 24px; line-height: 1.2; font-weight: 600; letter-spacing: -0.5px">Mașină de înșurubat 18 V</h1>
+    <span style="font-size: 13px; color: var(--ink2)">Vândut și livrat de un partener Jobzee · retur 14 zile</span></div>
+  <div class="u d2" style="display: flex; align-items: center; gap: 10px; padding: 10px 12px; border-radius: 18px; background: var(--bsoft)"><img src="assets/ui/match.png" alt="" style="width: 22px; height: 22px; display: block; flex-shrink: 0; "><span style="font-size: 13px">Folositor pentru <b style="font-weight: 600">Montaj mobilier</b>, din skill-urile tale</span></div>
+  <div class="grp u d3"><div class="rw" style="padding-top: 9px; padding-bottom: 9px"><span style="flex-grow: 1; font-size: 14px; color: var(--ink2)">Tensiune</span><span style="font-size: 14px">18 V</span></div><div class="rw" style="padding-top: 9px; padding-bottom: 9px"><span style="flex-grow: 1; font-size: 14px; color: var(--ink2)">Cuplu maxim</span><span style="font-size: 14px">50 Nm</span></div><div class="rw" style="padding-top: 9px; padding-bottom: 9px"><span style="flex-grow: 1; font-size: 14px; color: var(--ink2)">Acumulatori</span><span style="font-size: 14px">2 × 2,0 Ah, Li-Ion</span></div><div class="rw" style="padding-top: 9px; padding-bottom: 9px"><span style="flex-grow: 1; font-size: 14px; color: var(--ink2)">Greutate</span><span style="font-size: 14px">1,3 kg</span></div><div class="rw" style="padding-top: 9px; padding-bottom: 9px"><span style="flex-grow: 1; font-size: 14px; color: var(--ink2)">Garanție</span><span style="font-size: 14px">24 luni, producător</span></div></div>
+  <div class="grp u d4"><div class="rw"><img src="assets/ui/delivery.png" alt="" style="width: 22px; height: 22px; display: block; flex-shrink: 0; "><span style="flex-grow: 1; display: flex; flex-direction: column"><span style="font-size: 14px">Livrare 2–4 zile lucrătoare</span><span style="font-size: 12px; color: var(--ink2)">Termen dat de partener · transport 19,99 lei</span></span></div></div>
+</div>
+<div class="glass" style="position: absolute; left: 0; right: 0; bottom: 0; padding: 12px 16px 30px; display: flex; align-items: center; gap: 10px; box-shadow: 0 -8px 24px var(--shadow)">
+  <span class="qty"><button type="button" onClick="{{minus}}" aria-label="Mai puțin">−</button><span style="min-width: 22px; text-align: center; font-size: 15px">{{q}}</span><button type="button" onClick="{{plus}}" aria-label="Mai mult">+</button></span>
+  <a href="GearCosDark.dc.html" class="cta pr" style="flex-grow: 1; height: 52px; font-size: 16px">Adaugă · {{total}}</a>
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":980}}'>
+class Component extends DCLogic {
+  constructor(props) { super(props); this.state = { q: 1, img: 0 }; }
+  renderVals() { const q = this.state.q; return { q, minus: () => this.setState({ q: Math.max(1, q - 1) }), plus: () => this.setState({ q: Math.min(20, q + 1) }), total: (499 * q).toFixed(2).replace('.', ',') + ' lei',
+    dots: [0, 1, 2].map(i => ({ st: 'width: ' + (i === this.state.img ? 16 : 6) + 'px; height: 6px; border-radius: 3px; background: ' + (i === this.state.img ? 'var(--brand)' : 'var(--surf3)') + '; transition: all .3s', pick: () => this.setState({ img: i }) })) }; }
+}
+</script>
+</body>
+</html>

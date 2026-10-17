@@ -1,0 +1,25 @@
+<!-- @dsCard group="Conținut" height=250 subtitle="Normal, ales, promovat" -->
+<div class="jz" style="background: var(--surface); padding: 16px; display: flex; flex-direction: column; gap: 6px; max-width: 390px" id="offers">
+  <button type="button" class="jz-offer jz-enter" aria-pressed="false">
+    <span class="jz-avatar">AD</span>
+    <span style="display: flex; flex-direction: column; gap: 2px; min-width: 0"><span style="display: flex; gap: 6px; align-items: center; font-weight: 600">Ana D. <span class="jz-pill jz-pill--neutral" style="height: 20px; font-size: 11px">Promovat</span></span><span class="jz-row__sub">4,7 ★ · 8 sarcini · 84% potrivire</span></span>
+    <span class="jz-offer__price">138,00 lei<span class="jz-row__sub">15 min · 3,6 km</span></span>
+  </button>
+  <button type="button" class="jz-offer jz-enter" aria-pressed="true" style="animation-delay: .07s">
+    <span class="jz-avatar">MI</span>
+    <span style="display: flex; flex-direction: column; gap: 2px; min-width: 0"><span style="display: flex; gap: 6px; align-items: center; font-weight: 600">Mihai I. <span class="jz-pill jz-pill--tier">Gold</span></span><span class="jz-row__sub">4,9 ★ · 86 sarcini · 98% potrivire</span></span>
+    <span class="jz-offer__price">172,50 lei<span class="jz-row__sub">6 min · 1,4 km</span></span>
+  </button>
+  <button type="button" class="jz-offer jz-enter" aria-pressed="false" style="animation-delay: .14s">
+    <span class="jz-avatar">RC</span>
+    <span style="display: flex; flex-direction: column; gap: 2px; min-width: 0"><span style="display: flex; gap: 6px; align-items: center; font-weight: 600">Radu C. <span class="jz-pill jz-pill--tier">Gold</span></span><span class="jz-row__sub">5,0 ★ · 120 sarcini · 95% potrivire</span></span>
+    <span class="jz-offer__price">195,50 lei<span class="jz-row__sub">4 min · 0,9 km</span></span>
+  </button>
+</div>
+<script>
+var box = document.getElementById('offers');
+box.addEventListener('click', function (e) {
+  var b = e.target.closest('.jz-offer'); if (!b) return;
+  box.querySelectorAll('.jz-offer').forEach(function (x) { x.setAttribute('aria-pressed', x === b ? 'true' : 'false'); });
+});
+</script>

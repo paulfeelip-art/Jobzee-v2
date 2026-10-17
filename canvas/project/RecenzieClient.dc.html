@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="ro">
+<head>
+<meta charset="utf-8">
+<title>Jobzee · Evaluează clientul</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<style>
+body{margin:0}
+a{color:#B35600}a:hover{color:#8F4500}
+@keyframes up{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+@keyframes pop{0%{transform:scale(.5);opacity:0}70%{transform:scale(1.08);opacity:1}100%{transform:none;opacity:1}}
+@keyframes star{0%{transform:scale(0) rotate(-30deg);opacity:0}70%{transform:scale(1.2) rotate(6deg);opacity:1}100%{transform:none;opacity:1}}
+@keyframes confetti{0%{transform:translateY(-10px) rotate(0);opacity:0}15%{opacity:1}100%{transform:translateY(120px) rotate(320deg);opacity:0}}
+.u{animation:up .5s cubic-bezier(.2,.8,.2,1) both}.d1{animation-delay:.1s}.d2{animation-delay:.5s}.d3{animation-delay:.6s}.d4{animation-delay:.7s}
+.pop{animation:pop .6s cubic-bezier(.2,.9,.3,1.3) both}
+.star{animation:star .5s cubic-bezier(.2,.9,.3,1.4) both}
+.cf{position:absolute;width:8px;height:12px;border-radius:2px;animation:confetti 2.4s ease-in infinite}
+.pr{transition:transform .2s cubic-bezier(.3,.7,.4,1.4)}.pr:active{transform:scale(.92)}
+@media (prefers-reduced-motion: reduce){*{animation:none!important;transition:none!important}}
+</style>
+</helmet>
+<div style="width: 390px; height: 844px; box-sizing: border-box; background: #FFFFFF; font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Helvetica Neue', system-ui, sans-serif; color: #1C1C1E; display: flex; flex-direction: column; padding: 56px 20px 30px; position: relative; overflow: hidden">
+  <span class="cf" style="left: 60px; top: 60px; background: #FF9F0A"></span>
+  <span class="cf" style="left: 130px; top: 40px; background: #34C759; animation-delay: .6s"></span>
+  <span class="cf" style="left: 250px; top: 50px; background: #007AFF; animation-delay: 1.1s"></span>
+  <span class="cf" style="left: 310px; top: 70px; background: #FF2D55; animation-delay: .3s"></span>
+
+  <div class="pop" style="background: #1C1C1E; color: #FFFFFF; border-radius: 26px; padding: 18px; display: flex; flex-direction: column; gap: 4px; align-items: center; text-align: center">
+    <span style="font-size: 13px; color: #AEAEB2; font-weight: 500">LUCRARE CONFIRMATĂ</span>
+    <span style="font-size: 40px; font-weight: 600; letter-spacing: -1.4px; color: #FFB340">+210 lei</span>
+    <span style="font-size: 13px; color: #AEAEB2">150 lei lucrarea + 60 lei bacșiș · ajung luni în cont</span>
+  </div>
+
+  <div class="u d1" style="display: flex; flex-direction: column; align-items: center; gap: 8px; margin-top: 22px">
+    <span style="width: 64px; height: 64px; border-radius: 32px; background: #E5E5EA; display: flex; align-items: center; justify-content: center; font-size: 22px; font-weight: 600">AP</span>
+    <h1 style="margin: 0; font-size: 24px; font-weight: 600; letter-spacing: -0.5px">Cum a fost cu Andrei?</h1>
+  </div>
+
+  <div style="margin-top: 14px; display: flex; justify-content: center; gap: 2px">
+    <sc-for list="{{stars}}" as="s" hint-placeholder-count="5">
+      <button type="button" onClick="{{s.pick}}" aria-label="{{s.label}}" class="star pr" style="{{s.style}}">
+        <svg width="42" height="42" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.8l2.8 5.7 6.3.9-4.6 4.4 1.1 6.2L12 17l-5.6 3 1.1-6.2L2.9 9.4l6.3-.9z" fill="{{s.fill}}"></path></svg>
+      </button>
+    </sc-for>
+  </div>
+
+  <div class="u d2" style="margin-top: 14px; display: flex; flex-wrap: wrap; gap: 8px; justify-content: center">
+    <sc-for list="{{tags}}" as="t" hint-placeholder-count="4">
+      <button type="button" onClick="{{t.pick}}" aria-pressed="{{t.on}}" class="pr" style="{{t.style}}">{{t.label}}</button>
+    </sc-for>
+  </div>
+
+  <div class="u d3" style="margin-top: 16px; background: #F2F2F7; border-radius: 20px; padding: 12px 16px; display: flex; align-items: center; justify-content: space-between">
+    <span style="display: flex; flex-direction: column"><span style="font-size: 16px">Aș lucra din nou cu el</span><span style="font-size: 13px; color: #6E6E73">Primești primul cererile lui viitoare</span></span>
+    <button type="button" onClick="{{toggleAgain}}" aria-pressed="{{againAttr}}" aria-label="Aș lucra din nou" style="{{againSw}}"><span style="width: 27px; height: 27px; border-radius: 14px; background: #FFFFFF; display: block; box-shadow: 0 2px 4px rgba(0,0,0,0.2)"></span></button>
+  </div>
+
+  <div style="flex-grow: 1"></div>
+  <p style="margin: 0 0 12px; text-align: center; font-size: 13px; color: #6E6E73">Andrei vede evaluarea doar după ce te evaluează și el.</p>
+  <a href="Incasari.dc.html" class="u d4 pr" style="display: flex; align-items: center; justify-content: center; height: 56px; border-radius: 28px; background: #FF9F0A; color: #1C1C1E; font-size: 17px; font-weight: 500; text-decoration: none; box-shadow: 0 10px 24px rgba(255,159,10,0.35)">Trimite</a>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+  constructor(props) { super(props); this.state = { rating: 5, tags: { 'Cerere clară': true, 'Plată rapidă': true }, again: true }; }
+  renderVals() {
+    const r = this.state.rating;
+    const stars = [1, 2, 3, 4, 5].map((n) => ({
+      label: n + ' stele', fill: n <= r ? '#FF9F0A' : '#E5E5EA',
+      style: 'width: 52px; height: 52px; border: 0; background: transparent; padding: 0; cursor: pointer; display: flex; align-items: center; justify-content: center; animation-delay: ' + (0.25 + n * 0.07) + 's',
+      pick: () => this.setState({ rating: n })
+    }));
+    const tags = ['Cerere clară', 'Punctual', 'Prietenos', 'Plată rapidă'].map((l) => {
+      const on = !!this.state.tags[l];
+      return {
+        label: l, on: on ? 'true' : 'false',
+        style: 'height: 40px; padding: 0 16px; border-radius: 20px; font-family: inherit; font-size: 15px; cursor: pointer; border: 0; transition: background .25s; ' + (on ? 'background: #FF9F0A; color: #1C1C1E;' : 'background: #F2F2F7; color: #1C1C1E;'),
+        pick: () => { const t = Object.assign({}, this.state.tags); t[l] = !on; this.setState({ tags: t }); }
+      };
+    });
+    const a = this.state.again;
+    return {
+      stars, tags, againAttr: a ? 'true' : 'false', toggleAgain: () => this.setState({ again: !a }),
+      againSw: 'width: 51px; height: 31px; border-radius: 16px; border: 0; padding: 2px; cursor: pointer; display: flex; flex-shrink: 0; transition: background .25s; ' + (a ? 'background: #34C759; justify-content: flex-end;' : 'background: #E9E9EA; justify-content: flex-start;')
+    };
+  }
+}
+</script>
+</body>
+</html>

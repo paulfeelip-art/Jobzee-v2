@@ -1,0 +1,19 @@
+<!-- @dsCard group="Navigare" height=150 subtitle="Rol activ în Cont" -->
+<div class="jz" style="background: var(--bg); padding: 20px; max-width: 390px">
+  <div style="background: var(--surface); border-radius: 26px; padding: 14px 16px; display: flex; flex-direction: column; gap: 12px">
+    <div style="display: flex; align-items: center; gap: 12px"><img src="../../assets/people/person-jobzer-3.webp" alt="" style="width: 48px; height: 48px; border-radius: 24px; object-fit: cover; background: var(--surface-3)"><span style="display: flex; flex-direction: column"><span style="font-size: 17px; font-weight: 500">Mihai I.</span><span style="font-size: 13px; color: var(--ink-2)">4,9 ★ · 86 sarcini</span></span></div>
+    <div id="rs" style="display: flex; align-items: center; gap: 10px; padding-top: 12px; border-top: 0.5px solid var(--separator)">
+      <span style="font-size: 14px; color: var(--ink-2)">Rol activ</span>
+      <span style="flex-grow: 1; display: flex; padding: 3px; border-radius: 20px; background: var(--surface-2)">
+        <button type="button" data-r="c" style="flex: 1; height: 34px; border: 0; border-radius: 17px; font: 500 14px/1 inherit; font-family: inherit; cursor: pointer; background: transparent; color: var(--ink-2)">Client</button>
+        <button type="button" data-r="j" style="flex: 1; height: 34px; border: 0; border-radius: 17px; font: 500 14px/1 inherit; font-family: inherit; cursor: pointer; background: var(--surface); color: var(--ink); box-shadow: 0 3px 10px rgba(0,0,0,.1)">Jobzer</button>
+      </span>
+    </div>
+  </div>
+</div>
+<script>
+document.getElementById('rs').addEventListener('click', function (e) {
+  var b = e.target.closest('button'); if (!b) return;
+  this.querySelectorAll('button').forEach(function (x) { var on = x === b; x.style.background = on ? 'var(--surface)' : 'transparent'; x.style.color = on ? 'var(--ink)' : 'var(--ink-2)'; x.style.boxShadow = on ? '0 3px 10px rgba(0,0,0,.1)' : 'none'; });
+});
+</script>

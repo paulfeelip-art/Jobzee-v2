@@ -1,0 +1,12 @@
+<!-- @dsCard group="Controale" height=170 subtitle="Pornit și oprit, într-un rând" -->
+<div class="jz" style="background: var(--bg); padding: 20px; max-width: 390px">
+  <div class="jz-group">
+    <div class="jz-row"><span class="jz-row__main"><span>Factură pe firmă</span><span class="jz-row__sub">Doar Jobzeri PFA sau SRL</span></span><button type="button" class="jz-switch" aria-pressed="false" aria-label="Factură pe firmă"></button></div>
+    <div class="jz-row"><span class="jz-row__main"><span>Sunt flexibil ± 1 h</span><span class="jz-row__sub">Primești mai multe oferte</span></span><button type="button" class="jz-switch" aria-pressed="true" aria-label="Flexibil"></button></div>
+  </div>
+</div>
+<script>
+document.querySelectorAll('.jz-switch').forEach(function (b) {
+  b.addEventListener('click', function () { b.setAttribute('aria-pressed', b.getAttribute('aria-pressed') === 'true' ? 'false' : 'true'); });
+});
+</script>

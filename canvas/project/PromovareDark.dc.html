@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="ro">
+<head>
+<meta charset="utf-8">
+<title>Jobzee · Promovare · întunecat</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<style>
+body{margin:0}
+a{color:#FFB340}a:hover{color:#FFD08A}
+@keyframes up{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+@keyframes bolt{0%,100%{transform:scale(1) rotate(0)}10%{transform:scale(1.18) rotate(-8deg)}20%{transform:scale(1) rotate(0)}}
+@keyframes shine{0%{transform:translateX(-120%)}60%,100%{transform:translateX(220%)}}
+@keyframes check{0%{transform:scale(0)}70%{transform:scale(1.25)}100%{transform:scale(1)}}
+.u{animation:up .55s cubic-bezier(.2,.8,.2,1) both}.d1{animation-delay:.08s}.d2{animation-delay:.16s}.d3{animation-delay:.24s}.d4{animation-delay:.32s}.d5{animation-delay:.4s}
+.bolt{animation:bolt 2.6s ease-in-out infinite}
+.shine{animation:shine 3.2s ease-in-out infinite}
+.check{animation:check .35s cubic-bezier(.2,.9,.3,1.5) both}
+.pr{transition:transform .2s cubic-bezier(.3,.7,.4,1.4)}.pr:active{transform:scale(.97)}
+@media (prefers-reduced-motion: reduce){*{animation:none!important;transition:none!important}}
+</style>
+</helmet>
+<div style="width: 390px; height: 844px; box-sizing: border-box; background: #2C2C2E; font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Helvetica Neue', system-ui, sans-serif; color: #FFFFFF; display: flex; flex-direction: column; padding: 52px 16px 30px; gap: 10px">
+  <a href="CastigDark.dc.html" aria-label="Înapoi la Acasă" class="pr" style="align-self: flex-start; width: 40px; height: 40px; border-radius: 20px; background: #1C1C1E; color: #FFFFFF; display: flex; align-items: center; justify-content: center; flex-shrink: 0; box-shadow: 0 4px 14px rgba(0,0,0,0.08); text-decoration: none"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 5l-7 7 7 7"></path></svg></a>
+  <h1 class="u" style="margin: 0 4px; font-size: 34px; font-weight: 600; letter-spacing: -0.9px">Fii văzut primul</h1>
+
+  <div class="u d1" style="position: relative; overflow: hidden; background: #2C2C2E; color: #FFFFFF; border-radius: 24px; padding: 16px; display: flex; align-items: center; gap: 14px">
+    <span class="shine" style="position: absolute; top: 0; bottom: 0; left: 0; width: 80px; background: linear-gradient(90deg, rgba(255,255,255,0), rgba(255,255,255,0.12), rgba(255,255,255,0)); pointer-events: none"></span>
+    <span class="bolt" style="width: 48px; height: 48px; border-radius: 14px; background: #FF9F0A; color: #1C1C1E; display: flex; align-items: center; justify-content: center; flex-shrink: 0">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13 2L4 14h7l-1 8 9-12h-7z"></path></svg>
+    </span>
+    <span style="display: flex; flex-direction: column; gap: 2px"><span style="font-size: 16px; font-weight: 500">Activ: încă 1 h 20 min</span><span style="font-size: 13px; color: #AEAEB2">Azi: 41 afișări · 6 cereri · 2 alegeri</span></span>
+  </div>
+
+  <span class="u d2" style="font-size: 13px; font-weight: 500; color: #98989D; padding: 8px 16px 0">PROMOVARE ÎN ZONA TA</span>
+  <div class="u d2" style="background: #1C1C1E; border-radius: 22px; overflow: hidden">
+    <sc-for list="{{boosts}}" as="b" hint-placeholder-count="3">
+      <button type="button" onClick="{{b.pick}}" aria-pressed="{{b.on}}" style="{{b.style}}">
+        <span style="flex-grow: 1; display: flex; flex-direction: column; gap: 2px; text-align: left"><span style="font-size: 16px; font-weight: 500">{{b.title}}</span><span style="font-size: 13px; color: #98989D">{{b.sub}}</span></span>
+        <span style="font-size: 17px; font-weight: 500">{{b.price}}</span>
+        <span style="width: 24px; display: flex; justify-content: center">
+          <sc-if value="{{b.isOn}}" hint-placeholder-val="{{ false }}"><svg class="check" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#FF9F0A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg></sc-if>
+        </span>
+      </button>
+    </sc-for>
+  </div>
+
+  <span class="u d3" style="font-size: 13px; font-weight: 500; color: #98989D; padding: 8px 16px 0">ABONAMENT</span>
+  <button type="button" onClick="{{pickPro}}" aria-pressed="{{proOn}}" class="u d3 pr" style="{{proStyle}}">
+    <span style="flex-grow: 1; display: flex; flex-direction: column; gap: 4px; text-align: left">
+      <span style="display: flex; align-items: center; gap: 8px; font-size: 17px; font-weight: 600">Jobzee Pro <span style="font-size: 11px; font-weight: 700; padding: 2px 7px; border-radius: 7px; background: #FF9F0A; color: #1C1C1E">PRO</span></span>
+      <span style="font-size: 13px; line-height: 1.45; color: #98989D">Insignă Pro · 4 promovări de o zi incluse · statistici · acces mai rapid la clienți firmă</span>
+    </span>
+    <span style="display: flex; flex-direction: column; align-items: flex-end"><span style="font-size: 17px; font-weight: 600">49 lei</span><span style="font-size: 12px; color: #98989D">/ lună</span></span>
+  </button>
+
+  <div style="flex-grow: 1"></div>
+  <p class="u d4" style="margin: 0; font-size: 12px; line-height: 1.5; color: #98989D; text-align: center">Ofertele promovate apar marcate „Promovat” pentru clienți. Promovarea nu schimbă nota sau nivelul tău.</p>
+  <a href="CastigDark.dc.html" class="u d5 pr" style="display: flex; align-items: center; justify-content: center; height: 56px; border-radius: 28px; background: #FF9F0A; color: #1C1C1E; font-size: 17px; font-weight: 500; text-decoration: none; box-shadow: 0 10px 24px rgba(255,159,10,0.35)">{{cta}}</a>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+  constructor(props) { super(props); this.state = { sel: 'day' }; }
+  renderVals() {
+    const list = [
+      { id: 'h2', title: '2 ore', sub: 'Primul în lista de oferte, acum', price: '9 lei', cta: 'Activează 2 ore · 9 lei' },
+      { id: 'day', title: 'O zi', sub: 'Toată ziua, în zona și skill-urile tale', price: '19 lei', cta: 'Activează o zi · 19 lei' },
+      { id: 'week', title: '7 zile', sub: 'Cel mai bun preț pe zi', price: '79 lei', cta: 'Activează 7 zile · 79 lei' }
+    ];
+    const boosts = list.map((b, i) => {
+      const on = this.state.sel === b.id;
+      return {
+        title: b.title, sub: b.sub, price: b.price, on: on ? 'true' : 'false', isOn: on,
+        style: 'width: 100%; display: flex; align-items: center; gap: 12px; padding: 13px 14px 13px 16px; border: 0; cursor: pointer; font-family: inherit; color: #FFFFFF; transition: background .25s; background: ' + (on ? '#3A2A14' : '#1C1C1E') + '; ' + (i > 0 ? 'box-shadow: inset 0 0.5px 0 #38383A;' : ''),
+        pick: () => this.setState({ sel: b.id })
+      };
+    });
+    const pro = this.state.sel === 'pro';
+    const cur = list.find((b) => b.id === this.state.sel);
+    return {
+      boosts, proOn: pro ? 'true' : 'false',
+      proStyle: 'width: 100%; display: flex; align-items: center; gap: 12px; padding: 16px; border-radius: 22px; border: 0; cursor: pointer; font-family: inherit; color: #FFFFFF; transition: background .25s, box-shadow .25s; ' +
+        (pro ? 'background: #3A2A14; box-shadow: inset 0 0 0 2px #FF9F0A;' : 'background: #1C1C1E;'),
+      pickPro: () => this.setState({ sel: 'pro' }),
+      cta: pro ? 'Încearcă Pro · 49 lei / lună' : cur.cta
+    };
+  }
+}
+</script>
+</body>
+</html>

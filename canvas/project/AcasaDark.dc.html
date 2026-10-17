@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="ro">
+<head>
+<meta charset="utf-8">
+<title>Jobzee · Acasă (client) · întunecat</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<style>
+.th{--bg:#000000;--surf:#1C1C1E;--surf2:#2C2C2E;--surf3:#3A3A3C;--ink:#FFFFFF;--ink2:#98989D;--ink3:#48484A;--sep:#38383A;--brand:#FF9F0A;--onbrand:#1C1C1E;--btext:#FFB340;--bsoft:rgba(255,159,10,0.16);--bsoft2:rgba(255,159,10,0.28);--ok:#30D158;--oktext:#30D158;--oksoft:rgba(48,209,88,0.16);--glass:rgba(36,36,38,0.78);--glass2:rgba(28,28,30,0.95);--scrim:rgba(0,0,0,0.6);--shadow:rgba(0,0,0,0.5);--invbg:#FFFFFF;--invink:#000000;--land:#1B1C1F;--road:#2E3035;--park:#1C2A20;--water:#17283A;--aur1:#B35600;--aur2:#5A2E00;--aur3:#5B1F3A}
+body{margin:0}
+a{color:var(--btext)}
+@keyframes up{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+@keyframes pop{0%{opacity:0;transform:scale(.5)}65%{opacity:1;transform:scale(1.08)}100%{opacity:1;transform:none}}
+@keyframes sheet{from{opacity:0;transform:translateY(70%)}to{opacity:1;transform:none}}
+@keyframes ring{0%{transform:scale(.6);opacity:.55}100%{transform:scale(2.6);opacity:0}}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-7px)}}
+@keyframes drift{0%,100%{transform:translate(0,0) scale(1)}33%{transform:translate(30px,-24px) scale(1.12)}66%{transform:translate(-26px,18px) scale(.94)}}
+@keyframes glow{0%,100%{opacity:.45}50%{opacity:1}}
+@keyframes shimmer{0%{background-position:-200% 0}100%{background-position:200% 0}}
+@keyframes drop{0%{opacity:0;transform:translateY(-24px) scale(.7)}60%{opacity:1;transform:translateY(3px) scale(1.06)}100%{opacity:1;transform:none}}
+@keyframes tick{0%,42%{transform:none}50%,92%{transform:translateY(-40px)}100%{transform:none}}
+@keyframes fadeSlide{0%,42%{opacity:1;transform:none}50%,92%{opacity:0;transform:translateY(-8px)}100%{opacity:1;transform:none}}
+@keyframes fadeSlide2{0%,42%{opacity:0;transform:translateY(8px)}50%,92%{opacity:1;transform:none}100%{opacity:0;transform:translateY(8px)}}
+@keyframes dotA{0%,45%{width:16px;opacity:1}50%,95%{width:6px;opacity:.35}100%{width:16px;opacity:1}}
+@keyframes dotB{0%,45%{width:6px;opacity:.35}50%,95%{width:16px;opacity:1}100%{width:6px;opacity:.35}}
+@keyframes halo{0%{box-shadow:0 0 0 0 rgba(255,159,10,.55)}100%{box-shadow:0 0 0 18px rgba(255,159,10,0)}}
+@keyframes heat{0%,100%{transform:scale(1);opacity:.8}50%{transform:scale(1.15);opacity:1}}
+.u{animation:up .55s cubic-bezier(.2,.8,.2,1) both}
+.d1{animation-delay:.08s}.d2{animation-delay:.16s}.d3{animation-delay:.24s}.d4{animation-delay:.32s}.d5{animation-delay:.4s}.d6{animation-delay:.48s}
+.pop{animation:pop .6s cubic-bezier(.2,.9,.3,1.3) both}
+.sheet{animation:sheet .7s cubic-bezier(.2,.9,.25,1) both}
+.float{animation:float 4.5s ease-in-out infinite}
+.glow{animation:glow 1.8s ease-in-out infinite}
+.drop{animation:drop .8s cubic-bezier(.2,.8,.2,1) both}
+.pr{transition:transform .22s cubic-bezier(.3,.7,.4,1.4), opacity .2s}.pr:active{transform:scale(.95)}
+.ic{display:inline-block;background:currentColor;-webkit-mask-position:center;mask-position:center;-webkit-mask-size:contain;mask-size:contain;-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;flex-shrink:0}
+.glass{background:var(--glass);backdrop-filter:blur(24px) saturate(1.6);-webkit-backdrop-filter:blur(24px) saturate(1.6)}
+@media (prefers-reduced-motion: reduce){*{animation:none!important;transition:none!important}}
+
+</style>
+</helmet>
+<div class="th" style="width: 390px; height: 844px; box-sizing: border-box; background: var(--bg); font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Helvetica Neue', system-ui, sans-serif; color: var(--ink); position: relative; overflow: hidden">
+<svg width="390" height="520" viewBox="0 0 390 520" aria-hidden="true" style="position: absolute; left: 0; top: 0; display: block"><rect width="390" height="520" fill="var(--land)"></rect><path d="M-10 430 C 80 390 170 460 270 420 S 400 400 400 400 L400 530 L-10 530 Z" style="fill: var(--water)"></path><rect x="150" y="236" width="96" height="70" rx="22" style="fill: var(--park)"></rect><rect x="18" y="60" width="74" height="52" rx="16" style="fill: var(--park)"></rect><path d="M-10 140 L400 100 M-10 340 L400 372 M120 -10 L92 530 M282 -10 L312 530" stroke-width="16" stroke-linecap="round" fill="none" style="stroke: var(--road)"></path><path d="M-10 236 L400 250 M200 -10 L188 530" stroke-width="7" fill="none" style="stroke: var(--road)"></path></svg>
+<div style="position: absolute; left: 172px; top: 262px; width: 44px; height: 44px"><div style="position: absolute; inset: 0; border-radius: 22px; background: var(--brand); animation: ring 2.4s ease-out infinite"></div><div style="position: absolute; left: 11px; top: 11px; width: 22px; height: 22px; border-radius: 11px; background: var(--brand); border: 4px solid var(--surf); box-sizing: border-box; box-shadow: 0 2px 8px rgba(0,0,0,0.25)"></div></div>
+<div class="drop glass" style="position: absolute; left: 50px; top: 196px; animation-delay: 0.20s; height: 38px; padding: 0 12px 0 4px; border-radius: 19px; box-shadow: 0 8px 20px var(--shadow); display: flex; align-items: center; gap: 6px; font-size: 13px; font-weight: 500"><img src="assets/people/person-jobzer-1.webp" alt="" style="width: 30px; height: 30px; border-radius: 15px; object-fit: cover">4,9 ★</div>
+<div class="drop glass" style="position: absolute; left: 262px; top: 196px; animation-delay: 0.35s; height: 38px; padding: 0 12px 0 4px; border-radius: 19px; box-shadow: 0 8px 20px var(--shadow); display: flex; align-items: center; gap: 6px; font-size: 13px; font-weight: 500"><img src="assets/people/person-jobzer-3.webp" alt="" style="width: 30px; height: 30px; border-radius: 15px; object-fit: cover">5,0 ★</div>
+<div class="drop glass" style="position: absolute; left: 250px; top: 312px; animation-delay: 0.50s; height: 38px; padding: 0 12px 0 4px; border-radius: 19px; box-shadow: 0 8px 20px var(--shadow); display: flex; align-items: center; gap: 6px; font-size: 13px; font-weight: 500"><img src="assets/people/person-jobzer-2.webp" alt="" style="width: 30px; height: 30px; border-radius: 15px; object-fit: cover">4,8 ★</div>
+<div class="drop glass" style="position: absolute; left: 26px; top: 318px; animation-delay: 0.65s; height: 38px; padding: 0 12px 0 4px; border-radius: 19px; box-shadow: 0 8px 20px var(--shadow); display: flex; align-items: center; gap: 6px; font-size: 13px; font-weight: 500"><img src="assets/people/person-client-2.webp" alt="" style="width: 30px; height: 30px; border-radius: 15px; object-fit: cover">4,7 ★</div>
+<div style="position: absolute; left: 16px; right: 16px; top: 56px; display: flex; flex-direction: column; gap: 10px">
+    <div style="display: flex; justify-content: space-between; align-items: center">
+      <div class="glass" style="height: 40px; padding: 0 14px; border-radius: 20px; display: flex; align-items: center; gap: 6px; font-size: 15px; font-weight: 500; box-shadow: 0 4px 14px var(--shadow)">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="var(--brand)" aria-hidden="true"><path d="M12 22s-7-6.2-7-12a7 7 0 0 1 14 0c0 5.8-7 12-7 12z"></path><circle cx="12" cy="10" r="2.6" fill="#FFFFFF"></circle></svg>Floreasca</div>
+      <span style="display: flex; gap: 8px"><a href="NotificariDark.dc.html" aria-label="Notificări, 2 noi" class="pr" style="position: relative; width: 42px; height: 42px; border-radius: 21px; background: var(--surf); color: var(--ink); display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 14px var(--shadow)"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 16V11a6 6 0 0 1 12 0v5l1.5 2h-15z"></path><path d="M10 20a2 2 0 0 0 4 0"></path></svg><span class="pop" style="position: absolute; right: -3px; top: -3px; min-width: 18px; height: 18px; padding: 0 5px; box-sizing: border-box; border-radius: 9px; background: #FF3B30; color: #FFFFFF; font-size: 11px; font-weight: 600; display: flex; align-items: center; justify-content: center; animation-delay: .8s">2</span></a>
+      <a href="ContDark.dc.html" aria-label="Contul meu" class="pr" style="position: relative; width: 42px; height: 42px; border-radius: 21px; background: var(--surf); color: var(--ink); display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 600; text-decoration: none; box-shadow: 0 4px 14px var(--shadow)">AP<span style="position: absolute; right: -2px; bottom: -2px; width: 14px; height: 14px; border-radius: 7px; background: var(--ok); border: 2.5px solid var(--surf)"></span></a></span>
+    </div>
+    <a href="DialogDark.dc.html" class="pr glass" style="display: flex; align-items: center; gap: 12px; height: 62px; padding: 0 8px 0 18px; border-radius: 31px; color: var(--ink); text-decoration: none; box-shadow: 0 14px 34px var(--shadow)">
+      <svg class="glow" width="22" height="22" viewBox="0 0 24 24" fill="var(--brand)" aria-hidden="true"><path d="M12 2l1.8 6.2L20 10l-6.2 1.8L12 18l-1.8-6.2L4 10l6.2-1.8z"></path></svg>
+      <span style="flex-grow: 1; font-size: 18px; font-weight: 500; letter-spacing: -0.3px">Cu ce te ajutăm?</span>
+      <span style="width: 46px; height: 46px; border-radius: 23px; background: var(--brand); display: flex; align-items: center; justify-content: center; color: var(--onbrand)"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="3" width="6" height="11" rx="3"></rect><path d="M5 11a7 7 0 0 0 14 0M12 18v3"></path></svg></span>
+    </a>
+  </div>
+<div class="sheet" style="position: absolute; left: 10px; right: 10px; bottom: 100px; background: var(--glass2); backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px); border-radius: 34px; padding: 18px 14px 14px; display: flex; flex-direction: column; gap: 14px; box-shadow: 0 -6px 30px var(--shadow); animation-delay: .1s">
+    <div class="u d1" style="display: flex; justify-content: space-between; align-items: baseline; padding: 0 4px">
+      <span style="font-size: 20px; font-weight: 600; letter-spacing: -0.4px">Populare acum</span>
+      <span style="font-size: 13px; color: var(--ink2); display: flex; align-items: center; gap: 6px"><span class="glow" style="width: 8px; height: 8px; border-radius: 4px; background: var(--ok)"></span>12 Jobzeri online</span>
+    </div>
+    <div style="display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 8px"><a href="DialogDark.dc.html" class="u d2 pr" style="display: flex; flex-direction: column; align-items: center; gap: 6px; color: var(--ink); text-decoration: none; font-size: 11px; font-weight: 500"><span style="width: 100%; height: 62px; border-radius: 31px; overflow: hidden; display: block"><img src="assets/services/service-mobila.webp" alt="" style="width: 100%; height: 100%; object-fit: cover; display: block"></span>Montaj</a><a href="DialogDark.dc.html" class="u d3 pr" style="display: flex; flex-direction: column; align-items: center; gap: 6px; color: var(--ink); text-decoration: none; font-size: 11px; font-weight: 500"><span style="width: 100%; height: 62px; border-radius: 31px; overflow: hidden; display: block"><img src="assets/services/service-curatenie.webp" alt="" style="width: 100%; height: 100%; object-fit: cover; display: block"></span>Curățenie</a><a href="DialogDark.dc.html" class="u d4 pr" style="display: flex; flex-direction: column; align-items: center; gap: 6px; color: var(--ink); text-decoration: none; font-size: 11px; font-weight: 500"><span style="width: 100%; height: 62px; border-radius: 31px; overflow: hidden; display: block"><img src="assets/services/service-mutat-obiecte.webp" alt="" style="width: 100%; height: 100%; object-fit: cover; display: block"></span>Cărat</a><a href="DialogDark.dc.html" class="u d5 pr" style="display: flex; flex-direction: column; align-items: center; gap: 6px; color: var(--ink); text-decoration: none; font-size: 11px; font-weight: 500"><span style="width: 100%; height: 62px; border-radius: 31px; overflow: hidden; display: block"><img src="assets/services/service-sanitar.webp" alt="" style="width: 100%; height: 100%; object-fit: cover; display: block"></span>Instalații</a><a href="ServiciiDark.dc.html" class="u d6 pr" style="display: flex; flex-direction: column; align-items: center; gap: 6px; color: var(--ink); text-decoration: none; font-size: 11px; font-weight: 500"><span style="position: relative; width: 100%; height: 62px; border-radius: 31px; background: var(--bsoft); color: var(--btext); display: flex; align-items: center; justify-content: center"><span class="ic" aria-hidden="true" style="width: 26px; height: 26px; color: var(--btext); -webkit-mask-image: url(assets/icons/icon-toate.svg); mask-image: url(assets/icons/icon-toate.svg); "></span><span style="position: absolute; right: -2px; top: -4px; height: 20px; padding: 0 6px; border-radius: 10px; background: var(--brand); color: var(--onbrand); font-size: 10px; font-weight: 700; display: flex; align-items: center">+26</span></span>Alte servicii</a></div>
+    <sc-if value="{{ad}}" hint-placeholder-val="{{ true }}">
+    <div class="pop" style="position: relative; display: flex; align-items: center; gap: 12px; padding: 10px 12px 10px 10px; border-radius: 26px; background: linear-gradient(135deg, var(--bsoft2), var(--bsoft)); overflow: hidden">
+      <a href="SchimbaRolDark.dc.html" aria-label="Vezi cât poți câștiga" style="position: absolute; inset: 0; z-index: 1"></a>
+      <span style="position: relative; width: 64px; height: 64px; flex-shrink: 0"><img src="assets/photos/hero-jobzer-outdoor.webp" alt="" style="width: 64px; height: 64px; border-radius: 32px; object-fit: cover; object-position: 50% 25%; display: block">
+        <span style="position: absolute; right: -2px; bottom: -2px; width: 22px; height: 22px; border-radius: 11px; background: var(--brand); color: var(--onbrand); display: flex; align-items: center; justify-content: center; border: 2px solid var(--surf)"><span class="ic" aria-hidden="true" style="width: 12px; height: 12px; color: var(--onbrand); -webkit-mask-image: url(assets/icons/icon-rapid.svg); mask-image: url(assets/icons/icon-rapid.svg); "></span></span></span>
+      <span style="flex-grow: 1; min-width: 0; display: flex; flex-direction: column; gap: 2px">
+        <span style="font-size: 11px; font-weight: 600; letter-spacing: .4px; text-transform: uppercase; color: var(--btext)">Recomandat de Jobzee</span>
+        <span style="position: relative; height: 40px; overflow: hidden; display: block"><span style="display: flex; flex-direction: column; animation: tick 9s cubic-bezier(.7,0,.3,1) infinite"><span style="height: 40px; display: flex; flex-direction: column"><span style="font-size: 15px; font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis">Te pricepi la montaj?</span><span style="font-size: 13px; color: var(--ink2); white-space: nowrap; overflow: hidden; text-overflow: ellipsis">Câștigă bani în timpul liber, lângă casă.</span></span><span style="height: 40px; display: flex; flex-direction: column"><span style="font-size: 15px; font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis">Ai o oră liberă azi?</span><span style="font-size: 13px; color: var(--ink2); white-space: nowrap; overflow: hidden; text-overflow: ellipsis">34 de cereri noi în zona ta. Tu alegi ce accepți.</span></span></span>
+        </span>
+        <span style="display: flex; align-items: center; gap: 8px; margin-top: 2px"><span style="font-size: 13px; font-weight: 600; color: var(--btext)">Vezi cât poți câștiga ›</span>
+          <span style="display: flex; gap: 4px; margin-left: auto"><span style="height: 6px; border-radius: 3px; background: var(--btext); animation: dotA 9s ease-in-out infinite"></span><span style="height: 6px; border-radius: 3px; background: var(--btext); animation: dotB 9s ease-in-out infinite"></span></span></span>
+      </span>
+      <button type="button" onClick="{{closeAd}}" aria-label="Ascunde recomandarea" class="pr" style="position: absolute; z-index: 2; right: 8px; top: 8px; width: 24px; height: 24px; border: 0; border-radius: 12px; background: rgba(0,0,0,0.08); color: var(--ink2); display: flex; align-items: center; justify-content: center; cursor: pointer; padding: 0"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"></path></svg></button>
+    </div>
+  </sc-if>
+  <sc-if value="{{noAd}}" hint-placeholder-val="{{ false }}">
+    <button type="button" onClick="{{reopen}}" class="u" style="border: 0; background: var(--surf2); border-radius: 18px; height: 40px; font-family: inherit; font-size: 13px; color: var(--ink2); cursor: pointer">Ascuns. Nu-ți mai arătăm asta 7 zile · Anulează</button>
+  </sc-if>
+  </div>
+<nav aria-label="Meniu" class="glass" style="position: absolute; left: 16px; right: 16px; bottom: 24px; height: 64px; border-radius: 32px; box-shadow: 0 10px 30px var(--shadow); display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); padding: 6px; box-sizing: border-box; z-index: 5"><a href="AcasaDark.dc.html" class="pr" aria-current="page" style="border-radius: 26px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px; font-size: 11px; text-decoration: none; background: var(--bsoft); color: var(--btext); font-weight: 500"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path fill="currentColor" d="M4 11l8-7 8 7v9h-5v-6H9v6H4z"></path></svg>Acasă</a><a href="ActivitateDark.dc.html" class="pr" style="border-radius: 26px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px; font-size: 11px; text-decoration: none; color: var(--ink2); font-weight: 500"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="5"></rect><path d="M8 9h8M8 13h8M8 17h5"></path></svg>Activitate</a><a href="ChatDark.dc.html" class="pr" style="border-radius: 26px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px; font-size: 11px; text-decoration: none; color: var(--ink2); font-weight: 500"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 5h14a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H10l-5 4V7a2 2 0 0 1 2-2z"></path></svg>Mesaje</a><a href="ContDark.dc.html" class="pr" style="border-radius: 26px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px; font-size: 11px; text-decoration: none; color: var(--ink2); font-weight: 500"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"></circle><path d="M4 21c1-4 4-6 8-6s7 2 8 6"></path></svg>Cont</a></nav>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+  constructor(props) { super(props); this.state = { ad: true }; }
+  renderVals() {
+    const s = this.state;
+    return {
+      ad: s.ad, closeAd: () => this.setState({ ad: false }), reopen: () => this.setState({ ad: true }), noAd: !s.ad
+    };
+  }
+}
+</script>
+</body>
+</html>

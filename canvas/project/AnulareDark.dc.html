@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="ro">
+<head>
+<meta charset="utf-8">
+<title>Jobzee · Anulare · întunecat</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<style>
+body{margin:0}
+a{color:#FFB340}a:hover{color:#FFD08A}
+@keyframes up{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+@keyframes check{0%{transform:scale(0)}70%{transform:scale(1.25)}100%{transform:scale(1)}}
+@keyframes pop{0%{transform:scale(.3);opacity:0}70%{transform:scale(1.12);opacity:1}100%{transform:none;opacity:1}}
+.u{animation:up .5s cubic-bezier(.2,.8,.2,1) both}.d1{animation-delay:.08s}.d2{animation-delay:.16s}.d3{animation-delay:.24s}
+.check{animation:check .35s cubic-bezier(.2,.9,.3,1.5) both}
+.pop{animation:pop .55s cubic-bezier(.2,.9,.3,1.3) both}
+.pr{transition:transform .2s cubic-bezier(.3,.7,.4,1.4)}.pr:active{transform:scale(.96)}
+@keyframes zf{0%,100%{transform:translateY(0) rotate(0)}50%{transform:translateY(-8px) rotate(-3deg)}}.zf{animation:zf 3.6s ease-in-out infinite}
+@keyframes zw{0%,100%{transform:rotate(0)}20%{transform:rotate(-8deg)}40%{transform:rotate(6deg)}60%{transform:rotate(-4deg)}}.zw{transform-origin:50% 90%;animation:zw 2.4s ease-in-out .6s infinite}
+@media (prefers-reduced-motion: reduce){*{animation:none!important;transition:none!important}}
+</style>
+</helmet>
+<div style="width: 390px; height: 844px; box-sizing: border-box; background: #2C2C2E; font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Helvetica Neue', system-ui, sans-serif; color: #FFFFFF; display: flex; flex-direction: column; padding: 52px 16px 30px; gap: 12px">
+  <a href="PeDrumDark.dc.html" aria-label="Înapoi la Înapoi" class="pr" style="align-self: flex-start; width: 40px; height: 40px; border-radius: 20px; background: #1C1C1E; color: #FFFFFF; display: flex; align-items: center; justify-content: center; flex-shrink: 0; box-shadow: 0 4px 14px rgba(0,0,0,0.08); text-decoration: none"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 5l-7 7 7 7"></path></svg></a>
+
+  <sc-if value="{{notDone}}" hint-placeholder-val="{{ true }}">
+    <div style="display: flex; flex-direction: column; gap: 12px">
+      <h1 class="u" style="margin: 0 4px; font-size: 30px; line-height: 1.1; font-weight: 600; letter-spacing: -0.8px">Sigur anulezi?</h1>
+      <span class="u d1" style="font-size: 13px; font-weight: 500; color: #98989D; padding: 4px 12px 0">DE CE? (OPȚIONAL)</span>
+      <div class="u d1" style="background: #1C1C1E; border-radius: 22px; overflow: hidden">
+        <sc-for list="{{reasons}}" as="r" hint-placeholder-count="4">
+          <button type="button" onClick="{{r.pick}}" aria-pressed="{{r.on}}" style="{{r.style}}">
+            <span style="flex-grow: 1; text-align: left; font-size: 16px">{{r.label}}</span>
+            <sc-if value="{{r.isOn}}" hint-placeholder-val="{{ false }}"><svg class="check" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#FF9F0A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg></sc-if>
+          </button>
+        </sc-for>
+      </div>
+      <div class="u d2" style="background: #3A2A14; border-radius: 22px; padding: 14px 16px; display: flex; flex-direction: column; gap: 8px">
+        <span style="font-size: 16px; font-weight: 500">Mihai e deja pe drum</span>
+        <div style="display: flex; justify-content: space-between; font-size: 15px"><span style="color: #98989D">Taxă de anulare (pentru deplasarea lui)</span><span>15,00 lei</span></div>
+        <div style="display: flex; justify-content: space-between; font-size: 15px"><span style="color: #98989D">Se deblochează imediat</span><span style="font-weight: 500; color: #30D158">157,50 lei</span></div>
+      </div>
+      <div class="u d3" style="background: #1C1C1E; border-radius: 22px; overflow: hidden; font-size: 14px">
+        <div style="display: flex; justify-content: space-between; padding: 11px 16px"><span>Înainte să alegi o ofertă</span><span style="color: #30D158; font-weight: 500">Gratuit</span></div>
+        <div style="display: flex; justify-content: space-between; padding: 11px 16px 11px 0; margin-left: 16px; border-top: 0.5px solid #38383A"><span>După alegere, până pleacă</span><span style="color: #30D158; font-weight: 500">Gratuit</span></div>
+        <div style="display: flex; justify-content: space-between; padding: 11px 16px 11px 0; margin-left: 16px; border-top: 0.5px solid #38383A"><span>Jobzerul e pe drum</span><span style="font-weight: 500">15 lei</span></div>
+        <div style="display: flex; justify-content: space-between; padding: 11px 16px 11px 0; margin-left: 16px; border-top: 0.5px solid #38383A"><span>După cod de start</span><span style="color: #98989D">Raportezi o problemă</span></div>
+      </div>
+    </div>
+  </sc-if>
+
+  <sc-if value="{{done}}" hint-placeholder-val="{{ false }}">
+    <div style="flex-grow: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 12px; text-align: center; padding-bottom: 80px">
+      <span class="pop" style="display: block"><img src="assets/mascot/zee-trist.png" alt="" style="width: 96px; height: 104px; display: block; "></span>
+      <span class="u" style="font-size: 24px; font-weight: 600; letter-spacing: -0.5px">Sarcină anulată</span>
+      <span class="u d1" style="font-size: 15px; color: #98989D; line-height: 1.45">157,50 lei se deblochează pe card.<br>Banca poate afișa suma încă 1–3 zile.</span>
+    </div>
+  </sc-if>
+
+  <div style="flex-grow: 1"></div>
+  <sc-if value="{{notDone}}" hint-placeholder-val="{{ true }}">
+    <div style="display: flex; flex-direction: column; gap: 8px">
+      <button type="button" onClick="{{cancel}}" class="pr" style="height: 56px; border-radius: 28px; border: 0; background: #FF3B30; color: #FFFFFF; font-family: inherit; font-size: 17px; font-weight: 500; cursor: pointer">Anulează · 15 lei</button>
+      <a href="PeDrumDark.dc.html" class="pr" style="display: flex; align-items: center; justify-content: center; height: 52px; border-radius: 26px; background: #1C1C1E; color: #FFFFFF; font-size: 16px; font-weight: 500; text-decoration: none">Păstrează sarcina</a>
+    </div>
+  </sc-if>
+  <sc-if value="{{done}}" hint-placeholder-val="{{ false }}">
+    <a href="AcasaDark.dc.html" class="u pr" style="display: flex; align-items: center; justify-content: center; height: 56px; border-radius: 28px; background: #FF9F0A; color: #1C1C1E; font-size: 17px; font-weight: 500; text-decoration: none">Înapoi acasă</a>
+  </sc-if>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+  constructor(props) { super(props); this.state = { r: 1, done: false }; }
+  renderVals() {
+    const labels = ['Am rezolvat altfel', 'Durează prea mult', 'Am greșit adresa sau ora'];
+    const reasons = labels.map((l, i) => {
+      const on = this.state.r === i;
+      return {
+        label: l, on: on ? 'true' : 'false', isOn: on,
+        style: 'width: 100%; display: flex; align-items: center; gap: 10px; padding: 13px 16px; border: 0; background: #1C1C1E; font-family: inherit; color: #FFFFFF; cursor: pointer; ' + (i > 0 ? 'box-shadow: inset 16px 0.5px 0 #1C1C1E, inset 0 0.5px 0 #38383A;' : ''),
+        pick: () => this.setState({ r: i })
+      };
+    });
+    return { reasons, done: this.state.done, notDone: !this.state.done, cancel: () => this.setState({ done: true }) };
+  }
+}
+</script>
+</body>
+</html>

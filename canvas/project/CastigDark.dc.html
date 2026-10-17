@@ -1,0 +1,250 @@
+<!doctype html>
+<html lang="ro">
+<head>
+<meta charset="utf-8">
+<title>Jobzee · Acasă Jobzer · cereri</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<style>
+.th{--bg:#000000;--surf:#1C1C1E;--surf2:#2C2C2E;--surf3:#3A3A3C;--ink:#FFFFFF;--ink2:#98989D;--ink3:#48484A;--sep:#38383A;--brand:#FF9F0A;--onbrand:#1C1C1E;--btext:#FFB340;--bsoft:rgba(255,159,10,0.16);--bsoft2:rgba(255,159,10,0.28);--ok:#30D158;--oktext:#30D158;--oksoft:rgba(48,209,88,0.16);--glass:rgba(36,36,38,0.78);--glass2:rgba(28,28,30,0.95);--scrim:rgba(0,0,0,0.6);--shadow:rgba(0,0,0,0.5);--invbg:#FFFFFF;--invink:#000000;--land:#1B1C1F;--road:#2E3035;--park:#1C2A20;--water:#17283A;--aur1:#B35600;--aur2:#5A2E00;--aur3:#5B1F3A}
+body{margin:0}
+a{color:var(--btext)}
+@keyframes up{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+@keyframes pop{0%{opacity:0;transform:scale(.5)}65%{opacity:1;transform:scale(1.08)}100%{opacity:1;transform:none}}
+@keyframes sheet{from{opacity:0;transform:translateY(70%)}to{opacity:1;transform:none}}
+@keyframes ring{0%{transform:scale(.6);opacity:.55}100%{transform:scale(2.6);opacity:0}}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-7px)}}
+@keyframes drift{0%,100%{transform:translate(0,0) scale(1)}33%{transform:translate(30px,-24px) scale(1.12)}66%{transform:translate(-26px,18px) scale(.94)}}
+@keyframes glow{0%,100%{opacity:.45}50%{opacity:1}}
+@keyframes shimmer{0%{background-position:-200% 0}100%{background-position:200% 0}}
+@keyframes drop{0%{opacity:0;transform:translateY(-24px) scale(.7)}60%{opacity:1;transform:translateY(3px) scale(1.06)}100%{opacity:1;transform:none}}
+@keyframes tick{0%,42%{transform:none}50%,92%{transform:translateY(-40px)}100%{transform:none}}
+@keyframes fadeSlide{0%,42%{opacity:1;transform:none}50%,92%{opacity:0;transform:translateY(-8px)}100%{opacity:1;transform:none}}
+@keyframes fadeSlide2{0%,42%{opacity:0;transform:translateY(8px)}50%,92%{opacity:1;transform:none}100%{opacity:0;transform:translateY(8px)}}
+@keyframes dotA{0%,45%{width:16px;opacity:1}50%,95%{width:6px;opacity:.35}100%{width:16px;opacity:1}}
+@keyframes dotB{0%,45%{width:6px;opacity:.35}50%,95%{width:16px;opacity:1}100%{width:6px;opacity:.35}}
+@keyframes halo{0%{box-shadow:0 0 0 0 rgba(255,159,10,.55)}100%{box-shadow:0 0 0 18px rgba(255,159,10,0)}}
+@keyframes heat{0%,100%{transform:scale(1);opacity:.8}50%{transform:scale(1.15);opacity:1}}
+.u{animation:up .55s cubic-bezier(.2,.8,.2,1) both}
+.d1{animation-delay:.08s}.d2{animation-delay:.16s}.d3{animation-delay:.24s}.d4{animation-delay:.32s}.d5{animation-delay:.4s}.d6{animation-delay:.48s}
+.pop{animation:pop .6s cubic-bezier(.2,.9,.3,1.3) both}
+.sheet{animation:sheet .7s cubic-bezier(.2,.9,.25,1) both}
+.float{animation:float 4.5s ease-in-out infinite}
+.glow{animation:glow 1.8s ease-in-out infinite}
+.drop{animation:drop .8s cubic-bezier(.2,.8,.2,1) both}
+.pr{transition:transform .22s cubic-bezier(.3,.7,.4,1.4), opacity .2s}.pr:active{transform:scale(.95)}
+.ic{display:inline-block;background:currentColor;-webkit-mask-position:center;mask-position:center;-webkit-mask-size:contain;mask-size:contain;-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;flex-shrink:0}
+.glass{background:var(--glass);backdrop-filter:blur(24px) saturate(1.6);-webkit-backdrop-filter:blur(24px) saturate(1.6)}
+@media (prefers-reduced-motion: reduce){*{animation:none!important;transition:none!important}}
+
+.sg{display:grid;padding:2px;border-radius:10px;background:var(--surf3)}
+.sg button{border:0;height:32px;border-radius:8px;background:transparent;font-family:inherit;font-size:13px;font-weight:500;color:var(--ink);cursor:pointer;transition:all .25s}
+.sg button[aria-pressed="true"]{background:var(--surf);box-shadow:0 2px 6px var(--shadow)}
+.jsw{width:51px;height:31px;border-radius:16px;border:0;padding:2px;cursor:pointer;flex-shrink:0;position:relative;transition:background .25s}
+.jsw::after{content:"";position:absolute;top:2px;left:2px;width:27px;height:27px;border-radius:14px;background:#fff;box-shadow:0 2px 4px rgba(0,0,0,.2);transition:transform .3s cubic-bezier(.3,1.3,.4,1)}
+.jsw[aria-pressed="true"]{background:var(--ok)}.jsw[aria-pressed="true"]::after{transform:translateX(20px)}.jsw[aria-pressed="false"]{background:var(--surf3)}
+.lbl{font-size:13px;font-weight:500;color:var(--ink2);padding:0 12px;text-transform:uppercase;letter-spacing:.3px}
+.grp{background:var(--surf);border-radius:24px;overflow:hidden}
+.rw{display:flex;align-items:center;gap:12px;padding:11px 16px 11px 0;margin-left:16px;color:var(--ink);text-decoration:none}
+.rw+.rw{border-top:0.5px solid var(--sep)}
+.dchip{border:0;width:40px;height:40px;border-radius:20px;font-family:inherit;font-size:14px;font-weight:500;cursor:pointer;transition:all .25s}
+.dchip[aria-pressed="true"]{background:var(--brand);color:var(--onbrand)}.dchip[aria-pressed="false"]{background:var(--surf);color:var(--ink)}
+
+@keyframes newIn{0%{opacity:0;transform:translateY(-14px) scale(.97)}60%{opacity:1}100%{transform:none}}
+@keyframes flash{0%,100%{box-shadow:0 2px 10px var(--shadow)}30%{box-shadow:0 0 0 3px var(--brand),0 8px 24px rgba(255,159,10,.35)}}
+@keyframes pin{0%{transform:translate(-50%,-100%) scale(1)}50%{transform:translate(-50%,-100%) scale(1.08)}100%{transform:translate(-50%,-100%) scale(1)}}
+.rq{background:var(--surf);border-radius:24px;padding:12px 12px 10px;display:flex;flex-direction:column;gap:9px;box-shadow:0 2px 10px var(--shadow);animation:newIn .45s cubic-bezier(.2,.8,.2,1) both}
+.rq.nw{animation:newIn .5s cubic-bezier(.2,.8,.2,1) both,flash 2.4s ease .3s 2}
+.fl{border:0;height:34px;padding:0 13px;border-radius:17px;font-family:inherit;font-size:13px;font-weight:500;cursor:pointer;white-space:nowrap;flex-shrink:0;transition:all .25s}
+.fl[aria-pressed="true"]{background:var(--invbg);color:var(--invink)}.fl[aria-pressed="false"]{background:var(--surf);color:var(--ink);box-shadow:0 1px 4px var(--shadow)}
+.pc{border:0;flex:1;height:40px;border-radius:20px;font-family:inherit;font-size:15px;font-weight:600;cursor:pointer;transition:all .2s}
+.pc[aria-pressed="true"]{background:var(--brand);color:var(--onbrand)}.pc[aria-pressed="false"]{background:var(--surf2);color:var(--ink)}
+.ab{border:0;height:38px;border-radius:19px;font-family:inherit;font-size:14px;font-weight:500;cursor:pointer;display:flex;align-items:center;justify-content:center;text-decoration:none}
+.tg{display:inline-flex;align-items:center;height:22px;padding:0 8px;border-radius:11px;font-size:11px;font-weight:500;white-space:nowrap;background:var(--surf2);color:var(--ink2)}
+.mpin{position:absolute;transform:translate(-50%,-100%);border:0;padding:0 9px;height:30px;border-radius:15px;font-family:inherit;font-size:13px;font-weight:600;cursor:pointer;white-space:nowrap;box-shadow:0 4px 12px rgba(0,0,0,.25)}
+.mpin::after{content:"";position:absolute;left:50%;bottom:-5px;width:10px;height:10px;transform:translateX(-50%) rotate(45deg);background:inherit;border-radius:2px}
+.scroll{scrollbar-width:none}.scroll::-webkit-scrollbar{display:none}
+@keyframes inUp{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}.in{animation:inUp .3s cubic-bezier(.2,.8,.2,1) both}
+</style>
+</helmet>
+<div class="th" style="width: 390px; height: 844px; box-sizing: border-box; background: var(--bg); font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Helvetica Neue', system-ui, sans-serif; color: var(--ink); position: relative; overflow: hidden">
+<div style="position: absolute; inset: 0; display: flex; flex-direction: column">
+  <div style="padding: 52px 16px 10px; display: flex; flex-direction: column; gap: 10px; position: relative; z-index: 4">
+    <div style="display: flex; align-items: center; justify-content: space-between">
+      <a href="ContJobzerDark.dc.html" aria-label="Profilul meu" class="pr" style="width: 40px; height: 40px; border-radius: 20px; overflow: hidden; display: block; box-shadow: 0 4px 14px var(--shadow)"><img src="assets/people/person-jobzer-3.webp" alt="" style="width: 40px; height: 40px; object-fit: cover"></a>
+      <button type="button" onClick="{{toggle}}" style="{{onSt}}" aria-label="Schimbă disponibilitatea"><span style="{{dotSt}}"></span>{{onTxt}}</button>
+      <a href="IncasariDark.dc.html" class="pr" style="height: 40px; padding: 0 14px; border-radius: 20px; background: var(--invbg); color: var(--invink); display: flex; align-items: center; font-size: 16px; font-weight: 600; text-decoration: none">264 lei azi</a>
+    </div>
+    <sc-if value="{{on}}" hint-placeholder-val="{{ true }}">
+      <div style="display: flex; align-items: flex-end; justify-content: space-between; gap: 10px">
+        <span style="display: flex; flex-direction: column"><span style="display: flex; align-items: center; gap: 8px"><span style="font-size: 24px; font-weight: 600; letter-spacing: -0.6px">{{head}}</span><sc-if value="{{newBadge}}" hint-placeholder-val="{{ false }}"><span class="tg" style="background: var(--brand); color: var(--onbrand)">+1 nouă</span></sc-if></span><span style="font-size: 12px; color: var(--ink2)">{{sub}}</span></span>
+        <div class="sg" style="grid-template-columns: repeat(2, 64px); flex-shrink: 0"><button type="button" onClick="{{goL}}" aria-pressed="{{vL}}">Listă</button><button type="button" onClick="{{goM}}" aria-pressed="{{vM}}">Hartă</button></div>
+      </div>
+      <div class="scroll" style="display: flex; gap: 6px; overflow-x: auto; margin: 0 -16px; padding: 2px 16px 4px"><sc-for list="{{fl}}" as="f" hint-placeholder-count="5"><button type="button" class="fl pr" onClick="{{f.pick}}" aria-pressed="{{f.attr}}">{{f.t}}</button></sc-for></div>
+    </sc-if>
+  </div>
+  <sc-if value="{{isList}}" hint-placeholder-val="{{ true }}"><div class="scroll" style="flex-grow: 1; min-height: 0; overflow-y: auto; padding: 0 12px 104px; display: flex; flex-direction: column; gap: 10px">
+    <div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 6px">
+      <a href="StatisticiDark.dc.html" class="pr" style="background: var(--surf); border-radius: 16px; padding: 8px 10px; display: flex; flex-direction: column; color: var(--ink); text-decoration: none"><span style="font-size: 15px; font-weight: 600">78 lei/h</span><span style="font-size: 11px; color: var(--ink2)">statistici ›</span></a>
+      <a href="NiveluriDark.dc.html" class="pr" style="background: var(--surf); border-radius: 16px; padding: 8px 10px; display: flex; flex-direction: column; color: var(--ink); text-decoration: none"><span style="font-size: 15px; font-weight: 600">Plus</span><span style="font-size: 11px; color: var(--ink2)">38/50 → Gold</span></a>
+      <a href="PromovareDark.dc.html" class="pr" style="background: var(--bsoft); border-radius: 16px; padding: 8px 10px; display: flex; flex-direction: column; color: var(--ink); text-decoration: none"><span style="font-size: 15px; font-weight: 600">1 h 20</span><span style="font-size: 11px; color: var(--btext); font-weight: 500">promovat ›</span></a>
+    </div>
+    <div style="display: flex; justify-content: flex-end; margin-top: -2px"><button type="button" onClick="{{sortNext}}" style="border: 0; background: transparent; padding: 0 4px; font-family: inherit; font-size: 13px; font-weight: 500; color: var(--btext); cursor: pointer">{{sortTxt}}</button></div>
+    <sc-if value="{{undo}}" hint-placeholder-val="{{ false }}"><div class="in" style="display: flex; align-items: center; gap: 10px; padding: 10px 14px; border-radius: 16px; background: var(--invbg); color: var(--invink); font-size: 14px"><span style="flex-grow: 1">Am ascuns cererea. Nu te penalizează.</span><button type="button" onClick="{{doUndo}}" style="border: 0; background: transparent; padding: 0; font-family: inherit; font-size: 14px; font-weight: 600; color: var(--brand); cursor: pointer">Anulează</button></div></sc-if>
+    <sc-for list="{{cards}}" as="c" hint-placeholder-count="3"><div class="{{c.cls}}">
+          <div style="display: flex; gap: 11px; align-items: flex-start">
+            <img src="{{c.src}}" alt="" style="width: 46px; height: 46px; border-radius: 14px; flex-shrink: 0">
+            <span style="flex-grow: 1; min-width: 0; display: flex; flex-direction: column; gap: 3px">
+              <span style="display: flex; align-items: center; gap: 6px"><span style="{{c.wst}}">{{c.wt}}</span><sc-if value="{{c.isNew}}" hint-placeholder-val="{{ false }}"><span class="tg" style="background: var(--brand); color: var(--onbrand)">Nouă</span></sc-if></span>
+              <span style="font-size: 16px; font-weight: 600; line-height: 1.25">{{c.t}}</span>
+              <span style="font-size: 12px; color: var(--ink2)">{{c.meta}}</span>
+            </span>
+            <span style="display: flex; flex-direction: column; align-items: flex-end; flex-shrink: 0"><span style="font-size: 11px; color: var(--ink2)">estimare</span><span style="font-size: 15px; font-weight: 600; white-space: nowrap">{{c.est}}</span></span>
+          </div>
+          <div style="display: flex; gap: 5px; flex-wrap: wrap"><span class="tg">{{c.dur}}</span><span class="tg">{{c.ph}}</span><span class="tg">{{c.tools}}</span></div>
+          <span style="display: flex; align-items: center; gap: 6px; font-size: 12px; color: var(--oktext)"><span style="font-weight: 600">✓</span>{{c.m}}</span>
+          <div style="display: flex; align-items: center; justify-content: space-between; padding-top: 8px; box-shadow: inset 0 0.5px 0 var(--sep)">
+            <sc-if value="{{c.first}}" hint-placeholder-val="{{ false }}"><span style="font-size: 12px; font-weight: 600; color: var(--btext)">{{c.comp}}</span></sc-if>
+            <sc-if value="{{c.notFirst}}" hint-placeholder-val="{{ true }}"><span style="font-size: 12px; color: var(--ink2)">{{c.comp}}</span></sc-if>
+            <span style="{{c.leftSt}}">{{c.left}}</span>
+          </div>
+          <sc-if value="{{c.nq}}" hint-placeholder-val="{{ true }}"><div style="display: flex; gap: 6px">
+            <button type="button" onClick="{{c.hide}}" class="ab pr" style="width: 38px; background: var(--surf2); color: var(--ink2)" aria-label="Ascunde cererea"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"></path></svg></button>
+            <a href="OfertaDark.dc.html" class="ab pr" style="flex: 1; background: var(--surf2); color: var(--ink)">Detalii</a>
+            <button type="button" onClick="{{c.doQuick}}" class="ab pr" style="flex: 1.4; background: var(--brand); color: var(--onbrand)">Ofertă rapidă</button>
+          </div></sc-if>
+          <sc-if value="{{c.q}}" hint-placeholder-val="{{ false }}"><div class="in" style="display: flex; flex-direction: column; gap: 8px; padding: 10px; border-radius: 18px; background: var(--bsoft)">
+            <span style="font-size: 12px; color: var(--ink2)">Alege prețul. Primești integral suma, taxa o plătește clientul.</span>
+            <div style="display: flex; gap: 6px"><sc-for list="{{c.chips}}" as="p" hint-placeholder-count="3"><button type="button" class="pc pr" onClick="{{p.pick}}" aria-pressed="{{p.attr}}">{{p.t}}</button></sc-for></div>
+            <button type="button" onClick="{{c.send}}" class="ab pr" style="height: 44px; border-radius: 22px; background: var(--invbg); color: var(--invink); font-size: 15px">{{c.sendTxt}}</button>
+            <div style="display: flex; justify-content: space-between"><a href="OfertaDark.dc.html" style="font-size: 13px; font-weight: 500; color: var(--btext); text-decoration: none">Alt preț sau un mesaj ›</a><button type="button" onClick="{{c.doQuick}}" style="border: 0; background: transparent; padding: 0; font-family: inherit; font-size: 13px; color: var(--ink2); cursor: pointer">Renunță</button></div>
+          </div></sc-if>
+          <sc-if value="{{c.sent}}" hint-placeholder-val="{{ false }}"><div style="display: flex; align-items: center; gap: 8px; padding: 9px 12px; border-radius: 16px; background: var(--oksoft)"><span style="flex-grow: 1; font-size: 13px; font-weight: 500; color: var(--oktext)">✓ {{c.sentTxt}}</span><button type="button" onClick="{{c.retract}}" style="border: 0; background: transparent; padding: 0; font-family: inherit; font-size: 13px; font-weight: 500; color: var(--ink2); cursor: pointer">Retrage</button></div></sc-if>
+        </div></sc-for>
+    <sc-if value="{{empty}}" hint-placeholder-val="{{ false }}"><div style="display: flex; flex-direction: column; align-items: center; gap: 8px; padding: 30px 20px; text-align: center"><img src="assets/mascot/zee-cauta.png" alt="" style="width: 100px; height: 108px"><span style="font-size: 15px; color: var(--ink2)">{{emptyTxt}}</span></div></sc-if>
+    <sc-if value="{{ad}}" hint-placeholder-val="{{ true }}"><div style="margin-top: 4px"><sc-if value="{{ad}}" hint-placeholder-val="{{ true }}">
+    <div class="pop" style="position: relative; display: flex; align-items: center; gap: 12px; padding: 10px 12px 10px 10px; border-radius: 26px; background: linear-gradient(135deg, var(--bsoft2), var(--bsoft)); overflow: hidden">
+      <a href="SchimbaRolDark.dc.html" aria-label="Comandă un serviciu" style="position: absolute; inset: 0; z-index: 1"></a>
+      <span style="position: relative; width: 64px; height: 64px; flex-shrink: 0"><img src="assets/photos/hero-client-home.webp" alt="" style="width: 64px; height: 64px; border-radius: 32px; object-fit: cover; object-position: 50% 40%; display: block">
+        <span style="position: absolute; right: -2px; bottom: -2px; width: 22px; height: 22px; border-radius: 11px; background: var(--brand); color: var(--onbrand); display: flex; align-items: center; justify-content: center; border: 2px solid var(--surf)"><span class="ic" aria-hidden="true" style="width: 12px; height: 12px; color: var(--onbrand); -webkit-mask-image: url(assets/icons/icon-verificat.svg); mask-image: url(assets/icons/icon-verificat.svg); "></span></span></span>
+      <span style="flex-grow: 1; min-width: 0; display: flex; flex-direction: column; gap: 2px">
+        <span style="font-size: 11px; font-weight: 600; letter-spacing: .4px; text-transform: uppercase; color: var(--btext)">Recomandat de Jobzee</span>
+        <span style="position: relative; height: 40px; overflow: hidden; display: block"><span style="display: flex; flex-direction: column; animation: tick 9s cubic-bezier(.7,0,.3,1) infinite"><span style="height: 40px; display: flex; flex-direction: column"><span style="font-size: 15px; font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis">Ai și tu nevoie de ajutor?</span><span style="font-size: 13px; color: var(--ink2); white-space: nowrap; overflow: hidden; text-overflow: ellipsis">Comandă de la alți Jobzeri, din același cont.</span></span><span style="height: 40px; display: flex; flex-direction: column"><span style="font-size: 15px; font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis">Curățenie după o zi lungă?</span><span style="font-size: 13px; color: var(--ink2); white-space: nowrap; overflow: hidden; text-overflow: ellipsis">Primești oferte în câteva minute, plătești la final.</span></span></span>
+        </span>
+        <span style="display: flex; align-items: center; gap: 8px; margin-top: 2px"><span style="font-size: 13px; font-weight: 600; color: var(--btext)">Comandă un serviciu ›</span>
+          <span style="display: flex; gap: 4px; margin-left: auto"><span style="height: 6px; border-radius: 3px; background: var(--btext); animation: dotA 9s ease-in-out infinite"></span><span style="height: 6px; border-radius: 3px; background: var(--btext); animation: dotB 9s ease-in-out infinite"></span></span></span>
+      </span>
+      <button type="button" onClick="{{closeAd}}" aria-label="Ascunde recomandarea" class="pr" style="position: absolute; z-index: 2; right: 8px; top: 8px; width: 24px; height: 24px; border: 0; border-radius: 12px; background: rgba(0,0,0,0.08); color: var(--ink2); display: flex; align-items: center; justify-content: center; cursor: pointer; padding: 0"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"></path></svg></button>
+    </div>
+  </sc-if>
+  <sc-if value="{{noAd}}" hint-placeholder-val="{{ false }}">
+    <button type="button" onClick="{{reopen}}" class="u" style="border: 0; background: var(--surf2); border-radius: 18px; height: 40px; font-family: inherit; font-size: 13px; color: var(--ink2); cursor: pointer">Ascuns. Nu-ți mai arătăm asta 7 zile · Anulează</button>
+  </sc-if></div></sc-if>
+  </div></sc-if>
+  <sc-if value="{{isMap}}" hint-placeholder-val="{{ false }}"><div style="position: relative; flex-grow: 1; min-height: 0">
+    <div style="position: absolute; left: 0; right: 0; top: -14px; height: 560px; overflow: hidden"><svg width="390" height="560" viewBox="0 0 390 560" aria-hidden="true" style="position: absolute; left: 0; top: 0; display: block"><rect width="390" height="560" style="fill: var(--land)"></rect><path d="M-10 470 C 80 440 170 500 270 465 S 400 450 400 450 L400 560 L-10 560 Z" style="fill: var(--water)"></path><path d="M240 60 h90 v70 h-90z" style="fill: var(--park)"></path><path d="M30 420 h70 v40 h-70z" style="fill: var(--park)"></path><path d="M-10 130 L400 90 M-10 330 L400 370 M120 -10 L92 600 M282 -10 L312 600" stroke-width="14" stroke-linecap="round" fill="none" style="stroke: var(--road)"></path><path d="M-10 230 L400 245 M200 -10 L188 600" stroke-width="6" fill="none" style="stroke: var(--road)"></path><circle cx="196" cy="170" r="95" fill="#FF9F0A" fill-opacity="0.07" stroke="#FF9F0A" stroke-opacity="0.35" stroke-dasharray="4 5"></circle><circle cx="196" cy="170" r="9" style="fill: var(--invbg); stroke: var(--surf)" stroke-width="4"></circle></svg>
+      <sc-for list="{{pins}}" as="p" hint-placeholder-count="6"><button type="button" class="mpin" onClick="{{p.pick}}" style="{{p.st}}">{{p.t}}</button></sc-for>
+    </div>
+    <div style="position: absolute; left: 12px; right: 12px; bottom: 100px; z-index: 5"><sc-for list="{{sel}}" as="c" hint-placeholder-count="1"><div class="{{c.cls}}">
+          <div style="display: flex; gap: 11px; align-items: flex-start">
+            <img src="{{c.src}}" alt="" style="width: 46px; height: 46px; border-radius: 14px; flex-shrink: 0">
+            <span style="flex-grow: 1; min-width: 0; display: flex; flex-direction: column; gap: 3px">
+              <span style="display: flex; align-items: center; gap: 6px"><span style="{{c.wst}}">{{c.wt}}</span><sc-if value="{{c.isNew}}" hint-placeholder-val="{{ false }}"><span class="tg" style="background: var(--brand); color: var(--onbrand)">Nouă</span></sc-if></span>
+              <span style="font-size: 16px; font-weight: 600; line-height: 1.25">{{c.t}}</span>
+              <span style="font-size: 12px; color: var(--ink2)">{{c.meta}}</span>
+            </span>
+            <span style="display: flex; flex-direction: column; align-items: flex-end; flex-shrink: 0"><span style="font-size: 11px; color: var(--ink2)">estimare</span><span style="font-size: 15px; font-weight: 600; white-space: nowrap">{{c.est}}</span></span>
+          </div>
+          <div style="display: flex; gap: 5px; flex-wrap: wrap"><span class="tg">{{c.dur}}</span><span class="tg">{{c.ph}}</span><span class="tg">{{c.tools}}</span></div>
+          <span style="display: flex; align-items: center; gap: 6px; font-size: 12px; color: var(--oktext)"><span style="font-weight: 600">✓</span>{{c.m}}</span>
+          <div style="display: flex; align-items: center; justify-content: space-between; padding-top: 8px; box-shadow: inset 0 0.5px 0 var(--sep)">
+            <sc-if value="{{c.first}}" hint-placeholder-val="{{ false }}"><span style="font-size: 12px; font-weight: 600; color: var(--btext)">{{c.comp}}</span></sc-if>
+            <sc-if value="{{c.notFirst}}" hint-placeholder-val="{{ true }}"><span style="font-size: 12px; color: var(--ink2)">{{c.comp}}</span></sc-if>
+            <span style="{{c.leftSt}}">{{c.left}}</span>
+          </div>
+          <sc-if value="{{c.nq}}" hint-placeholder-val="{{ true }}"><div style="display: flex; gap: 6px">
+            <button type="button" onClick="{{c.hide}}" class="ab pr" style="width: 38px; background: var(--surf2); color: var(--ink2)" aria-label="Ascunde cererea"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"></path></svg></button>
+            <a href="OfertaDark.dc.html" class="ab pr" style="flex: 1; background: var(--surf2); color: var(--ink)">Detalii</a>
+            <button type="button" onClick="{{c.doQuick}}" class="ab pr" style="flex: 1.4; background: var(--brand); color: var(--onbrand)">Ofertă rapidă</button>
+          </div></sc-if>
+          <sc-if value="{{c.q}}" hint-placeholder-val="{{ false }}"><div class="in" style="display: flex; flex-direction: column; gap: 8px; padding: 10px; border-radius: 18px; background: var(--bsoft)">
+            <span style="font-size: 12px; color: var(--ink2)">Alege prețul. Primești integral suma, taxa o plătește clientul.</span>
+            <div style="display: flex; gap: 6px"><sc-for list="{{c.chips}}" as="p" hint-placeholder-count="3"><button type="button" class="pc pr" onClick="{{p.pick}}" aria-pressed="{{p.attr}}">{{p.t}}</button></sc-for></div>
+            <button type="button" onClick="{{c.send}}" class="ab pr" style="height: 44px; border-radius: 22px; background: var(--invbg); color: var(--invink); font-size: 15px">{{c.sendTxt}}</button>
+            <div style="display: flex; justify-content: space-between"><a href="OfertaDark.dc.html" style="font-size: 13px; font-weight: 500; color: var(--btext); text-decoration: none">Alt preț sau un mesaj ›</a><button type="button" onClick="{{c.doQuick}}" style="border: 0; background: transparent; padding: 0; font-family: inherit; font-size: 13px; color: var(--ink2); cursor: pointer">Renunță</button></div>
+          </div></sc-if>
+          <sc-if value="{{c.sent}}" hint-placeholder-val="{{ false }}"><div style="display: flex; align-items: center; gap: 8px; padding: 9px 12px; border-radius: 16px; background: var(--oksoft)"><span style="flex-grow: 1; font-size: 13px; font-weight: 500; color: var(--oktext)">✓ {{c.sentTxt}}</span><button type="button" onClick="{{c.retract}}" style="border: 0; background: transparent; padding: 0; font-family: inherit; font-size: 13px; font-weight: 500; color: var(--ink2); cursor: pointer">Retrage</button></div></sc-if>
+        </div></sc-for></div>
+  </div></sc-if>
+  <sc-if value="{{off}}" hint-placeholder-val="{{ false }}"><div style="flex-grow: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 12px; padding: 0 30px 120px; text-align: center">
+    <img src="assets/mascot/zee-doarme.png" alt="" style="width: 150px; height: 162px">
+    <span style="font-size: 22px; font-weight: 600; letter-spacing: -0.4px">Ești offline</span>
+    <span style="font-size: 15px; line-height: 1.4; color: var(--ink2)">Nu primești cereri noi. Ofertele trimise rămân valabile.</span>
+    <button type="button" onClick="{{toggle}}" class="pr" style="height: 52px; padding: 0 28px; border: 0; border-radius: 26px; background: var(--brand); color: var(--onbrand); font-family: inherit; font-size: 17px; font-weight: 500; cursor: pointer">Pornește</button>
+  </div></sc-if>
+</div>
+<nav aria-label="Meniu" class="glass" style="position: absolute; left: 16px; right: 16px; bottom: 24px; height: 64px; border-radius: 32px; box-shadow: 0 10px 30px var(--shadow); display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); padding: 6px; box-sizing: border-box; z-index: 5"><a href="CastigDark.dc.html" class="pr" aria-current="page" style="border-radius: 26px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px; font-size: 11px; text-decoration: none; background: var(--bsoft); color: var(--btext); font-weight: 500"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path fill="currentColor" d="M4 11l8-7 8 7v9h-5v-6H9v6H4z"></path></svg>Acasă</a><a href="SarciniJobzerDark.dc.html" class="pr" style="border-radius: 26px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px; font-size: 11px; text-decoration: none; color: var(--ink2); font-weight: 500"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="5"></rect><path d="M8 9h8M8 13h8M8 17h5"></path></svg>Sarcini</a><a href="IncasariDark.dc.html" class="pr" style="border-radius: 26px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px; font-size: 11px; text-decoration: none; color: var(--ink2); font-weight: 500"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="6" width="18" height="13" rx="4"></rect><path d="M16 12.5h2"></path></svg>Încasări</a><a href="ContJobzerDark.dc.html" class="pr" style="border-radius: 26px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px; font-size: 11px; text-decoration: none; color: var(--ink2); font-weight: 500"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"></circle><path d="M4 21c1-4 4-6 8-6s7 2 8 6"></path></svg>Profil</a></nav>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { on: true, view: 'list', f: 'all', sort: 0, items: [{"id": "r1", "i": "mobila", "t": "Montaj birou + dulap mic", "z": "Floreasca", "km": 2.1, "cl": "Andrei P.", "st": "4,9", "when": "u", "wt": "Urgent · cât mai repede", "lo": 120, "hi": 220, "dur": "~1 h 30", "ph": 2, "tools": "Cu uneltele tale", "of": 3, "left": 480, "m": "Montaj mobilier · Expert", "x": 128, "y": 150}, {"id": "r5", "i": "it", "t": "Montaj TV 55\" pe perete", "z": "Floreasca", "km": 0.9, "cl": "Mara S.", "st": "5,0", "when": "u", "wt": "Urgent · în următoarea oră", "lo": 100, "hi": 180, "dur": "~1 h", "ph": 1, "tools": "Suportul îl are clientul", "of": 5, "left": 250, "m": "Montaj TV și rafturi · din Montaj mobilier", "x": 222, "y": 190}, {"id": "r2", "i": "reparatii", "t": "Agățat 3 rafturi și o oglindă", "z": "Dorobanți", "km": 3.4, "cl": "Ioana M.", "st": "5,0", "when": "a", "wt": "Azi · 18:00", "lo": 80, "hi": 140, "dur": "~1 h", "ph": 1, "tools": "Cu uneltele tale", "of": 1, "left": 1320, "m": "Reparații mici · Experimentat", "x": 70, "y": 225}, {"id": "r3", "i": "tamplarie", "t": "Reglat ușa de la baie", "z": "Aviatorilor", "km": 1.2, "cl": "Radu T.", "st": "4,7", "when": "a", "wt": "Azi · 20:00", "lo": 60, "hi": 110, "dur": "~40 min", "ph": 0, "tools": "Cu uneltele tale", "of": 0, "left": 2100, "m": "Tâmplărie și uși · Experimentat", "x": 305, "y": 110}, {"id": "r4", "i": "mobila", "t": "Montaj pat cu sertare IKEA", "z": "Herăstrău", "km": 4.8, "cl": "Elena D.", "st": "4,8", "when": "p", "wt": "Sâm., 18 oct. · 10:00", "lo": 150, "hi": 250, "dur": "~2 h", "ph": 3, "tools": "Cu uneltele tale", "of": 2, "left": 10800, "m": "Montaj mobilier · Expert", "x": 268, "y": 250}, {"id": "r6", "i": "mobila", "t": "Dulap PAX de 2 m", "z": "Pipera", "km": 6.2, "cl": "Victor A.", "st": "4,6", "when": "p", "wt": "Dum., 19 oct. · 12:00", "lo": 250, "hi": 400, "dur": "~3 h", "ph": 2, "tools": "Cu uneltele tale", "of": 1, "left": 18000, "m": "Montaj mobilier · Expert", "x": 320, "y": 60}], hidden: {}, sent: {}, quick: '', price: {}, t: 0, gotNew: false, undo: '', mapSel: 'r1', ad: true };
+  }
+  componentDidMount() {
+    this.tick = setInterval(() => this.setState({ t: this.state.t + 1 }), 1000);
+    this.nw = setTimeout(() => { if (this.state.on) this.setState({ items: [Object.assign({ fresh: true }, {"id": "r7", "i": "tamplarie", "t": "Montaj 2 uși interioare", "z": "Primăverii", "km": 2.8, "cl": "Sorin V.", "st": "4,9", "when": "a", "wt": "Azi · 17:00", "lo": 200, "hi": 350, "dur": "~2 h 30", "ph": 2, "tools": "Cu uneltele tale", "of": 0, "left": 1800, "m": "Tâmplărie și uși · Experimentat", "x": 150, "y": 80})].concat(this.state.items), gotNew: true }); }, 7000);
+  }
+  componentWillUnmount() { clearInterval(this.tick); clearTimeout(this.nw); clearTimeout(this.ut); }
+  sugg(r) { const r10 = (v) => Math.round(v / 10) * 10; return [r10(r.lo + (r.hi - r.lo) * 0.2), r10((r.lo + r.hi) / 2), r10(r.lo + (r.hi - r.lo) * 0.8)]; }
+  renderVals() {
+    const s = this.state;
+    const mm = (sec) => sec >= 3600 ? Math.floor(sec / 3600) + ' h ' + String(Math.floor(sec % 3600 / 60)).padStart(2, '0') + ' min' : Math.floor(sec / 60) + ':' + String(sec % 60).padStart(2, '0');
+    const live = s.items.filter((r) => !s.hidden[r.id]);
+    const cnt = (k) => live.filter((r) => k === 'sent' ? s.sent[r.id] : (!s.sent[r.id] && (k === 'all' || r.when === k))).length;
+    const SORTS = ['Cele mai noi', 'Cele mai aproape', 'Cele mai bine plătite'];
+    let list = live.filter((r) => s.f === 'sent' ? s.sent[r.id] : (!s.sent[r.id] && (s.f === 'all' || r.when === s.f)));
+    if (s.sort === 1) list = list.slice().sort((a, b) => a.km - b.km);
+    if (s.sort === 2) list = list.slice().sort((a, b) => b.hi - a.hi);
+    const card = (r) => {
+      const left = Math.max(0, r.left - s.t), sent = s.sent[r.id], q = s.quick === r.id, sg = this.sugg(r), pr = s.price[r.id] || sg[1];
+      const wc = r.when === 'u' ? 'background: rgba(255,59,48,.12); color: #D70015' : r.when === 'a' ? 'background: var(--bsoft); color: var(--btext)' : 'background: var(--surf2); color: var(--ink2)';
+      const eta = Math.max(8, Math.round(r.km * 6));
+      return { id: r.id, t: r.t, src: 'assets/cat/' + r.i + '.svg', meta: r.z + ' · ' + String(r.km).replace('.', ',') + ' km · client ★ ' + r.st, wt: r.wt, wst: 'height: 24px; padding: 0 9px; border-radius: 12px; font-size: 12px; font-weight: 600; display: inline-flex; align-items: center; white-space: nowrap; ' + wc,
+        est: r.lo + '–' + r.hi + ' lei', dur: r.dur, ph: r.ph ? r.ph + (r.ph === 1 ? ' poză' : ' poze') : 'Fără poze', tools: r.tools, m: r.m,
+        notFirst: r.of !== 0, comp: r.of === 0 ? 'Fii primul care trimite ofertă' : r.of + (r.of === 1 ? ' ofertă trimisă' : ' oferte trimise'), first: r.of === 0,
+        left: left > 0 ? 'Mai poți oferta ' + mm(left) : 'Timpul de ofertare s-a încheiat', leftSt: 'font-size: 12px; font-weight: 500; font-variant-numeric: tabular-nums; color: ' + (left < 120 ? '#D70015' : 'var(--ink2)'),
+        open: left > 0, cls: 'rq' + (r.fresh ? ' nw' : ''), isNew: !!r.fresh,
+        sent: !!sent, notSent: !sent, sentTxt: sent ? 'Ofertă trimisă · ' + sent + ' lei · ajungi în ~' + eta + ' min' : '', q: q && !sent, nq: !q && !sent,
+        doQuick: () => this.setState({ quick: q ? '' : r.id }),
+        chips: sg.map((v) => ({ t: v + ' lei', attr: pr === v ? 'true' : 'false', pick: () => { const p = Object.assign({}, s.price); p[r.id] = v; this.setState({ price: p }); } })),
+        sendTxt: 'Trimite ' + pr + ' lei · ajung în ~' + eta + ' min',
+        send: () => { const x = Object.assign({}, s.sent); x[r.id] = pr; this.setState({ sent: x, quick: '' }); },
+        retract: () => { const x = Object.assign({}, s.sent); delete x[r.id]; this.setState({ sent: x }); },
+        hide: () => { const h = Object.assign({}, s.hidden); h[r.id] = true; this.setState({ hidden: h, undo: r.id, quick: '' }); clearTimeout(this.ut); this.ut = setTimeout(() => this.setState({ undo: '' }), 4000); } };
+    };
+    const cards = list.map(card);
+    const fl = (k, n) => ({ t: n + (cnt(k) ? ' · ' + cnt(k) : ''), attr: s.f === k ? 'true' : 'false', pick: () => this.setState({ f: k }) });
+    const pins = live.filter((r) => !s.sent[r.id]).map((r) => ({ t: (r.when === 'u' ? '⚡ ' : '') + r.lo + '–' + r.hi,
+      st: 'left: ' + r.x + 'px; top: ' + r.y + 'px; ' + (s.mapSel === r.id ? 'background: var(--brand); color: var(--onbrand); z-index: 3; animation: pin 1.6s ease-in-out infinite' : 'background: var(--surf); color: var(--ink); z-index: 2'),
+      pick: () => this.setState({ mapSel: r.id, quick: '' }) }));
+    const selR = live.find((r) => r.id === s.mapSel) || live[0];
+    return { on: s.on, off: !s.on, toggle: () => this.setState({ on: !s.on }),
+      onTxt: s.on ? 'Online · 5 km' : 'Offline', onSt: 'height: 40px; padding: 0 14px 0 10px; border: 0; border-radius: 20px; display: flex; align-items: center; gap: 8px; font-family: inherit; font-size: 15px; font-weight: 600; cursor: pointer; box-shadow: 0 4px 14px var(--shadow); transition: all .3s; ' + (s.on ? 'background: var(--surf); color: var(--ink)' : 'background: var(--invbg); color: var(--invink)'),
+      dotSt: 'width: 12px; height: 12px; border-radius: 6px; ' + (s.on ? 'background: var(--ok); animation: halo 1.8s ease-out infinite' : 'background: var(--ink3)'),
+      isList: s.view === 'list' && s.on, isMap: s.view === 'map' && s.on, vL: s.view === 'list' ? 'true' : 'false', vM: s.view === 'map' ? 'true' : 'false', goL: () => this.setState({ view: 'list' }), goM: () => this.setState({ view: 'map' }),
+      head: cnt('all') + (cnt('all') === 1 ? ' cerere' : ' cereri'), newBadge: s.gotNew, sub: 'Pe competențele tale, în 5 km',
+      fl: [fl('all', 'Toate'), fl('u', 'Urgente'), fl('a', 'Azi'), fl('p', 'Programate'), fl('sent', 'Trimise')],
+      sortTxt: '↕ ' + SORTS[s.sort], sortNext: () => this.setState({ sort: (s.sort + 1) % 3 }),
+      cards: cards, empty: cards.length === 0, emptyTxt: s.f === 'sent' ? 'Încă n-ai trimis nicio ofertă azi.' : 'Nicio cerere aici acum. Te anunțăm imediat ce apare una.',
+      undo: !!s.undo, doUndo: () => { const h = Object.assign({}, s.hidden); delete h[s.undo]; this.setState({ hidden: h, undo: '' }); },
+      pins: pins, sel: selR ? [card(selR)] : [], ad: s.ad, closeAd: () => this.setState({ ad: false }) };
+  }
+}
+</script>
+</body>
+</html>

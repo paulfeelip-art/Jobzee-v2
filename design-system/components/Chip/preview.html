@@ -1,0 +1,19 @@
+<!-- @dsCard group="Controale" height=150 subtitle="Alegere multiplă și răspuns rapid" -->
+<div class="jz" style="background: var(--surface); padding: 20px; display: flex; flex-direction: column; gap: 12px; max-width: 390px">
+  <div style="display: flex; flex-wrap: wrap; gap: 8px">
+    <button type="button" class="jz-chip" aria-pressed="true">Punctual</button>
+    <button type="button" class="jz-chip" aria-pressed="true">Atent</button>
+    <button type="button" class="jz-chip" aria-pressed="false">Curat</button>
+    <button type="button" class="jz-chip" aria-pressed="false">Rapid</button>
+  </div>
+  <div style="display: flex; flex-wrap: wrap; gap: 8px; justify-content: flex-end">
+    <button type="button" class="jz-chip jz-chip--outline">Acum</button>
+    <button type="button" class="jz-chip jz-chip--outline">Azi seară</button>
+    <button type="button" class="jz-chip jz-chip--outline">Mâine</button>
+  </div>
+</div>
+<script>
+document.querySelectorAll('.jz-chip:not(.jz-chip--outline)').forEach(function (b) {
+  b.addEventListener('click', function () { b.setAttribute('aria-pressed', b.getAttribute('aria-pressed') === 'true' ? 'false' : 'true'); });
+});
+</script>

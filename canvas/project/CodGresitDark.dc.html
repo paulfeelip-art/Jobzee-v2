@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="ro">
+<head>
+<meta charset="utf-8">
+<title>Jobzee · Cod greșit · întunecat</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<style>
+body{margin:0}
+a{color:#FFB340}a:hover{color:#FFD08A}
+@keyframes shake{0%,100%{transform:translateX(0)}15%{transform:translateX(-12px)}30%{transform:translateX(10px)}45%{transform:translateX(-8px)}60%{transform:translateX(6px)}75%{transform:translateX(-3px)}}
+@keyframes up{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+.shake{animation:shake .55s ease both}
+.u{animation:up .45s cubic-bezier(.2,.8,.2,1) both}.d1{animation-delay:.1s}.d2{animation-delay:.2s}
+.pr{transition:transform .2s cubic-bezier(.3,.7,.4,1.4)}.pr:active{transform:scale(.96)}
+@media (prefers-reduced-motion: reduce){*{animation:none!important;transition:none!important}}
+</style>
+</helmet>
+<div style="width: 390px; height: 844px; box-sizing: border-box; background: #2C2C2E; font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Helvetica Neue', system-ui, sans-serif; color: #FFFFFF; display: flex; flex-direction: column; padding: 52px 16px 30px; gap: 14px">
+  <a href="JobActivDark.dc.html" aria-label="Înapoi la Traseu" class="pr" style="align-self: flex-start; width: 40px; height: 40px; border-radius: 20px; background: #1C1C1E; color: #FFFFFF; display: flex; align-items: center; justify-content: center; flex-shrink: 0; box-shadow: 0 4px 14px rgba(0,0,0,0.08); text-decoration: none"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 5l-7 7 7 7"></path></svg></a>
+  <h1 class="u" style="margin: 0 4px; font-size: 30px; line-height: 1.1; font-weight: 600; letter-spacing: -0.8px">Codul de start</h1>
+  <p class="u" style="margin: 0 4px; font-size: 15px; color: #98989D">Cere-i lui Andrei cele 4 cifre din aplicația lui.</p>
+
+  <div key="{{tries}}" class="shake" style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; margin-top: 8px">
+    <sc-for list="{{digits}}" as="d" hint-placeholder-count="4">
+      <span style="height: 76px; border-radius: 22px; background: #1C1C1E; box-shadow: inset 0 0 0 2px #FF3B30; display: flex; align-items: center; justify-content: center; font-size: 32px; font-weight: 600; color: #FF6961">{{d.v}}</span>
+    </sc-for>
+  </div>
+
+  <div class="u d1" style="background: #3A1A18; border-radius: 18px; padding: 12px 14px; display: flex; gap: 10px; align-items: center">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="#D70015" aria-hidden="true" style="flex-shrink: 0"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm-1 5h2v7h-2zm0 9h2v2h-2z"></path></svg>
+    <span style="font-size: 14px; line-height: 1.4; color: #FFB4AE">{{msg}}</span>
+  </div>
+
+  <div class="u d2" style="background: #1C1C1E; border-radius: 22px; overflow: hidden">
+    <a href="ChatJobzerDark.dc.html" class="pr" style="display: flex; align-items: center; gap: 12px; padding: 13px 16px; color: #FFFFFF; text-decoration: none"><span style="flex-grow: 1; font-size: 16px">Scrie-i lui Andrei</span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#48484A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 5l7 7-7 7"></path></svg></a>
+    <a href="#suna" class="pr" style="display: flex; align-items: center; gap: 12px; padding: 13px 16px 13px 0; margin-left: 16px; border-top: 0.5px solid #38383A; color: #FFFFFF; text-decoration: none"><span style="flex-grow: 1; font-size: 16px">Sună-l (număr mascat)</span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#48484A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 5l7 7-7 7"></path></svg></a>
+    <a href="#suport" class="pr" style="display: flex; align-items: center; gap: 12px; padding: 13px 16px 13px 0; margin-left: 16px; border-top: 0.5px solid #38383A; color: #FFFFFF; text-decoration: none"><span style="flex-grow: 1; font-size: 16px">Clientul nu răspunde · suport</span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#48484A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 5l7 7-7 7"></path></svg></a>
+  </div>
+
+  <div style="flex-grow: 1"></div>
+  <button type="button" onClick="{{retry}}" class="pr" style="{{btnStyle}}">{{btnLabel}}</button>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+  constructor(props) { super(props); this.state = { tries: 1 }; }
+  renderVals() {
+    const t = this.state.tries, left = 3 - t, blocked = left <= 0;
+    return {
+      tries: t,
+      digits: ['4', '8', '2', '1'].map((v) => ({ v })),
+      msg: blocked ? 'Prea multe încercări. Am blocat codul 10 minute și am anunțat echipa Jobzee.' : 'Codul nu se potrivește. Mai ai ' + left + (left === 1 ? ' încercare.' : ' încercări.'),
+      btnLabel: blocked ? 'Blocat 10 min' : 'Încearcă din nou',
+      btnStyle: 'height: 56px; border-radius: 28px; border: 0; font-family: inherit; font-size: 17px; font-weight: 500; cursor: pointer; ' + (blocked ? 'background: #3A3A3C; color: #98989D;' : 'background: #FF9F0A; color: #1C1C1E;'),
+      retry: () => { if (!blocked) this.setState({ tries: t + 1 }); }
+    };
+  }
+}
+</script>
+</body>
+</html>

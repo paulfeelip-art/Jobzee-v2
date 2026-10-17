@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="ro">
+<head>
+<meta charset="utf-8">
+<title>Jobzee · Primele încasări · întunecat</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<style>
+body{margin:0}
+a{color:#FFB340}a:hover{color:#FFD08A}
+@keyframes up{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+@keyframes coin{0%{transform:translateY(-30px) rotateY(0);opacity:0}30%{opacity:1}100%{transform:translateY(40px) rotateY(360deg);opacity:0}}
+@keyframes check{0%{transform:scale(0)}70%{transform:scale(1.25)}100%{transform:scale(1)}}
+.u{animation:up .5s cubic-bezier(.2,.8,.2,1) both}.d1{animation-delay:.1s}.d2{animation-delay:.2s}.d3{animation-delay:.3s}
+.coin{animation:coin 2.4s ease-in infinite}.c2{animation-delay:.8s}.c3{animation-delay:1.6s}
+.check{animation:check .4s cubic-bezier(.2,.9,.3,1.5) .5s both}
+.pr{transition:transform .2s cubic-bezier(.3,.7,.4,1.4)}.pr:active{transform:scale(.97)}
+@keyframes zf{0%,100%{transform:translateY(0) rotate(0)}50%{transform:translateY(-8px) rotate(-3deg)}}.zf{animation:zf 3.6s ease-in-out infinite}
+@keyframes zw{0%,100%{transform:rotate(0)}20%{transform:rotate(-8deg)}40%{transform:rotate(6deg)}60%{transform:rotate(-4deg)}}.zw{transform-origin:50% 90%;animation:zw 2.4s ease-in-out .6s infinite}
+@media (prefers-reduced-motion: reduce){*{animation:none!important;transition:none!important}}
+</style>
+</helmet>
+<div style="width: 390px; height: 844px; box-sizing: border-box; background: #2C2C2E; font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Helvetica Neue', system-ui, sans-serif; color: #FFFFFF; position: relative; overflow: hidden">
+  <div style="padding: 60px 16px 0; display: flex; flex-direction: column; gap: 14px">
+    <h1 class="u" style="margin: 0 4px; font-size: 34px; font-weight: 600; letter-spacing: -0.9px">Încasări</h1>
+
+    <div class="u d1" style="position: relative; overflow: hidden; border-radius: 28px; background: #2C2C2E; color: #FFFFFF; padding: 20px 18px; display: flex; flex-direction: column; gap: 6px; height: 150px; box-sizing: border-box">
+      <span class="coin" style="position: absolute; right: 40px; top: 20px; width: 28px; height: 28px; border-radius: 14px; background: #FF9F0A"></span>
+      <span class="coin c2" style="position: absolute; right: 86px; top: 10px; width: 20px; height: 20px; border-radius: 10px; background: #FFB340"></span>
+      <span class="coin c3" style="position: absolute; right: 20px; top: 0; width: 16px; height: 16px; border-radius: 8px; background: #FF9F0A"></span>
+      <img src="assets/mascot/zee-bani.png" alt="" class="zf" style="position: absolute; right: 14px; bottom: 6px; width: 92px; height: 100px"><span style="font-size: 13px; color: #AEAEB2; font-weight: 500">ÎNCĂ 0 LEI</span>
+      <span style="font-size: 24px; font-weight: 600; letter-spacing: -0.5px; max-width: 220px; line-height: 1.15">Prima ta lucrare te așteaptă</span>
+      <span style="font-size: 13px; color: #AEAEB2">Primești 100% din prețul tău</span>
+    </div>
+
+    <span class="u d2" style="font-size: 13px; font-weight: 500; color: #98989D; padding: 6px 12px 0">PRIMII PAȘI</span>
+    <div class="u d2" style="background: #1C1C1E; border-radius: 22px; overflow: hidden">
+      <div style="display: flex; align-items: center; gap: 12px; padding: 13px 16px"><span class="check" style="width: 26px; height: 26px; border-radius: 13px; background: #34C759; color: #FFFFFF; display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 700">✓</span><span style="flex-grow: 1; font-size: 16px; color: #98989D; text-decoration: line-through">Cont și identitate</span></div>
+      <a href="ProfilEditDark.dc.html" class="pr" style="display: flex; align-items: center; gap: 12px; padding: 13px 16px 13px 0; margin-left: 16px; border-top: 0.5px solid #38383A; color: #FFFFFF; text-decoration: none"><span style="width: 26px; height: 26px; border-radius: 13px; border: 2px solid #FF9F0A; box-sizing: border-box"></span><span style="flex-grow: 1; display: flex; flex-direction: column"><span style="font-size: 16px">Adaugă 3 poze în portofoliu</span><span style="font-size: 13px; color: #98989D">Profilele cu poze sunt alese mai des</span></span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#48484A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 5l7 7-7 7"></path></svg></a>
+      <a href="CastigDark.dc.html" class="pr" style="display: flex; align-items: center; gap: 12px; padding: 13px 16px 13px 0; margin-left: 16px; border-top: 0.5px solid #38383A; color: #FFFFFF; text-decoration: none"><span style="width: 26px; height: 26px; border-radius: 13px; border: 2px solid #FF9F0A; box-sizing: border-box"></span><span style="flex-grow: 1; display: flex; flex-direction: column"><span style="font-size: 16px">Intră online la orele cu cerere</span><span style="font-size: 13px; color: #98989D">Seara 17–21 și sâmbăta dimineață</span></span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#48484A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 5l7 7-7 7"></path></svg></a>
+      <a href="OfertaDark.dc.html" class="pr" style="display: flex; align-items: center; gap: 12px; padding: 13px 16px 13px 0; margin-left: 16px; border-top: 0.5px solid #38383A; color: #FFFFFF; text-decoration: none"><span style="width: 26px; height: 26px; border-radius: 13px; border: 2px solid #FF9F0A; box-sizing: border-box"></span><span style="flex-grow: 1; display: flex; flex-direction: column"><span style="font-size: 16px">Trimite prima ofertă</span><span style="font-size: 13px; color: #98989D">Un preț corect te ajută să fii ales</span></span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#48484A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 5l7 7-7 7"></path></svg></a>
+    </div>
+  </div>
+
+  <nav aria-label="Meniu Jobzer" style="position: absolute; left: 16px; right: 16px; bottom: 24px; height: 64px; border-radius: 32px; background: rgba(44,44,46,0.9); backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px); box-shadow: 0 10px 30px rgba(0,0,0,0.12); display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); padding: 6px; box-sizing: border-box">
+    <a href="CastigDark.dc.html" style="display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px; font-size: 11px; font-weight: 500; color: #98989D; text-decoration: none"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 11l8-7 8 7v9h-5v-6H9v6H4z"></path></svg>Acasă</a>
+    <a href="SarciniJobzerDark.dc.html" style="display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px; font-size: 11px; font-weight: 500; color: #98989D; text-decoration: none"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="5"></rect><path d="M8 9h8M8 13h8M8 17h5"></path></svg>Sarcini</a>
+    <a href="GolIncasariDark.dc.html" style="border-radius: 26px; background: #3A2A14; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px; font-size: 11px; font-weight: 500; color: #FFB340; text-decoration: none"><svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect x="3" y="6" width="18" height="13" rx="4"></rect></svg>Încasări</a>
+    <a href="ContJobzerDark.dc.html" style="display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px; font-size: 11px; font-weight: 500; color: #98989D; text-decoration: none"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"></circle><path d="M4 21c1-4 4-6 8-6s7 2 8 6"></path></svg>Profil</a>
+  </nav>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>

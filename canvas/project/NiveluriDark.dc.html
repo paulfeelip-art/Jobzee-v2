@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="ro">
+<head>
+<meta charset="utf-8">
+<title>Jobzee · Niveluri · întunecat</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<style>
+body{margin:0}
+a{color:#FFB340}a:hover{color:#FFD08A}
+@keyframes up{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+@keyframes grow{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+@keyframes shine{0%{transform:translateX(-120%)}60%,100%{transform:translateX(320%)}}
+.u{animation:up .5s cubic-bezier(.2,.8,.2,1) both}.d1{animation-delay:.08s}.d2{animation-delay:.16s}.d3{animation-delay:.24s}.d4{animation-delay:.32s}.d5{animation-delay:.4s}.d6{animation-delay:.48s}
+.grow{transform-origin:left;animation:grow 1.1s cubic-bezier(.2,.8,.2,1) .4s both}
+.shine{animation:shine 3.4s ease-in-out infinite}
+.pr{transition:transform .2s cubic-bezier(.3,.7,.4,1.4)}.pr:active{transform:scale(.97)}
+@media (prefers-reduced-motion: reduce){*{animation:none!important;transition:none!important}}
+</style>
+</helmet>
+<div style="width: 390px; height: 1180px; box-sizing: border-box; background: #2C2C2E; font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Helvetica Neue', system-ui, sans-serif; color: #FFFFFF; display: flex; flex-direction: column; padding: 52px 16px 30px; gap: 12px">
+  <a href="CastigDark.dc.html" aria-label="Înapoi la Acasă" class="pr" style="align-self: flex-start; width: 40px; height: 40px; border-radius: 20px; background: #1C1C1E; color: #FFFFFF; display: flex; align-items: center; justify-content: center; flex-shrink: 0; box-shadow: 0 4px 14px rgba(0,0,0,0.08); text-decoration: none"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 5l-7 7 7 7"></path></svg></a>
+  <h1 class="u" style="margin: 0 4px; font-size: 34px; font-weight: 600; letter-spacing: -0.9px">Nivelul tău</h1>
+
+  <div class="u d1" style="position: relative; overflow: hidden; background: #2C2C2E; color: #FFFFFF; border-radius: 28px; padding: 18px; display: flex; flex-direction: column; gap: 14px">
+    <span class="shine" style="position: absolute; top: 0; bottom: 0; left: 0; width: 70px; background: linear-gradient(90deg, rgba(255,255,255,0), rgba(255,255,255,0.1), rgba(255,255,255,0)); pointer-events: none"></span>
+    <span style="display: flex; justify-content: space-between; align-items: center"><span style="font-size: 28px; font-weight: 600; letter-spacing: -0.6px">Plus</span><span style="font-size: 13px; color: #AEAEB2">Următorul: <strong style="color: #FFB340">Gold</strong></span></span>
+    <div style="display: flex; flex-direction: column; gap: 10px">
+      <div style="display: flex; flex-direction: column; gap: 5px"><span style="display: flex; justify-content: space-between; font-size: 13px"><span>Sarcini finalizate</span><span style="color: #AEAEB2">38 / 50</span></span><span style="height: 8px; border-radius: 4px; background: #3A3A3C; overflow: hidden; display: block"><span class="grow" style="display: block; width: 76%; height: 100%; border-radius: 4px; background: #FF9F0A"></span></span></div>
+      <div style="display: flex; flex-direction: column; gap: 5px"><span style="display: flex; justify-content: space-between; font-size: 13px"><span>Notă minimă 4,8</span><span style="color: #34C759">4,9 ✓</span></span><span style="height: 8px; border-radius: 4px; background: #3A3A3C; overflow: hidden; display: block"><span class="grow" style="display: block; width: 100%; height: 100%; border-radius: 4px; background: #34C759"></span></span></div>
+      <div style="display: flex; flex-direction: column; gap: 5px"><span style="display: flex; justify-content: space-between; font-size: 13px"><span>La timp minim 95%</span><span style="color: #34C759">97% ✓</span></span><span style="height: 8px; border-radius: 4px; background: #3A3A3C; overflow: hidden; display: block"><span class="grow" style="display: block; width: 100%; height: 100%; border-radius: 4px; background: #34C759"></span></span></div>
+      <a href="IdentitateDark.dc.html" style="display: flex; justify-content: space-between; font-size: 13px; color: #FFFFFF; text-decoration: none"><span>Identitate verificată</span><span style="color: #FFB340">Termină verificarea ›</span></a>
+    </div>
+  </div>
+
+  <span class="u d2" style="font-size: 13px; font-weight: 500; color: #98989D; padding: 6px 12px 0">TOATE NIVELURILE</span>
+  <sc-for list="{{tiers}}" as="t" hint-placeholder-count="4">
+    <div class="u d3" style="{{t.card}}">
+      <span style="display: flex; align-items: center; gap: 10px">
+        <span style="{{t.badge}}">{{t.name}}</span>
+        <sc-if value="{{t.current}}" hint-placeholder-val="{{ false }}"><span style="font-size: 12px; font-weight: 500; color: #FFB340">Ești aici</span></sc-if>
+      </span>
+      <span style="font-size: 14px; color: #48484A">{{t.req}}</span>
+      <span style="font-size: 13px; color: #98989D; line-height: 1.45">{{t.perks}}</span>
+    </div>
+  </sc-for>
+
+  <div class="u d6" style="background: #1C1C1E; border-radius: 22px; padding: 14px 16px; display: flex; flex-direction: column; gap: 6px">
+    <span style="font-size: 15px; font-weight: 500">Reguli clare, fără surprize</span>
+    <span style="font-size: 13px; line-height: 1.5; color: #98989D">Nivelul crește doar din lucrări finalizate și verificări. Refuzul sau ignorarea unei cereri nu te penalizează niciodată. Promovarea plătită nu schimbă nivelul.</span>
+    <a href="#contestatie" style="font-size: 14px; font-weight: 500; text-decoration: none; margin-top: 2px">Cere revizuirea nivelului de către un om ›</a>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":1180}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const list = [
+      { name: 'Start', req: 'Cont nou, telefon și identitate verificate', perks: 'Primești sarcini din categoriile alese · plată săptămânală gratuită', bg: '#2C2C2E', fg: '#FFFFFF' },
+      { name: 'Plus', req: '10+ sarcini · notă 4,6+ · 90% la timp', perks: 'Sarcini de peste 300 lei · insigna Plus pe profil', bg: '#3A2A14', fg: '#FFB340', current: true },
+      { name: 'Gold', req: '50+ sarcini · notă 4,8+ · 95% la timp · identitate verificată', perks: 'Transfer instant gratuit · acces la clienți firmă · suport prioritar', bg: '#FF9F0A', fg: '#FFFFFF' },
+      { name: 'Black', req: '150+ sarcini · notă 4,9+ · 97% la timp · asigurare de răspundere', perks: 'Clienți recurenți și sarcini premium · consultant dedicat · tot din Gold', bg: '#FFFFFF', fg: '#FFB340' }
+    ];
+    const tiers = list.map((t) => ({
+      name: t.name, req: t.req, perks: t.perks, current: !!t.current,
+      card: 'background: #1C1C1E; border-radius: 22px; padding: 14px 16px; display: flex; flex-direction: column; gap: 6px; ' + (t.current ? 'box-shadow: inset 0 0 0 2px #FF9F0A;' : ''),
+      badge: 'height: 28px; padding: 0 12px; border-radius: 14px; font-size: 14px; font-weight: 600; display: flex; align-items: center; background: ' + t.bg + '; color: ' + t.fg
+    }));
+    return { tiers };
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="ro">
+<head>
+<meta charset="utf-8">
+<title>Jobzee · Comandă plasată</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<style>
+.th{--bg:#F2F2F7;--surf:#FFFFFF;--surf2:#F2F2F7;--surf3:#E5E5EA;--ink:#1C1C1E;--ink2:#6E6E73;--ink3:#C7C7CC;--sep:#D1D1D6;--brand:#FF9F0A;--onbrand:#1C1C1E;--btext:#B35600;--bsoft:#FFF4E5;--bsoft2:#FFE7C2;--ok:#34C759;--oktext:#1F7A35;--oksoft:#E8F7EC;--glass:rgba(255,255,255,0.82);--glass2:rgba(255,255,255,0.94);--scrim:rgba(0,0,0,0.38);--shadow:rgba(0,0,0,0.10);--invbg:#1C1C1E;--invink:#FFFFFF;--land:#F5F1E8;--road:#FFFFFF;--park:#D3EAC7;--water:#BCDDF7;--aur1:#FFB347;--aur2:#FFD8A8;--aur3:#FFC2D1}
+body{margin:0}
+a{color:var(--btext)}
+@keyframes up{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+@keyframes pop{0%{opacity:0;transform:scale(.5)}65%{opacity:1;transform:scale(1.08)}100%{opacity:1;transform:none}}
+@keyframes sheet{from{opacity:0;transform:translateY(70%)}to{opacity:1;transform:none}}
+@keyframes ring{0%{transform:scale(.6);opacity:.55}100%{transform:scale(2.6);opacity:0}}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-7px)}}
+@keyframes drift{0%,100%{transform:translate(0,0) scale(1)}33%{transform:translate(30px,-24px) scale(1.12)}66%{transform:translate(-26px,18px) scale(.94)}}
+@keyframes glow{0%,100%{opacity:.45}50%{opacity:1}}
+@keyframes shimmer{0%{background-position:-200% 0}100%{background-position:200% 0}}
+@keyframes drop{0%{opacity:0;transform:translateY(-24px) scale(.7)}60%{opacity:1;transform:translateY(3px) scale(1.06)}100%{opacity:1;transform:none}}
+@keyframes tick{0%,42%{transform:none}50%,92%{transform:translateY(-40px)}100%{transform:none}}
+@keyframes fadeSlide{0%,42%{opacity:1;transform:none}50%,92%{opacity:0;transform:translateY(-8px)}100%{opacity:1;transform:none}}
+@keyframes fadeSlide2{0%,42%{opacity:0;transform:translateY(8px)}50%,92%{opacity:1;transform:none}100%{opacity:0;transform:translateY(8px)}}
+@keyframes dotA{0%,45%{width:16px;opacity:1}50%,95%{width:6px;opacity:.35}100%{width:16px;opacity:1}}
+@keyframes dotB{0%,45%{width:6px;opacity:.35}50%,95%{width:16px;opacity:1}100%{width:6px;opacity:.35}}
+@keyframes halo{0%{box-shadow:0 0 0 0 rgba(255,159,10,.55)}100%{box-shadow:0 0 0 18px rgba(255,159,10,0)}}
+@keyframes heat{0%,100%{transform:scale(1);opacity:.8}50%{transform:scale(1.15);opacity:1}}
+.u{animation:up .55s cubic-bezier(.2,.8,.2,1) both}
+.d1{animation-delay:.08s}.d2{animation-delay:.16s}.d3{animation-delay:.24s}.d4{animation-delay:.32s}.d5{animation-delay:.4s}.d6{animation-delay:.48s}
+.pop{animation:pop .6s cubic-bezier(.2,.9,.3,1.3) both}
+.sheet{animation:sheet .7s cubic-bezier(.2,.9,.25,1) both}
+.float{animation:float 4.5s ease-in-out infinite}
+.glow{animation:glow 1.8s ease-in-out infinite}
+.drop{animation:drop .8s cubic-bezier(.2,.8,.2,1) both}
+.pr{transition:transform .22s cubic-bezier(.3,.7,.4,1.4), opacity .2s}.pr:active{transform:scale(.95)}
+.ic{display:inline-block;background:currentColor;-webkit-mask-position:center;mask-position:center;-webkit-mask-size:contain;mask-size:contain;-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;flex-shrink:0}
+.glass{background:var(--glass);backdrop-filter:blur(24px) saturate(1.6);-webkit-backdrop-filter:blur(24px) saturate(1.6)}
+@media (prefers-reduced-motion: reduce){*{animation:none!important;transition:none!important}}
+
+.sg{display:grid;padding:2px;border-radius:10px;background:var(--surf3)}
+.sg button{border:0;height:32px;border-radius:8px;background:transparent;font-family:inherit;font-size:13px;font-weight:500;color:var(--ink);cursor:pointer;transition:all .25s}
+.sg button[aria-pressed="true"]{background:var(--surf);box-shadow:0 2px 6px var(--shadow)}
+.jsw{width:51px;height:31px;border-radius:16px;border:0;padding:2px;cursor:pointer;flex-shrink:0;position:relative;transition:background .25s}
+.jsw::after{content:"";position:absolute;top:2px;left:2px;width:27px;height:27px;border-radius:14px;background:#fff;box-shadow:0 2px 4px rgba(0,0,0,.2);transition:transform .3s cubic-bezier(.3,1.3,.4,1)}
+.jsw[aria-pressed="true"]{background:var(--ok)}.jsw[aria-pressed="true"]::after{transform:translateX(20px)}.jsw[aria-pressed="false"]{background:var(--surf3)}
+.lbl{font-size:13px;font-weight:500;color:var(--ink2);padding:0 12px;text-transform:uppercase;letter-spacing:.3px}
+.grp{background:var(--surf);border-radius:24px;overflow:hidden}
+.rw{display:flex;align-items:center;gap:12px;padding:11px 16px 11px 0;margin-left:16px;color:var(--ink);text-decoration:none}
+.rw+.rw{border-top:0.5px solid var(--sep)}
+.dchip{border:0;width:40px;height:40px;border-radius:20px;font-family:inherit;font-size:14px;font-weight:500;cursor:pointer;transition:all .25s}
+.dchip[aria-pressed="true"]{background:var(--brand);color:var(--onbrand)}.dchip[aria-pressed="false"]{background:var(--surf);color:var(--ink)}
+
+.badge{display:inline-flex;align-items:center;gap:4px;height:22px;padding:0 8px;border-radius:11px;font-size:11px;font-weight:500;white-space:nowrap}
+.b-ok{background:var(--oksoft);color:var(--oktext)}.b-mto{background:var(--bsoft);color:var(--btext)}.b-q{background:var(--surf2);color:var(--ink2)}
+.card{background:var(--surf);border-radius:24px;padding:14px;display:flex;flex-direction:column;gap:8px;text-decoration:none;color:var(--ink)}
+.cta{display:flex;align-items:center;justify-content:center;height:56px;border-radius:28px;background:var(--brand);color:var(--onbrand);font-size:17px;font-weight:500;text-decoration:none;border:0;font-family:inherit;cursor:pointer;box-shadow:0 10px 24px rgba(255,159,10,0.3)}
+.cta2{display:flex;align-items:center;justify-content:center;height:50px;border-radius:25px;background:var(--surf);color:var(--ink);font-size:16px;font-weight:500;text-decoration:none;border:0;font-family:inherit;cursor:pointer}
+.note{font-size:12px;line-height:1.4;color:var(--ink2);padding:0 6px}
+.qty{display:flex;align-items:center;height:30px;border-radius:15px;background:var(--surf2)}
+.qty button{width:30px;height:30px;border:0;background:transparent;font-size:17px;color:var(--ink);cursor:pointer;font-family:inherit}
+
+</style>
+</helmet>
+<div class="th" style="width: 390px; height: 844px; box-sizing: border-box; background: var(--bg); font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Helvetica Neue', system-ui, sans-serif; color: var(--ink); position: relative; overflow: hidden">
+<div style="padding: 70px 16px 28px; height: 100%; box-sizing: border-box; display: flex; flex-direction: column; gap: 12px; align-items: stretch">
+  <img class="pop" src="assets/mascot/zee-sarbatoare.png" alt="" style="width: 150px; height: 162px; align-self: center">
+  <div class="u" style="text-align: center"><h1 style="margin: 0; font-size: 28px; font-weight: 600; letter-spacing: -0.7px">Comanda e plasată</h1><p style="margin: 6px 0 0; font-size: 15px; color: var(--ink2)">JZ-1042 · 433,98 lei · factura vine pe e-mail</p></div>
+  <div class="grp u d1">
+    <div class="rw"><span style="width: 40px; height: 40px; border-radius: 12px; background: var(--bsoft); display: flex; align-items: center; justify-content: center; flex-shrink: 0"><img src="assets/ui/work_tools.png" alt="" style="width: 22px; height: 22px; display: block; flex-shrink: 0; "></span><span style="flex-grow: 1; display: flex; flex-direction: column"><span style="font-size: 15px">Kit Montaj · Starter</span><span style="font-size: 12px; color: var(--ink2)">Așteptăm confirmarea partenerului (de obicei în 2 h)</span></span><span class="badge b-q">Trimisă</span></div>
+    <div class="rw"><span style="width: 40px; height: 40px; border-radius: 12px; background: var(--bsoft); display: flex; align-items: center; justify-content: center; flex-shrink: 0"><img src="assets/ui/profile.png" alt="" style="width: 22px; height: 22px; display: block; flex-shrink: 0; "></span><span style="flex-grow: 1; display: flex; flex-direction: column"><span style="font-size: 15px">Tricou Jobzee</span><span style="font-size: 12px; color: var(--ink2)">Aprobă macheta ca să intre în producție</span></span><span class="badge b-mto">De aprobat</span></div>
+  </div>
+  <a href="GearCarte.dc.html" class="u d2" style="display: flex; align-items: center; gap: 10px; padding: 12px 14px; border-radius: 20px; background: var(--bsoft); color: var(--ink); text-decoration: none"><img src="assets/ui/warning.png" alt="" style="width: 22px; height: 22px; display: block; flex-shrink: 0; "><span style="flex-grow: 1; font-size: 14px">Un produs așteaptă aprobarea machetei</span><span style="font-size: 14px; font-weight: 500; color: var(--btext); white-space: nowrap">Aprobă ›</span></a>
+  <span class="note" style="text-align: center">Nu îți spunem „expediat” până nu confirmă partenerul cu un AWB.</span>
+  <div style="flex-grow: 1"></div>
+  <a href="GearUrmarire.dc.html" class="cta pr">Urmărește comanda</a>
+  <a href="GearHub.dc.html" class="cta2 pr" style="background: transparent">Înapoi la Gear &amp; Growth</a>
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>

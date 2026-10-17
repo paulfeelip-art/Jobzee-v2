@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="ro">
+<head>
+<meta charset="utf-8">
+<title>Jobzee · Confirmă plata · întunecat</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<style>
+body{margin:0}
+a{color:#FFB340}a:hover{color:#FFD08A}
+@keyframes sheet{from{transform:translateY(100%)}to{transform:none}}
+@keyframes fade{from{opacity:0}to{opacity:1}}
+@keyframes spin{to{transform:rotate(360deg)}}
+@keyframes pop{0%{transform:scale(.3);opacity:0}70%{transform:scale(1.12);opacity:1}100%{transform:none;opacity:1}}
+@keyframes draw{from{stroke-dashoffset:40}to{stroke-dashoffset:0}}
+@keyframes up{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+.sheet{animation:sheet .6s cubic-bezier(.2,.9,.25,1) both}
+.fade{animation:fade .4s ease both}
+.spin{animation:spin .9s linear infinite}
+.pop{animation:pop .55s cubic-bezier(.2,.9,.3,1.3) both}
+.draw{stroke-dasharray:40;animation:draw .5s ease-out .3s both}
+.u{animation:up .45s cubic-bezier(.2,.8,.2,1) both}
+.pr{transition:transform .2s cubic-bezier(.3,.7,.4,1.4)}.pr:active{transform:scale(.96)}
+@keyframes zf{0%,100%{transform:translateY(0) rotate(0)}50%{transform:translateY(-8px) rotate(-3deg)}}.zf{animation:zf 3.6s ease-in-out infinite}
+@keyframes zw{0%,100%{transform:rotate(0)}20%{transform:rotate(-8deg)}40%{transform:rotate(6deg)}60%{transform:rotate(-4deg)}}.zw{transform-origin:50% 90%;animation:zw 2.4s ease-in-out .6s infinite}
+@media (prefers-reduced-motion: reduce){*{animation:none!important;transition:none!important}}
+</style>
+</helmet>
+<div style="width: 390px; height: 844px; box-sizing: border-box; background: #0E0E10; font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Helvetica Neue', system-ui, sans-serif; color: #FFFFFF; position: relative; overflow: hidden">
+  <div class="fade" style="position: absolute; inset: 0; background: rgba(0,0,0,0.35)"></div>
+
+  <div class="sheet" style="position: absolute; left: 8px; right: 8px; bottom: 8px; background: #1C1C1E; border-radius: 38px; padding: 12px 18px 26px; display: flex; flex-direction: column; gap: 14px">
+    <div style="display: flex; align-items: center; justify-content: space-between">
+      <span style="display: flex; align-items: center; gap: 8px; font-size: 18px; font-weight: 600"><span style="width: 30px; height: 30px; border-radius: 9px; background: #1C1C1E; box-shadow: inset 0 0 0 1px #3A3A3C; display: flex; align-items: center; justify-content: center; font-size: 17px; font-weight: 700"><img src="assets/brand/jobzee-mark.png" alt="" style="height: 26px; width: auto; display: block"></span>Jobzee</span>
+      <a href="OferteDark.dc.html" aria-label="Închide" class="pr" style="width: 32px; height: 32px; border-radius: 16px; background: #2C2C2E; display: flex; align-items: center; justify-content: center; color: #98989D">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"></path></svg>
+      </a>
+    </div>
+
+    <sc-if value="{{isIdle}}" hint-placeholder-val="{{ true }}">
+      <div style="display: flex; flex-direction: column; gap: 14px">
+        <div style="background: #2C2C2E; border-radius: 20px; overflow: hidden">
+          <div style="display: flex; align-items: center; gap: 12px; padding: 12px 14px">
+            <img src="assets/people/person-jobzer-3.webp" alt="" style="width: 42px; height: 42px; border-radius: 50%; object-fit: cover; display: block; flex-shrink: 0">
+            <span style="flex-grow: 1; display: flex; flex-direction: column"><span style="font-size: 16px; font-weight: 500">Mihai I. · Gold</span><span style="font-size: 13px; color: #98989D">Montaj birou + dulap · ajunge în 6 min</span></span>
+          </div>
+          <div style="display: flex; justify-content: space-between; padding: 11px 14px 11px 0; margin-left: 14px; border-top: 0.5px solid #38383A; font-size: 15px"><span style="color: #98989D">Preț Mihai</span><span>150,00 lei</span></div>
+          <div style="display: flex; justify-content: space-between; padding: 11px 14px 11px 0; margin-left: 14px; border-top: 0.5px solid #38383A; font-size: 15px"><span style="color: #98989D">Taxă Jobzee 15%</span><span>22,50 lei</span></div>
+          <div style="display: flex; justify-content: space-between; padding: 11px 14px 11px 0; margin-left: 14px; border-top: 0.5px solid #38383A; font-size: 15px"><span style="color: #98989D">Card</span><span>Visa •••• 4821</span></div>
+        </div>
+        <div style="display: flex; justify-content: space-between; align-items: baseline; padding: 0 4px"><span style="font-size: 15px; color: #98989D">Se blochează acum</span><span style="font-size: 30px; font-weight: 600; letter-spacing: -0.8px">172,50 lei</span></div>
+        <p style="margin: 0 4px; font-size: 13px; line-height: 1.45; color: #98989D">Banii se încasează doar după ce confirmi că lucrarea e gata. Ești de acord ca lucrarea să înceapă imediat.</p>
+        <button type="button" onClick="{{pay}}" class="pr" style="height: 56px; border-radius: 28px; border: 0; background: #FFFFFF; color: #000000; font-family: inherit; font-size: 17px; font-weight: 500; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="10" width="14" height="10" rx="3"></rect><path d="M8 10V7a4 4 0 0 1 8 0v3"></path></svg>
+          Confirmă cu Face ID
+        </button>
+      </div>
+    </sc-if>
+
+    <sc-if value="{{isPaying}}" hint-placeholder-val="{{ false }}">
+      <div class="u" style="height: 300px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 18px">
+        <svg class="spin" width="64" height="64" viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="26" stroke="#2C2C2E" stroke-width="6" fill="none"></circle><path d="M32 6a26 26 0 0 1 26 26" stroke="#FF9F0A" stroke-width="6" stroke-linecap="round" fill="none"></path></svg>
+        <span style="font-size: 17px; font-weight: 500">Se blochează suma…</span>
+      </div>
+    </sc-if>
+
+    <sc-if value="{{isDone}}" hint-placeholder-val="{{ false }}">
+      <div style="height: 300px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 14px">
+        <span class="pop" style="position: relative; display: block"><img src="assets/mascot/zee-sarbatoare.png" alt="" style="width: 118px; height: 128px; display: block; "><span style="position: absolute; right: -4px; bottom: 10px; width: 38px; height: 38px; border-radius: 19px; background: #34C759; display: flex; align-items: center; justify-content: center; border: 3px solid #1C1C1E"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg></span></span>
+        <span class="u" style="font-size: 22px; font-weight: 600; letter-spacing: -0.4px">Gata! Mihai pornește.</span>
+        <a href="PeDrumDark.dc.html" class="u pr" style="margin-top: 6px; height: 50px; padding: 0 26px; border-radius: 25px; background: #FF9F0A; color: #1C1C1E; display: flex; align-items: center; font-size: 17px; font-weight: 500; text-decoration: none">Urmărește-l pe hartă</a>
+      </div>
+    </sc-if>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+  constructor(props) { super(props); this.state = { stage: 'idle' }; }
+  componentWillUnmount() { clearTimeout(this.t); }
+  renderVals() {
+    const s = this.state.stage;
+    return {
+      isIdle: s === 'idle', isPaying: s === 'paying', isDone: s === 'done',
+      pay: () => {
+        this.setState({ stage: 'paying' });
+        clearTimeout(this.t);
+        this.t = setTimeout(() => this.setState({ stage: 'done' }), 1300);
+      }
+    };
+  }
+}
+</script>
+</body>
+</html>

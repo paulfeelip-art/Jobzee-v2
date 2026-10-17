@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="ro">
+<head>
+<meta charset="utf-8">
+<title>Jobzee · Cont la trimitere</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<style>
+.th{--bg:#F2F2F7;--surf:#FFFFFF;--surf2:#F2F2F7;--surf3:#E5E5EA;--ink:#1C1C1E;--ink2:#6E6E73;--ink3:#C7C7CC;--sep:#D1D1D6;--brand:#FF9F0A;--onbrand:#1C1C1E;--btext:#B35600;--bsoft:#FFF4E5;--bsoft2:#FFE7C2;--ok:#34C759;--oktext:#1F7A35;--oksoft:#E8F7EC;--glass:rgba(255,255,255,0.82);--glass2:rgba(255,255,255,0.94);--scrim:rgba(0,0,0,0.38);--shadow:rgba(0,0,0,0.10);--invbg:#1C1C1E;--invink:#FFFFFF;--land:#F5F1E8;--road:#FFFFFF;--park:#D3EAC7;--water:#BCDDF7;--aur1:#FFB347;--aur2:#FFD8A8;--aur3:#FFC2D1}
+body{margin:0}
+a{color:var(--btext)}
+@keyframes up{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+@keyframes pop{0%{opacity:0;transform:scale(.5)}65%{opacity:1;transform:scale(1.08)}100%{opacity:1;transform:none}}
+@keyframes sheet{from{opacity:0;transform:translateY(70%)}to{opacity:1;transform:none}}
+@keyframes ring{0%{transform:scale(.6);opacity:.55}100%{transform:scale(2.6);opacity:0}}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-7px)}}
+@keyframes drift{0%,100%{transform:translate(0,0) scale(1)}33%{transform:translate(30px,-24px) scale(1.12)}66%{transform:translate(-26px,18px) scale(.94)}}
+@keyframes glow{0%,100%{opacity:.45}50%{opacity:1}}
+@keyframes shimmer{0%{background-position:-200% 0}100%{background-position:200% 0}}
+@keyframes drop{0%{opacity:0;transform:translateY(-24px) scale(.7)}60%{opacity:1;transform:translateY(3px) scale(1.06)}100%{opacity:1;transform:none}}
+@keyframes tick{0%,42%{transform:none}50%,92%{transform:translateY(-40px)}100%{transform:none}}
+@keyframes fadeSlide{0%,42%{opacity:1;transform:none}50%,92%{opacity:0;transform:translateY(-8px)}100%{opacity:1;transform:none}}
+@keyframes fadeSlide2{0%,42%{opacity:0;transform:translateY(8px)}50%,92%{opacity:1;transform:none}100%{opacity:0;transform:translateY(8px)}}
+@keyframes dotA{0%,45%{width:16px;opacity:1}50%,95%{width:6px;opacity:.35}100%{width:16px;opacity:1}}
+@keyframes dotB{0%,45%{width:6px;opacity:.35}50%,95%{width:16px;opacity:1}100%{width:6px;opacity:.35}}
+@keyframes halo{0%{box-shadow:0 0 0 0 rgba(255,159,10,.55)}100%{box-shadow:0 0 0 18px rgba(255,159,10,0)}}
+@keyframes heat{0%,100%{transform:scale(1);opacity:.8}50%{transform:scale(1.15);opacity:1}}
+.u{animation:up .55s cubic-bezier(.2,.8,.2,1) both}
+.d1{animation-delay:.08s}.d2{animation-delay:.16s}.d3{animation-delay:.24s}.d4{animation-delay:.32s}.d5{animation-delay:.4s}.d6{animation-delay:.48s}
+.pop{animation:pop .6s cubic-bezier(.2,.9,.3,1.3) both}
+.sheet{animation:sheet .7s cubic-bezier(.2,.9,.25,1) both}
+.float{animation:float 4.5s ease-in-out infinite}
+.glow{animation:glow 1.8s ease-in-out infinite}
+.drop{animation:drop .8s cubic-bezier(.2,.8,.2,1) both}
+.pr{transition:transform .22s cubic-bezier(.3,.7,.4,1.4), opacity .2s}.pr:active{transform:scale(.95)}
+.ic{display:inline-block;background:currentColor;-webkit-mask-position:center;mask-position:center;-webkit-mask-size:contain;mask-size:contain;-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;flex-shrink:0}
+.glass{background:var(--glass);backdrop-filter:blur(24px) saturate(1.6);-webkit-backdrop-filter:blur(24px) saturate(1.6)}
+@media (prefers-reduced-motion: reduce){*{animation:none!important;transition:none!important}}
+
+</style>
+</helmet>
+<div class="th" style="width: 390px; height: 844px; box-sizing: border-box; background: var(--bg); font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Helvetica Neue', system-ui, sans-serif; color: var(--ink); position: relative; overflow: hidden">
+<div style="padding: 52px 16px 0; display: flex; flex-direction: column; gap: 12px; filter: blur(3px); opacity: .7">
+  <div style="height: 40px"></div><span style="font-size: 32px; font-weight: 600; letter-spacing: -0.8px">Fișa cererii</span><div style="height: 76px; border-radius: 24px; background: var(--surf)"></div><div style="height: 120px; border-radius: 24px; background: var(--surf)"></div><div style="height: 110px; border-radius: 24px; background: var(--surf)"></div><div style="height: 150px; border-radius: 24px; background: var(--surf)"></div>
+</div>
+<div class="u" style="position: absolute; inset: 0; background: var(--scrim); animation-duration: .35s"></div>
+<div class="sheet" style="position: absolute; left: 8px; right: 8px; bottom: 8px; background: var(--glass2); backdrop-filter: blur(30px); -webkit-backdrop-filter: blur(30px); border-radius: 40px; padding: 12px 16px 18px; display: flex; flex-direction: column; gap: 10px; box-shadow: 0 -10px 40px var(--shadow)">
+  <span style="align-self: center; width: 38px; height: 5px; border-radius: 3px; background: var(--ink3)"></span>
+  <div style="display: flex; align-items: center; gap: 14px; padding: 4px 4px 6px">
+    <img class="pop" src="assets/mascot/zee-card-bravo.png" alt="" style="width: 92px; height: auto; border-radius: 18px; background: #FBF1E3; flex-shrink: 0">
+    <span style="display: flex; flex-direction: column; gap: 4px"><span style="font-size: 22px; font-weight: 600; letter-spacing: -0.5px">Cererea e gata</span><span style="font-size: 14px; line-height: 1.4; color: var(--ink2)">Salvează-o într-un cont ca Jobzerii să-ți trimită oferte și să te putem anunța. Durează 10 secunde.</span></span>
+  </div>
+  <div style="display: flex; align-items: center; gap: 10px; padding: 10px 12px; border-radius: 20px; background: var(--surf)">
+    <img src="assets/services/service-mobila.webp" alt="" style="width: 40px; height: 40px; border-radius: 20px; object-fit: cover">
+    <span style="flex-grow: 1; display: flex; flex-direction: column"><span style="font-size: 15px; font-weight: 500">Montaj birou + dulap mic</span><span style="font-size: 12px; color: var(--ink2)">Urgent · Floreasca · estimare 120–220 lei</span></span>
+    <span style="font-size: 12px; font-weight: 500; color: var(--oktext)">✓ păstrată</span>
+  </div>
+  <a href="Radar.dc.html" class="pr" style="display: flex; align-items: center; justify-content: center; gap: 10px; height: 54px; border-radius: 27px; font-size: 17px; font-weight: 500; text-decoration: none; background: var(--invbg); color: var(--invink)"><svg width="18" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16.37 12.4c-.02-2.3 1.88-3.4 1.97-3.46-1.07-1.57-2.74-1.78-3.33-1.8-1.42-.14-2.77.83-3.49.83-.72 0-1.83-.81-3.01-.79-1.55.02-2.98.9-3.78 2.29-1.61 2.8-.41 6.94 1.16 9.21.77 1.11 1.68 2.36 2.88 2.31 1.16-.05 1.6-.75 3-.75s1.79.75 3.01.72c1.25-.02 2.03-1.13 2.79-2.25.88-1.29 1.24-2.54 1.26-2.6-.03-.01-2.42-.93-2.44-3.7zM14.08 5.65c.64-.77 1.07-1.85.95-2.92-.92.04-2.03.61-2.69 1.38-.59.68-1.11 1.78-.97 2.83 1.03.08 2.07-.52 2.71-1.29z"></path></svg>Continuă cu Apple</a>
+  <a href="Radar.dc.html" class="pr" style="display: flex; align-items: center; justify-content: center; gap: 10px; height: 54px; border-radius: 27px; font-size: 17px; font-weight: 500; text-decoration: none; background: var(--surf); color: var(--ink); box-shadow: inset 0 0 0 1px var(--sep)"><svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><path d="M22.6 12.3c0-.8-.1-1.5-.2-2.2H12v4.2h5.9c-.3 1.4-1 2.5-2.2 3.3v2.7h3.6c2.100-1.900 3.300-4.800 3.300-8z" fill="#4285F4"></path><path d="M12 23c3 0 5.500-1 7.300-2.700l-3.600-2.700c-1 .7-2.200 1.100-3.700 1.100-2.900 0-5.300-1.900-6.200-4.500H2.100v2.800C3.900 20.600 7.700 23 12 23z" fill="#34A853"></path><path d="M5.800 14.200c-.2-.7-.4-1.400-.4-2.200s.1-1.500.4-2.200V7H2.100C1.400 8.500 1 10.200 1 12s.4 3.500 1.100 5l3.700-2.800z" fill="#FBBC05"></path><path d="M12 5.400c1.600 0 3.100.6 4.200 1.700l3.200-3.200C17.500 2.100 15 1 12 1 7.700 1 3.900 3.400 2.100 7l3.700 2.800C6.700 7.300 9.100 5.400 12 5.400z" fill="#EA4335"></path></svg>Continuă cu Google</a>
+  <a href="Telefon.dc.html" class="pr" style="display: flex; align-items: center; justify-content: center; gap: 10px; height: 54px; border-radius: 27px; font-size: 17px; font-weight: 500; text-decoration: none; background: var(--brand); color: var(--onbrand)"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6" y="2.5" width="12" height="19" rx="3.5"></rect><path d="M10.5 18.5h3"></path></svg>Cu numărul de telefon</a>
+  <p style="margin: 2px 0 0; text-align: center; font-size: 12px; line-height: 1.4; color: var(--ink2)">Numărul tău nu e arătat Jobzerilor. Continuând, accepți <a href="#termeni" style="color: inherit">Termenii</a>.</p>
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>

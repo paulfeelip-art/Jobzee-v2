@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="ro">
+<head>
+<meta charset="utf-8">
+<title>Jobzee · Permisiuni</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<style>
+body{margin:0}
+a{color:#B35600}a:hover{color:#8F4500}
+@keyframes up{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+@keyframes pop{0%{transform:scale(.5);opacity:0}70%{transform:scale(1.1);opacity:1}100%{transform:none;opacity:1}}
+@keyframes check{0%{transform:scale(0)}70%{transform:scale(1.25)}100%{transform:scale(1)}}
+.u{animation:up .55s cubic-bezier(.2,.8,.2,1) both}.d1{animation-delay:.1s}.d2{animation-delay:.2s}.d3{animation-delay:.3s}.d4{animation-delay:.4s}
+.pop{animation:pop .6s cubic-bezier(.2,.9,.3,1.3) both}
+.check{animation:check .35s cubic-bezier(.2,.9,.3,1.5) both}
+.pr{transition:transform .2s cubic-bezier(.3,.7,.4,1.4)}.pr:active{transform:scale(.96)}
+@keyframes zf{0%,100%{transform:translateY(0) rotate(0)}50%{transform:translateY(-8px) rotate(-3deg)}}.zf{animation:zf 3.6s ease-in-out infinite}
+@keyframes zw{0%,100%{transform:rotate(0)}20%{transform:rotate(-8deg)}40%{transform:rotate(6deg)}60%{transform:rotate(-4deg)}}.zw{transform-origin:50% 90%;animation:zw 2.4s ease-in-out .6s infinite}
+@media (prefers-reduced-motion: reduce){*{animation:none!important;transition:none!important}}
+</style>
+</helmet>
+<div style="width: 390px; height: 844px; box-sizing: border-box; background: #F2F2F7; font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Helvetica Neue', system-ui, sans-serif; color: #1C1C1E; display: flex; flex-direction: column; padding: 70px 20px 34px; gap: 14px">
+  <div class="pop" style="display: block"><img class="zw" src="assets/mascot/zee-salut.png" alt="" style="width: 96px; height: 104px; display: block; "></div>
+  <h1 class="u d1" style="margin: 8px 0 0; font-size: 32px; line-height: 1.1; font-weight: 600; letter-spacing: -0.8px">Încă un pas</h1>
+  <p class="u d1" style="margin: 0; font-size: 16px; line-height: 1.45; color: #6E6E73">Jobzee funcționează cel mai bine cu acestea. Le poți schimba oricând din Setări.</p>
+
+  <div style="background: #FFFFFF; border-radius: 22px; overflow: hidden; margin-top: 6px">
+    <sc-for list="{{perms}}" as="p" hint-placeholder-count="3">
+      <div class="u d2" style="{{p.row}}">
+        <span style="{{p.iconStyle}}">{{p.icon}}</span>
+        <span style="flex-grow: 1; display: flex; flex-direction: column; gap: 2px"><span style="font-size: 16px; font-weight: 500">{{p.title}}</span><span style="font-size: 13px; line-height: 1.4; color: #6E6E73">{{p.sub}}</span></span>
+        <button type="button" onClick="{{p.toggle}}" aria-pressed="{{p.on}}" aria-label="{{p.title}}" style="{{p.sw}}"><span style="width: 27px; height: 27px; border-radius: 14px; background: #FFFFFF; display: block; box-shadow: 0 2px 4px rgba(0,0,0,0.2)"></span></button>
+      </div>
+    </sc-for>
+  </div>
+
+  <p class="u d3" style="margin: 0 6px; font-size: 13px; line-height: 1.45; color: #6E6E73">Locația ta exactă nu o vede nimeni până nu confirmi o ofertă. Jobzerii văd doar zona, rotunjită la ~300 m.</p>
+
+  <div style="flex-grow: 1"></div>
+  <a href="Acasa.dc.html" class="u d4 pr" style="display: flex; align-items: center; justify-content: center; height: 56px; border-radius: 28px; background: #FF9F0A; color: #1C1C1E; font-size: 17px; font-weight: 500; text-decoration: none; box-shadow: 0 10px 24px rgba(255,159,10,0.35)">Continuă</a>
+  <a href="Acasa.dc.html" style="align-self: center; font-size: 15px; color: #6E6E73; text-decoration: none; padding: 4px">Mai târziu</a>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+  constructor(props) { super(props); this.state = { loc: true, notif: true, cam: false }; }
+  renderVals() {
+    const list = [
+      { k: 'loc', icon: '◎', bg: '#007AFF', title: 'Locația', sub: 'Ca să găsim Jobzeri lângă tine și să-i urmărești pe hartă.' },
+      { k: 'notif', icon: '●', bg: '#FF3B30', title: 'Notificări', sub: 'Oferte noi, Jobzerul a ajuns, lucrarea e gata.' },
+      { k: 'cam', icon: '▣', bg: '#8E8E93', title: 'Camera', sub: 'Ca Jobzee să înțeleagă din poză de ce ai nevoie.' }
+    ];
+    const perms = list.map((p, i) => {
+      const on = !!this.state[p.k];
+      return {
+        title: p.title, sub: p.sub, icon: p.icon, on: on ? 'true' : 'false',
+        row: 'display: flex; align-items: center; gap: 12px; padding: 14px 16px; ' + (i > 0 ? 'box-shadow: inset 0 0.5px 0 #D1D1D6;' : ''),
+        iconStyle: 'width: 34px; height: 34px; border-radius: 9px; background: ' + p.bg + '; color: #FFFFFF; display: flex; align-items: center; justify-content: center; font-size: 16px; flex-shrink: 0',
+        sw: 'width: 51px; height: 31px; border-radius: 16px; border: 0; padding: 2px; cursor: pointer; display: flex; flex-shrink: 0; transition: background .25s; ' +
+          (on ? 'background: #34C759; justify-content: flex-end;' : 'background: #E9E9EA; justify-content: flex-start;'),
+        toggle: () => { const s = {}; s[p.k] = !on; this.setState(s); }
+      };
+    });
+    return { perms };
+  }
+}
+</script>
+</body>
+</html>
