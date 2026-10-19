@@ -1,184 +1,186 @@
 # Inventory
 
-Every file on this branch except this one, with size and SHA-256. Total: 469 files (including INVENTORY.md).
+Every file on this branch except this one, with size and SHA-256. Total: 471 files (including INVENTORY.md).
 
-## Canvas screens (171)
+## Canvas screens (173)
 
 In canvas order. Board titles come from `canvas.json`.
 
 | # | File | Title | Bytes | SHA-256 |
 |---|---|---|---|---|
-| 1 | `Splash.dc.html` | 01 Splash animat → autentificare | 13234 | `f43d27a2c3a593c5` |
-| 2 | `Main.dc.html` | 02 Autentificare (sau „Mă uit întâi, fără cont”) | 12717 | `3b1d9e556cedbafd` |
-| 3 | `Telefon.dc.html` | 03 Număr de telefon | 4047 | `a813358015de1380` |
-| 4 | `Cod.dc.html` | 04 Cod SMS | 4723 | `655d51e36bfa6ace` |
-| 5 | `Email.dc.html` | 05 Creează cont cu e-mail | 9518 | `7b30dba30c65311b` |
-| 6 | `Rol.dc.html` | 06 Alege rolul: client sau Jobzer | 11389 | `98ce054025005ed5` |
-| 7 | `Acasa.dc.html` | 07 Acasă client + recomandare „câștigă” | 19779 | `e04f081077d44fee` |
-| 8 | `Dialog.dc.html` | 05 Conversație cu Jobzee | 36938 | `01d965f56fd4d668` |
-| 9 | `Fisa.dc.html` | 06 Fișa cererii: când, unde, estimare | 15686 | `191c347cb83a4c5b` |
-| 10 | `ContTrimitere.dc.html` | 06b Cont cerut la trimitere (vizitator) | 8858 | `2667e26a412bacd9` |
-| 11 | `Radar.dc.html` | 06c Radar live: timp, skill, preț + alegere directă | 20595 | `25d6e8795e2b5e55` |
-| 12 | `Oferte.dc.html` | 07 Oferte primite | 9764 | `83837e34b1b591d2` |
-| 13 | `Profil.dc.html` | 08 Profil Jobzer (public) | 11624 | `be1235f3ae2b9608` |
-| 14 | `Plata.dc.html` | 09 Confirmă și blochează plata | 8113 | `efdef592ad1626d0` |
-| 15 | `PeDrum.dc.html` | 10 Pe drum + cod de start | 7697 | `168ad90004b8be6e` |
-| 16 | `InLucru.dc.html` | 11 În lucru | 7228 | `f696baea944ca706` |
-| 17 | `Confirma.dc.html` | 12 Confirmă și plătește | 6451 | `d7238bf5eaf9af30` |
-| 18 | `Recenzie.dc.html` | 13 Recenzie | 6326 | `2121c1e4fd85543e` |
-| 19 | `Castig.dc.html` | 14 Acasă Jobzer: cereri (listă, hartă, ofertă rapidă) | 38519 | `c377c1a63492603f` |
-| 20 | `Oferta.dc.html` | 15 Cerere nouă → trimite oferta | 9281 | `aa428b03bf402b61` |
-| 21 | `JobActiv.dc.html` | 16 Spre client + cod | 8054 | `9dc646dfcf8e8342` |
-| 22 | `JobGata.dc.html` | 17 Lucrez / Am terminat | 6337 | `23c035fd79e8763c` |
-| 23 | `Incasari.dc.html` | 18 Încasări + analiză și strategie | 32059 | `43cad3f74bf4a090` |
-| 24 | `DevinoJobzer.dc.html` | 19 Devino Jobzer: forma legală | 6365 | `6003f717d98d6d75` |
-| 25 | `ProfilEdit.dc.html` | 20 Profilul meu: competențe, portofoliu, acte | 40004 | `a1d12ba93c17b794` |
-| 26 | `Promovare.dc.html` | 21 Promovare și vizibilitate | 7621 | `d9d603cbcfdd04d7` |
-| 27 | `Activitate.dc.html` | 22 Activitate | 9273 | `320eaf76dc1f5d42` |
-| 28 | `Mesaje.dc.html` | 23 Mesaje · active și istoric | 48941 | `a26373d549038100` |
-| 29 | `Chat.dc.html` | 24 Chat cu Jobzerul | 38024 | `c6a9db39907f7b45` |
-| 30 | `Cont.dc.html` | Cont client: rol activ + recomandare | 17943 | `4c1bc435b39dd35f` |
-| 31 | `Permisiuni.dc.html` | 26 Permisiuni (din Setări; în flux se cer pe rând) | 5199 | `f5be87f595a3ab52` |
-| 32 | `Adresa.dc.html` | 27 Adresa exactă | 8425 | `2c5552c9283e3bdb` |
-| 33 | `Programare.dc.html` | 28 Programare | 7568 | `95b08331dd832ebe` |
-| 34 | `FaraOferte.dc.html` | 29 Încă nicio ofertă | 8049 | `620763ba7b5e8449` |
-| 35 | `PeOra.dc.html` | 30 Lucrare pe oră (contor + plafon) | 6310 | `b667a018a6c46e18` |
-| 36 | `Extra.dc.html` | 31 Muncă în plus: aprobare | 6946 | `8099f883e5652930` |
-| 37 | `Anulare.dc.html` | 32 Anulare | 7636 | `7f8380925853ded7` |
-| 38 | `Problema.dc.html` | 33 Problemă / dispută | 8577 | `e1fd9850f23d62dd` |
-| 39 | `Skilluri.dc.html` | 34 Onboarding Jobzer 2/4: competențe | 14284 | `30304fd3b515e0fe` |
-| 40 | `Identitate.dc.html` | 35 Onboarding 3/4: identitate + cazier | 7531 | `8bbd4a0ab09ed5d8` |
-| 41 | `PlatiFiscal.dc.html` | 36 Onboarding 4/4: IBAN + termeni | 7301 | `7ea7ade35c8f150b` |
-| 42 | `SarciniJobzer.dc.html` | 37 Sarcinile mele (Jobzer) | 10165 | `90e8ef9af02846cf` |
-| 43 | `ChatJobzer.dc.html` | 38 Chat cu clientul (Jobzer) | 37795 | `635b76a8ffff9b68` |
-| 44 | `OfertaPierduta.dc.html` | 39 Oferta nu a fost aleasă | 6610 | `0661c667a68af094` |
-| 45 | `RecenzieClient.dc.html` | 40 Jobzerul evaluează clientul | 6670 | `8df77514affee4ae` |
-| 46 | `Niveluri.dc.html` | 41 Niveluri Start → Black | 7207 | `68ed9e5abda082c4` |
-| 47 | `Incarcare.dc.html` | 42 Încărcare (schelet) | 4413 | `93fa54a5fdd66029` |
-| 48 | `FaraInternet.dc.html` | 43 Fără internet | 5653 | `5caff0c391b89ed1` |
-| 49 | `PlataRefuzata.dc.html` | 44 Plată refuzată | 4867 | `eab0b55c38d1ce6e` |
-| 50 | `CodGresit.dc.html` | 45 Cod greșit / expirat | 5450 | `6819b3a7c15fdf2a` |
-| 51 | `GPSOprit.dc.html` | 46 Locație oprită | 3760 | `1cc7622d61e69c17` |
-| 52 | `GolActivitate.dc.html` | 47 Gol: prima cerere | 6041 | `da4bf7ac35b3e941` |
-| 53 | `GolMesaje.dc.html` | 48 Gol: niciun mesaj | 5061 | `77d2e8e9caa6899c` |
-| 54 | `GolIncasari.dc.html` | 49 Gol: Jobzer nou, fără încasări | 8359 | `ff1781c22d7c0783` |
-| 55 | `SchimbaRol.dc.html` | 59 Schimbă rolul (din Cont) | 13884 | `040a507b5e89f7ed` |
-| 56 | `ContJobzer.dc.html` | 60 Profil Jobzer + rol + recomandare | 19846 | `2cd749b122a37c40` |
-| 57 | `Servicii.dc.html` | 61 Toate serviciile (30 de familii) | 12966 | `169680f48028ccb9` |
-| 58 | `Mascota.dc.html` | 62 Mascota oficială: poze și stări | 11940 | `f24cbcec449bb1fb` |
-| 59 | `Notificari.dc.html` | 63 Notificări (client) | 13533 | `36b4ad9fddca724a` |
-| 60 | `Chitante.dc.html` | 64 Chitanțe și facturi | 12230 | `f0227c41ec62cd1b` |
-| 61 | `Recurente.dc.html` | 65 Cerere recurentă | 11267 | `12921e1dd48c1219` |
-| 62 | `StartJobzer.dc.html` | 66 Start Jobzer (onboarding scurt) | 10795 | `12c0c3f9baadf48e` |
-| 63 | `OfertaRapida.dc.html` | 67 Ofertă în 2 atingeri (din notificare) | 10013 | `db5c22c2598ccf39` |
-| 64 | `Disponibilitate.dc.html` | 68 Program și zonă (Jobzer) | 13537 | `3dc5261aaf23b2e4` |
-| 65 | `Facturi.dc.html` | 69 Facturi și plăți (PFA/SRL, e-Factura) | 12671 | `bce60e7c586d403f` |
-| 66 | `SplashDark.dc.html` | 01 Splash animat → autentificare · întunecat | 13305 | `f596e56a6d3fda0b` |
-| 67 | `MainDark.dc.html` | 02 Autentificare (sau „Mă uit întâi, fără cont”) · întunecat | 12788 | `850931787fd4ebdd` |
-| 68 | `TelefonDark.dc.html` | 03 Număr de telefon · întunecat | 4077 | `edaa17dac5b6154e` |
-| 69 | `CodDark.dc.html` | 04 Cod SMS · întunecat | 4745 | `74e956c6b650a889` |
-| 70 | `EmailDark.dc.html` | 05 Creează cont cu e-mail · întunecat | 9573 | `6be2c3fff51b8642` |
-| 71 | `RolDark.dc.html` | 06 Alege rolul: client sau Jobzer · întunecat | 11448 | `8d5ad72bb44f7936` |
-| 72 | `AcasaDark.dc.html` | 07 Acasă client + recomandare „câștigă” · întunecat | 19876 | `0dca62e99e007c86` |
-| 73 | `DialogDark.dc.html` | 05 Conversație cu Jobzee · întunecat | 37009 | `ab0db6fd3a773abc` |
-| 74 | `FisaDark.dc.html` | 06 Fișa cererii: când, unde, estimare · întunecat | 15761 | `76f8c7c26832af35` |
-| 75 | `ContTrimitereDark.dc.html` | 06b Cont cerut la trimitere (vizitator) · întunecat | 8917 | `f0a89917a4f278b5` |
-| 76 | `RadarDark.dc.html` | 06c Radar live: timp, skill, preț + alegere directă · întunecat | 20658 | `ee599c1293fbbee2` |
-| 77 | `OferteDark.dc.html` | 07 Oferte primite · întunecat | 8213 | `b5efdadc4871bfb2` |
-| 78 | `ProfilDark.dc.html` | 08 Profil Jobzer (public) · întunecat | 11643 | `b0d718dd5c5e1332` |
-| 79 | `PlataDark.dc.html` | 09 Confirmă și blochează plata · întunecat | 8135 | `86cf4abcc6b2c5e1` |
-| 80 | `PeDrumDark.dc.html` | 10 Pe drum + cod de start · întunecat | 7389 | `06a2532a4b35c376` |
-| 81 | `InLucruDark.dc.html` | 11 În lucru · întunecat | 7262 | `477b51ceafad5df0` |
-| 82 | `ConfirmaDark.dc.html` | 12 Confirmă și plătește · întunecat | 6477 | `07dee380c16b43ac` |
-| 83 | `RecenzieDark.dc.html` | 13 Recenzie · întunecat | 6348 | `bad25e70b12292f8` |
-| 84 | `CastigDark.dc.html` | 14 Acasă Jobzer: cereri (listă, hartă, ofertă rapidă) · întunecat | 38608 | `eccc8dfe20f30775` |
-| 85 | `OfertaDark.dc.html` | 15 Cerere nouă → trimite oferta · întunecat | 9307 | `0edd9201121cbc86` |
-| 86 | `JobActivDark.dc.html` | 16 Spre client + cod · întunecat | 8074 | `b2d11599d90265ef` |
-| 87 | `JobGataDark.dc.html` | 17 Lucrez / Am terminat · întunecat | 6359 | `a26df7f9b2372991` |
-| 88 | `IncasariDark.dc.html` | 18 Încasări + analiză și strategie · întunecat | 32124 | `37a10439dc01f1ae` |
-| 89 | `DevinoJobzerDark.dc.html` | 19 Devino Jobzer: forma legală · întunecat | 6387 | `239f1814432bb810` |
-| 90 | `ProfilEditDark.dc.html` | 20 Profilul meu: competențe, portofoliu, acte · întunecat | 40067 | `48bbd0ed0e3c578a` |
-| 91 | `PromovareDark.dc.html` | 21 Promovare și vizibilitate · întunecat | 7643 | `69200156ac06d492` |
-| 92 | `ActivitateDark.dc.html` | 22 Activitate · întunecat | 9320 | `ad72b2b4d341d667` |
-| 93 | `MesajeDark.dc.html` | 23 Mesaje · active și istoric · întunecat | 49016 | `05eb8077d5ad9364` |
-| 94 | `ChatDark.dc.html` | 24 Chat cu Jobzerul · întunecat | 38095 | `e953958931405a20` |
-| 95 | `ContDark.dc.html` | Cont client: rol activ + recomandare · întunecat | 18022 | `9114551f06542878` |
-| 96 | `PermisiuniDark.dc.html` | 26 Permisiuni (din Setări; în flux se cer pe rând) · întunecat | 5221 | `c54e507fdf0d5676` |
-| 97 | `AdresaDark.dc.html` | 27 Adresa exactă · întunecat | 8446 | `5f564c776eff2240` |
-| 98 | `ProgramareDark.dc.html` | 28 Programare · întunecat | 7590 | `98604be1b9e01658` |
-| 99 | `FaraOferteDark.dc.html` | 29 Încă nicio ofertă · întunecat | 8080 | `4530de170eb694d5` |
-| 100 | `PeOraDark.dc.html` | 30 Lucrare pe oră (contor + plafon) · întunecat | 6336 | `3d45c7800400c3df` |
-| 101 | `ExtraDark.dc.html` | 31 Muncă în plus: aprobare · întunecat | 6968 | `19e3d2c7a83eedd7` |
-| 102 | `AnulareDark.dc.html` | 32 Anulare · întunecat | 7662 | `9929ad567bd28a74` |
-| 103 | `ProblemaDark.dc.html` | 33 Problemă / dispută · întunecat | 8599 | `576b63f7d8b865a0` |
-| 104 | `SkilluriDark.dc.html` | 34 Onboarding Jobzer 2/4: competențe · întunecat | 14339 | `806c37e6deace67a` |
-| 105 | `IdentitateDark.dc.html` | 35 Onboarding 3/4: identitate + cazier · întunecat | 7553 | `95ade47df593dc49` |
-| 106 | `PlatiFiscalDark.dc.html` | 36 Onboarding 4/4: IBAN + termeni · întunecat | 7323 | `a48018a94c191abc` |
-| 107 | `SarciniJobzerDark.dc.html` | 37 Sarcinile mele (Jobzer) · întunecat | 10204 | `121a62853ba3a1f3` |
-| 108 | `ChatJobzerDark.dc.html` | 38 Chat cu clientul (Jobzer) · întunecat | 37866 | `d94860ebdb29aa75` |
-| 109 | `OfertaPierdutaDark.dc.html` | 39 Oferta nu a fost aleasă · întunecat | 6640 | `0bd5c25eab86342f` |
-| 110 | `RecenzieClientDark.dc.html` | 40 Jobzerul evaluează clientul · întunecat | 6688 | `6ff179f316f82466` |
-| 111 | `NiveluriDark.dc.html` | 41 Niveluri Start → Black · întunecat | 7229 | `d9d29595247ad696` |
-| 112 | `IncarcareDark.dc.html` | 42 Încărcare (schelet) · întunecat | 4428 | `df7d51900fe48b98` |
-| 113 | `FaraInternetDark.dc.html` | 43 Fără internet · întunecat | 5667 | `346b99050fcbb021` |
-| 114 | `PlataRefuzataDark.dc.html` | 44 Plată refuzată · întunecat | 4893 | `57505eee0e6e2480` |
-| 115 | `CodGresitDark.dc.html` | 45 Cod greșit / expirat · întunecat | 5472 | `9215c1ce9bf6cc3c` |
-| 116 | `GPSOpritDark.dc.html` | 46 Locație oprită · întunecat | 3779 | `bbcb5574e5ee90c2` |
-| 117 | `GolActivitateDark.dc.html` | 47 Gol: prima cerere · întunecat | 6084 | `c7be3a655efce48b` |
-| 118 | `GolMesajeDark.dc.html` | 48 Gol: niciun mesaj · întunecat | 5092 | `3a8b5a20eea31115` |
-| 119 | `GolIncasariDark.dc.html` | 49 Gol: Jobzer nou, fără încasări · întunecat | 8398 | `db4b0c627cd5f651` |
-| 120 | `SchimbaRolDark.dc.html` | 59 Schimbă rolul (din Cont) · întunecat | 13943 | `2f757831ac2e6f9e` |
-| 121 | `ContJobzerDark.dc.html` | 60 Profil Jobzer + rol + recomandare · întunecat | 19945 | `8138bd9222fa7fe5` |
-| 122 | `ServiciiDark.dc.html` | 61 Toate serviciile (30 de familii) · întunecat | 13045 | `54685f28fc7fc9a9` |
-| 123 | `MascotaDark.dc.html` | 62 Mascota oficială: poze și stări · întunecat | 11987 | `c086310662808f9b` |
-| 124 | `NotificariDark.dc.html` | 63 Notificări (client) · întunecat | 13600 | `f78895bc25341eaa` |
-| 125 | `ChitanteDark.dc.html` | 64 Chitanțe și facturi · întunecat | 12281 | `50dbb0719e86aa11` |
-| 126 | `RecurenteDark.dc.html` | 65 Cerere recurentă · întunecat | 11318 | `3d4b7a126b12dd77` |
-| 127 | `StartJobzerDark.dc.html` | 66 Start Jobzer (onboarding scurt) · întunecat | 10874 | `df49b3ee8f1488e7` |
-| 128 | `DisponibilitateDark.dc.html` | 68 Program și zonă (Jobzer) · întunecat | 13608 | `c7d0b2eca5930f7d` |
-| 129 | `FacturiDark.dc.html` | 69 Facturi și plăți (PFA/SRL, e-Factura) · întunecat | 12738 | `9540818f0b055f2f` |
-| 130 | `CerereMultipla.dc.html` | 70 O cerere, mai multe servicii | 10819 | `adb119b82622a8e5` |
-| 131 | `CerereMultiplaDark.dc.html` | 70 O cerere, mai multe servicii · întunecat | 10878 | `017864ae2cef3198` |
-| 132 | `Statistici.dc.html` | 71 Statistici Jobzer | 13398 | `d4c7abf4192d93fa` |
-| 133 | `StatisticiDark.dc.html` | 71 Statistici Jobzer · întunecat | 13469 | `d6bd15a6b9f35641` |
-| 134 | `Siguranta.dc.html` | 72 Siguranță și SOS | 11826 | `eefc8fc2215f1578` |
-| 135 | `SigurantaDark.dc.html` | 72 Siguranță și SOS · întunecat | 11881 | `2aac716d5ca1d5b4` |
-| 136 | `GearHub.dc.html` | 73 Gear & Growth | 16285 | `3e72466e13302d4d` |
-| 137 | `GearHubDark.dc.html` | 73 Gear & Growth · întunecat | 16401 | `64375ed3370ca4c6` |
-| 138 | `GearKituri.dc.html` | 74 Kituri Jobzee | 18314 | `2f977d6653dca57f` |
-| 139 | `GearKituriDark.dc.html` | 74 Kituri Jobzee · întunecat | 18417 | `135fd66a20b76400` |
-| 140 | `GearKit.dc.html` | 75 Detaliu kit | 12761 | `fff7f0bfd1f72266` |
-| 141 | `GearKitDark.dc.html` | 75 Detaliu kit · întunecat | 12820 | `b57258ca374e3487` |
-| 142 | `GearBuilder.dc.html` | 76 Smart Kit Builder | 14301 | `fd116fc3c67f6a03` |
-| 143 | `GearBuilderDark.dc.html` | 76 Smart Kit Builder · întunecat | 14360 | `40c77ab9c128cd73` |
-| 144 | `GearShop.dc.html` | 77 Gear Shop | 13597 | `e8e79cd9a61ed972` |
-| 145 | `GearShopDark.dc.html` | 77 Gear Shop · întunecat | 13672 | `65de3f7a21d8ccc1` |
-| 146 | `GearProdus.dc.html` | 78 Detaliu produs | 11494 | `ccddd8fcebe4bad0` |
-| 147 | `GearProdusDark.dc.html` | 78 Detaliu produs · întunecat | 11549 | `8995c4ed5ba7bfb0` |
-| 148 | `GearIdentity.dc.html` | 79 Jobzee Identity | 18468 | `4bfadc2ec4746a20` |
-| 149 | `GearIdentityDark.dc.html` | 79 Jobzee Identity · întunecat | 18523 | `53cba46af077bc3e` |
-| 150 | `PrintStudio.dc.html` | 80 Print Studio | 21629 | `a0fcce07557ec83a` |
-| 151 | `PrintStudioDark.dc.html` | 80 Print Studio · întunecat | 21728 | `16a02c0e5d109156` |
-| 152 | `GearCarte.dc.html` | 81 Carte de vizită | 18990 | `72660f4e72877ade` |
-| 153 | `GearCarteDark.dc.html` | 81 Carte de vizită · întunecat | 19045 | `3b86dd604db75a9e` |
-| 154 | `GearFlyer.dc.html` | 82 Flyer | 16303 | `13fcbb174ac98ab5` |
-| 155 | `GearFlyerDark.dc.html` | 82 Flyer · întunecat | 16358 | `0721e90a12394617` |
-| 156 | `GearQR.dc.html` | 83 Profil QR public | 18079 | `6162310bf1ce4cb9` |
-| 157 | `GearQRDark.dc.html` | 83 Profil QR public · întunecat | 18146 | `7e3e46a4e56d214b` |
-| 158 | `GearCos.dc.html` | 84 Coș | 11282 | `889c0cacc92e7b84` |
-| 159 | `GearCosDark.dc.html` | 84 Coș · întunecat | 11337 | `8824390e83f8a317` |
-| 160 | `GearCheckout.dc.html` | 85 Checkout | 10335 | `81238161641a1db0` |
-| 161 | `GearCheckoutDark.dc.html` | 85 Checkout · întunecat | 10394 | `dd3ccef5c5f65ee0` |
-| 162 | `GearConfirmare.dc.html` | 86 Comandă plasată | 9219 | `74cfc203c9d1b4c4` |
-| 163 | `GearConfirmareDark.dc.html` | 86 Comandă plasată · întunecat | 9278 | `22b5a23ec8d92a61` |
-| 164 | `GearUrmarire.dc.html` | 87 Urmărire comandă | 13458 | `ca3bab58aa6cfe22` |
-| 165 | `GearUrmarireDark.dc.html` | 87 Urmărire comandă · întunecat | 13533 | `3313d778233adf60` |
-| 166 | `GearEchipament.dc.html` | 88 Echipamentul meu | 12419 | `a15a7d7bae1cc846` |
-| 167 | `GearEchipamentDark.dc.html` | 88 Echipamentul meu · întunecat | 12486 | `c5e0bda8e279f4eb` |
-| 168 | `GearDesignuri.dc.html` | 89 Designurile mele | 24045 | `4749ed7a54086417` |
-| 169 | `GearDesignuriDark.dc.html` | 89 Designurile mele · întunecat | 24128 | `80ef42e54f02280f` |
-| 170 | `GearGrowth.dc.html` | 90 Growth Insights | 13586 | `59c4438018a5fac6` |
-| 171 | `GearGrowthDark.dc.html` | 90 Growth Insights · întunecat | 13665 | `acfcd23c9491f4e0` |
+| 1 | `SplashLive.dc.html` | 00 Splash de lansare: orașul se trezește | 21122 | `0956ef3a4d92a4d1` |
+| 2 | `SplashLiveDark.dc.html` | 00 Splash de lansare: orașul se trezește · întunecat | 21131 | `9b79456abd947e0b` |
+| 3 | `Splash.dc.html` | 01 Splash animat → autentificare | 11914 | `2be84f7574e5712f` |
+| 4 | `Main.dc.html` | 02 Autentificare (sau „Mă uit întâi, fără cont”) | 12717 | `3b1d9e556cedbafd` |
+| 5 | `Telefon.dc.html` | 03 Număr de telefon | 4047 | `a813358015de1380` |
+| 6 | `Cod.dc.html` | 04 Cod SMS | 4723 | `655d51e36bfa6ace` |
+| 7 | `Email.dc.html` | 05 Creează cont cu e-mail | 9518 | `7b30dba30c65311b` |
+| 8 | `Rol.dc.html` | 06 Alege rolul: client sau Jobzer | 11389 | `98ce054025005ed5` |
+| 9 | `Acasa.dc.html` | 07 Acasă client + recomandare „câștigă” | 19779 | `e04f081077d44fee` |
+| 10 | `Dialog.dc.html` | 05 Conversație cu Jobzee | 36938 | `01d965f56fd4d668` |
+| 11 | `Fisa.dc.html` | 06 Fișa cererii: când, unde, estimare | 15686 | `191c347cb83a4c5b` |
+| 12 | `ContTrimitere.dc.html` | 06b Cont cerut la trimitere (vizitator) | 8858 | `2667e26a412bacd9` |
+| 13 | `Radar.dc.html` | 06c Radar live: timp, skill, preț + alegere directă | 20595 | `25d6e8795e2b5e55` |
+| 14 | `Oferte.dc.html` | 07 Oferte primite | 9764 | `83837e34b1b591d2` |
+| 15 | `Profil.dc.html` | 08 Profil Jobzer (public) | 11624 | `be1235f3ae2b9608` |
+| 16 | `Plata.dc.html` | 09 Confirmă și blochează plata | 8113 | `efdef592ad1626d0` |
+| 17 | `PeDrum.dc.html` | 10 Pe drum + cod de start | 7697 | `168ad90004b8be6e` |
+| 18 | `InLucru.dc.html` | 11 În lucru | 7228 | `f696baea944ca706` |
+| 19 | `Confirma.dc.html` | 12 Confirmă și plătește | 6451 | `d7238bf5eaf9af30` |
+| 20 | `Recenzie.dc.html` | 13 Recenzie | 6326 | `2121c1e4fd85543e` |
+| 21 | `Castig.dc.html` | 14 Acasă Jobzer: cereri (listă, hartă, ofertă rapidă) | 38519 | `c377c1a63492603f` |
+| 22 | `Oferta.dc.html` | 15 Cerere nouă → trimite oferta | 9281 | `aa428b03bf402b61` |
+| 23 | `JobActiv.dc.html` | 16 Spre client + cod | 8054 | `9dc646dfcf8e8342` |
+| 24 | `JobGata.dc.html` | 17 Lucrez / Am terminat | 6337 | `23c035fd79e8763c` |
+| 25 | `Incasari.dc.html` | 18 Încasări + analiză și strategie | 32059 | `43cad3f74bf4a090` |
+| 26 | `DevinoJobzer.dc.html` | 19 Devino Jobzer: forma legală | 6365 | `6003f717d98d6d75` |
+| 27 | `ProfilEdit.dc.html` | 20 Profilul meu: competențe, portofoliu, acte | 40004 | `a1d12ba93c17b794` |
+| 28 | `Promovare.dc.html` | 21 Promovare și vizibilitate | 7621 | `d9d603cbcfdd04d7` |
+| 29 | `Activitate.dc.html` | 22 Activitate | 9273 | `320eaf76dc1f5d42` |
+| 30 | `Mesaje.dc.html` | 23 Mesaje · active și istoric | 48941 | `a26373d549038100` |
+| 31 | `Chat.dc.html` | 24 Chat cu Jobzerul | 38024 | `c6a9db39907f7b45` |
+| 32 | `Cont.dc.html` | Cont client: rol activ + recomandare | 17943 | `4c1bc435b39dd35f` |
+| 33 | `Permisiuni.dc.html` | 26 Permisiuni (din Setări; în flux se cer pe rând) | 5199 | `f5be87f595a3ab52` |
+| 34 | `Adresa.dc.html` | 27 Adresa exactă | 8425 | `2c5552c9283e3bdb` |
+| 35 | `Programare.dc.html` | 28 Programare | 7568 | `95b08331dd832ebe` |
+| 36 | `FaraOferte.dc.html` | 29 Încă nicio ofertă | 8049 | `620763ba7b5e8449` |
+| 37 | `PeOra.dc.html` | 30 Lucrare pe oră (contor + plafon) | 6310 | `b667a018a6c46e18` |
+| 38 | `Extra.dc.html` | 31 Muncă în plus: aprobare | 6946 | `8099f883e5652930` |
+| 39 | `Anulare.dc.html` | 32 Anulare | 7636 | `7f8380925853ded7` |
+| 40 | `Problema.dc.html` | 33 Problemă / dispută | 8577 | `e1fd9850f23d62dd` |
+| 41 | `Skilluri.dc.html` | 34 Onboarding Jobzer 2/4: competențe | 14284 | `30304fd3b515e0fe` |
+| 42 | `Identitate.dc.html` | 35 Onboarding 3/4: identitate + cazier | 7531 | `8bbd4a0ab09ed5d8` |
+| 43 | `PlatiFiscal.dc.html` | 36 Onboarding 4/4: IBAN + termeni | 7301 | `7ea7ade35c8f150b` |
+| 44 | `SarciniJobzer.dc.html` | 37 Sarcinile mele (Jobzer) | 10165 | `90e8ef9af02846cf` |
+| 45 | `ChatJobzer.dc.html` | 38 Chat cu clientul (Jobzer) | 37795 | `635b76a8ffff9b68` |
+| 46 | `OfertaPierduta.dc.html` | 39 Oferta nu a fost aleasă | 6610 | `0661c667a68af094` |
+| 47 | `RecenzieClient.dc.html` | 40 Jobzerul evaluează clientul | 6670 | `8df77514affee4ae` |
+| 48 | `Niveluri.dc.html` | 41 Niveluri Start → Black | 7207 | `68ed9e5abda082c4` |
+| 49 | `Incarcare.dc.html` | 42 Încărcare (schelet) | 4413 | `93fa54a5fdd66029` |
+| 50 | `FaraInternet.dc.html` | 43 Fără internet | 5653 | `5caff0c391b89ed1` |
+| 51 | `PlataRefuzata.dc.html` | 44 Plată refuzată | 4867 | `eab0b55c38d1ce6e` |
+| 52 | `CodGresit.dc.html` | 45 Cod greșit / expirat | 5450 | `6819b3a7c15fdf2a` |
+| 53 | `GPSOprit.dc.html` | 46 Locație oprită | 3760 | `1cc7622d61e69c17` |
+| 54 | `GolActivitate.dc.html` | 47 Gol: prima cerere | 6041 | `da4bf7ac35b3e941` |
+| 55 | `GolMesaje.dc.html` | 48 Gol: niciun mesaj | 5061 | `77d2e8e9caa6899c` |
+| 56 | `GolIncasari.dc.html` | 49 Gol: Jobzer nou, fără încasări | 8359 | `ff1781c22d7c0783` |
+| 57 | `SchimbaRol.dc.html` | 59 Schimbă rolul (din Cont) | 13884 | `040a507b5e89f7ed` |
+| 58 | `ContJobzer.dc.html` | 60 Profil Jobzer + rol + recomandare | 19846 | `2cd749b122a37c40` |
+| 59 | `Servicii.dc.html` | 61 Toate serviciile (30 de familii) | 12966 | `169680f48028ccb9` |
+| 60 | `Mascota.dc.html` | 62 Mascota oficială: poze și stări | 11940 | `f24cbcec449bb1fb` |
+| 61 | `Notificari.dc.html` | 63 Notificări (client) | 13533 | `36b4ad9fddca724a` |
+| 62 | `Chitante.dc.html` | 64 Chitanțe și facturi | 12230 | `f0227c41ec62cd1b` |
+| 63 | `Recurente.dc.html` | 65 Cerere recurentă | 11267 | `12921e1dd48c1219` |
+| 64 | `StartJobzer.dc.html` | 66 Start Jobzer (onboarding scurt) | 10795 | `12c0c3f9baadf48e` |
+| 65 | `OfertaRapida.dc.html` | 67 Ofertă în 2 atingeri (din notificare) | 10013 | `db5c22c2598ccf39` |
+| 66 | `Disponibilitate.dc.html` | 68 Program și zonă (Jobzer) | 13537 | `3dc5261aaf23b2e4` |
+| 67 | `Facturi.dc.html` | 69 Facturi și plăți (PFA/SRL, e-Factura) | 12671 | `bce60e7c586d403f` |
+| 68 | `SplashDark.dc.html` | 01 Splash animat → autentificare · întunecat | 11938 | `2b8611093b5d2afd` |
+| 69 | `MainDark.dc.html` | 02 Autentificare (sau „Mă uit întâi, fără cont”) · întunecat | 12788 | `850931787fd4ebdd` |
+| 70 | `TelefonDark.dc.html` | 03 Număr de telefon · întunecat | 4077 | `edaa17dac5b6154e` |
+| 71 | `CodDark.dc.html` | 04 Cod SMS · întunecat | 4745 | `74e956c6b650a889` |
+| 72 | `EmailDark.dc.html` | 05 Creează cont cu e-mail · întunecat | 9573 | `6be2c3fff51b8642` |
+| 73 | `RolDark.dc.html` | 06 Alege rolul: client sau Jobzer · întunecat | 11448 | `8d5ad72bb44f7936` |
+| 74 | `AcasaDark.dc.html` | 07 Acasă client + recomandare „câștigă” · întunecat | 19876 | `0dca62e99e007c86` |
+| 75 | `DialogDark.dc.html` | 05 Conversație cu Jobzee · întunecat | 37009 | `ab0db6fd3a773abc` |
+| 76 | `FisaDark.dc.html` | 06 Fișa cererii: când, unde, estimare · întunecat | 15761 | `76f8c7c26832af35` |
+| 77 | `ContTrimitereDark.dc.html` | 06b Cont cerut la trimitere (vizitator) · întunecat | 8917 | `f0a89917a4f278b5` |
+| 78 | `RadarDark.dc.html` | 06c Radar live: timp, skill, preț + alegere directă · întunecat | 20658 | `ee599c1293fbbee2` |
+| 79 | `OferteDark.dc.html` | 07 Oferte primite · întunecat | 8213 | `b5efdadc4871bfb2` |
+| 80 | `ProfilDark.dc.html` | 08 Profil Jobzer (public) · întunecat | 11643 | `b0d718dd5c5e1332` |
+| 81 | `PlataDark.dc.html` | 09 Confirmă și blochează plata · întunecat | 8135 | `86cf4abcc6b2c5e1` |
+| 82 | `PeDrumDark.dc.html` | 10 Pe drum + cod de start · întunecat | 7389 | `06a2532a4b35c376` |
+| 83 | `InLucruDark.dc.html` | 11 În lucru · întunecat | 7262 | `477b51ceafad5df0` |
+| 84 | `ConfirmaDark.dc.html` | 12 Confirmă și plătește · întunecat | 6477 | `07dee380c16b43ac` |
+| 85 | `RecenzieDark.dc.html` | 13 Recenzie · întunecat | 6348 | `bad25e70b12292f8` |
+| 86 | `CastigDark.dc.html` | 14 Acasă Jobzer: cereri (listă, hartă, ofertă rapidă) · întunecat | 38608 | `eccc8dfe20f30775` |
+| 87 | `OfertaDark.dc.html` | 15 Cerere nouă → trimite oferta · întunecat | 9307 | `0edd9201121cbc86` |
+| 88 | `JobActivDark.dc.html` | 16 Spre client + cod · întunecat | 8074 | `b2d11599d90265ef` |
+| 89 | `JobGataDark.dc.html` | 17 Lucrez / Am terminat · întunecat | 6359 | `a26df7f9b2372991` |
+| 90 | `IncasariDark.dc.html` | 18 Încasări + analiză și strategie · întunecat | 32124 | `37a10439dc01f1ae` |
+| 91 | `DevinoJobzerDark.dc.html` | 19 Devino Jobzer: forma legală · întunecat | 6387 | `239f1814432bb810` |
+| 92 | `ProfilEditDark.dc.html` | 20 Profilul meu: competențe, portofoliu, acte · întunecat | 40067 | `48bbd0ed0e3c578a` |
+| 93 | `PromovareDark.dc.html` | 21 Promovare și vizibilitate · întunecat | 7643 | `69200156ac06d492` |
+| 94 | `ActivitateDark.dc.html` | 22 Activitate · întunecat | 9320 | `ad72b2b4d341d667` |
+| 95 | `MesajeDark.dc.html` | 23 Mesaje · active și istoric · întunecat | 49016 | `05eb8077d5ad9364` |
+| 96 | `ChatDark.dc.html` | 24 Chat cu Jobzerul · întunecat | 38095 | `e953958931405a20` |
+| 97 | `ContDark.dc.html` | Cont client: rol activ + recomandare · întunecat | 18022 | `9114551f06542878` |
+| 98 | `PermisiuniDark.dc.html` | 26 Permisiuni (din Setări; în flux se cer pe rând) · întunecat | 5221 | `c54e507fdf0d5676` |
+| 99 | `AdresaDark.dc.html` | 27 Adresa exactă · întunecat | 8446 | `5f564c776eff2240` |
+| 100 | `ProgramareDark.dc.html` | 28 Programare · întunecat | 7590 | `98604be1b9e01658` |
+| 101 | `FaraOferteDark.dc.html` | 29 Încă nicio ofertă · întunecat | 8080 | `4530de170eb694d5` |
+| 102 | `PeOraDark.dc.html` | 30 Lucrare pe oră (contor + plafon) · întunecat | 6336 | `3d45c7800400c3df` |
+| 103 | `ExtraDark.dc.html` | 31 Muncă în plus: aprobare · întunecat | 6968 | `19e3d2c7a83eedd7` |
+| 104 | `AnulareDark.dc.html` | 32 Anulare · întunecat | 7662 | `9929ad567bd28a74` |
+| 105 | `ProblemaDark.dc.html` | 33 Problemă / dispută · întunecat | 8599 | `576b63f7d8b865a0` |
+| 106 | `SkilluriDark.dc.html` | 34 Onboarding Jobzer 2/4: competențe · întunecat | 14339 | `806c37e6deace67a` |
+| 107 | `IdentitateDark.dc.html` | 35 Onboarding 3/4: identitate + cazier · întunecat | 7553 | `95ade47df593dc49` |
+| 108 | `PlatiFiscalDark.dc.html` | 36 Onboarding 4/4: IBAN + termeni · întunecat | 7323 | `a48018a94c191abc` |
+| 109 | `SarciniJobzerDark.dc.html` | 37 Sarcinile mele (Jobzer) · întunecat | 10204 | `121a62853ba3a1f3` |
+| 110 | `ChatJobzerDark.dc.html` | 38 Chat cu clientul (Jobzer) · întunecat | 37866 | `d94860ebdb29aa75` |
+| 111 | `OfertaPierdutaDark.dc.html` | 39 Oferta nu a fost aleasă · întunecat | 6640 | `0bd5c25eab86342f` |
+| 112 | `RecenzieClientDark.dc.html` | 40 Jobzerul evaluează clientul · întunecat | 6688 | `6ff179f316f82466` |
+| 113 | `NiveluriDark.dc.html` | 41 Niveluri Start → Black · întunecat | 7229 | `d9d29595247ad696` |
+| 114 | `IncarcareDark.dc.html` | 42 Încărcare (schelet) · întunecat | 4428 | `df7d51900fe48b98` |
+| 115 | `FaraInternetDark.dc.html` | 43 Fără internet · întunecat | 5667 | `346b99050fcbb021` |
+| 116 | `PlataRefuzataDark.dc.html` | 44 Plată refuzată · întunecat | 4893 | `57505eee0e6e2480` |
+| 117 | `CodGresitDark.dc.html` | 45 Cod greșit / expirat · întunecat | 5472 | `9215c1ce9bf6cc3c` |
+| 118 | `GPSOpritDark.dc.html` | 46 Locație oprită · întunecat | 3779 | `bbcb5574e5ee90c2` |
+| 119 | `GolActivitateDark.dc.html` | 47 Gol: prima cerere · întunecat | 6084 | `c7be3a655efce48b` |
+| 120 | `GolMesajeDark.dc.html` | 48 Gol: niciun mesaj · întunecat | 5092 | `3a8b5a20eea31115` |
+| 121 | `GolIncasariDark.dc.html` | 49 Gol: Jobzer nou, fără încasări · întunecat | 8398 | `db4b0c627cd5f651` |
+| 122 | `SchimbaRolDark.dc.html` | 59 Schimbă rolul (din Cont) · întunecat | 13943 | `2f757831ac2e6f9e` |
+| 123 | `ContJobzerDark.dc.html` | 60 Profil Jobzer + rol + recomandare · întunecat | 19945 | `8138bd9222fa7fe5` |
+| 124 | `ServiciiDark.dc.html` | 61 Toate serviciile (30 de familii) · întunecat | 13045 | `54685f28fc7fc9a9` |
+| 125 | `MascotaDark.dc.html` | 62 Mascota oficială: poze și stări · întunecat | 11987 | `c086310662808f9b` |
+| 126 | `NotificariDark.dc.html` | 63 Notificări (client) · întunecat | 13600 | `f78895bc25341eaa` |
+| 127 | `ChitanteDark.dc.html` | 64 Chitanțe și facturi · întunecat | 12281 | `50dbb0719e86aa11` |
+| 128 | `RecurenteDark.dc.html` | 65 Cerere recurentă · întunecat | 11318 | `3d4b7a126b12dd77` |
+| 129 | `StartJobzerDark.dc.html` | 66 Start Jobzer (onboarding scurt) · întunecat | 10874 | `df49b3ee8f1488e7` |
+| 130 | `DisponibilitateDark.dc.html` | 68 Program și zonă (Jobzer) · întunecat | 13608 | `c7d0b2eca5930f7d` |
+| 131 | `FacturiDark.dc.html` | 69 Facturi și plăți (PFA/SRL, e-Factura) · întunecat | 12738 | `9540818f0b055f2f` |
+| 132 | `CerereMultipla.dc.html` | 70 O cerere, mai multe servicii | 10819 | `adb119b82622a8e5` |
+| 133 | `CerereMultiplaDark.dc.html` | 70 O cerere, mai multe servicii · întunecat | 10878 | `017864ae2cef3198` |
+| 134 | `Statistici.dc.html` | 71 Statistici Jobzer | 13398 | `d4c7abf4192d93fa` |
+| 135 | `StatisticiDark.dc.html` | 71 Statistici Jobzer · întunecat | 13469 | `d6bd15a6b9f35641` |
+| 136 | `Siguranta.dc.html` | 72 Siguranță și SOS | 11826 | `eefc8fc2215f1578` |
+| 137 | `SigurantaDark.dc.html` | 72 Siguranță și SOS · întunecat | 11881 | `2aac716d5ca1d5b4` |
+| 138 | `GearHub.dc.html` | 73 Gear & Growth | 16285 | `3e72466e13302d4d` |
+| 139 | `GearHubDark.dc.html` | 73 Gear & Growth · întunecat | 16401 | `64375ed3370ca4c6` |
+| 140 | `GearKituri.dc.html` | 74 Kituri Jobzee | 18314 | `2f977d6653dca57f` |
+| 141 | `GearKituriDark.dc.html` | 74 Kituri Jobzee · întunecat | 18417 | `135fd66a20b76400` |
+| 142 | `GearKit.dc.html` | 75 Detaliu kit | 12761 | `fff7f0bfd1f72266` |
+| 143 | `GearKitDark.dc.html` | 75 Detaliu kit · întunecat | 12820 | `b57258ca374e3487` |
+| 144 | `GearBuilder.dc.html` | 76 Smart Kit Builder | 14301 | `fd116fc3c67f6a03` |
+| 145 | `GearBuilderDark.dc.html` | 76 Smart Kit Builder · întunecat | 14360 | `40c77ab9c128cd73` |
+| 146 | `GearShop.dc.html` | 77 Gear Shop | 13597 | `e8e79cd9a61ed972` |
+| 147 | `GearShopDark.dc.html` | 77 Gear Shop · întunecat | 13672 | `65de3f7a21d8ccc1` |
+| 148 | `GearProdus.dc.html` | 78 Detaliu produs | 11494 | `ccddd8fcebe4bad0` |
+| 149 | `GearProdusDark.dc.html` | 78 Detaliu produs · întunecat | 11549 | `8995c4ed5ba7bfb0` |
+| 150 | `GearIdentity.dc.html` | 79 Jobzee Identity | 18468 | `4bfadc2ec4746a20` |
+| 151 | `GearIdentityDark.dc.html` | 79 Jobzee Identity · întunecat | 18523 | `53cba46af077bc3e` |
+| 152 | `PrintStudio.dc.html` | 80 Print Studio | 21629 | `a0fcce07557ec83a` |
+| 153 | `PrintStudioDark.dc.html` | 80 Print Studio · întunecat | 21728 | `16a02c0e5d109156` |
+| 154 | `GearCarte.dc.html` | 81 Carte de vizită | 18990 | `72660f4e72877ade` |
+| 155 | `GearCarteDark.dc.html` | 81 Carte de vizită · întunecat | 19045 | `3b86dd604db75a9e` |
+| 156 | `GearFlyer.dc.html` | 82 Flyer | 16303 | `13fcbb174ac98ab5` |
+| 157 | `GearFlyerDark.dc.html` | 82 Flyer · întunecat | 16358 | `0721e90a12394617` |
+| 158 | `GearQR.dc.html` | 83 Profil QR public | 18079 | `6162310bf1ce4cb9` |
+| 159 | `GearQRDark.dc.html` | 83 Profil QR public · întunecat | 18146 | `7e3e46a4e56d214b` |
+| 160 | `GearCos.dc.html` | 84 Coș | 11282 | `889c0cacc92e7b84` |
+| 161 | `GearCosDark.dc.html` | 84 Coș · întunecat | 11337 | `8824390e83f8a317` |
+| 162 | `GearCheckout.dc.html` | 85 Checkout | 10335 | `81238161641a1db0` |
+| 163 | `GearCheckoutDark.dc.html` | 85 Checkout · întunecat | 10394 | `dd3ccef5c5f65ee0` |
+| 164 | `GearConfirmare.dc.html` | 86 Comandă plasată | 9219 | `74cfc203c9d1b4c4` |
+| 165 | `GearConfirmareDark.dc.html` | 86 Comandă plasată · întunecat | 9278 | `22b5a23ec8d92a61` |
+| 166 | `GearUrmarire.dc.html` | 87 Urmărire comandă | 13458 | `ca3bab58aa6cfe22` |
+| 167 | `GearUrmarireDark.dc.html` | 87 Urmărire comandă · întunecat | 13533 | `3313d778233adf60` |
+| 168 | `GearEchipament.dc.html` | 88 Echipamentul meu | 12419 | `a15a7d7bae1cc846` |
+| 169 | `GearEchipamentDark.dc.html` | 88 Echipamentul meu · întunecat | 12486 | `c5e0bda8e279f4eb` |
+| 170 | `GearDesignuri.dc.html` | 89 Designurile mele | 24045 | `4749ed7a54086417` |
+| 171 | `GearDesignuriDark.dc.html` | 89 Designurile mele · întunecat | 24128 | `80ef42e54f02280f` |
+| 172 | `GearGrowth.dc.html` | 90 Growth Insights | 13586 | `59c4438018a5fac6` |
+| 173 | `GearGrowthDark.dc.html` | 90 Growth Insights · întunecat | 13665 | `acfcd23c9491f4e0` |
 
 Boards listed in canvas.json but missing as files: 0.
 
@@ -186,7 +188,7 @@ Boards listed in canvas.json but missing as files: 0.
 
 | File | Bytes | SHA-256 |
 |---|---|---|
-| `canvas/project/canvas.json` | 44912 | `61b61c46b5701cc9` |
+| `canvas/project/canvas.json` | 45405 | `f832b255dbc2446f` |
 
 ## Canvas assets (172)
 
@@ -512,4 +514,4 @@ Boards listed in canvas.json but missing as files: 0.
 
 | File | Bytes | SHA-256 |
 |---|---|---|
-| `README.md` | 6872 | `a668e480cd261bb1` |
+| `README.md` | 7212 | `e2b3a8715da42b37` |

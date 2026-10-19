@@ -1487,6 +1487,24 @@
       "x": 5200,
       "y": 274
     },
+    "SplashLive.dc.html": {
+      "h": 844,
+      "is_interactive": true,
+      "radius": 36,
+      "title": "00 Splash de lansare: orașul se trezește",
+      "w": 390,
+      "x": 2820,
+      "y": 300
+    },
+    "SplashLiveDark.dc.html": {
+      "h": 844,
+      "is_interactive": true,
+      "radius": 36,
+      "title": "00 Splash de lansare: orașul se trezește · întunecat",
+      "w": 390,
+      "x": 8224,
+      "y": 274
+    },
     "StartJobzer.dc.html": {
       "h": 844,
       "is_interactive": true,
@@ -1793,6 +1811,8 @@
     }
   },
   "order": [
+    "SplashLive.dc.html",
+    "SplashLiveDark.dc.html",
     "Splash.dc.html",
     "Main.dc.html",
     "Telefon.dc.html",

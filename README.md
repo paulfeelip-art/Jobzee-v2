@@ -11,9 +11,9 @@ The file-by-file list with SHA-256 hashes is in [`INVENTORY.md`](INVENTORY.md).
 ## Structure
 
 ```
-canvas/project/              The design canvas: 171 screens + canvas.json + 172 assets
-  canvas.json                Board layout: position, size, title and order of all 171 screens, plus 30 notes
-  *.dc.html                  One file per screen (86 light, 85 dark; OfertaRapida has no dark variant)
+canvas/project/              The design canvas: 173 screens + canvas.json + 172 assets
+  canvas.json                Board layout: position, size, title and order of all 173 screens, plus 30 notes
+  *.dc.html                  One file per screen (87 light, 86 dark; OfertaRapida has no dark variant)
   assets/brand/              Logo, wordmark, mark, app icons (PNG)
   assets/mascot/             Official mascot poses (PNG)
   assets/cat/                30 category illustrations (SVG, 64×64 grid)
@@ -36,6 +36,10 @@ specs/
   talk-engine/               The Talk engine (request engine) brief
 source-assets/               Original asset packs and reference screenshots supplied by Paul
 ```
+
+## Changes since the first import
+
+- **19 Oct 2026:** new board `00 Splash de lansare` (`SplashLive.dc.html` + dark), and board `01 Splash` (`Splash.dc.html` + dark) redesigned: Zee says „Salut!”, condenses into the pin, the pin becomes the horizontal logo, then the sign-in screen settles in. `canvas.json` lists the new board first.
 
 ## How a screen file works
 
