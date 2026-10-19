@@ -11,6 +11,7 @@ The file-by-file list with SHA-256 hashes is in [`INVENTORY.md`](INVENTORY.md).
 ## Structure
 
 ```
+canvas/renders/              A picture of every board (JPEG, 2x), named like the board; use it to compare app screens with the design
 canvas/project/              The design canvas: 173 screens + canvas.json + 172 assets
   canvas.json                Board layout: position, size, title and order of all 173 screens, plus 30 notes
   *.dc.html                  One file per screen (87 light, 86 dark; OfertaRapida has no dark variant)
@@ -39,6 +40,7 @@ source-assets/               Original asset packs and reference screenshots supp
 
 ## Changes since the first import
 
+- **19 Oct 2026:** added `canvas/renders/`, a rendered picture of all 173 boards in their final state, so the design can be seen without the Claude Design runtime.
 - **19 Oct 2026:** new board `00 Splash de lansare` (`SplashLive.dc.html` + dark), and board `01 Splash` (`Splash.dc.html` + dark) redesigned: Zee says „Salut!”, condenses into the pin, the pin becomes the horizontal logo, then the sign-in screen settles in. `canvas.json` lists the new board first.
 
 ## How a screen file works

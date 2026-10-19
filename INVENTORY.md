@@ -1,6 +1,6 @@
 # Inventory
 
-Every file on this branch except this one, with size and SHA-256. Total: 471 files (including INVENTORY.md).
+Every file on this branch except this one, with size and SHA-256. Total: 644 files (including INVENTORY.md).
 
 ## Canvas screens (173)
 
@@ -189,6 +189,184 @@ Boards listed in canvas.json but missing as files: 0.
 | File | Bytes | SHA-256 |
 |---|---|---|
 | `canvas/project/canvas.json` | 45405 | `f832b255dbc2446f` |
+
+## Board renders (173)
+
+| File | Bytes | SHA-256 |
+|---|---|---|
+| `canvas/renders/Acasa.jpg` | 111202 | `b8fc01300ce919cd` |
+| `canvas/renders/AcasaDark.jpg` | 107800 | `2b892e20a83cd19d` |
+| `canvas/renders/Activitate.jpg` | 55849 | `3b689e0f9a586006` |
+| `canvas/renders/ActivitateDark.jpg` | 55077 | `484f2e90bfb97cca` |
+| `canvas/renders/Adresa.jpg` | 76034 | `e002a0312c839140` |
+| `canvas/renders/AdresaDark.jpg` | 71328 | `c223560ab787b2e9` |
+| `canvas/renders/Anulare.jpg` | 84139 | `ec60781782b673ee` |
+| `canvas/renders/AnulareDark.jpg` | 84673 | `2827af2b919f3a16` |
+| `canvas/renders/Castig.jpg` | 135003 | `70953f87b7fe6c25` |
+| `canvas/renders/CastigDark.jpg` | 131139 | `def7fcb6732b3801` |
+| `canvas/renders/CerereMultipla.jpg` | 118298 | `2a0fcddfe42e765a` |
+| `canvas/renders/CerereMultiplaDark.jpg` | 125221 | `4a50b913c6819b27` |
+| `canvas/renders/Chat.jpg` | 91055 | `5d5e964b6f192644` |
+| `canvas/renders/ChatDark.jpg` | 96543 | `8c99c78ddb6abeae` |
+| `canvas/renders/ChatJobzer.jpg` | 85142 | `cb5b8bfb6d5be0c2` |
+| `canvas/renders/ChatJobzerDark.jpg` | 90091 | `63727d3be14196be` |
+| `canvas/renders/Chitante.jpg` | 123615 | `e9265143a5231a2f` |
+| `canvas/renders/ChitanteDark.jpg` | 125801 | `de22f5f29706f826` |
+| `canvas/renders/Cod.jpg` | 37443 | `82c8a5bea31f9866` |
+| `canvas/renders/CodDark.jpg` | 37632 | `755c8ddd31f33402` |
+| `canvas/renders/CodGresit.jpg` | 66931 | `13d89a2fe7e513a6` |
+| `canvas/renders/CodGresitDark.jpg` | 63965 | `6caa44f72084f752` |
+| `canvas/renders/Confirma.jpg` | 92212 | `0ab4be86c47ac866` |
+| `canvas/renders/ConfirmaDark.jpg` | 92378 | `6f017bf95bafef4c` |
+| `canvas/renders/Cont.jpg` | 89483 | `e5177345abb77f61` |
+| `canvas/renders/ContDark.jpg` | 91492 | `8ece1378b7b26157` |
+| `canvas/renders/ContJobzer.jpg` | 105101 | `a7d0b352f89af5a5` |
+| `canvas/renders/ContJobzerDark.jpg` | 105907 | `95a169cae4b6e95c` |
+| `canvas/renders/ContTrimitere.jpg` | 78137 | `20b053f535960dcb` |
+| `canvas/renders/ContTrimitereDark.jpg` | 77570 | `1eaf311c6aa8dbba` |
+| `canvas/renders/DevinoJobzer.jpg` | 81791 | `b7478087bb9ddabd` |
+| `canvas/renders/DevinoJobzerDark.jpg` | 79032 | `f4dc13fdf30d76e4` |
+| `canvas/renders/Dialog.jpg` | 67275 | `bd5bd02c92481750` |
+| `canvas/renders/DialogDark.jpg` | 71886 | `bae439d96988a78b` |
+| `canvas/renders/Disponibilitate.jpg` | 102799 | `9b6d97aa2b7b5504` |
+| `canvas/renders/DisponibilitateDark.jpg` | 107015 | `68ec9f57167df518` |
+| `canvas/renders/Email.jpg` | 65976 | `56b2986af6f542d5` |
+| `canvas/renders/EmailDark.jpg` | 72451 | `51633aeb0535879e` |
+| `canvas/renders/Extra.jpg` | 73124 | `c53e601a8e7d45f0` |
+| `canvas/renders/ExtraDark.jpg` | 71081 | `72389acf24b1bccf` |
+| `canvas/renders/Facturi.jpg` | 112260 | `d393130f5e90a494` |
+| `canvas/renders/FacturiDark.jpg` | 111669 | `319798e6a983814d` |
+| `canvas/renders/FaraInternet.jpg` | 54066 | `bce2d2efb2d3432c` |
+| `canvas/renders/FaraInternetDark.jpg` | 53681 | `31ee207707293855` |
+| `canvas/renders/FaraOferte.jpg` | 74975 | `aef7952d2c998e7a` |
+| `canvas/renders/FaraOferteDark.jpg` | 76046 | `97f935f858f8cfc4` |
+| `canvas/renders/Fisa.jpg` | 127559 | `16a7303c201ad5e1` |
+| `canvas/renders/FisaDark.jpg` | 134213 | `8fcef111333a8778` |
+| `canvas/renders/GPSOprit.jpg` | 59699 | `e282594636fadfa6` |
+| `canvas/renders/GPSOpritDark.jpg` | 55517 | `45c1f313be98550a` |
+| `canvas/renders/GearBuilder.jpg` | 41378 | `6a3afeb5d22238e1` |
+| `canvas/renders/GearBuilderDark.jpg` | 43671 | `0435e301259b1caa` |
+| `canvas/renders/GearCarte.jpg` | 101331 | `53d9df8a4affe370` |
+| `canvas/renders/GearCarteDark.jpg` | 102236 | `40209a08cbd4bf5c` |
+| `canvas/renders/GearCheckout.jpg` | 94260 | `31fe58b7aaa4bf02` |
+| `canvas/renders/GearCheckoutDark.jpg` | 97195 | `f7aac299610f7e2c` |
+| `canvas/renders/GearConfirmare.jpg` | 81892 | `0e59b268f21d91d1` |
+| `canvas/renders/GearConfirmareDark.jpg` | 88105 | `52cc17e80cf6c846` |
+| `canvas/renders/GearCos.jpg` | 92531 | `e60472239a7c4e3b` |
+| `canvas/renders/GearCosDark.jpg` | 94517 | `11e90f463d12e049` |
+| `canvas/renders/GearDesignuri.jpg` | 82986 | `0f541eb31d55651b` |
+| `canvas/renders/GearDesignuriDark.jpg` | 85762 | `06ab188c0070ec1d` |
+| `canvas/renders/GearEchipament.jpg` | 106331 | `68aab69498421e53` |
+| `canvas/renders/GearEchipamentDark.jpg` | 111052 | `85b58545c8ccc868` |
+| `canvas/renders/GearFlyer.jpg` | 85076 | `6fe9a58025cd42fa` |
+| `canvas/renders/GearFlyerDark.jpg` | 87708 | `aa14de59d6b0b0bd` |
+| `canvas/renders/GearGrowth.jpg` | 107310 | `4294a1684aff31e8` |
+| `canvas/renders/GearGrowthDark.jpg` | 111412 | `099a303a2e066b17` |
+| `canvas/renders/GearHub.jpg` | 118002 | `9a30c86f3673d363` |
+| `canvas/renders/GearHubDark.jpg` | 122142 | `5a1c82cdb4102146` |
+| `canvas/renders/GearIdentity.jpg` | 84428 | `7d7ba91ce1dffee4` |
+| `canvas/renders/GearIdentityDark.jpg` | 89619 | `a06500d3d6e3e351` |
+| `canvas/renders/GearKit.jpg` | 128238 | `380eebc44ccfed67` |
+| `canvas/renders/GearKitDark.jpg` | 132219 | `cf45efb28e147bc8` |
+| `canvas/renders/GearKituri.jpg` | 142858 | `867aec58ee3da653` |
+| `canvas/renders/GearKituriDark.jpg` | 148335 | `47005a297da9ebe9` |
+| `canvas/renders/GearProdus.jpg` | 85473 | `2965c557b4a0b62c` |
+| `canvas/renders/GearProdusDark.jpg` | 90755 | `7410bd555474e5c7` |
+| `canvas/renders/GearQR.jpg` | 115430 | `6e7a320a56fba31f` |
+| `canvas/renders/GearQRDark.jpg` | 122525 | `081a3cc0b7465a62` |
+| `canvas/renders/GearShop.jpg` | 81868 | `e17ef75bc1601878` |
+| `canvas/renders/GearShopDark.jpg` | 85433 | `1e06a64459d9d523` |
+| `canvas/renders/GearUrmarire.jpg` | 86070 | `5d4e9ccf01427e25` |
+| `canvas/renders/GearUrmarireDark.jpg` | 88975 | `a10e5583730719d1` |
+| `canvas/renders/GolActivitate.jpg` | 81609 | `20ff245c622a87d1` |
+| `canvas/renders/GolActivitateDark.jpg` | 81855 | `a1e4b04a6403d4bb` |
+| `canvas/renders/GolIncasari.jpg` | 84424 | `7b8e2d7dcac0939e` |
+| `canvas/renders/GolIncasariDark.jpg` | 77523 | `283c6c7ca6281885` |
+| `canvas/renders/GolMesaje.jpg` | 50499 | `44dfef9b81b40b9b` |
+| `canvas/renders/GolMesajeDark.jpg` | 47316 | `0027bc2066958ed4` |
+| `canvas/renders/Identitate.jpg` | 84008 | `2701153ab24010be` |
+| `canvas/renders/IdentitateDark.jpg` | 79486 | `2127b3efb5faa516` |
+| `canvas/renders/InLucru.jpg` | 78894 | `28ff930c2d8921d5` |
+| `canvas/renders/InLucruDark.jpg` | 83541 | `3b9cf5c20d273800` |
+| `canvas/renders/Incarcare.jpg` | 20873 | `af295dd346b217a8` |
+| `canvas/renders/IncarcareDark.jpg` | 20345 | `70f9b2367bf239ef` |
+| `canvas/renders/Incasari.jpg` | 120384 | `6a23a9c8b1edce4d` |
+| `canvas/renders/IncasariDark.jpg` | 119541 | `9c24b4273917a279` |
+| `canvas/renders/JobActiv.jpg` | 70842 | `2f7f4dd410fd1784` |
+| `canvas/renders/JobActivDark.jpg` | 66129 | `8102fa3cb7ac50e2` |
+| `canvas/renders/JobGata.jpg` | 83349 | `c2bb82b63b7326ac` |
+| `canvas/renders/JobGataDark.jpg` | 83324 | `5dc23adebb8229e6` |
+| `canvas/renders/Main.jpg` | 111294 | `9cf51bc15b30b8d9` |
+| `canvas/renders/MainDark.jpg` | 108408 | `44b3d7987bbebadc` |
+| `canvas/renders/Mascota.jpg` | 141782 | `e86a914ac0214574` |
+| `canvas/renders/MascotaDark.jpg` | 157377 | `513743ec906d5fc4` |
+| `canvas/renders/Mesaje.jpg` | 80848 | `cf4429f06c80db40` |
+| `canvas/renders/MesajeDark.jpg` | 84065 | `a03c075a16546aa8` |
+| `canvas/renders/Niveluri.jpg` | 151624 | `6e78f932adbaf972` |
+| `canvas/renders/NiveluriDark.jpg` | 134775 | `fab1169e338c090d` |
+| `canvas/renders/Notificari.jpg` | 105647 | `c285ea623eba940a` |
+| `canvas/renders/NotificariDark.jpg` | 107765 | `5d43011b7925b518` |
+| `canvas/renders/Oferta.jpg` | 96218 | `aab3dc4d035f61e3` |
+| `canvas/renders/OfertaDark.jpg` | 90774 | `75215837047f43dc` |
+| `canvas/renders/OfertaPierduta.jpg` | 85045 | `de197a41386dacda` |
+| `canvas/renders/OfertaPierdutaDark.jpg` | 84532 | `c38157405c001024` |
+| `canvas/renders/OfertaRapida.jpg` | 82808 | `3e3d0b9ed9957e9b` |
+| `canvas/renders/Oferte.jpg` | 108508 | `a069baed3bfbff7b` |
+| `canvas/renders/OferteDark.jpg` | 100705 | `e087835e889bcc1f` |
+| `canvas/renders/PeDrum.jpg` | 67655 | `4bdb398770698f13` |
+| `canvas/renders/PeDrumDark.jpg` | 64066 | `d516012c59c03a52` |
+| `canvas/renders/PeOra.jpg` | 80276 | `4677584f9784bc05` |
+| `canvas/renders/PeOraDark.jpg` | 76276 | `1cdbe03710e72939` |
+| `canvas/renders/Permisiuni.jpg` | 88053 | `ad6547c01aef848b` |
+| `canvas/renders/PermisiuniDark.jpg` | 89265 | `38f6bef4a3490d91` |
+| `canvas/renders/Plata.jpg` | 66322 | `0e5b96ff8a817b22` |
+| `canvas/renders/PlataDark.jpg` | 63851 | `4dac4a179aa75e62` |
+| `canvas/renders/PlataRefuzata.jpg` | 68453 | `3281480d3f31bcad` |
+| `canvas/renders/PlataRefuzataDark.jpg` | 67165 | `2afe281c01938afe` |
+| `canvas/renders/PlatiFiscal.jpg` | 103109 | `fcfbbfce98f6063e` |
+| `canvas/renders/PlatiFiscalDark.jpg` | 96674 | `9ea83cf065b05d0d` |
+| `canvas/renders/PrintStudio.jpg` | 135048 | `285e6d708ed252d4` |
+| `canvas/renders/PrintStudioDark.jpg` | 135452 | `eb314a42466940ab` |
+| `canvas/renders/Problema.jpg` | 78744 | `f678a967c557f8b1` |
+| `canvas/renders/ProblemaDark.jpg` | 76063 | `0b6c5e24c9851ae0` |
+| `canvas/renders/Profil.jpg` | 162071 | `841c8a144781712a` |
+| `canvas/renders/ProfilDark.jpg` | 151517 | `945e65fd670d5d36` |
+| `canvas/renders/ProfilEdit.jpg` | 105470 | `de4042abbce95302` |
+| `canvas/renders/ProfilEditDark.jpg` | 106332 | `860fb136878c62b3` |
+| `canvas/renders/Programare.jpg` | 71830 | `432017f01ef1f8a8` |
+| `canvas/renders/ProgramareDark.jpg` | 71446 | `2ef064c12bd58b17` |
+| `canvas/renders/Promovare.jpg` | 90581 | `18046c620bca1873` |
+| `canvas/renders/PromovareDark.jpg` | 85173 | `cea6f59264027f12` |
+| `canvas/renders/Radar.jpg` | 126766 | `346e398b9d943d8f` |
+| `canvas/renders/RadarDark.jpg` | 123304 | `ce81da3476f174e4` |
+| `canvas/renders/Recenzie.jpg` | 80106 | `d9dd6f26b882713d` |
+| `canvas/renders/RecenzieClient.jpg` | 73361 | `7bfe1731c4cddc45` |
+| `canvas/renders/RecenzieClientDark.jpg` | 72227 | `359b50e31c2017eb` |
+| `canvas/renders/RecenzieDark.jpg` | 80630 | `2d8ac3a54dd7972f` |
+| `canvas/renders/Recurente.jpg` | 102640 | `64382253abe1fb79` |
+| `canvas/renders/RecurenteDark.jpg` | 107250 | `760aa1ce926df641` |
+| `canvas/renders/Rol.jpg` | 145673 | `b77c56610fa5d582` |
+| `canvas/renders/RolDark.jpg` | 150174 | `d5f3c303a2e49b39` |
+| `canvas/renders/SarciniJobzer.jpg` | 44709 | `8f5045c11561239a` |
+| `canvas/renders/SarciniJobzerDark.jpg` | 43818 | `ba2f7b85f05496b9` |
+| `canvas/renders/SchimbaRol.jpg` | 86129 | `e9b9f39ed6cb491f` |
+| `canvas/renders/SchimbaRolDark.jpg` | 83576 | `85d1182f31faec58` |
+| `canvas/renders/Servicii.jpg` | 199969 | `b84c27d3aae768b3` |
+| `canvas/renders/ServiciiDark.jpg` | 230229 | `4c460111a212e000` |
+| `canvas/renders/Siguranta.jpg` | 91477 | `d68b3771af201c72` |
+| `canvas/renders/SigurantaDark.jpg` | 91944 | `4ad685286f57784b` |
+| `canvas/renders/Skilluri.jpg` | 133854 | `3b08c2222a4ec61e` |
+| `canvas/renders/SkilluriDark.jpg` | 152581 | `6c47194e20a61e3a` |
+| `canvas/renders/Splash.jpg` | 112973 | `8c63b3640f1a8f10` |
+| `canvas/renders/SplashDark.jpg` | 114570 | `20174e2c4ad8e0b7` |
+| `canvas/renders/SplashLive.jpg` | 85966 | `9c3d70cdc3af5655` |
+| `canvas/renders/SplashLiveDark.jpg` | 100393 | `a984f4cb1e97ab50` |
+| `canvas/renders/StartJobzer.jpg` | 125103 | `21bd2d6562aaf438` |
+| `canvas/renders/StartJobzerDark.jpg` | 131249 | `06c0fbcd25707842` |
+| `canvas/renders/Statistici.jpg` | 83405 | `1ae4089e8c73806d` |
+| `canvas/renders/StatisticiDark.jpg` | 85783 | `64e6e7c9e890e9b8` |
+| `canvas/renders/Telefon.jpg` | 57742 | `a11d5c0f7855277c` |
+| `canvas/renders/TelefonDark.jpg` | 60208 | `afebc356cf871378` |
 
 ## Canvas assets (172)
 
@@ -514,4 +692,4 @@ Boards listed in canvas.json but missing as files: 0.
 
 | File | Bytes | SHA-256 |
 |---|---|---|
-| `README.md` | 7212 | `e2b3a8715da42b37` |
+| `README.md` | 7510 | `e63fc863f0ba2ebd` |
